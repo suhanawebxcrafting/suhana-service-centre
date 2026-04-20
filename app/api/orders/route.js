@@ -1,11 +1,8 @@
 import { NextResponse } from 'next/server'
 import { prisma } from '@/lib/prisma'
-import { getServerSession } from 'next-auth'
-// import { authOptions } from '../auth/[...nextauth]/route' // Not needed if we use simple check
 
 export async function GET(req) {
   try {
-    // In production, add session check here
     const orders = await prisma.xeroxOrder.findMany({
       orderBy: { createdAt: 'desc' },
     })
@@ -25,5 +22,17 @@ export async function PATCH(req) {
     return NextResponse.json(updatedOrder)
   } catch (error) {
     return NextResponse.json({ error: 'Failed to update order' }, { status: 500 })
+  }
+}
+
+export async function DELETE(req) {
+  try {
+    const { id } = await req.json()
+    await prisma.xeroxOrder.delete({
+      where: { id },
+    })
+    return NextResponse.json({ success: true })
+  } catch (error) {
+    return NextResponse.json({ error: 'Failed to delete order' }, { status: 500 })
   }
 }

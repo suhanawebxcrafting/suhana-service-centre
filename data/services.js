@@ -15,6 +15,8 @@ export const services = [
   {
     id: 1, slug: 'aadhaar-new-registration', category: 'identity',
     name: 'Aadhaar Card New Registration', icon: 'Contact',
+    image: 'https://upload.wikimedia.org/wikipedia/en/thumb/c/cf/Aadhaar_Logo.svg/512px-Aadhaar_Logo.svg.png',
+    dummyImage: 'https://images.unsplash.com/photo-1633158829585-23ba8f7c8caf?auto=format&fit=crop&q=80&w=400',
     description: 'Apply for a new Aadhaar card for Indian residents. Aadhaar is a 12-digit unique identity number issued by UIDAI and is mandatory for most government services.',
     documentsRequired: [
       'Proof of Identity (POI): Passport / PAN Card / Ration Card / Voter ID',
@@ -69,6 +71,8 @@ export const services = [
   {
     id: 4, slug: 'pvc-aadhaar-card', category: 'identity',
     name: 'PVC Aadhaar Card Order', icon: 'CreditCard',
+    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Flag_of_India.svg/512px-Flag_of_India.svg.png',
+    dummyImage: 'https://images.unsplash.com/photo-1544866092-194121a9953d?auto=format&fit=crop&q=80&w=400',
     description: 'Order a PVC (Polyvinyl Chloride) Aadhaar card — a durable, credit-card-sized physical Aadhaar card from UIDAI.',
     documentsRequired: ['Aadhaar Number', 'Registered Mobile Number (for OTP)'],
     eligibility: 'Any Aadhaar holder with a registered mobile number.',
@@ -113,6 +117,8 @@ export const services = [
   {
     id: 7, slug: 'instant-epan', category: 'identity',
     name: 'Instant e-PAN Apply', icon: 'Zap',
+    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Emblem_of_India.svg/512px-Emblem_of_India.svg.png',
+    dummyImage: 'https://images.unsplash.com/photo-1544144433-d50aff500b91?auto=format&fit=crop&q=80&w=400',
     description: 'Get an instant e-PAN (electronic PAN) using your Aadhaar number. This is a free, paperless process for individuals who do not have a PAN.',
     documentsRequired: ['Aadhaar Card', 'Registered Mobile Number (for OTP)'],
     eligibility: 'Indian residents who have an Aadhaar card and registered mobile number and do not already have a PAN.',
@@ -876,6 +882,155 @@ export const services = [
     charges: 'Contact for latest charges',
     notes: 'FASTag is mandatory for all four-wheelers. Documents and process may vary.'
   },
+
+  // ─── J. New Services ───
+  {
+    id: 73, slug: 'gharpatti-transfer', category: 'certificates',
+    name: 'Gharpatti Transfer', icon: 'Home',
+    image: 'https://cdn-icons-png.flaticon.com/512/3229/3229986.png',
+    dummyImage: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&q=80&w=400',
+    image: 'https://cdn-icons-png.flaticon.com/512/3229/3229986.png',
+    dummyImage: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&q=80&w=400',
+    description: 'Assistance with Gharpatti (property tax record) transfer from one owner to another after sale, inheritance, or gift deed.',
+    documentsRequired: ['Old Gharpatti / Property Tax Receipt', 'Sale Deed / Gift Deed / Succession Certificate', 'Aadhaar Card of both parties', 'Address Proof', 'Passport-size Photographs'],
+    eligibility: 'New property owners who need to transfer the Gharpatti into their name.',
+    processSteps: ['Gather required documents', 'Fill Gharpatti transfer application form', 'Submit at Gram Panchayat / Municipal Office', 'Verification by revenue officer', 'Updated Gharpatti issued'],
+    processingTime: '15–30 days',
+    charges: 'Contact for latest charges',
+    notes: 'Documents and process may vary by local authority. Please contact or visit our office for confirmation.'
+  },
+  {
+    id: 74, slug: 'gharpatti-correction', category: 'certificates',
+    name: 'Gharpatti Correction', icon: 'FileEdit',
+    description: 'Correct errors in your existing Gharpatti such as name spelling, area, survey number, or address details.',
+    documentsRequired: ['Original Gharpatti', 'Supporting documents for correction', 'Aadhaar Card', 'Application on plain paper'],
+    eligibility: 'Property owners with incorrect details in their Gharpatti.',
+    processSteps: ['Identify errors in existing Gharpatti', 'Gather supporting documents', 'Submit correction application', 'Verification by authorities', 'Corrected Gharpatti issued'],
+    processingTime: '15–30 days',
+    charges: 'Contact for latest charges',
+    notes: 'Documents and process may vary. Please contact or visit our office for confirmation.'
+  },
+  {
+    id: 75, slug: 'light-bill-name-transfer', category: 'other',
+    name: 'Light Bill Name Transfer & Correction', icon: 'Zap',
+    image: 'https://cdn-icons-png.flaticon.com/512/2862/2862661.png',
+    dummyImage: 'https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&q=80&w=400',
+    image: 'https://cdn-icons-png.flaticon.com/512/2862/2862661.png',
+    dummyImage: 'https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&q=80&w=400',
+    description: 'Transfer electricity bill connection name to a new owner or correct existing name/address details with MSEDCL.',
+    documentsRequired: ['Latest Electricity Bill', 'Property Ownership Proof (Sale Deed / Gharpatti)', 'Aadhaar Card', 'No Objection Certificate from previous owner (for transfer)'],
+    eligibility: 'New property owners or existing consumers needing corrections.',
+    processSteps: ['Visit our centre with documents', 'Fill MSEDCL name transfer/correction form', 'Submit application at MSEDCL office', 'Verification and processing', 'Updated bill issued in new name'],
+    processingTime: '15–30 days',
+    charges: 'Contact for latest charges',
+    notes: 'Documents and process may vary. Please contact or visit our office for confirmation.'
+  },
+  {
+    id: 76, slug: 'ration-card-new-name-add', category: 'identity',
+    name: 'Ration Card – New Card / Name Add', icon: 'ClipboardEdit',
+    image: 'https://cdn-icons-png.flaticon.com/512/3034/3034873.png',
+    dummyImage: 'https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&q=80&w=400',
+    image: 'https://cdn-icons-png.flaticon.com/512/3034/3034873.png',
+    dummyImage: 'https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&q=80&w=400',
+    description: 'Apply for a new ration card or add/remove family member names from an existing ration card under the Public Distribution System (PDS).',
+    documentsRequired: ['Aadhaar Card of all family members', 'Address Proof', 'Income Certificate', 'Existing Ration Card (for modification)', 'Passport-size Photographs'],
+    eligibility: 'Indian residents eligible under PDS guidelines for BPL/APL/AAY categories.',
+    processSteps: ['Fill ration card application form', 'Attach family members\' Aadhaar and photos', 'Submit at Tahsil / our centre', 'Field verification by supply officer', 'Ration card issued or updated'],
+    processingTime: '30–45 days',
+    charges: 'Contact for latest charges',
+    notes: 'Documents and process may vary. Please contact or visit our office for confirmation.'
+  },
+  {
+    id: 77, slug: 'loan-application', category: 'banking',
+    name: 'Loan Application Assistance', icon: 'Landmark',
+    image: 'https://cdn-icons-png.flaticon.com/512/3503/3503023.png',
+    dummyImage: 'https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&fit=crop&q=80&w=400',
+    image: 'https://cdn-icons-png.flaticon.com/512/3503/3503023.png',
+    dummyImage: 'https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&fit=crop&q=80&w=400',
+    description: 'Professional assistance with personal loan, home loan, education loan, and business loan applications at various banks.',
+    documentsRequired: ['Aadhaar Card', 'PAN Card', 'Income Proof (Salary Slips / ITR)', 'Bank Statements (6 months)', 'Property Documents (for home loan)', 'Passport-size Photographs'],
+    eligibility: 'Salaried individuals, self-employed professionals, and business owners meeting bank eligibility criteria.',
+    processSteps: ['Discuss loan requirements and eligibility', 'Choose suitable bank and loan product', 'Fill loan application form', 'Attach all required KYC and income documents', 'Submit to bank and follow up'],
+    processingTime: '7–30 days (depending on loan type)',
+    charges: 'Contact for latest charges',
+    notes: 'Loan approval subject to bank policies. Documents and process may vary.'
+  },
+  {
+    id: 78, slug: 'pf-account', category: 'banking',
+    name: 'PF Account Services', icon: 'ShieldCheck',
+    description: 'Assistance with Employee Provident Fund (EPF) account-related services including UAN activation, KYC update, PF withdrawal, and transfer.',
+    documentsRequired: ['Aadhaar Card', 'PAN Card', 'UAN Number', 'Bank Account Details', 'Previous Employer Details (for transfer)'],
+    eligibility: 'Employees/ex-employees with EPF accounts.',
+    processSteps: ['Provide UAN and personal details', 'We assist with the required EPF service', 'Online submission via EPFO portal', 'Track claim status', 'Amount credited to bank account'],
+    processingTime: '7–20 days',
+    charges: 'Contact for latest charges',
+    notes: 'Documents and process may vary. Please contact or visit our office for confirmation.'
+  },
+  {
+    id: 79, slug: 'senior-citizen-certificate', category: 'certificates',
+    name: 'Senior Citizen Certificate', icon: 'UserPlus',
+    image: 'https://cdn-icons-png.flaticon.com/512/3135/3135715.png',
+    dummyImage: 'https://images.unsplash.com/photo-1516307365426-bea591f05011?auto=format&fit=crop&q=80&w=400',
+    description: 'Obtain a Senior Citizen Certificate as proof of age (60+) for availing government benefits, pension, travel concessions, and healthcare discounts.',
+    documentsRequired: ['Aadhaar Card', 'PAN Card', 'Date of Birth Proof (Birth Certificate / School LC / Passport)', 'Passport-size Photograph', 'Address Proof'],
+    eligibility: 'Indian residents aged 60 years and above.',
+    processSteps: ['Fill senior citizen certificate application', 'Attach age proof and identity documents', 'Submit at Tehsil / Municipal office', 'Verification by authorities', 'Certificate issued'],
+    processingTime: '7–15 days',
+    charges: 'Contact for latest charges',
+    notes: 'Documents and process may vary. Please contact or visit our office for confirmation.'
+  },
+  {
+    id: 80, slug: 'non-creamy-layer-certificate', category: 'certificates',
+    name: 'Non-Creamy Layer Certificate', icon: 'FileBadge',
+    image: 'https://cdn-icons-png.flaticon.com/512/2921/2921222.png',
+    dummyImage: 'https://images.unsplash.com/photo-1450101499163-c8848c66cb85?auto=format&fit=crop&q=80&w=400',
+    description: 'Obtain a Non-Creamy Layer (NCL) certificate for OBC category candidates, required for reservation benefits in education and government jobs.',
+    documentsRequired: ['Aadhaar Card', 'Caste Certificate', 'Income Certificate', 'Father\'s Income Proof (Salary Slips / ITR)', 'Ration Card', 'Affidavit on stamp paper'],
+    eligibility: 'OBC category individuals whose family income falls within the non-creamy layer limit set by the government.',
+    processSteps: ['Fill NCL certificate application', 'Attach caste and income documents', 'Submit at SDM / Tehsil office', 'Income verification by revenue officer', 'NCL certificate issued'],
+    processingTime: '15–30 days',
+    charges: 'Contact for latest charges',
+    notes: 'Income limits are updated periodically. Documents and process may vary.'
+  },
+  {
+    id: 81, slug: 'food-licence', category: 'other',
+    name: 'Food Licence (FSSAI)', icon: '🍽️',
+    image: 'https://upload.wikimedia.org/wikipedia/en/thumb/f/fa/FSSAI_logo.svg/512px-FSSAI_logo.svg.png',
+    dummyImage: 'https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&q=80&w=400',
+    description: 'Assistance with FSSAI Food Safety Licence registration for food businesses, restaurants, hotels, bakeries, and food vendors.',
+    documentsRequired: ['Aadhaar Card of Owner', 'PAN Card', 'Business Address Proof', 'Passport-size Photograph', 'Food Safety Management Plan (for State/Central licence)', 'Water Testing Report'],
+    eligibility: 'All food business operators including manufacturers, retailers, restaurants, and online food sellers.',
+    processSteps: ['Determine licence type (Basic / State / Central)', 'Fill FSSAI application form', 'Upload required documents on FSSAI portal', 'Pay government fees', 'Inspection (if applicable)', 'Licence issued'],
+    processingTime: '7–60 days (depending on licence type)',
+    charges: 'Contact for latest charges',
+    notes: 'Basic Registration for small businesses, State Licence for medium, Central Licence for large. Documents may vary.'
+  },
+  {
+    id: 82, slug: 'society-name-registration', category: 'other',
+    name: 'Society Name Registration', icon: 'Building2',
+    image: 'https://cdn-icons-png.flaticon.com/512/2942/2942555.png',
+    dummyImage: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=400',
+    description: 'Assistance with cooperative housing society registration and name registration under the Maharashtra Co-operative Societies Act.',
+    documentsRequired: ['Society Formation Resolution', 'List of Members with ID Proofs', 'Address Proof of Society', 'Proposed Society Bylaws', 'Application Form', 'Government Fees Challan'],
+    eligibility: 'A minimum of 10 members (individuals or organizations) required to form a cooperative society.',
+    processSteps: ['Draft society bylaws and resolutions', 'Fill registration application form', 'Attach all member documents', 'Submit at Registrar of Co-operative Societies', 'Verification and approval', 'Registration certificate issued'],
+    processingTime: '30–90 days',
+    charges: 'Contact for latest charges',
+    notes: 'Documents and process may vary. For complex registrations, legal advice is recommended.'
+  },
+  {
+    id: 83, slug: 'udyam-certificate', category: 'other',
+    name: 'Udyam Certificate (MSME)', icon: '🏭',
+    image: 'https://upload.wikimedia.org/wikipedia/en/thumb/6/63/MSME_logo.png/512px-MSME_logo.png',
+    dummyImage: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=400',
+    description: 'Register your business under Udyam Registration portal and obtain the Udyam Certificate for MSME benefits, government tenders, and subsidies.',
+    documentsRequired: ['Aadhaar Card of Owner', 'PAN Card (optional for micro)', 'Business Address Proof', 'Bank Account Details', 'Business Activity/NIC Code'],
+    eligibility: 'Micro, Small, and Medium Enterprises in manufacturing or service sector as per MSME classification norms.',
+    processSteps: ['Provide business and personal details', 'Access Udyam Registration portal', 'Fill form with business activity details', 'OTP verification on Aadhaar', 'Udyam Registration Certificate generated instantly'],
+    processingTime: 'Same day / Instant',
+    charges: 'Contact for latest charges',
+    notes: 'Udyam Registration is free on the official portal. Documents and process may vary.'
+  },
 ];
 
 export const getServiceBySlug = (slug) => services.find(s => s.slug === slug);
@@ -893,3 +1048,4 @@ export const categoryColors = {
   other: { bg: 'bg-orange-50', text: 'text-orange-700', border: 'border-orange-200', badge: 'bg-orange-100 text-orange-700' },
   smartcard: { bg: 'bg-red-50', text: 'text-red-700', border: 'border-red-200', badge: 'bg-red-100 text-red-700' },
 };
+

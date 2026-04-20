@@ -72,7 +72,7 @@ export default function Navbar() {
               </Link>
             ))}
             <a
-              href="tel:9619439243"
+              href="tel:7709709243"
               className="ml-3 btn-accent text-sm py-2 px-5 rounded-lg flex items-center gap-2"
             >
               <LucideIcon name="Phone" size={16} />
@@ -113,10 +113,10 @@ export default function Navbar() {
             </Link>
           ))}
           <div className="pt-2 flex gap-2">
-            <a href="tel:9619439243" className="flex-1 btn-primary text-sm py-2.5 justify-center text-center rounded-lg flex items-center gap-2">
+            <a href="tel:7709709243" className="flex-1 btn-primary text-sm py-2.5 justify-center text-center rounded-lg flex items-center gap-2">
               <LucideIcon name="Phone" size={16} /> Call Now
             </a>
-            <a href="https://wa.me/919619439243" className="flex-1 justify-center text-center bg-green-500 hover:bg-green-600 text-white text-sm py-2.5 rounded-lg font-medium transition-colors flex items-center gap-2" target="_blank" rel="noopener noreferrer">
+            <a href="https://wa.me/917709709243" className="flex-1 justify-center text-center bg-green-500 hover:bg-green-600 text-white text-sm py-2.5 rounded-lg font-medium transition-colors flex items-center gap-2" target="_blank" rel="noopener noreferrer">
               <LucideIcon name="MessageCircle" size={16} /> WhatsApp
             </a>
           </div>
@@ -125,3 +125,4 @@ export default function Navbar() {
     </nav>
   )
 }
+

@@ -256,10 +256,10 @@ export default function XeroxDeliveryPage() {
                 If you encounter any issues or have questions about delivery charges, contact us directly.
               </p>
               <div className="space-y-3">
-                <a href="tel:9619439243" className="flex items-center gap-3 text-sm font-bold bg-white/10 hover:bg-white/20 p-3 rounded-xl transition-all">
-                  <Phone size={18} className="text-orange-400" /> 9619439243
+                <a href="tel:7709709243" className="flex items-center gap-3 text-sm font-bold bg-white/10 hover:bg-white/20 p-3 rounded-xl transition-all">
+                  <Phone size={18} className="text-orange-400" /> 7709709243
                 </a>
-                <a href="https://wa.me/919619439243" className="flex items-center gap-3 text-sm font-bold bg-green-500/20 hover:bg-green-500/30 p-3 rounded-xl transition-all text-green-400 border border-green-500/20">
+                <a href="https://wa.me/917709709243" className="flex items-center gap-3 text-sm font-bold bg-green-500/20 hover:bg-green-500/30 p-3 rounded-xl transition-all text-green-400 border border-green-500/20">
                   <LucideIcon name="MessageCircle" size={18} /> WhatsApp Support
                 </a>
               </div>
@@ -270,3 +270,4 @@ export default function XeroxDeliveryPage() {
     </div>
   )
 }
+

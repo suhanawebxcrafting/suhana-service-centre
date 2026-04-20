@@ -1,9 +1,13 @@
 import Link from 'next/link'
-import { blogs } from '@/data/blogs'
+import { prisma } from '@/lib/prisma'
 import BlogCard from '@/components/BlogCard'
 import LucideIcon from '@/components/LucideIcon'
 
-export default function BlogPage() {
+export const dynamic = 'force-dynamic'
+
+export default async function BlogPage() {
+  const blogs = await prisma.blog.findMany({ where: { isPublished: true }, orderBy: { createdAt: 'desc' } })
+  
   return (
     <main className="min-h-screen pt-24 lg:pt-32 pb-20">
       {/* Header Section */}
@@ -70,7 +74,7 @@ export default function BlogPage() {
               </p>
             </div>
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-end">
-              <a href="https://wa.me/919619439243" target="_blank" rel="noopener noreferrer" 
+              <a href="https://wa.me/917709709243" target="_blank" rel="noopener noreferrer" 
                  className="bg-green-500 hover:bg-green-600 text-white font-bold px-8 py-4 rounded-2xl transition-all hover:-translate-y-1 shadow-xl shadow-green-500/20 flex items-center justify-center gap-2">
                 <LucideIcon name="MessageCircle" size={20} />
                 WhatsApp Us
@@ -85,3 +89,4 @@ export default function BlogPage() {
     </main>
   )
 }
+

@@ -166,10 +166,10 @@ function ServicesContent() {
           <h2 className="text-2xl font-bold text-white mb-2">Can't Find Your Service?</h2>
           <p className="text-blue-200 text-sm mb-5">Contact us directly — we may still be able to help you!</p>
           <div className="flex flex-wrap gap-3 justify-center">
-            <a href="tel:9619439243" className="btn-accent text-sm px-6 py-3 flex items-center gap-2">
+            <a href="tel:7709709243" className="btn-accent text-sm px-6 py-3 flex items-center gap-2">
               <LucideIcon name="Phone" size={16} /> Call Now
             </a>
-            <a href="https://wa.me/919619439243" target="_blank" rel="noopener noreferrer"
+            <a href="https://wa.me/917709709243" target="_blank" rel="noopener noreferrer"
               className="bg-green-500 hover:bg-green-400 text-white font-semibold text-sm px-6 py-3 rounded-lg transition-colors flex items-center gap-2">
               <LucideIcon name="MessageCircle" size={16} /> WhatsApp
             </a>
@@ -191,3 +191,4 @@ export default function ServicesPage() {
     </Suspense>
   )
 }
+

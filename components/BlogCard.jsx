@@ -22,7 +22,7 @@ export default function BlogCard({ blog }) {
       <div className="p-6 flex flex-col flex-grow">
         <div className="flex items-center gap-2 text-gray-400 text-xs font-semibold mb-3">
           <LucideIcon name="Calendar" size={14} />
-          <span>{blog.date}</span>
+          <span>{blog.createdAt ? new Date(blog.createdAt).toLocaleDateString() : 'Recent'}</span>
           <span className="mx-1">•</span>
           <LucideIcon name="User" size={14} />
           <span>{blog.author}</span>
@@ -53,3 +53,4 @@ export default function BlogCard({ blog }) {
     </div>
   )
 }
+

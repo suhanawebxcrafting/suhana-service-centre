@@ -6,12 +6,26 @@ export default function ContactPage() {
   const [form, setForm] = useState({ name: '', phone: '', email: '', service: '', message: '' })
   const [submitted, setSubmitted] = useState(false)
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
+
+    try {
+      await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(form),
+      });
+    } catch (err) {
+      console.error("Failed to save message", err);
+    }
+
     const msg = `Hello Suhana Service Centre!%0A%0AName: ${form.name}%0APhone: ${form.phone}%0AEmail: ${form.email}%0AService Needed: ${form.service}%0AMessage: ${form.message}`
-    window.open(`https://wa.me/919619439243?text=${msg}`, '_blank')
+    window.open(`https://wa.me/917709709243?text=${msg}`, '_blank')
     setSubmitted(true)
     setTimeout(() => setSubmitted(false), 5000)
+    setForm({ name: '', phone: '', email: '', service: '', message: '' })
   }
 
   return (
@@ -29,7 +43,7 @@ export default function ContactPage() {
           <p className="text-blue-200 text-base">We're here to help you with all your service needs</p>
         </div>
         <div className="absolute bottom-0 left-0 right-0">
-          <svg viewBox="0 0 1440 40" fill="white"><path d="M0,20 C360,40 1080,0 1440,20 L1440,40 L0,40 Z"/></svg>
+          <svg viewBox="0 0 1440 40" fill="white"><path d="M0,20 C360,40 1080,0 1440,20 L1440,40 L0,40 Z" /></svg>
         </div>
       </section>
 
@@ -56,35 +70,25 @@ export default function ContactPage() {
                   </div>
                 </div>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <a href="tel:9619439243" className="flex items-center gap-4 p-5 bg-orange-50 rounded-2xl border border-orange-100 hover:shadow-md transition-shadow group">
-                    <div className="w-11 h-11 bg-orange-500 rounded-xl flex items-center justify-center text-white flex-shrink-0 group-hover:scale-110 transition-transform">
-                      <LucideIcon name="Phone" size={22} />
-                    </div>
-                    <div>
-                      <div className="text-gray-500 text-[10px] font-bold uppercase tracking-wider mb-0.5">Primary Phone</div>
-                      <div className="font-bold text-gray-800 text-sm">9619439243</div>
-                    </div>
-                  </a>
-                  <a href="tel:8424842232" className="flex items-center gap-4 p-5 bg-orange-50 rounded-2xl border border-orange-100 hover:shadow-md transition-shadow group">
-                    <div className="w-11 h-11 bg-orange-500 rounded-xl flex items-center justify-center text-white flex-shrink-0 group-hover:scale-110 transition-transform">
-                      <LucideIcon name="Phone" size={22} />
-                    </div>
-                    <div>
-                      <div className="text-gray-500 text-[10px] font-bold uppercase tracking-wider mb-0.5">Secondary Phone</div>
-                      <div className="font-bold text-gray-800 text-sm">8424842232</div>
-                    </div>
-                  </a>
+                  <a href="tel:7709709243" className="flex items-center gap-4 p-5 bg-orange-50 rounded-2xl border border-orange-100 hover:shadow-md transition-shadow group" />
+                  <div className="w-11 h-11 bg-orange-500 rounded-xl flex items-center justify-center text-white flex-shrink-0 group-hover:scale-110 transition-transform">
+                    <LucideIcon name="Phone" size={22} />
+                  </div>
+                  <div>
+                    <div className="text-gray-500 text-[10px] font-bold uppercase tracking-wider mb-0.5">Primary Phone</div>
+                    <div className="font-bold text-gray-800 text-sm">7709709243</div>
+                  </div>
                 </div>
-                <a href="mailto:onepointsolution786786@gmail.com" className="flex items-center gap-4 p-5 bg-green-50 rounded-2xl border border-green-100 hover:shadow-md transition-shadow group">
+                <a href="mailto:suhanaservicec@gmail.com" className="flex items-center gap-4 p-5 bg-green-50 rounded-2xl border border-green-100 hover:shadow-md transition-shadow group">
                   <div className="w-11 h-11 bg-green-500 rounded-xl flex items-center justify-center text-white flex-shrink-0 group-hover:scale-110 transition-transform">
                     <LucideIcon name="Mail" size={22} />
                   </div>
                   <div>
                     <div className="text-gray-500 text-[10px] font-bold uppercase tracking-wider mb-0.5">Email Address</div>
-                    <div className="font-bold text-gray-800 text-xs break-all">onepointsolution786786@gmail.com</div>
+                    <div className="font-bold text-gray-800 text-xs break-all">suhanaservicec@gmail.com</div>
                   </div>
                 </a>
-                <a href="https://wa.me/919619439243" target="_blank" rel="noopener noreferrer"
+                <a href="https://wa.me/917709709243" target="_blank" rel="noopener noreferrer"
                   className="flex items-center gap-4 p-5 bg-green-50 rounded-2xl border border-green-100 hover:shadow-md transition-shadow group">
                   <div className="w-11 h-11 bg-[#25D366] rounded-xl flex items-center justify-center text-white flex-shrink-0 group-hover:scale-110 transition-transform">
                     <LucideIcon name="MessageCircle" size={22} />
@@ -107,10 +111,10 @@ export default function ContactPage() {
 
               {/* Quick action buttons */}
               <div className="grid grid-cols-2 gap-3">
-                <a href="tel:9619439243" className="btn-primary text-sm py-3 justify-center text-center rounded-xl flex items-center gap-2">
+                <a href="tel:7709709243" className="btn-primary text-sm py-3 justify-center text-center rounded-xl flex items-center gap-2">
                   <LucideIcon name="Phone" size={18} /> Call Now
                 </a>
-                <a href="https://wa.me/919619439243" target="_blank" rel="noopener noreferrer"
+                <a href="https://wa.me/917709709243" target="_blank" rel="noopener noreferrer"
                   className="bg-green-500 hover:bg-green-600 text-white font-semibold text-sm py-3 rounded-xl transition-colors flex items-center justify-center gap-2">
                   <LucideIcon name="MessageCircle" size={18} /> WhatsApp
                 </a>
@@ -131,32 +135,32 @@ export default function ContactPage() {
                     <div>
                       <label className="block text-gray-700 text-xs font-semibold mb-1.5">Full Name *</label>
                       <input type="text" required placeholder="Your name"
-                        value={form.name} onChange={e => setForm({...form, name: e.target.value})}
+                        value={form.name} onChange={e => setForm({ ...form, name: e.target.value })}
                         className="w-full border border-gray-200 rounded-lg px-4 py-3 text-sm outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-50 transition-all" />
                     </div>
                     <div>
                       <label className="block text-gray-700 text-xs font-semibold mb-1.5">Phone Number *</label>
                       <input type="tel" required placeholder="9XXXXXXXXX"
-                        value={form.phone} onChange={e => setForm({...form, phone: e.target.value})}
+                        value={form.phone} onChange={e => setForm({ ...form, phone: e.target.value })}
                         className="w-full border border-gray-200 rounded-lg px-4 py-3 text-sm outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-50 transition-all" />
                     </div>
                   </div>
                   <div>
                     <label className="block text-gray-700 text-xs font-semibold mb-1.5">Email (Optional)</label>
                     <input type="email" placeholder="your@email.com"
-                      value={form.email} onChange={e => setForm({...form, email: e.target.value})}
+                      value={form.email} onChange={e => setForm({ ...form, email: e.target.value })}
                       className="w-full border border-gray-200 rounded-lg px-4 py-3 text-sm outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-50 transition-all" />
                   </div>
                   <div>
                     <label className="block text-gray-700 text-xs font-semibold mb-1.5">Service Needed</label>
                     <input type="text" placeholder="e.g. Aadhaar Update, PAN Card, Passport..."
-                      value={form.service} onChange={e => setForm({...form, service: e.target.value})}
+                      value={form.service} onChange={e => setForm({ ...form, service: e.target.value })}
                       className="w-full border border-gray-200 rounded-lg px-4 py-3 text-sm outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-50 transition-all" />
                   </div>
                   <div>
                     <label className="block text-gray-700 text-xs font-semibold mb-1.5">Message</label>
                     <textarea rows="4" placeholder="Describe your requirement..."
-                      value={form.message} onChange={e => setForm({...form, message: e.target.value})}
+                      value={form.message} onChange={e => setForm({ ...form, message: e.target.value })}
                       className="w-full border border-gray-200 rounded-lg px-4 py-3 text-sm outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-50 transition-all resize-none">
                     </textarea>
                   </div>
@@ -197,3 +201,4 @@ export default function ContactPage() {
     </>
   )
 }
+

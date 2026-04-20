@@ -40,3 +40,4 @@ export const testimonials = [
     image: "https://api.dicebear.com/7.x/avataaars/svg?seed=Vijay"
   }
 ];
+

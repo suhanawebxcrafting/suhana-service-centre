@@ -44,15 +44,15 @@ export default function Footer() {
               Your trusted service centre in Virar for all government and digital services. Fast, reliable, and affordable.
             </p>
             <div className="flex gap-3">
-              <a href="https://wa.me/919619439243" target="_blank" rel="noopener noreferrer"
+              <a href="https://wa.me/917709709243" target="_blank" rel="noopener noreferrer"
                 className="w-10 h-10 rounded-lg bg-green-500 hover:bg-green-400 flex items-center justify-center transition-colors text-white" title="WhatsApp">
                 <LucideIcon name="MessageCircle" size={18} />
               </a>
-              <a href="tel:9619439243"
+              <a href="tel:7709709243"
                 className="w-10 h-10 rounded-lg bg-blue-700 hover:bg-blue-600 flex items-center justify-center transition-colors text-white" title="Call Us">
                 <LucideIcon name="Phone" size={18} />
               </a>
-              <a href="mailto:onepointsolution786786@gmail.com"
+              <a href="mailto:suhanaservicec@gmail.com"
                 className="w-10 h-10 rounded-lg bg-red-600 hover:bg-red-500 flex items-center justify-center transition-colors text-white" title="Email Us">
                 <LucideIcon name="Mail" size={18} />
               </a>
@@ -131,16 +131,15 @@ export default function Footer() {
                   <LucideIcon name="Phone" size={16} className="text-orange-400" />
                 </div>
                 <div className="space-y-1">
-                  <a href="tel:9619439243" className="block text-blue-200 hover:text-white text-sm transition-colors">9619439243</a>
-                  <a href="tel:8424842232" className="block text-blue-200 hover:text-white text-sm transition-colors">8424842232</a>
+                  <a href="tel:7709709243" className="block text-blue-200 hover:text-white text-sm transition-colors">7709709243</a>
                 </div>
               </div>
               <div className="flex items-start gap-3">
                 <div className="w-8 h-8 rounded-lg bg-orange-500/10 flex items-center justify-center flex-shrink-0 mt-0.5">
                   <LucideIcon name="Mail" size={16} className="text-orange-400" />
                 </div>
-                <a href="mailto:onepointsolution786786@gmail.com" className="text-blue-200 hover:text-white text-xs transition-colors break-all leading-relaxed">
-                  onepointsolution786786<br />@gmail.com
+                <a href="mailto:suhanaservicec@gmail.com" className="text-blue-200 hover:text-white text-sm transition-colors break-all leading-relaxed">
+                  suhanaservicec@gmail.com
                 </a>
               </div>
             </div>
@@ -167,3 +166,4 @@ export default function Footer() {
     </footer>
   )
 }
+

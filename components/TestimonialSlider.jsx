@@ -1,30 +1,44 @@
 'use client'
 import { useState, useEffect, useCallback } from 'react'
 import LucideIcon from './LucideIcon'
-import { testimonials } from '@/data/testimonials'
 
 export default function TestimonialSlider() {
   const [currentIndex, setCurrentIndex] = useState(0)
   const [isAnimating, setIsAnimating] = useState(false)
+  const [testimonials, setTestimonials] = useState([])
+
+  useEffect(() => {
+    fetch('/api/testimonials')
+      .then(res => res.json())
+      .then(data => {
+        // Show only featured testimonials on frontend
+        setTestimonials(data.filter(t => t.isFeatured))
+      })
+      .catch(err => console.error(err))
+  }, [])
 
   const nextSlide = useCallback(() => {
-    if (isAnimating) return
+    if (isAnimating || testimonials.length === 0) return
     setIsAnimating(true)
     setCurrentIndex((prev) => (prev + 1) % testimonials.length)
     setTimeout(() => setIsAnimating(false), 500)
-  }, [isAnimating])
+  }, [isAnimating, testimonials.length])
 
   const prevSlide = useCallback(() => {
-    if (isAnimating) return
+    if (isAnimating || testimonials.length === 0) return
     setIsAnimating(true)
     setCurrentIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length)
     setTimeout(() => setIsAnimating(false), 500)
-  }, [isAnimating])
+  }, [isAnimating, testimonials.length])
 
   useEffect(() => {
+    if (testimonials.length <= 1) return;
     const timer = setInterval(nextSlide, 5000)
     return () => clearInterval(timer)
-  }, [nextSlide])
+  }, [nextSlide, testimonials.length])
+
+  if (testimonials.length === 0) return null;
+
 
   return (
     <div className="relative max-w-4xl mx-auto px-4 py-12">
@@ -59,20 +73,24 @@ export default function TestimonialSlider() {
                 </div>
                 
                 <p className="text-gray-700 text-lg md:text-xl font-medium leading-relaxed mb-8 italic">
-                  "{testimonial.comment}"
+                  "{testimonial.feedback}"
                 </p>
                 
                 <div className="flex items-center gap-4">
-                  <div className="w-14 h-14 rounded-full overflow-hidden border-2 border-blue-100 shadow-sm">
-                    <img
-                      src={testimonial.image}
-                      alt={testimonial.name}
-                      className="w-full h-full object-cover"
-                    />
+                  <div className="w-14 h-14 rounded-full overflow-hidden border-2 border-blue-100 shadow-sm bg-gray-100 flex items-center justify-center font-bold text-gray-400">
+                    {testimonial.image ? (
+                      <img
+                        src={testimonial.image}
+                        alt={testimonial.name}
+                        className="w-full h-full object-cover"
+                      />
+                    ) : (
+                      testimonial.name.charAt(0).toUpperCase()
+                    )}
                   </div>
                   <div>
                     <h4 className="text-blue-900 font-bold text-lg">{testimonial.name}</h4>
-                    <p className="text-blue-600 text-sm font-semibold">{testimonial.role}</p>
+                    <p className="text-blue-600 text-sm font-semibold">{testimonial.service}</p>
                   </div>
                 </div>
               </div>
@@ -120,3 +138,4 @@ export default function TestimonialSlider() {
     </div>
   )
 }
+

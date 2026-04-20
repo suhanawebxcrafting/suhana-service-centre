@@ -7,7 +7,7 @@ export default function ServiceCard({ service, compact = false }) {
   const colors = categoryColors[service.category] || categoryColors.other
 
   // WhatsApp Message
-  const whatsappUrl = `https://wa.me/919619439243?text=Hello%21+I%27m+interested+in+the+${encodeURIComponent(service.name)}+service.`
+  const whatsappUrl = `https://wa.me/917709709243?text=Hello%21+I%27m+interested+in+the+${encodeURIComponent(service.name)}+service.`
 
   if (compact) {
     return (
@@ -69,11 +69,17 @@ export default function ServiceCard({ service, compact = false }) {
           {/* Elite Animated background decoration */}
           <div className={`absolute -right-10 -top-10 w-32 h-32 rounded-full ${colors.bg} opacity-10 blur-3xl group-hover:opacity-40 group-hover:scale-150 transition-all duration-1000 z-0`}></div>
           
-          <div className="relative flex-1 p-6 z-10">
+          <div className="relative flex-1 p-6 z-10 flex flex-col">
             <div className="flex items-start gap-4 mb-5">
-              <div className={`flex items-center justify-center w-16 h-16 rounded-2xl ${colors.bg} flex-shrink-0 group-hover:scale-110 group-hover:rotate-3 transition-all duration-500 shadow-sm border border-white/50 backdrop-blur-sm`}>
-                <LucideIcon name={service.icon} size={32} className={colors.text} />
-              </div>
+              {service.image ? (
+                <div className={`w-16 h-16 rounded-2xl flex-shrink-0 group-hover:scale-110 group-hover:rotate-3 transition-all duration-500 shadow-sm overflow-hidden border border-gray-100 bg-white`}>
+                  <img src={service.image} alt={service.name} className="w-full h-full object-cover" />
+                </div>
+              ) : (
+                <div className={`flex items-center justify-center w-16 h-16 rounded-2xl ${colors.bg} flex-shrink-0 group-hover:scale-110 group-hover:rotate-3 transition-all duration-500 shadow-sm border border-white/50 backdrop-blur-sm`}>
+                  <LucideIcon name={service.icon} size={32} className={colors.text} />
+                </div>
+              )}
               <div className="flex-1 min-w-0 pt-1">
                 <span className={`cat-badge ${colors.badge} text-[10px] mb-2.5 flex items-center gap-1.5 w-fit px-2.5 py-1 font-black tracking-widest uppercase shadow-sm`}>
                   <LucideIcon name={cat?.icon} size={10} /> {cat?.label}
@@ -83,10 +89,19 @@ export default function ServiceCard({ service, compact = false }) {
                 </h3>
               </div>
             </div>
-            <p className="text-gray-500 text-xs leading-relaxed line-clamp-3 mb-6 font-medium">
+            
+            {(service.dummyImage || service.image) && (
+              <div className="mb-4 rounded-xl overflow-hidden h-32 w-full border border-gray-100 shadow-sm relative group-hover:shadow-md transition-all">
+                <img src={service.dummyImage || service.image} alt="Service Illustration" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+              </div>
+            )}
+
+            <p className="text-gray-500 text-xs leading-relaxed line-clamp-3 font-medium flex-1">
               {service.description}
             </p>
           </div>
+
 
           <div className="relative flex items-center justify-between mt-auto px-6 pb-6 pt-5 border-t border-gray-50 z-10">
             <div className="flex items-center gap-2">
@@ -113,7 +128,7 @@ export default function ServiceCard({ service, compact = false }) {
           className="w-10 h-10 rounded-xl bg-white text-green-500 flex items-center justify-center shadow-xl hover:bg-green-500 hover:text-white transition-all transform hover:scale-110 active:scale-95 border border-gray-100" title="WhatsApp Instant Query">
           <LucideIcon name="MessageCircle" size={20} />
         </a>
-        <a href="tel:9619439243" 
+        <a href="tel:7709709243" 
           className="w-10 h-10 rounded-xl bg-white text-blue-600 flex items-center justify-center shadow-xl hover:bg-blue-600 hover:text-white transition-all transform hover:scale-110 active:scale-95 border border-gray-100" title="Call Us Directly">
           <LucideIcon name="Phone" size={20} />
         </a>
@@ -121,3 +136,4 @@ export default function ServiceCard({ service, compact = false }) {
     </div>
   )
 }
+

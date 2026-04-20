@@ -12,3 +12,4 @@ export default function LucideIcon({ name, size = 24, className = '', ...props }
 
   return <Icon size={size} className={className} {...props} />
 }
+

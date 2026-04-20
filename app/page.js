@@ -4,7 +4,10 @@ import ServiceCard from '@/components/ServiceCard'
 import LucideIcon from '@/components/LucideIcon'
 import TestimonialSlider from '@/components/TestimonialSlider'
 import BlogCard from '@/components/BlogCard'
-import { blogs } from '@/data/blogs'
+import LogoSlider from '@/components/LogoSlider'
+import { prisma } from '@/lib/prisma'
+
+export const dynamic = 'force-dynamic'
 
 const faqs = [
   { q: 'What documents do I need for Aadhaar card update?', a: 'You need your original Aadhaar card and a supporting document for the field being updated (e.g., utility bill for address, gazette for name change). Visit us with originals.' },
@@ -23,8 +26,11 @@ const whyUs = [
   { icon: 'Headset', title: 'Post-Service Support', desc: 'We stay with you even after service delivery. Follow-up support on WhatsApp and phone.' },
 ]
 
-export default function HomePage() {
-  const featuredServices = services.slice(0, 8)
+export default async function HomePage() {
+  const blogs = await prisma.blog.findMany({ where: { isPublished: true }, orderBy: { createdAt: 'desc' }, take: 3 })
+  
+  const featuredIds = [1, 4, 7, 73, 75, 76, 77, 79, 80, 81, 82, 83] // Curated popular services
+  const featuredServices = services.filter(s => featuredIds.includes(s.id))
   const totalServices = services.length
 
   return (
@@ -56,10 +62,10 @@ export default function HomePage() {
                 <Link href="/services" className="btn-accent text-base px-7 py-3.5 flex items-center gap-2">
                   <LucideIcon name="Wrench" size={20} /> View All Services
                 </Link>
-                <a href="tel:9619439243" className="btn-outline text-base px-7 py-3.5 flex items-center gap-2">
+                <a href="tel:7709709243" className="btn-outline text-base px-7 py-3.5 flex items-center gap-2">
                   <LucideIcon name="Phone" size={20} /> Call Now
                 </a>
-                <a href="https://wa.me/919619439243" target="_blank" rel="noopener noreferrer"
+                <a href="https://wa.me/917709709243" target="_blank" rel="noopener noreferrer"
                   className="bg-green-500 hover:bg-green-400 text-white font-semibold text-base px-7 py-3.5 rounded-lg transition-all hover:-translate-y-0.5 flex items-center gap-2 shadow-lg shadow-green-500/20">
                   <LucideIcon name="MessageCircle" size={20} /> WhatsApp
                 </a>
@@ -132,6 +138,9 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* ─── Partner Logos Slider ─── */}
+      <LogoSlider />
 
       {/* ─── Featured Services ─── */}
       <section id="featured-services" className="py-20 lg:py-28 pattern-bg relative overflow-hidden">
@@ -271,7 +280,7 @@ export default function HomePage() {
               <div className="grid grid-cols-2 gap-4 mb-6">
                 {[
                   { icon: 'MapPin', text: 'Virar (E) - 401305' },
-                  { icon: 'Phone', text: '9619439243 / 8424842232' },
+                  { icon: 'Phone', text: '7709709243' },
                   { icon: 'Clock', text: 'Mon–Sat: 9 AM – 8 PM' },
                   { icon: 'CheckCircle2', text: `${totalServices}+ Services Available` }
                 ].map((item, i) => (
@@ -366,10 +375,10 @@ export default function HomePage() {
             Visit us at Virar (E) or contact us on phone/WhatsApp. We're here to help you with all government and digital services.
           </p>
           <div className="flex flex-wrap gap-3 justify-center">
-            <a href="tel:9619439243" className="bg-white text-orange-600 font-bold px-7 py-3.5 rounded-lg hover:bg-orange-50 transition-colors flex items-center gap-2 text-sm shadow-lg shadow-black/5">
-              <LucideIcon name="Phone" size={18} /> Call 9619439243
+            <a href="tel:7709709243" className="bg-white text-orange-600 font-bold px-7 py-3.5 rounded-lg hover:bg-orange-50 transition-colors flex items-center gap-2 text-sm shadow-lg shadow-black/5">
+              <LucideIcon name="Phone" size={18} /> Call 7709709243
             </a>
-            <a href="https://wa.me/919619439243" target="_blank" rel="noopener noreferrer"
+            <a href="https://wa.me/917709709243" target="_blank" rel="noopener noreferrer"
               className="bg-green-600 hover:bg-green-700 text-white font-bold px-7 py-3.5 rounded-lg transition-colors flex items-center gap-2 text-sm shadow-lg shadow-black/5">
               <LucideIcon name="MessageCircle" size={18} /> WhatsApp Now
             </a>
@@ -382,3 +391,4 @@ export default function HomePage() {
     </>
   )
 }
+

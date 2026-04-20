@@ -50,3 +50,4 @@ export const blogs = [
     author: "Suhana Team"
   }
 ];
+

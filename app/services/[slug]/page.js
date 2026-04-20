@@ -163,15 +163,11 @@ export default function ServiceDetailPage({ params }) {
               {/* CTA Card */}
               <div className="bg-white rounded-2xl p-6 border border-gray-100 shadow-card space-y-3">
                 <h3 className="font-bold text-gray-900 text-base mb-4">🚀 Get This Service</h3>
-                <a href="tel:9619439243"
+                <a href="tel:7709709243"
                   className="flex items-center justify-center gap-2 w-full bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-semibold py-3.5 rounded-xl transition-all hover:-translate-y-0.5 text-sm shadow-md">
-                  <LucideIcon name="Phone" size={16} /> Call Now: 9619439243
+                  <LucideIcon name="Phone" size={16} /> Call Now: 7709709243
                 </a>
-                <a href="tel:8424842232"
-                  className="flex items-center justify-center gap-2 w-full bg-blue-50 hover:bg-blue-100 text-blue-700 font-semibold py-3.5 rounded-xl transition-all text-sm border border-blue-200">
-                  <LucideIcon name="Phone" size={16} /> Call: 8424842232
-                </a>
-                <a href="https://wa.me/919619439243?text=Hello%2C%20I%20need%20help%20with%20" 
+                <a href="https://wa.me/917709709243?text=Hello%2C%20I%20need%20help%20with%20" 
                   target="_blank" rel="noopener noreferrer"
                   className="flex items-center justify-center gap-2 w-full bg-green-500 hover:bg-green-600 text-white font-semibold py-3.5 rounded-xl transition-all hover:-translate-y-0.5 text-sm shadow-md shadow-green-500/20">
                   <LucideIcon name="MessageCircle" size={16} /> WhatsApp Now

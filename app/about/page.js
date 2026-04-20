@@ -154,11 +154,11 @@ export default function AboutPage() {
             </p>
           </div>
           <div className="flex flex-wrap gap-3 justify-center">
-            <a href="tel:9619439243" className="btn-accent px-7 py-3 flex items-center gap-2">
-              <LucideIcon name="Phone" size={18} /> 9619439243
+            <a href="tel:7709709243" className="btn-accent px-7 py-3 flex items-center gap-2">
+              <LucideIcon name="Phone" size={18} /> 7709709243
             </a>
-            <a href="tel:8424842232" className="btn-outline px-7 py-3 flex items-center gap-2">
-              <LucideIcon name="Phone" size={18} /> 8424842232
+            <a href="https://wa.me/917709709243" target="_blank" rel="noopener noreferrer" className="btn-outline px-7 py-3 flex items-center gap-2">
+              <LucideIcon name="MessageCircle" size={18} /> WhatsApp
             </a>
             <Link href="/contact" className="bg-white text-blue-800 font-bold px-7 py-3 rounded-lg hover:bg-blue-50 transition-colors flex items-center gap-2">
               <LucideIcon name="MapPin" size={18} /> Get Directions
@@ -169,3 +169,4 @@ export default function AboutPage() {
     </>
   )
 }
+
