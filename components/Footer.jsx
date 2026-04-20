@@ -151,10 +151,15 @@ export default function Footer() {
       {/* Bottom bar */}
       <div className="border-t border-blue-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex flex-col sm:flex-row items-center justify-between gap-2">
-          <p className="text-blue-300 text-xs text-center sm:text-left">
-            © {new Date().getFullYear()} Suhana Service Centre, Virar. All rights reserved.
-          </p>
-          <p className="text-blue-400 text-xs">
+          <div className="flex items-center gap-4">
+            <p className="text-blue-300 text-xs text-center sm:text-left">
+              © {new Date().getFullYear()} Suhana Service Centre, Virar. All rights reserved.
+            </p>
+            <Link href="/admin/login" className="text-blue-700 hover:text-blue-400 text-[10px] uppercase font-black tracking-widest transition-colors">
+              Admin Login
+            </Link>
+          </div>
+          <p className="text-blue-400 text-xs text-center sm:text-right">
             आपकी सेवा, हमारा संकल्प 🙏
           </p>
         </div>
