@@ -1,12 +1,12 @@
 'use client'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, Suspense } from 'react'
 import { useSearchParams } from 'next/navigation'
 import Link from 'next/link'
 import { services, categories, categoryColors, getCategoryById } from '@/data/services'
 import ServiceCard from '@/components/ServiceCard'
 import LucideIcon from '@/components/LucideIcon'
 
-export default function ServicesPage() {
+function ServicesContent() {
   const searchParams = useSearchParams()
   const [search, setSearch] = useState('')
   const [activeCategory, setActiveCategory] = useState('all')
@@ -177,5 +177,17 @@ export default function ServicesPage() {
         </div>
       </section>
     </>
+  )
+}
+
+export default function ServicesPage() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen flex items-center justify-center bg-white">
+        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-600"></div>
+      </div>
+    }>
+      <ServicesContent />
+    </Suspense>
   )
 }
