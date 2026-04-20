@@ -1,0 +1,332 @@
+import Link from 'next/link'
+import { services, categories, categoryColors } from '@/data/services'
+import ServiceCard from '@/components/ServiceCard'
+import LucideIcon from '@/components/LucideIcon'
+
+const faqs = [
+  { q: 'What documents do I need for Aadhaar card update?', a: 'You need your original Aadhaar card and a supporting document for the field being updated (e.g., utility bill for address, gazette for name change). Visit us with originals.' },
+  { q: 'How long does PAN card processing take?', a: 'A new PAN card typically takes 15–20 working days for delivery. Instant e-PAN can be obtained on the same day if you have Aadhaar with a registered mobile number.' },
+  { q: 'Can I apply for passport at your centre?', a: 'Yes! We assist with the complete passport application process including form filling, document verification, and appointment booking at the Passport Seva Kendra.' },
+  { q: 'Do you offer same-day services?', a: 'Many services like printing, photocopies, e-Aadhaar download, mobile recharge, and bill payments are done on the same day. Government document services may take longer.' },
+  { q: 'What are your working hours?', a: 'We are open Monday to Saturday, 9:00 AM to 8:00 PM. For urgent queries, you can reach us on WhatsApp anytime.' },
+]
+
+const whyUs = [
+  { icon: 'Zap', title: 'Fast Service', desc: 'Most services completed quickly with no unnecessary delays. We respect your time.' },
+  { icon: 'Handshake', title: 'Expert Guidance', desc: 'Our experienced team provides accurate guidance for all government and digital services.' },
+  { icon: 'CircleDollarSign', title: 'Affordable Rates', desc: 'Transparent and reasonable pricing. No hidden charges. We\'re here to help, not profit excessively.' },
+  { icon: 'Lock', title: 'Secure & Private', desc: 'Your documents and data are handled with utmost care and confidentiality.' },
+  { icon: 'LayoutGrid', title: 'All Under One Roof', desc: '70+ services available at a single location. No need to run to multiple offices.' },
+  { icon: 'Headset', title: 'Post-Service Support', desc: 'We stay with you even after service delivery. Follow-up support on WhatsApp and phone.' },
+]
+
+export default function HomePage() {
+  const featuredServices = services.slice(0, 8)
+  const totalServices = services.length
+
+  return (
+    <>
+      {/* ─── Hero Section ─── */}
+      <section className="hero-gradient relative min-h-screen flex items-center overflow-hidden">
+        {/* Background pattern */}
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute inset-0" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)', backgroundSize: '40px 40px' }}></div>
+        </div>
+        {/* Decorative circles */}
+        <div className="absolute top-20 right-10 w-72 h-72 bg-orange-500 rounded-full opacity-10 blur-3xl animate-pulse-slow"></div>
+        <div className="absolute bottom-20 left-10 w-60 h-60 bg-blue-400 rounded-full opacity-10 blur-3xl"></div>
+
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-28 lg:py-36">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div className="text-center lg:text-left animate-fade-up">
+              <div className="tag mb-5 inline-block">🏆 Virar's Trusted Service Centre</div>
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-white leading-tight mb-3">
+                Suhana<br />
+                <span className="text-orange-400">Service Centre</span>
+              </h1>
+              <p className="text-2xl text-white/80 font-medium mb-2">आपकी सेवा, हमारा संकल्प</p>
+              <p className="text-blue-200 text-lg mb-6">All Online Services Under One Roof</p>
+              <p className="text-blue-100 text-base leading-relaxed mb-8 max-w-lg">
+                Your one-stop destination for <strong className="text-white">{totalServices}+ government and digital services</strong> — from Aadhaar & PAN to passports, certificates, smart cards, and more.
+              </p>
+              <div className="flex flex-wrap gap-3 justify-center lg:justify-start">
+                <Link href="/services" className="btn-accent text-base px-7 py-3.5 flex items-center gap-2">
+                  <LucideIcon name="Wrench" size={20} /> View All Services
+                </Link>
+                <a href="tel:9619439243" className="btn-outline text-base px-7 py-3.5 flex items-center gap-2">
+                  <LucideIcon name="Phone" size={20} /> Call Now
+                </a>
+                <a href="https://wa.me/919619439243" target="_blank" rel="noopener noreferrer"
+                  className="bg-green-500 hover:bg-green-400 text-white font-semibold text-base px-7 py-3.5 rounded-lg transition-all hover:-translate-y-0.5 flex items-center gap-2 shadow-lg shadow-green-500/20">
+                  <LucideIcon name="MessageCircle" size={20} /> WhatsApp
+                </a>
+              </div>
+            </div>
+
+            {/* Hero card */}
+            <div className="hidden lg:flex flex-col gap-4 animate-fade-up" style={{ animationDelay: '0.2s', opacity: 0 }}>
+              <div className="bg-white/10 backdrop-blur-sm rounded-3xl p-6 border border-white/20">
+                <h3 className="text-white font-bold text-lg mb-4 flex items-center gap-2">
+                  <LucideIcon name="BarChart3" size={20} className="text-orange-400" /> Our Services at a Glance
+                </h3>
+                <div className="grid grid-cols-3 gap-3">
+                  {categories.map(cat => (
+                    <Link key={cat.id} href={`/services?cat=${cat.id}`}
+                      className="bg-white/10 hover:bg-white/20 rounded-xl p-3 text-center transition-all hover:-translate-y-0.5 cursor-pointer border border-white/5 group">
+                      <div className="mb-2 flex justify-center">
+                        <LucideIcon name={cat.icon} size={24} className="text-white group-hover:scale-110 transition-transform" />
+                      </div>
+                      <div className="text-white text-[10px] font-semibold leading-tight uppercase tracking-wider">{cat.label}</div>
+                    </Link>
+                  ))}
+                </div>
+              </div>
+              {/* Quick info */}
+              <div className="grid grid-cols-3 gap-3">
+                {[
+                  { n: `${totalServices}+`, l: 'Services' },
+                  { n: '5000+', l: 'Customers Served' },
+                  { n: '10+', l: 'Years Experience' },
+                ].map((s, i) => (
+                  <div key={i} className="bg-white/10 backdrop-blur-sm rounded-2xl p-4 text-center border border-white/15">
+                    <div className="text-2xl font-black text-orange-400">{s.n}</div>
+                    <div className="text-blue-200 text-xs font-medium mt-0.5">{s.l}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Bottom wave */}
+        <div className="absolute bottom-0 left-0 right-0">
+          <svg viewBox="0 0 1440 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0,30 C360,60 1080,0 1440,30 L1440,60 L0,60 Z" fill="white"/>
+          </svg>
+        </div>
+      </section>
+
+      {/* ─── Stats Bar ─── */}
+      <section className="bg-white py-8 shadow-sm">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            {[
+              { icon: 'Wrench', n: `${totalServices}+`, l: 'Total Services', color: 'text-blue-600' },
+              { icon: 'Users', n: '5000+', l: 'Happy Customers', color: 'text-green-600' },
+              { icon: 'Zap', n: 'Same Day', l: 'Quick Services', color: 'text-orange-600' },
+              { icon: 'MapPin', n: 'Virar (E)', l: 'Our Location', color: 'text-red-600' },
+            ].map((s, i) => (
+              <div key={i} className="flex items-center gap-3 p-4 rounded-xl bg-blue-50 border border-blue-100">
+                <div className="w-10 h-10 rounded-lg bg-white flex items-center justify-center shadow-sm">
+                  <LucideIcon name={s.icon} size={24} className={s.color} />
+                </div>
+                <div>
+                  <div className="font-extrabold text-lg text-blue-900">{s.n}</div>
+                  <div className="text-gray-500 text-[10px] font-bold uppercase tracking-wider">{s.l}</div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ─── Featured Services ─── */}
+      <section id="featured-services" className="py-20 lg:py-28 pattern-bg relative overflow-hidden">
+        {/* Decorative background glow */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-blue-100/30 rounded-full blur-[120px] pointer-events-none"></div>
+
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16 max-w-2xl mx-auto">
+            <div className="inline-flex items-center gap-2 bg-blue-600/10 text-blue-700 px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-widest mb-4 border border-blue-200/50 shadow-sm animate-fade-in">
+              <LucideIcon name="Sparkles" size={14} className="text-orange-500" /> Most Popular Services
+            </div>
+            <h2 className="text-3xl lg:text-5xl font-black text-blue-950 mb-4 tracking-tight leading-tight">
+              Featured <span className="text-blue-600">Services</span>
+            </h2>
+            <div className="w-20 h-1.5 bg-gradient-to-r from-blue-600 to-orange-500 mx-auto rounded-full mb-6"></div>
+            <p className="text-gray-500 text-lg font-medium">
+              Quick access to our most frequently used services for your essential government and digital needs.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+            {featuredServices.map((service, index) => (
+              <div key={service.id} className="animate-fade-up" style={{ animationDelay: `${index * 0.1}s` }}>
+                <ServiceCard service={service} />
+              </div>
+            ))}
+          </div>
+
+          <div className="text-center">
+            <Link href="/services" className="group btn-primary text-base px-10 py-4.5 rounded-2xl shadow-xl shadow-blue-500/20 flex items-center gap-3 mx-auto w-fit">
+              <span className="font-extrabold tracking-tight">EXPLORE ALL {totalServices}+ SERVICES</span>
+              <LucideIcon name="ArrowRight" size={18} className="group-hover:translate-x-2 transition-transform duration-300" />
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* ─── Categories Section ─── */}
+      <section className="py-16 bg-white relative">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <div className="inline-flex items-center gap-2 bg-orange-50 text-orange-700 px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-widest mb-4 border border-orange-100 shadow-sm">
+              <LucideIcon name="Layers" size={14} className="text-blue-600" /> Browse by Category
+            </div>
+            <h2 className="section-title mb-3">Service Categories</h2>
+            <p className="section-subtitle">Everything you need, organized for easy discovery</p>
+          </div>
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6">
+            {categories.map(cat => {
+              const colors = categoryColors[cat.id] || categoryColors.other
+              const count = services.filter(s => s.category === cat.id).length
+              return (
+                <Link key={cat.id} href={`/services?cat=${cat.id}`}
+                  className={`${colors.bg} border ${colors.border} rounded-2xl p-6 text-center card-hover cursor-pointer group block shadow-sm hover:shadow-md transition-all`}>
+                  <div className="mb-4 flex justify-center">
+                    <div className={`w-16 h-16 rounded-2xl flex items-center justify-center ${colors.bg} border ${colors.border} group-hover:scale-110 group-hover:rotate-3 transition-transform shadow-sm bg-white/50 backdrop-blur-sm`}>
+                      <LucideIcon name={cat.icon} size={36} className={colors.text} />
+                    </div>
+                  </div>
+                  <div className={`font-black text-sm ${colors.text} leading-tight mb-2 uppercase tracking-tight`}>{cat.label}</div>
+                  <div className="inline-block bg-white/60 px-3 py-1 rounded-full text-[10px] font-black text-gray-400 uppercase tracking-widest border border-white/20">
+                    {count} services
+                  </div>
+                </Link>
+              )
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* ─── Why Choose Us ─── */}
+      <section className="py-16 lg:py-20 bg-gradient-to-br from-blue-900 to-blue-950 relative overflow-hidden">
+        <div className="absolute inset-0 opacity-5" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)', backgroundSize: '30px 30px' }}></div>
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <div className="inline-block bg-orange-500/20 text-orange-400 px-4 py-1.5 rounded-full text-sm font-semibold mb-3">
+              💪 Why Choose Us
+            </div>
+            <h2 className="text-3xl lg:text-4xl font-bold text-white mb-3">
+              Why Suhana Service Centre?
+            </h2>
+            <p className="text-blue-200 text-base max-w-xl mx-auto">
+              Trusted by thousands of residents in Virar for reliable, fast, and affordable services
+            </p>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            {whyUs.map((item, i) => (
+              <div key={i} className="bg-white/8 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:bg-white/12 transition-all hover:-translate-y-1">
+                <div className="w-12 h-12 bg-orange-500/20 rounded-xl flex items-center justify-center text-orange-400 mb-4">
+                  <LucideIcon name={item.icon} size={24} />
+                </div>
+                <h3 className="text-white font-semibold text-base mb-2">{item.title}</h3>
+                <p className="text-blue-200 text-sm leading-relaxed">{item.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ─── About Preview ─── */}
+      <section className="py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <div className="tag mb-4">🏢 About Us</div>
+              <h2 className="text-3xl lg:text-4xl font-bold text-blue-900 mb-4 leading-tight">
+                Virar's Most Trusted<br />Service Centre
+              </h2>
+              <p className="text-gray-600 leading-relaxed mb-4">
+                Suhana Service Centre has been serving the residents of Virar and surrounding areas with dedication and expertise. We offer a comprehensive range of government and digital services under one roof, ensuring our customers don't have to travel to multiple offices.
+              </p>
+              <p className="text-gray-600 leading-relaxed mb-6">
+                Our experienced team provides accurate guidance, fast processing, and complete support from application to delivery. We are committed to making government services accessible and hassle-free for everyone.
+              </p>
+              <div className="grid grid-cols-2 gap-4 mb-6">
+                {[
+                  { icon: 'MapPin', text: 'Virar (E) - 401305' },
+                  { icon: 'Phone', text: '9619439243 / 8424842232' },
+                  { icon: 'Clock', text: 'Mon–Sat: 9 AM – 8 PM' },
+                  { icon: 'CheckCircle2', text: `${totalServices}+ Services Available` }
+                ].map((item, i) => (
+                  <div key={i} className="flex items-center gap-2 text-xs font-semibold text-gray-700 bg-blue-50 rounded-lg p-3">
+                    <LucideIcon name={item.icon} size={18} className="text-blue-600" /> {item.text}
+                  </div>
+                ))}
+              </div>
+              <Link href="/about" className="btn-primary text-sm px-6 py-3">
+                Learn More About Us
+              </Link>
+            </div>
+            <div className="grid grid-cols-2 gap-4">
+              {categories.slice(0, 4).map(cat => {
+                const colors = categoryColors[cat.id] || categoryColors.other
+                const count = services.filter(s => s.category === cat.id).length
+                return (
+                  <div key={cat.id} className={`${colors.bg} border ${colors.border} rounded-2xl p-5 shadow-sm`}>
+                    <div className="mb-2">
+                       <LucideIcon name={cat.icon} size={28} className={colors.text} />
+                    </div>
+                    <div className={`font-black text-2xl ${colors.text}`}>{count}</div>
+                    <div className="text-gray-700 text-xs font-bold uppercase tracking-wider">{cat.label}</div>
+                    <div className="text-gray-400 text-[10px] font-medium">services available</div>
+                  </div>
+                )
+              })}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ─── FAQ Section ─── */}
+      <section className="py-16 pattern-bg">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-10">
+            <div className="tag mb-3">❓ FAQ</div>
+            <h2 className="section-title mb-3">Frequently Asked Questions</h2>
+            <p className="section-subtitle">Quick answers to common questions</p>
+          </div>
+          <div className="space-y-3">
+            {faqs.map((faq, i) => (
+              <details key={i} className="faq-item group bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
+                <summary className="flex items-center justify-between p-5 cursor-pointer">
+                  <span className="font-semibold text-gray-800 text-sm pr-4">{faq.q}</span>
+                  <span className="text-blue-600 flex-shrink-0 text-lg transition-transform group-open:rotate-45">+</span>
+                </summary>
+                <div className="px-5 pb-5">
+                  <p className="text-gray-600 text-sm leading-relaxed">{faq.a}</p>
+                </div>
+              </details>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ─── CTA Banner ─── */}
+      <section className="py-14 bg-gradient-to-r from-orange-500 to-orange-600 relative overflow-hidden">
+        <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)', backgroundSize: '24px 24px' }}></div>
+        <div className="relative max-w-4xl mx-auto px-4 text-center">
+          <h2 className="text-3xl lg:text-4xl font-bold text-white mb-3">
+            Need Any Service Today?
+          </h2>
+          <p className="text-orange-100 text-base mb-7 max-w-xl mx-auto">
+            Visit us at Virar (E) or contact us on phone/WhatsApp. We're here to help you with all government and digital services.
+          </p>
+          <div className="flex flex-wrap gap-3 justify-center">
+            <a href="tel:9619439243" className="bg-white text-orange-600 font-bold px-7 py-3.5 rounded-lg hover:bg-orange-50 transition-colors flex items-center gap-2 text-sm shadow-lg shadow-black/5">
+              <LucideIcon name="Phone" size={18} /> Call 9619439243
+            </a>
+            <a href="https://wa.me/919619439243" target="_blank" rel="noopener noreferrer"
+              className="bg-green-600 hover:bg-green-700 text-white font-bold px-7 py-3.5 rounded-lg transition-colors flex items-center gap-2 text-sm shadow-lg shadow-black/5">
+              <LucideIcon name="MessageCircle" size={18} /> WhatsApp Now
+            </a>
+            <Link href="/contact" className="bg-white/20 hover:bg-white/30 text-white font-bold px-7 py-3.5 rounded-lg transition-colors flex items-center gap-2 text-sm border border-white/30 backdrop-blur-sm">
+              <LucideIcon name="MapPin" size={18} /> Get Directions
+            </Link>
+          </div>
+        </div>
+      </section>
+    </>
+  )
+}
