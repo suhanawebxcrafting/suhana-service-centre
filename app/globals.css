@@ -203,7 +203,7 @@ body {
 /* Back to top */
 .back-to-top {
   position: fixed;
-  bottom: 90px;
+  bottom: 100px;
   right: 24px;
   z-index: 998;
   width: 44px;

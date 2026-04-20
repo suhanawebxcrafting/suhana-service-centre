@@ -16,23 +16,44 @@ export const services = [
     id: 1, slug: 'aadhaar-new-registration', category: 'identity',
     name: 'Aadhaar Card New Registration', icon: 'Contact',
     description: 'Apply for a new Aadhaar card for Indian residents. Aadhaar is a 12-digit unique identity number issued by UIDAI and is mandatory for most government services.',
-    documentsRequired: ['Proof of Identity (Birth Certificate / Passport / PAN Card)', 'Proof of Address (Utility Bill / Bank Passbook)', 'Proof of Date of Birth', 'Recent Passport-size Photograph'],
-    eligibility: 'Any resident of India regardless of age or gender can enroll for Aadhaar.',
-    processSteps: ['Visit our centre with original documents', 'Fill the Aadhaar Enrolment Form', 'Biometric data (fingerprints + iris) and photograph captured', 'Receive Enrolment ID slip', 'Aadhaar delivered by post within 90 days or download e-Aadhaar'],
-    processingTime: '90 days (by post) / Immediate e-Aadhaar',
-    charges: 'Contact for latest charges',
-    notes: 'Documents and process may vary depending on case. Please contact or visit our office for confirmation.'
+    documentsRequired: [
+      'Proof of Identity (POI): Passport / PAN Card / Ration Card / Voter ID',
+      'Proof of Address (POA): Utility Bill / Bank Statement / Rent Agreement',
+      'Date of Birth Proof: Birth Certificate / SSLC Marksheet / Passport',
+      'Recent Passport-size Photograph'
+    ],
+    eligibility: 'Any resident of India (including infants and children) can apply for an Aadhaar card.',
+    processSteps: [
+      'Visit our centre with original identity and address proofs',
+      'Fill the Aadhaar Enrolment Form (Form 5 for Adults, Form 6 for Kids)',
+      'Capturing biometric data (fingerprints, iris scan) and facial photograph',
+      'Collection of acknowledgment slip with 14-digit Enrolment ID (EID)',
+      'Verification by UIDAI and delivery by India Post (usually within 60-90 days)'
+    ],
+    processingTime: '60–90 days (Physical Card) / 10–15 days (e-Aadhaar)',
+    charges: 'FREE (First time enrolment is free as per UIDAI)',
+    notes: 'Biometrics for children under 5 are not taken; they need to provide Biometric updates at age 5 and 15.'
   },
   {
     id: 2, slug: 'aadhaar-update', category: 'identity',
-    name: 'Aadhaar Card Update (Name / DOB / Address / Mobile)', icon: 'FileEdit',
-    description: 'Update your Aadhaar details such as name, date of birth, address, or mobile number. Updates can be done online or offline at an enrolled centre.',
-    documentsRequired: ['Original Aadhaar Card', 'Supporting document for the field being updated (e.g., Gazette for name change, utility bill for address)', 'Mobile number (for OTP verification)'],
-    eligibility: 'Existing Aadhaar holders who need to update their details.',
-    processSteps: ['Bring Aadhaar and supporting documents to our centre', 'Fill the Aadhaar Update/Correction Form', 'Submit form and documents', 'Receive update request number (URN)', 'Update reflected within 30-90 days'],
-    processingTime: '30–90 days',
-    charges: 'Contact for latest charges',
-    notes: 'Name change allowed only twice. Address can be updated online via SSUP. Documents and process may vary. Please contact us for confirmation.'
+    name: 'Aadhaar Card Update (Demographic & Biometric)', icon: 'FileEdit',
+    description: 'Update your Aadhaar details such as Name, Date of Birth, Address, Gender, Mobile Number, or Email. Also includes mandatory biometric updates for children.',
+    documentsRequired: [
+      'Original Aadhaar Card',
+      'Supporting Document for the specific update (e.g., Marriage Certificate for name change, Rent Agreement for address)',
+      'Valid Mobile Number (for OTP authentication)'
+    ],
+    eligibility: 'Existing Aadhaar holders who need to correct errors or update outdated information.',
+    processSteps: [
+      'Visit centre with Original Aadhaar and supporting documents',
+      'Fill the Aadhaar Correction/Update Form',
+      'Authentication via OTP or Biometric verification at the centre',
+      'Payment of UIDAI update fees and receiving acknowledgment (URN)',
+      'Check status online using URN; reflected in 30 days usually'
+    ],
+    processingTime: '15–30 days',
+    charges: 'UIDAI standard fees apply',
+    notes: 'Mandatory Biometric Updates for children reaching age 5 and age 15 are essential for keeping Aadhaar active.'
   },
   {
     id: 3, slug: 'e-aadhaar-download', category: 'identity',
@@ -59,13 +80,24 @@ export const services = [
   {
     id: 5, slug: 'pan-card-new', category: 'identity',
     name: 'PAN Card New Apply', icon: 'Receipt',
-    description: 'Apply for a new Permanent Account Number (PAN) card issued by the Income Tax Department of India. PAN is required for financial transactions and income tax filing.',
-    documentsRequired: ['Proof of Identity (Aadhaar / Voter ID / Passport)', 'Proof of Address (Aadhaar / Utility Bill)', 'Proof of Date of Birth (Birth Certificate / Marksheet)', 'Passport-size Photograph'],
-    eligibility: 'All Indian citizens and entities (individuals, companies, NRIs) can apply.',
-    processSteps: ['Fill PAN application form (49A for Indians)', 'Attach required documents', 'Submit application online or offline', 'Receive acknowledgment number', 'PAN card delivered within 15–20 working days'],
-    processingTime: '15–20 working days',
-    charges: 'Contact for latest charges',
-    notes: 'Documents and process may vary. Please contact or visit our office for confirmation.'
+    description: 'Apply for a new Permanent Account Number (PAN) card. Essential for banking, income tax filing, and all major financial transactions in India.',
+    documentsRequired: [
+      'Identity Proof: Aadhaar Card / Voter ID / Passport',
+      'Address Proof: Aadhaar Card / Utility Bill / Domicile Certificate',
+      'Date of Birth Proof: Aadhaar / Birth Certificate / Marksheet',
+      'Two Recent Passport-size Photographs with white background'
+    ],
+    eligibility: 'All Indian citizens (including minors through parents), companies, and NRIs can apply.',
+    processSteps: [
+      'Fill Application Form 49A (for Indian Citizens)',
+      'Submit required KYC documents and photographs',
+      'Digital or physical submission via NSDL/UTI portal',
+      'Payment of processing fees and receiving acknowledgment number',
+      'Physical PAN card dispatched to your registered address by Income Tax Dept'
+    ],
+    processingTime: '10–15 working days',
+    charges: 'Standard government fees + Service charges',
+    notes: 'Minors can apply for a PAN card; the form must be signed by one of the parents as a representative.'
   },
   {
     id: 6, slug: 'pan-card-correction', category: 'identity',
@@ -127,13 +159,25 @@ export const services = [
   {
     id: 11, slug: 'passport-new', category: 'passport',
     name: 'Passport New Apply', icon: 'BookText',
-    description: 'Apply for a new Indian passport for first-time applicants. Passport is the primary travel document for international travel.',
-    documentsRequired: ['Aadhaar Card', 'PAN Card', 'Voter ID / Birth Certificate (as DOB proof)', 'Address Proof', 'Passport-size Photographs (white background)', 'Class 10 Marksheet (for DOB)'],
-    eligibility: 'All Indian citizens who do not already hold a valid passport.',
-    processSteps: ['Register on Passport Seva Portal', 'Fill online application form', 'Schedule appointment at PSK/POPSK', 'Visit PSK with original documents', 'Police verification (if required)', 'Passport delivered within 15–30 days'],
-    processingTime: '15–30 working days',
-    charges: 'Contact for latest charges',
-    notes: 'Tatkaal service available for urgent applications at extra cost. Documents and process may vary.'
+    description: 'Professional assistance for Fresh/New Passport applications. We handle the entire online process including appointment scheduling and document guidance.',
+    documentsRequired: [
+      'Identity & Address Proof: Aadhaar Card (Preferably linked to mobile)',
+      'Date of Birth Proof: Birth Certificate or Class 10th Marksheet',
+      'Non-ECR Proof: Class 10th or higher education certificate',
+      'Current Address Proof: Utility Bill / Rent Agreement / Bank Passbook'
+    ],
+    eligibility: 'Any Indian citizen who holds a valid identity and address proof.',
+    processSteps: [
+      'Online Registration on the Passport Seva official portal',
+      'Filling the application form and paying the government fee',
+      'Booking the earliest available appointment slot at PSK/POPSK',
+      'Physical visit to PSK for document verification and biometric capture',
+      'Police verification at your local police station',
+      'Passport delivery at home via Speed Post'
+    ],
+    processingTime: '15–20 working days (Normal) / 3–5 days (Tatkaal)',
+    charges: 'Government Fee (₹1500) + Service Charges',
+    notes: 'Applicants must carry original documents on the day of appointment at the Passport Seva Kendra.'
   },
   {
     id: 12, slug: 'passport-renewal', category: 'passport',
@@ -274,13 +318,25 @@ export const services = [
   {
     id: 24, slug: 'marriage-certificate', category: 'certificates',
     name: 'Marriage Certificate Apply', icon: 'Ring',
-    description: 'Apply for an official marriage certificate under the Hindu Marriage Act or Special Marriage Act.',
-    documentsRequired: ['Marriage Invitation Card / Photograph', 'Both spouses\' Aadhaar Cards', 'Both spouses\' Age Proof', 'Both spouses\' Address Proof', 'Witnesses\' ID Proofs (2 witnesses)', 'Passport-size Photographs of couple'],
-    eligibility: 'Legally married couples seeking official registration.',
-    processSteps: ['Fill marriage registration form', 'Attach all required documents', 'Submit at Sub-District Magistrate / our centre', 'Both spouses appear on scheduled date', 'Certificate issued'],
+    description: 'Legal registration of marriage under the Hindu Marriage Act or Special Marriage Act for couples.',
+    documentsRequired: [
+      'Wedding Invitation Card & Marriage Hall Receipt',
+      'Marriage Photographs (Ceremony + Couple)',
+      'Identity & Address Proof of both Bride and Groom (Aadhaar & PAN)',
+      'Date of Birth Proof (Birth Certificate / School LC)',
+      'Witnesses: Two witnesses with their ID Proof'
+    ],
+    eligibility: 'Groom must be 21+ and Bride 18+ years of age at the time of marriage.',
+    processSteps: [
+      'Fill up the Marriage Registration Application form',
+      'Submission of joint affidavit and wedding proofs',
+      'Scheduling an appointment with the Sub-Registrar',
+      'Physical presence of both spouses and witnesses at the office',
+      'Issuance of official Marriage Certificate'
+    ],
     processingTime: '15–30 days',
     charges: 'Contact for latest charges',
-    notes: 'Documents and process may vary. Please contact or visit our office for confirmation.'
+    notes: 'The presence of both husband and wife along with witnesses is mandatory for registration.'
   },
   {
     id: 25, slug: 'income-certificate', category: 'certificates',

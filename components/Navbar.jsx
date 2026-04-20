@@ -20,11 +20,18 @@ export default function Navbar() {
     { href: '/', label: 'Home' },
     { href: '/about', label: 'About' },
     { href: '/services', label: 'Services' },
+    { href: '/blog', label: 'Blog' },
     { href: '/contact', label: 'Contact' },
   ]
 
+  const isHomePage = pathname === '/'
+  const navBackground = scrolled || !isHomePage ? 'navbar-glass shadow-md' : 'bg-transparent'
+  const textColor = scrolled || !isHomePage ? 'text-blue-900' : 'text-white'
+  const accentColor = scrolled || !isHomePage ? 'text-orange-600' : 'text-orange-400'
+  const iconColor = scrolled || !isHomePage ? 'text-gray-700' : 'text-white'
+
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'navbar-glass shadow-md' : 'bg-transparent'}`}>
+    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${navBackground}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 lg:h-20">
           {/* Logo */}
@@ -39,10 +46,10 @@ export default function Navbar() {
               />
             </div>
             <div className="flex flex-col">
-              <span className={`font-bold text-base lg:text-lg leading-tight transition-colors ${scrolled ? 'text-blue-900' : 'text-white'}`}>
+              <span className={`font-bold text-base lg:text-lg leading-tight transition-colors ${textColor}`}>
                 Suhana Service
               </span>
-              <span className={`text-xs font-semibold tracking-wider transition-colors ${scrolled ? 'text-orange-600' : 'text-orange-400'}`}>
+              <span className={`text-xs font-semibold tracking-wider transition-colors ${accentColor}`}>
                 CENTRE
               </span>
             </div>
@@ -56,10 +63,8 @@ export default function Navbar() {
                 href={link.href}
                 className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
                   pathname === link.href
-                    ? 'bg-blue-600 text-white'
-                    : scrolled
-                    ? 'text-gray-700 hover:bg-blue-50 hover:text-blue-600'
-                    : 'text-white/90 hover:bg-white/15 hover:text-white'
+                    ? 'bg-blue-600 text-white shadow-lg shadow-blue-500/30'
+                    : textColor + ' hover:bg-blue-50/50 hover:text-blue-600'
                 }`}
               >
                 {link.label}
@@ -77,13 +82,13 @@ export default function Navbar() {
           {/* Mobile hamburger */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className={`md:hidden p-2 rounded-lg transition-colors ${scrolled ? 'text-gray-700 hover:bg-gray-100' : 'text-white hover:bg-white/15'}`}
+            className={`md:hidden p-2 rounded-lg transition-colors ${scrolled || !isHomePage ? 'text-gray-700 hover:bg-gray-100' : 'text-white hover:bg-white/15'}`}
             aria-label="Menu"
           >
             <div className="w-6 h-5 flex flex-col justify-between">
-              <span className={`block h-0.5 w-full rounded transition-all duration-300 ${scrolled ? 'bg-gray-700' : 'bg-white'} ${isOpen ? 'rotate-45 translate-y-2' : ''}`}></span>
-              <span className={`block h-0.5 rounded transition-all duration-300 ${scrolled ? 'bg-gray-700' : 'bg-white'} ${isOpen ? 'opacity-0 w-0' : 'w-full'}`}></span>
-              <span className={`block h-0.5 w-full rounded transition-all duration-300 ${scrolled ? 'bg-gray-700' : 'bg-white'} ${isOpen ? '-rotate-45 -translate-y-2' : ''}`}></span>
+              <span className={`block h-0.5 w-full rounded transition-all duration-300 ${scrolled || !isHomePage ? 'bg-gray-700' : 'bg-white'} ${isOpen ? 'rotate-45 translate-y-2' : ''}`}></span>
+              <span className={`block h-0.5 rounded transition-all duration-300 ${scrolled || !isHomePage ? 'bg-gray-700' : 'bg-white'} ${isOpen ? 'opacity-0 w-0' : 'w-full'}`}></span>
+              <span className={`block h-0.5 w-full rounded transition-all duration-300 ${scrolled || !isHomePage ? 'bg-gray-700' : 'bg-white'} ${isOpen ? '-rotate-45 -translate-y-2' : ''}`}></span>
             </div>
           </button>
         </div>

@@ -2,6 +2,9 @@ import Link from 'next/link'
 import { services, categories, categoryColors } from '@/data/services'
 import ServiceCard from '@/components/ServiceCard'
 import LucideIcon from '@/components/LucideIcon'
+import TestimonialSlider from '@/components/TestimonialSlider'
+import BlogCard from '@/components/BlogCard'
+import { blogs } from '@/data/blogs'
 
 const faqs = [
   { q: 'What documents do I need for Aadhaar card update?', a: 'You need your original Aadhaar card and a supporting document for the field being updated (e.g., utility bill for address, gazette for name change). Visit us with originals.' },
@@ -228,6 +231,28 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* ─── Testimonials Section ─── */}
+      <section className="py-20 lg:py-28 bg-white relative overflow-hidden">
+        {/* Background Decorations */}
+        <div className="absolute top-0 left-0 w-full h-full pattern-bg opacity-40 -z-10"></div>
+        <div className="absolute top-1/4 -left-20 w-80 h-80 bg-blue-100 rounded-full blur-3xl opacity-30"></div>
+        <div className="absolute bottom-1/4 -right-20 w-80 h-80 bg-orange-100 rounded-full blur-3xl opacity-30"></div>
+        
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <div className="inline-flex items-center gap-2 bg-blue-50 text-blue-700 px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-widest mb-4 border border-blue-100 shadow-sm">
+              <LucideIcon name="MessageSquare" size={14} className="text-orange-500" /> Testimonials
+            </div>
+            <h2 className="text-3xl lg:text-5xl font-black text-blue-950 mb-4 tracking-tight">
+              What Our <span className="text-blue-600">Customers Say</span>
+            </h2>
+            <div className="w-20 h-1.5 bg-gradient-to-r from-blue-600 to-orange-500 mx-auto rounded-full mb-6"></div>
+          </div>
+          
+          <TestimonialSlider />
+        </div>
+      </section>
+
       {/* ─── About Preview ─── */}
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -275,6 +300,33 @@ export default function HomePage() {
                 )
               })}
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ─── Latest Blog Section ─── */}
+      <section className="py-20 lg:py-28 bg-blue-50/50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+            <div className="max-w-2xl">
+              <div className="inline-flex items-center gap-2 bg-orange-50 text-orange-700 px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-widest mb-4 border border-orange-100 shadow-sm">
+                <LucideIcon name="Newspaper" size={14} className="text-blue-600" /> Latest Updates
+              </div>
+              <h2 className="text-3xl lg:text-5xl font-black text-blue-950 mb-0 tracking-tight">
+                From Our <span className="text-blue-600">Blog</span>
+              </h2>
+            </div>
+            <Link href="/blog" className="btn-outline border-blue-200 text-blue-600 hover:bg-blue-600 hover:text-white hover:border-blue-600 px-8 py-3.5 flex items-center justify-center gap-2 transition-all">
+              View All Posts <LucideIcon name="ArrowRight" size={18} />
+            </Link>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {blogs.slice(0, 3).map((blog, index) => (
+              <div key={blog.id} className="animate-fade-up" style={{ animationDelay: `${index * 0.1}s` }}>
+                <BlogCard blog={blog} />
+              </div>
+            ))}
           </div>
         </div>
       </section>
