@@ -3,14 +3,14 @@
 import { useEffect, useRef } from 'react'
 
 const logos = [
-  { name: 'CSC', img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/CSC_Logo.svg/512px-CSC_Logo.svg.png' },
-  { name: 'Digital India', img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Digital_India_logo.svg/512px-Digital_India_logo.svg.png' },
-  { name: 'Aadhaar', img: 'https://upload.wikimedia.org/wikipedia/en/thumb/c/cf/Aadhaar_Logo.svg/512px-Aadhaar_Logo.svg.png' },
-  { name: 'PAN Card', img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Flag_of_India.svg/512px-Flag_of_India.svg.png' },
-  { name: 'Aaple Sarkar', img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Seal_of_Maharashtra.svg/512px-Seal_of_Maharashtra.svg.png' },
-  { name: 'Maha Seva Kendra', img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Seal_of_Maharashtra.svg/512px-Seal_of_Maharashtra.svg.png' },
-  { name: 'Voter ID', img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/Election_Commission_of_India_Logo.svg/512px-Election_Commission_of_India_Logo.svg.png' },
-  { name: 'Online Payment', img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/UPI-Logo-vector.svg/512px-UPI-Logo-vector.svg.png' },
+  { name: 'CSC', img: '/logoslider/csc.png' },
+  { name: 'Digital India', img: '/logoslider/digital-india.png' },
+  { name: 'Aadhaar', img: '/logoslider/Aadhaar.png' },
+  { name: 'PAN Card', img: '/logoslider/pan-card.png' },
+  { name: 'Aaple Sarkar', img: '/logoslider/aaple-sarkar.png' },
+  { name: 'Maha Seva Kendra', img: '/logoslider/Maha-Seva-Kendra.png' },
+  { name: 'Voter ID', img: '/logoslider/voter-id.png' },
+  { name: 'Online Payment', img: '/logoslider/online-payment.png' },
 ]
 
 export default function LogoSlider() {
@@ -30,11 +30,12 @@ export default function LogoSlider() {
           {/* Double the logos for infinite scroll effect */}
           {[...logos, ...logos].map((logo, i) => (
             <div key={i} className="flex-shrink-0 mx-8 flex flex-col items-center gap-2 group">
-              <div className="w-16 h-16 rounded-2xl bg-gray-50 border border-gray-100 flex items-center justify-center p-2.5 group-hover:scale-110 group-hover:shadow-md transition-all">
+              <div className="w-16 h-16 rounded-2xl bg-white border border-gray-100 flex items-center justify-center p-2 group-hover:scale-110 shadow-sm group-hover:shadow-md transition-all relative overflow-hidden">
                 <img 
                   src={logo.img} 
                   alt={logo.name} 
-                  className="w-full h-full object-contain"
+                  className="w-full h-full object-contain mix-blend-multiply"
+                  style={{ filter: 'contrast(1.1)' }}
                   loading="lazy"
                 />
               </div>
