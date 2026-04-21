@@ -34,15 +34,15 @@ export default function ServiceCard({ service, compact = false, customization = 
             )}
 
             <div className="relative z-10">
-              <div className={`inline-flex items-center justify-center w-12 h-12 rounded-xl ${colors.bg} mb-4 group-hover:scale-110 transition-all duration-500 shadow-inner`}>
+              <div className={`inline-flex items-center justify-center w-10 h-10 rounded-xl ${colors.bg} mb-4 group-hover:scale-110 transition-all duration-500 shadow-inner`}>
                 {effectiveImage ? (
                   <img
                     src={effectiveImage}
                     alt={effectiveImageAlt}
-                    className="w-10 h-10 object-contain"
+                    className="w-8 h-8 object-contain"
                   />
                 ) : (
-                  <LucideIcon name={effectiveIcon} size={24} className={colors.text} />
+                  <LucideIcon name={effectiveIcon} size={20} className={colors.text} />
                 )}
               </div>
               <h3 className="font-black text-gray-900 text-sm leading-tight group-hover:text-blue-600 transition-colors mb-2">
@@ -90,16 +90,16 @@ export default function ServiceCard({ service, compact = false, customization = 
               {/* Logo/Icon */}
               <div className="flex-shrink-0">
                 {effectiveImage ? (
-                  <div className="w-14 h-14 rounded-xl overflow-hidden border border-gray-100 bg-white shadow-sm group-hover:scale-105 transition-all duration-300 flex items-center justify-center">
+                  <div className="w-11 h-11 rounded-xl overflow-hidden bg-white shadow-sm group-hover:scale-105 transition-all duration-300 flex items-center justify-center">
                     <img
                       src={effectiveImage}
                       alt={effectiveImageAlt}
-                      className="w-12 h-12 object-contain"
+                      className="w-9 h-9 object-contain"
                     />
                   </div>
                 ) : (
-                  <div className={`flex items-center justify-center w-14 h-14 rounded-xl ${colors.bg} shadow-sm border border-white/50 group-hover:scale-105 transition-all duration-300`}>
-                    <LucideIcon name={effectiveIcon} size={28} className={colors.text} />
+                  <div className={`flex items-center justify-center w-11 h-11 rounded-xl ${colors.bg} shadow-sm group-hover:scale-105 transition-all duration-300`}>
+                    <LucideIcon name={effectiveIcon} size={20} className={colors.text} />
                   </div>
                 )}
               </div>
@@ -117,13 +117,13 @@ export default function ServiceCard({ service, compact = false, customization = 
 
             {/* Card / Dummy Image */}
             {effectiveDummy && (
-              <div className="mb-3 rounded-xl overflow-hidden h-28 w-full border border-gray-100 shadow-sm relative flex-shrink-0">
+              <div className="mb-3 rounded-xl overflow-hidden h-28 w-full shadow-sm relative flex-shrink-0">
                 <img
                   src={effectiveDummy}
                   alt={effectiveDummyAlt}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/15 to-transparent"></div>
               </div>
             )}
 

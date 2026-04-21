@@ -20,65 +20,50 @@ const ICON_OPTIONS = [
   'NotepadText','PenLine','FileCheck','Stamp','HandCoins','Coins','Banknote',
 ]
 
-// ─── Preset dummy images (document-style cards) ───
-const DUMMY_IMAGE_PRESETS = [
-  {
-    label: 'Aadhaar Card',
-    url: 'https://images.unsplash.com/photo-1633158829585-23ba8f7c8caf?auto=format&fit=crop&q=80&w=400',
-  },
-  {
-    label: 'PAN Card',
-    url: 'https://images.unsplash.com/photo-1544144433-d50aff500b91?auto=format&fit=crop&q=80&w=400',
-  },
-  {
-    label: 'Passport',
-    url: 'https://images.unsplash.com/photo-1544016768-982d1554f0b9?q=80&w=400&auto=format&fit=crop',
-  },
-  {
-    label: 'Voter ID',
-    url: 'https://images.unsplash.com/photo-1540910419892-f0c74b0e53b3?auto=format&fit=crop&q=80&w=400',
-  },
-  {
-    label: 'Driving Licence',
-    url: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&q=80&w=400',
-  },
-  {
-    label: 'Banking / Finance',
-    url: 'https://images.unsplash.com/photo-1550565118-3a14e8d0386f?q=80&w=400&auto=format&fit=crop',
-  },
-  {
-    label: 'Certificate / Document',
-    url: 'https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?q=80&w=400&auto=format&fit=crop',
-  },
-  {
-    label: 'Government Office',
-    url: 'https://images.unsplash.com/photo-1512314889357-e157c22f938d?q=80&w=400&auto=format&fit=crop',
-  },
-  {
-    label: 'Mobile / Digital',
-    url: 'https://images.unsplash.com/photo-1512314889357-e157c22f938d?q=80&w=400&auto=format&fit=crop',
-  },
-  {
-    label: 'Printing / Xerox',
-    url: 'https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?q=80&w=400&auto=format&fit=crop',
-  },
-  {
-    label: 'Education',
-    url: 'https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=80&w=400&auto=format&fit=crop',
-  },
-  {
-    label: 'Smart Card',
-    url: 'https://images.unsplash.com/photo-1633155545258-299965d2124e?q=80&w=400&auto=format&fit=crop',
-  },
+// ─── Local service card images from /service-card-images/ ───
+const SERVICE_CARD_IMAGES = [
+  { id: 1, file: '1.jpeg' },
+  { id: 2, file: '2.jpeg' },
+  { id: 3, file: '3.jpeg' },
+  { id: 4, file: '4.jpeg' },
+  { id: 5, file: '5.jpeg' },
+  { id: 6, file: '6.jpeg' },
+  { id: 7, file: '7.jpeg' },
+  { id: 8, file: '8.jpeg' },
+  { id: 9, file: '9.jpeg' },
+  { id: 10, file: '10.jpeg' },
+  { id: 11, file: '11.jpg' },
+  { id: 12, file: '12.jpeg' },
+  { id: 13, file: '13.jpeg' },
+  { id: 14, file: '14.jpeg' },
+  { id: 15, file: '15.jpeg' },
+  { id: 16, file: '16.jpeg' },
+  { id: 17, file: '17.jpeg' },
+  { id: 18, file: '18.jpeg' },
+  { id: 19, file: '19.jpeg' },
+  { id: 20, file: '20.jpeg' },
+  { id: 21, file: '21.jpeg' },
+  { id: 22, file: '22.jpeg' },
+  { id: 23, file: '23.jpeg' },
+  { id: 24, file: '24.jpg' },
+  { id: 25, file: '25.png' },
+  { id: 26, file: '26.webp' },
+  { id: 27, file: '27.jpg' },
 ]
 
-// ─── Logo image presets (official logos) ───
-const LOGO_IMAGE_PRESETS = [
-  { label: 'Aadhaar Logo', url: 'https://upload.wikimedia.org/wikipedia/en/thumb/c/cf/Aadhaar_Logo.svg/512px-Aadhaar_Logo.svg.png' },
-  { label: 'India Emblem', url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Emblem_of_India.svg/512px-Emblem_of_India.svg.png' },
-  { label: 'India Flag', url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Flag_of_India.svg/512px-Flag_of_India.svg.png' },
-  { label: 'Passport Seva', url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Flag_of_India.svg/512px-Flag_of_India.svg.png' },
-  { label: 'PAN (IT Dept)', url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Emblem_of_India.svg/512px-Emblem_of_India.svg.png' },
+// ─── Local service icon SVGs from /service-icons/ ───
+const SERVICE_ICON_SVGS = [
+  { label: 'Aadhaar', file: 'Aadhaar_Logo.svg' },
+  { label: 'Ayushman Bharat', file: 'Ayushman-Bharat-Color.svg' },
+  { label: 'Digital India', file: 'Digital-India-Color.svg' },
+  { label: 'GST Network', file: 'Goods-and-Service-Tax-Network-Color.svg' },
+  { label: 'Govt. of India', file: 'Government_of_India_logo.svg' },
+  { label: 'Income Tax Dept', file: 'Income-Tax-Department-Black.svg' },
+  { label: 'CSC', file: 'Logo_of_Common_Service_Centres.svg' },
+  { label: 'NVSP', file: 'NVSP-Color.svg' },
+  { label: 'RBI', file: 'ReserveBankOfIndia_idqucZxAGF_1.svg' },
+  { label: 'Credit Card', file: 'credit-card.svg' },
+  { label: 'MSME', file: 'msme-seeklogo.svg' },
 ]
 
 export default function ServicesCustomizationPage() {
@@ -359,28 +344,45 @@ export default function ServicesCustomizationPage() {
                           />
                         </div>
 
-                        {/* Logo presets */}
+                        {/* Local service icon SVGs */}
                         <div>
                           <label className="block text-xs font-black text-gray-600 uppercase tracking-wider mb-2">
-                            Or choose a preset logo
+                            Or choose from local service icons
                           </label>
-                          <div className="flex flex-wrap gap-2">
-                            {LOGO_IMAGE_PRESETS.map(p => (
-                              <button
-                                key={p.label}
-                                onClick={() => updateEdit(service.id, 'imageOverride', p.url)}
-                                title={p.label}
-                                className="w-12 h-12 rounded-xl border-2 border-gray-200 overflow-hidden hover:border-blue-400 transition-all"
-                              >
-                                <img src={p.url} alt={p.label} className="w-full h-full object-contain p-1" />
-                              </button>
-                            ))}
+                          <div className="grid grid-cols-4 sm:grid-cols-6 gap-2 max-h-[240px] overflow-y-auto p-1">
+                            {SERVICE_ICON_SVGS.map(icon => {
+                              const iconUrl = `/service-icons/${icon.file}`
+                              const isSelected = (getEdit(service.id).imageOverride ?? customizations[service.id]?.imageOverride) === iconUrl
+                              return (
+                                <button
+                                  key={icon.label}
+                                  onClick={() => updateEdit(service.id, 'imageOverride', iconUrl)}
+                                  title={icon.label}
+                                  className={`flex flex-col items-center gap-1 p-2 rounded-xl border-2 transition-all ${
+                                    isSelected
+                                      ? 'border-blue-500 bg-blue-50 shadow-md ring-2 ring-blue-200'
+                                      : 'border-gray-200 hover:border-blue-300 bg-white'
+                                  }`}
+                                >
+                                  <div className="w-10 h-10 flex items-center justify-center">
+                                    <img src={iconUrl} alt={icon.label} className="max-w-full max-h-full object-contain" />
+                                  </div>
+                                  <span className="text-[8px] font-bold text-gray-500 leading-tight text-center truncate w-full">{icon.label}</span>
+                                  {isSelected && (
+                                    <CheckCircle2 size={12} className="text-blue-600" />
+                                  )}
+                                </button>
+                              )
+                            })}
                             <button
                               onClick={() => updateEdit(service.id, 'imageOverride', null)}
-                              className="w-12 h-12 rounded-xl border-2 border-dashed border-gray-300 text-gray-400 hover:border-red-400 hover:text-red-400 transition-all text-xs font-bold flex items-center justify-center"
+                              className="flex flex-col items-center gap-1 p-2 rounded-xl border-2 border-dashed border-gray-300 text-gray-400 hover:border-red-400 hover:text-red-400 transition-all"
                               title="Clear logo"
                             >
-                              <X size={16} />
+                              <div className="w-10 h-10 flex items-center justify-center">
+                                <X size={18} />
+                              </div>
+                              <span className="text-[8px] font-bold">Clear</span>
                             </button>
                           </div>
                         </div>
@@ -430,29 +432,38 @@ export default function ServicesCustomizationPage() {
                           />
                         </div>
 
-                        {/* Preset dummy images */}
+                        {/* Local service card images */}
                         <div>
                           <label className="block text-xs font-black text-gray-600 uppercase tracking-wider mb-2">
-                            Or choose a preset card image
+                            Or choose from local card images
                           </label>
-                          <div className="grid grid-cols-3 sm:grid-cols-4 gap-2">
-                            {DUMMY_IMAGE_PRESETS.map(p => (
-                              <button
-                                key={p.label}
-                                onClick={() => updateEdit(service.id, 'dummyImageOverride', p.url)}
-                                title={p.label}
-                                className={`relative rounded-xl overflow-hidden border-2 transition-all h-20 ${
-                                  (getEdit(service.id).dummyImageOverride ?? customizations[service.id]?.dummyImageOverride) === p.url
-                                    ? 'border-blue-500 shadow-md'
-                                    : 'border-transparent hover:border-blue-300'
-                                }`}
-                              >
-                                <img src={p.url} alt={p.label} className="w-full h-full object-cover" />
-                                <div className="absolute inset-0 bg-black/40 flex items-end p-1.5">
-                                  <span className="text-white text-[9px] font-bold leading-tight">{p.label}</span>
-                                </div>
-                              </button>
-                            ))}
+                          <div className="grid grid-cols-4 sm:grid-cols-5 md:grid-cols-6 gap-2 max-h-[320px] overflow-y-auto p-1">
+                            {SERVICE_CARD_IMAGES.map(img => {
+                              const imgUrl = `/service-card-images/${img.file}`
+                              const isSelected = (getEdit(service.id).dummyImageOverride ?? customizations[service.id]?.dummyImageOverride) === imgUrl
+                              return (
+                                <button
+                                  key={img.id}
+                                  onClick={() => updateEdit(service.id, 'dummyImageOverride', imgUrl)}
+                                  title={`Image ${img.id}`}
+                                  className={`relative rounded-xl overflow-hidden border-2 transition-all h-20 ${
+                                    isSelected
+                                      ? 'border-blue-500 shadow-md ring-2 ring-blue-200'
+                                      : 'border-gray-200 hover:border-blue-300'
+                                  }`}
+                                >
+                                  <img src={imgUrl} alt={`Card image ${img.id}`} className="w-full h-full object-cover" />
+                                  {isSelected && (
+                                    <div className="absolute top-1 right-1 bg-blue-600 text-white rounded-full w-5 h-5 flex items-center justify-center">
+                                      <CheckCircle2 size={12} />
+                                    </div>
+                                  )}
+                                  <div className="absolute bottom-0 left-0 right-0 bg-black/50 text-white text-[9px] font-bold text-center py-0.5">
+                                    {img.id}
+                                  </div>
+                                </button>
+                              )
+                            })}
                             <button
                               onClick={() => updateEdit(service.id, 'dummyImageOverride', null)}
                               className="rounded-xl border-2 border-dashed border-gray-300 text-gray-400 hover:border-red-400 hover:text-red-400 transition-all flex items-center justify-center h-20 text-xs font-bold flex-col gap-1"

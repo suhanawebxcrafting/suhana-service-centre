@@ -299,9 +299,6 @@ export default function ContactPage() {
                       <><LucideIcon name="Send" size={20} /> Send Message</>
                     )}
                   </button>
-                  <p className="text-gray-400 text-[10px] text-center font-bold uppercase tracking-widest mt-2">
-                    Saved to our system · Sent via WhatsApp
-                  </p>
                 </form>
               </div>
             </div>
