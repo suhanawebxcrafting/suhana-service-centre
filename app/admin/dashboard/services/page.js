@@ -134,6 +134,8 @@ export default function ServicesCustomizationPage() {
       iconOverride: edit.iconOverride ?? current.iconOverride ?? null,
       imageOverride: edit.imageOverride ?? current.imageOverride ?? null,
       dummyImageOverride: edit.dummyImageOverride ?? current.dummyImageOverride ?? null,
+      imageAltText: edit.imageAltText ?? current.imageAltText ?? null,
+      dummyImageAltText: edit.dummyImageAltText ?? current.dummyImageAltText ?? null,
     }
 
     setSaving(id)
@@ -178,6 +180,8 @@ export default function ServicesCustomizationPage() {
       icon: e.iconOverride ?? c.iconOverride ?? service.icon ?? 'Wrench',
       image: e.imageOverride ?? c.imageOverride ?? service.image ?? null,
       dummy: e.dummyImageOverride ?? c.dummyImageOverride ?? service.dummyImage ?? null,
+      imageAlt: e.imageAltText ?? c.imageAltText ?? null,
+      dummyAlt: e.dummyImageAltText ?? c.dummyImageAltText ?? null,
     }
   }
 
@@ -342,6 +346,19 @@ export default function ServicesCustomizationPage() {
                           />
                         </div>
 
+                        <div>
+                          <label className="block text-xs font-black text-gray-600 uppercase tracking-wider mb-2">
+                            Logo Alt Text <span className="text-gray-400 font-normal normal-case">(for accessibility/SEO)</span>
+                          </label>
+                          <input
+                            type="text"
+                            placeholder={`e.g. Official logo of ${service.name}`}
+                            value={getEdit(service.id).imageAltText ?? customizations[service.id]?.imageAltText ?? ''}
+                            onChange={e => updateEdit(service.id, 'imageAltText', e.target.value || null)}
+                            className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-50"
+                          />
+                        </div>
+
                         {/* Logo presets */}
                         <div>
                           <label className="block text-xs font-black text-gray-600 uppercase tracking-wider mb-2">
@@ -396,6 +413,19 @@ export default function ServicesCustomizationPage() {
                             placeholder="https://example.com/image.jpg"
                             value={getEdit(service.id).dummyImageOverride ?? customizations[service.id]?.dummyImageOverride ?? service.dummyImage ?? ''}
                             onChange={e => updateEdit(service.id, 'dummyImageOverride', e.target.value || null)}
+                            className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-50"
+                          />
+                        </div>
+
+                        <div>
+                          <label className="block text-xs font-black text-gray-600 uppercase tracking-wider mb-2">
+                            Card Image Alt Text <span className="text-gray-400 font-normal normal-case">(for accessibility/SEO)</span>
+                          </label>
+                          <input
+                            type="text"
+                            placeholder={`e.g. Visual illustration of ${service.name}`}
+                            value={getEdit(service.id).dummyImageAltText ?? customizations[service.id]?.dummyImageAltText ?? ''}
+                            onChange={e => updateEdit(service.id, 'dummyImageAltText', e.target.value || null)}
                             className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-50"
                           />
                         </div>

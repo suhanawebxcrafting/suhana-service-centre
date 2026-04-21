@@ -70,5 +70,7 @@ model ServiceCustomization {
   iconOverride     String?
   imageOverride    String?
   dummyImageOverride String?
+  imageAltText     String?
+  dummyImageAltText String?
   updatedAt        DateTime @updatedAt
 }

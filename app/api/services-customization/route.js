@@ -21,12 +21,12 @@ export async function GET() {
 
 export async function POST(req) {
   try {
-    const { serviceId, iconOverride, imageOverride, dummyImageOverride } = await req.json()
+    const { serviceId, iconOverride, imageOverride, dummyImageOverride, imageAltText, dummyImageAltText } = await req.json()
 
     const result = await prisma.serviceCustomization.upsert({
       where: { serviceId },
-      update: { iconOverride, imageOverride, dummyImageOverride },
-      create: { serviceId, iconOverride, imageOverride, dummyImageOverride },
+      update: { iconOverride, imageOverride, dummyImageOverride, imageAltText, dummyImageAltText },
+      create: { serviceId, iconOverride, imageOverride, dummyImageOverride, imageAltText, dummyImageAltText },
     })
 
     return NextResponse.json(result)

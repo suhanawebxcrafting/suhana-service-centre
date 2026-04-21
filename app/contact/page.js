@@ -332,6 +332,27 @@ export default function ContactPage() {
           </p>
         </div>
       </section>
+
+      {/* Global Toast Popup */}
+      {submitted && !saveFailed && (
+        <div className="fixed bottom-10 right-10 bg-green-600 text-white px-6 py-4 rounded-xl shadow-2xl flex items-center gap-3 z-50 animate-fade-up">
+          <LucideIcon name="CheckCircle2" size={24} />
+          <div>
+            <h4 className="font-bold text-sm">Message Sent!</h4>
+            <p className="text-xs opacity-90">Redirecting to WhatsApp...</p>
+          </div>
+        </div>
+      )}
+
+      {submitted && saveFailed && (
+        <div className="fixed bottom-10 right-10 bg-orange-600 text-white px-6 py-4 rounded-xl shadow-2xl flex items-center gap-3 z-50 animate-fade-up">
+          <LucideIcon name="AlertCircle" size={24} />
+          <div>
+            <h4 className="font-bold text-sm">Action Needs Attention</h4>
+            <p className="text-xs opacity-90">Couldn't save to DB. Opening WhatsApp directly.</p>
+          </div>
+        </div>
+      )}
     </>
   )
 }

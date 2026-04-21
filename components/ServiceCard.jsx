@@ -9,7 +9,9 @@ export default function ServiceCard({ service, compact = false, customization = 
   // Merge customization overrides
   const effectiveIcon = customization?.iconOverride || service.icon || 'Wrench'
   const effectiveImage = customization?.imageOverride || service.image || null
+  const effectiveImageAlt = customization?.imageAltText || `${service.name} logo`
   const effectiveDummy = customization?.dummyImageOverride || service.dummyImage || null
+  const effectiveDummyAlt = customization?.dummyImageAltText || `${service.name} service illustration`
 
   // WhatsApp Message
   const whatsappUrl = `https://wa.me/917709709243?text=Hello%21+I%27m+interested+in+the+${encodeURIComponent(service.name)}+service.`
@@ -36,7 +38,7 @@ export default function ServiceCard({ service, compact = false, customization = 
                 {effectiveImage ? (
                   <img
                     src={effectiveImage}
-                    alt={`${service.name} logo`}
+                    alt={effectiveImageAlt}
                     className="w-10 h-10 object-contain"
                   />
                 ) : (
@@ -91,7 +93,7 @@ export default function ServiceCard({ service, compact = false, customization = 
                   <div className="w-14 h-14 rounded-xl overflow-hidden border border-gray-100 bg-white shadow-sm group-hover:scale-105 transition-all duration-300 flex items-center justify-center">
                     <img
                       src={effectiveImage}
-                      alt={`${service.name} official logo`}
+                      alt={effectiveImageAlt}
                       className="w-12 h-12 object-contain"
                     />
                   </div>
@@ -118,7 +120,7 @@ export default function ServiceCard({ service, compact = false, customization = 
               <div className="mb-3 rounded-xl overflow-hidden h-28 w-full border border-gray-100 shadow-sm relative flex-shrink-0">
                 <img
                   src={effectiveDummy}
-                  alt={`${service.name} service illustration`}
+                  alt={effectiveDummyAlt}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
