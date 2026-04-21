@@ -1,0 +1,47 @@
+import { NextResponse } from 'next/server'
+import { prisma } from '@/lib/prisma'
+
+export const dynamic = 'force-dynamic'
+export const revalidate = 0
+
+export async function GET() {
+  try {
+    const customizations = await prisma.serviceCustomization.findMany()
+    // Return as a map { serviceId -> customization }
+    const map = {}
+    for (const c of customizations) {
+      map[c.serviceId] = c
+    }
+    return NextResponse.json(map)
+  } catch (error) {
+    console.error(error)
+    return NextResponse.json({ error: 'Failed to fetch customizations' }, { status: 500 })
+  }
+}
+
+export async function POST(req) {
+  try {
+    const { serviceId, iconOverride, imageOverride, dummyImageOverride } = await req.json()
+
+    const result = await prisma.serviceCustomization.upsert({
+      where: { serviceId },
+      update: { iconOverride, imageOverride, dummyImageOverride },
+      create: { serviceId, iconOverride, imageOverride, dummyImageOverride },
+    })
+
+    return NextResponse.json(result)
+  } catch (error) {
+    console.error(error)
+    return NextResponse.json({ error: 'Failed to save customization' }, { status: 500 })
+  }
+}
+
+export async function DELETE(req) {
+  try {
+    const { serviceId } = await req.json()
+    await prisma.serviceCustomization.delete({ where: { serviceId } })
+    return NextResponse.json({ success: true })
+  } catch (error) {
+    return NextResponse.json({ error: 'Failed to delete customization' }, { status: 500 })
+  }
+}

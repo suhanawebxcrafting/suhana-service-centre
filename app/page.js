@@ -8,6 +8,7 @@ import LogoSlider from '@/components/LogoSlider'
 import { prisma } from '@/lib/prisma'
 
 export const dynamic = 'force-dynamic'
+export const revalidate = 0
 
 const faqs = [
   { q: 'What documents do I need for Aadhaar card update?', a: 'You need your original Aadhaar card and a supporting document for the field being updated (e.g., utility bill for address, gazette for name change). Visit us with originals.' },
@@ -28,6 +29,18 @@ const whyUs = [
 
 export default async function HomePage() {
   const blogs = await prisma.blog.findMany({ where: { isPublished: true }, orderBy: { createdAt: 'desc' }, take: 3 })
+  
+  // Fetch admin-set logo/image customizations for featured service cards
+  let customizationsMap = {}
+  try {
+    const customizationsRaw = await prisma.serviceCustomization.findMany()
+    for (const c of customizationsRaw) {
+      customizationsMap[c.serviceId] = c
+    }
+  } catch (e) {
+    // Prisma client may not have the new model yet — safe to ignore
+    console.warn('serviceCustomization not available:', e.message)
+  }
   
   const featuredIds = [1, 4, 7, 73, 75, 76, 77, 79, 80, 81, 82, 83] // Curated popular services
   const featuredServices = services.filter(s => featuredIds.includes(s.id))
@@ -164,7 +177,7 @@ export default async function HomePage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
             {featuredServices.map((service, index) => (
               <div key={service.id} className="animate-fade-up" style={{ animationDelay: `${index * 0.1}s` }}>
-                <ServiceCard service={service} />
+                <ServiceCard service={service} customization={customizationsMap[service.id] || null} />
               </div>
             ))}
           </div>

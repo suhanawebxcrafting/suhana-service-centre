@@ -14,7 +14,7 @@ export const services = [
   // ─── A. Identity & Government ───
   {
     id: 1, slug: 'aadhaar-new-registration', category: 'identity',
-    name: 'Aadhaar Card New Registration', icon: 'Contact',
+    name: 'Aadhaar Card New Registration', icon: 'Fingerprint',
     image: 'https://upload.wikimedia.org/wikipedia/en/thumb/c/cf/Aadhaar_Logo.svg/512px-Aadhaar_Logo.svg.png',
     dummyImage: 'https://images.unsplash.com/photo-1633158829585-23ba8f7c8caf?auto=format&fit=crop&q=80&w=400',
     description: 'Apply for a new Aadhaar card for Indian residents. Aadhaar is a 12-digit unique identity number issued by UIDAI and is mandatory for most government services.',
@@ -38,7 +38,7 @@ export const services = [
   },
   {
     id: 2, slug: 'aadhaar-update', category: 'identity',
-    name: 'Aadhaar Card Update (Demographic & Biometric)', icon: 'FileEdit',
+    name: 'Aadhaar Card Update (Demographic & Biometric)', icon: 'Fingerprint',
     description: 'Update your Aadhaar details such as Name, Date of Birth, Address, Gender, Mobile Number, or Email. Also includes mandatory biometric updates for children.',
     documentsRequired: [
       'Original Aadhaar Card',
@@ -83,7 +83,7 @@ export const services = [
   },
   {
     id: 5, slug: 'pan-card-new', category: 'identity',
-    name: 'PAN Card New Apply', icon: 'Receipt',
+    name: 'PAN Card New Apply', icon: 'IdCard',
     description: 'Apply for a new Permanent Account Number (PAN) card. Essential for banking, income tax filing, and all major financial transactions in India.',
     documentsRequired: [
       'Identity Proof: Aadhaar Card / Voter ID / Passport',
@@ -105,7 +105,7 @@ export const services = [
   },
   {
     id: 6, slug: 'pan-card-correction', category: 'identity',
-    name: 'PAN Card Correction / Update', icon: 'RefreshCw',
+    name: 'PAN Card Correction / Update', icon: 'RefreshCcw',
     description: 'Correct or update details on your existing PAN card such as name, date of birth, father\'s name, address, or photo.',
     documentsRequired: ['Existing PAN Card', 'Supporting document for correction', 'Proof of Identity and Address', 'Passport-size Photograph'],
     eligibility: 'Existing PAN card holders requiring corrections.',
@@ -164,7 +164,7 @@ export const services = [
   // ─── B. Passport Services ───
   {
     id: 11, slug: 'passport-new', category: 'passport',
-    name: 'Passport New Apply', icon: 'BookText',
+    name: 'Passport New Apply', icon: 'Book',
     description: 'Professional assistance for Fresh/New Passport applications. We handle the entire online process including appointment scheduling and document guidance.',
     documentsRequired: [
       'Identity & Address Proof: Aadhaar Card (Preferably linked to mobile)',
@@ -209,7 +209,7 @@ export const services = [
   },
   {
     id: 14, slug: 'police-verification', category: 'passport',
-    name: 'Police Verification Support', icon: '🚔',
+    name: 'Police Verification Support', icon: 'ShieldCheck',
     description: 'Assistance and guidance for police verification process required for passport issuance.',
     documentsRequired: ['Passport Application Acknowledgment', 'Aadhaar Card', 'Address Proof', 'Additional documents as requested by police'],
     eligibility: 'Passport applicants who have been flagged for police verification.',
@@ -233,7 +233,7 @@ export const services = [
   },
   {
     id: 16, slug: 'mini-statement', category: 'banking',
-    name: 'Mini Statement / Balance Check', icon: '💹',
+    name: 'Mini Statement / Balance Check', icon: 'FileText',
     description: 'Check your bank account balance and get a mini statement of recent transactions using AEPS or other banking services.',
     documentsRequired: ['Aadhaar Card', 'Bank account linked with Aadhaar'],
     eligibility: 'Any bank account holder with Aadhaar-linked account.',
@@ -244,7 +244,7 @@ export const services = [
   },
   {
     id: 17, slug: 'money-transfer', category: 'banking',
-    name: 'Money Transfer (Domestic)', icon: '💸',
+    name: 'Money Transfer (Domestic)', icon: 'ArrowLeftRight',
     description: 'Send money domestically to any bank account across India quickly and securely.',
     documentsRequired: ['Sender\'s valid ID proof', 'Recipient bank account details (Account No. + IFSC)'],
     eligibility: 'Any individual needing to transfer money domestically.',
@@ -255,7 +255,7 @@ export const services = [
   },
   {
     id: 18, slug: 'aeps', category: 'banking',
-    name: 'AEPS (Aadhaar Enabled Payment System)', icon: '👆',
+    name: 'AEPS (Aadhaar Enabled Payment System)', icon: 'Fingerprint',
     description: 'AEPS enables banking transactions using your Aadhaar number and biometric (fingerprint) authentication — no ATM card or PIN needed.',
     documentsRequired: ['Aadhaar Card', 'Aadhaar-linked bank account'],
     eligibility: 'Any individual with Aadhaar-linked bank account.',
@@ -266,7 +266,7 @@ export const services = [
   },
   {
     id: 19, slug: 'pan-aadhaar-linking', category: 'banking',
-    name: 'PAN–Aadhaar Linking', icon: '🔗',
+    name: 'PAN–Aadhaar Linking', icon: 'Link',
     description: 'Link your PAN card with Aadhaar card as mandated by the Income Tax Department of India. Unlinked PANs become inoperative.',
     documentsRequired: ['PAN Card', 'Aadhaar Card', 'Registered Mobile Number'],
     eligibility: 'All PAN card holders (mandatory for most taxpayers).',
@@ -277,7 +277,7 @@ export const services = [
   },
   {
     id: 20, slug: 'insurance-services', category: 'banking',
-    name: 'Insurance Services', icon: 'ShieldCheck',
+    name: 'Insurance Services', icon: 'Shield',
     description: 'Assistance with various insurance products including life insurance, health insurance, and government insurance schemes like PMJJBY and PMSBY.',
     documentsRequired: ['Aadhaar Card', 'PAN Card', 'Bank Passbook', 'Passport-size Photograph'],
     eligibility: 'Varies by insurance product and scheme.',
@@ -312,7 +312,7 @@ export const services = [
   },
   {
     id: 23, slug: 'death-certificate', category: 'certificates',
-    name: 'Death Certificate Apply', icon: 'FileText',
+    name: 'Death Certificate Apply', icon: 'FileX',
     description: 'Apply for an official death certificate from the Municipal Corporation or Gram Panchayat.',
     documentsRequired: ['Hospital Death Certificate / Doctor\'s Certificate', 'Deceased\'s Aadhaar Card', 'Applicant\'s ID Proof and Aadhaar', 'Proof of Address'],
     eligibility: 'Family members or legal representatives of the deceased.',
@@ -346,7 +346,7 @@ export const services = [
   },
   {
     id: 25, slug: 'income-certificate', category: 'certificates',
-    name: 'Income Certificate', icon: 'DollarSign',
+    name: 'Income Certificate', icon: 'Wallet',
     description: 'Obtain an income certificate issued by the Tehsildar/Revenue Department to prove annual family income for government schemes, admissions, etc.',
     documentsRequired: ['Aadhaar Card', 'Ration Card / Residence Proof', 'Proof of Income (salary slip / affidavit)', 'Passport-size Photograph'],
     eligibility: 'Any Indian resident needing to certify their income.',
@@ -357,7 +357,7 @@ export const services = [
   },
   {
     id: 26, slug: 'caste-certificate', category: 'certificates',
-    name: 'Caste Certificate', icon: 'FileBadge',
+    name: 'Caste Certificate', icon: 'BadgeCheck',
     description: 'Obtain a caste certificate (SC/ST/OBC) issued by competent authority for reservations and government benefits.',
     documentsRequired: ['Aadhaar Card', 'Ration Card', 'Father\'s Caste Certificate (if available)', 'School Leaving Certificate', 'Proof of Address'],
     eligibility: 'Individuals belonging to SC, ST, or OBC categories.',
@@ -390,7 +390,7 @@ export const services = [
   },
   {
     id: 29, slug: 'affidavit', category: 'certificates',
-    name: 'Affidavit (₹100 Stamp Paper etc.)', icon: 'Clipboard',
+    name: 'Affidavit (₹100 Stamp Paper etc.)', icon: 'FileSignature',
     description: 'Assistance in preparing and notarizing affidavits on stamp paper for various legal and government purposes.',
     documentsRequired: ['Aadhaar Card', 'Relevant supporting documents as per affidavit type'],
     eligibility: 'Any individual requiring a legal affidavit.',
@@ -403,7 +403,7 @@ export const services = [
   // ─── E. Online Services ───
   {
     id: 30, slug: 'online-form-filling', category: 'online',
-    name: 'Online Form Filling (All Govt Exams & Schemes)', icon: 'ClipboardEdit',
+    name: 'Online Form Filling (All Govt Exams & Schemes)', icon: 'ClipboardList',
     description: 'We fill and submit online forms for all government competitive exams, recruitment boards, and welfare scheme applications.',
     documentsRequired: ['Aadhaar Card', 'PAN Card / ID Proof', 'Education Certificates', 'Passport-size Photograph', 'Category Certificate (if applicable)'],
     eligibility: 'Varies by exam or scheme being applied for.',
@@ -436,7 +436,7 @@ export const services = [
   },
   {
     id: 33, slug: 'ticket-booking', category: 'online',
-    name: 'Railway / Bus / Flight Ticket Booking', icon: 'Train',
+    name: 'Railway / Bus / Flight Ticket Booking', icon: 'Ticket',
     description: 'Book railway, bus, or flight tickets online for travel within India.',
     documentsRequired: ['Valid ID Proof (Aadhaar / PAN)', 'Passenger details (name, age, contact)'],
     eligibility: 'Any individual needing to book travel tickets.',
@@ -482,7 +482,7 @@ export const services = [
   // ─── F. Education Services ───
   {
     id: 37, slug: 'school-college-admission', category: 'education',
-    name: 'School / College Admission Form', icon: '🏫',
+    name: 'School / College Admission Form', icon: 'School',
     description: 'Assistance in filling school or college admission forms for new admissions, including government and private institutions.',
     documentsRequired: ['Aadhaar Card', 'Previous Marksheets', 'Transfer/School Leaving Certificate', 'Caste Certificate (if applicable)', 'Passport-size Photographs'],
     eligibility: 'Students seeking admissions.',
@@ -493,7 +493,7 @@ export const services = [
   },
   {
     id: 38, slug: 'exam-form-filling', category: 'education',
-    name: 'Exam Form Filling', icon: '📓',
+    name: 'Exam Form Filling', icon: 'Edit3',
     description: 'Assistance in filling examination forms for SSC, HSC, University exams, competitive exams, and board exams.',
     documentsRequired: ['Aadhaar Card', 'Previous Marksheet', 'School/College ID', 'Passport-size Photograph'],
     eligibility: 'Students registered with respective boards/universities.',
@@ -504,7 +504,7 @@ export const services = [
   },
   {
     id: 39, slug: 'result-download', category: 'education',
-    name: 'Result Download', icon: '📊',
+    name: 'Result Download', icon: 'BarChart',
     description: 'Download examination results for SSC, HSC, university, and competitive exams.',
     documentsRequired: ['Roll Number / Application Number', 'Date of Birth (if required)'],
     eligibility: 'Any student who appeared for examinations.',
@@ -515,7 +515,7 @@ export const services = [
   },
   {
     id: 40, slug: 'marksheet-download', category: 'education',
-    name: 'Marksheet / Certificate Download', icon: '🏆',
+    name: 'Marksheet / Certificate Download', icon: 'Award',
     description: 'Download digital marksheets and certificates from DigiLocker or official board websites.',
     documentsRequired: ['Roll Number / Registration Number', 'Aadhaar Number (for DigiLocker)'],
     eligibility: 'Students and graduates with valid roll/registration numbers.',
@@ -539,7 +539,7 @@ export const services = [
   },
   {
     id: 42, slug: 'photocopy', category: 'printing',
-    name: 'Photocopy (Xerox)', icon: 'FileText',
+    name: 'Photocopy (Xerox)', icon: 'Copy',
     description: 'Photocopy services for documents, certificates, books, and any paper documents.',
     documentsRequired: ['Original document to photocopy'],
     eligibility: 'Anyone.',
@@ -550,7 +550,7 @@ export const services = [
   },
   {
     id: 43, slug: 'scan-documents', category: 'printing',
-    name: 'Scan Documents', icon: '📸',
+    name: 'Scan Documents', icon: 'Scan',
     description: 'Scan your physical documents to create digital copies in PDF or image format.',
     documentsRequired: ['Original document to scan'],
     eligibility: 'Anyone.',
@@ -561,7 +561,7 @@ export const services = [
   },
   {
     id: 44, slug: 'photo-print', category: 'printing',
-    name: 'Photo Print (Passport Size)', icon: '🖼️',
+    name: 'Photo Print (Passport Size)', icon: 'Image',
     description: 'Print passport-size, stamp-size, or custom-size photographs for various documents and applications.',
     documentsRequired: ['Digital photo or we can take photo at our centre'],
     eligibility: 'Anyone.',
@@ -572,7 +572,7 @@ export const services = [
   },
   {
     id: 45, slug: 'lamination', category: 'printing',
-    name: 'Lamination', icon: '🗂️',
+    name: 'Lamination', icon: 'Layers',
     description: 'Laminate your important documents, certificates, photos, and ID cards for protection and durability.',
     documentsRequired: ['Document to laminate'],
     eligibility: 'Anyone.',
@@ -583,7 +583,7 @@ export const services = [
   },
   {
     id: 46, slug: 'resume-making', category: 'printing',
-    name: 'Online Resume / CV Making', icon: 'Clipboard',
+    name: 'Online Resume / CV Making', icon: 'FileText',
     description: 'Professional resume and CV creation service. We create well-formatted, ATS-friendly resumes for job applications.',
     documentsRequired: ['Personal details (name, contact, address)', 'Educational qualifications', 'Work experience details', 'Skills and achievements'],
     eligibility: 'Anyone seeking employment or career change.',
@@ -596,7 +596,7 @@ export const services = [
   // ─── H. Other Services ───
   {
     id: 47, slug: 'sim-card-activation', category: 'other',
-    name: 'SIM Card Activation', icon: '📶',
+    name: 'SIM Card Activation', icon: 'SimCard',
     description: 'Assistance with SIM card activation for various telecom operators.',
     documentsRequired: ['Aadhaar Card', 'PAN Card / Valid ID Proof', 'Passport-size Photograph'],
     eligibility: 'Any Indian resident.',
@@ -607,7 +607,7 @@ export const services = [
   },
   {
     id: 48, slug: 'whatsapp-email-support', category: 'other',
-    name: 'WhatsApp / Email Support', icon: '💬',
+    name: 'WhatsApp / Email Support', icon: 'MessageCircle',
     description: 'We provide guidance and support for document submission via WhatsApp and email for various services.',
     documentsRequired: ['As per the service being availed'],
     eligibility: 'Anyone needing remote assistance.',
@@ -618,7 +618,7 @@ export const services = [
   },
   {
     id: 49, slug: 'csc-services', category: 'other',
-    name: 'CSC Services', icon: '🏛️',
+    name: 'CSC Services', icon: 'Building2',
     description: 'Common Service Centre (CSC) services providing government-to-citizen services including digital payments, certificates, and utility services.',
     documentsRequired: ['Varies by service'],
     eligibility: 'Any citizen requiring CSC services.',
@@ -629,7 +629,7 @@ export const services = [
   },
   {
     id: 50, slug: 'udyam-registration', category: 'other',
-    name: 'Udyam Registration (MSME)', icon: '🏭',
+    name: 'Udyam Registration (MSME)', icon: 'Factory',
     description: 'Register your micro, small, or medium enterprise (MSME) under the Udyam Registration portal for government benefits and schemes.',
     documentsRequired: ['Aadhaar Card of owner', 'PAN Card', 'Business Address Proof', 'Bank Account Details', 'NIC Code (business activity code)'],
     eligibility: 'Micro, Small, and Medium Enterprises (MSMEs) in manufacturing or service sector.',
@@ -664,7 +664,7 @@ export const services = [
   },
   {
     id: 53, slug: 'voter-pvc-smart-card', category: 'smartcard',
-    name: 'Voter ID PVC Smart Card', icon: 'Vote',
+    name: 'Voter ID PVC Smart Card', icon: 'IdCard',
     description: 'PVC format Voter ID card (e-EPIC) — a modern, durable replacement for the old paper-based Voter ID.',
     documentsRequired: ['EPIC Number', 'Registered Mobile Number'],
     eligibility: 'Registered voters.',
@@ -675,7 +675,7 @@ export const services = [
   },
   {
     id: 54, slug: 'pan-pvc-smart-card', category: 'smartcard',
-    name: 'PAN Card PVC / Smart Card', icon: 'Receipt',
+    name: 'PAN Card PVC / Smart Card', icon: 'CreditCard',
     description: 'PVC format PAN card for durability and easy wallet storage.',
     documentsRequired: ['PAN Number', 'Aadhaar Card'],
     eligibility: 'Any PAN card holder.',
@@ -686,7 +686,7 @@ export const services = [
   },
   {
     id: 55, slug: 'ayushman-bharat-card', category: 'smartcard',
-    name: 'Ayushman Bharat Card (Health Card)', icon: '🏥',
+    name: 'Ayushman Bharat Card (Health Card)', icon: 'HeartPulse',
     description: 'Ayushman Bharat Pradhan Mantri Jan Arogya Yojana (AB-PMJAY) health insurance card providing ₹5 lakh health cover.',
     documentsRequired: ['Aadhaar Card', 'Ration Card', 'Mobile Number linked to Aadhaar'],
     eligibility: 'Families listed in SECC-2011 database or those covered under state government schemes.',
@@ -697,7 +697,7 @@ export const services = [
   },
   {
     id: 56, slug: 'abha-health-id', category: 'smartcard',
-    name: 'ABHA Health ID Card', icon: '💊',
+    name: 'ABHA Health ID Card', icon: 'Activity',
     description: 'Ayushman Bharat Health Account (ABHA) — a unique 14-digit health ID for storing and accessing your health records digitally.',
     documentsRequired: ['Aadhaar Card', 'Mobile Number linked to Aadhaar'],
     eligibility: 'Any Indian resident.',
@@ -708,7 +708,7 @@ export const services = [
   },
   {
     id: 57, slug: 'driving-licence-smart-card', category: 'smartcard',
-    name: 'Driving Licence Smart Card (DL Card)', icon: '🚘',
+    name: 'Driving Licence Smart Card (DL Card)', icon: 'Car',
     description: 'Assistance with applying for a new DL smart card or renewal through the Parivahan portal.',
     documentsRequired: ['Aadhaar Card', 'Age Proof', 'Address Proof', 'Passport-size Photograph', 'Learning Licence (for new DL)'],
     eligibility: 'Individuals meeting minimum age requirements (18 for LMV, 20 for HMV).',
@@ -719,7 +719,7 @@ export const services = [
   },
   {
     id: 58, slug: 'vehicle-rc-smart-card', category: 'smartcard',
-    name: 'Vehicle RC Smart Card', icon: 'Car',
+    name: 'Vehicle RC Smart Card', icon: 'CarFront',
     description: 'Apply for or renew the Registration Certificate (RC) smart card for your vehicle through RTO.',
     documentsRequired: ['Vehicle Registration Details', 'Insurance Certificate', 'PUC Certificate', 'Aadhaar Card'],
     eligibility: 'Vehicle owners needing new RC or renewal.',
@@ -730,7 +730,7 @@ export const services = [
   },
   {
     id: 59, slug: 'ayushman-golden-card', category: 'smartcard',
-    name: 'Ayushman Golden Card Print', icon: '🥇',
+    name: 'Ayushman Golden Card Print', icon: 'Badge',
     description: 'Print your Ayushman Bharat Golden Card for cashless treatment at empanelled hospitals.',
     documentsRequired: ['Aadhaar Card', 'Existing Ayushman Bharat beneficiary number'],
     eligibility: 'PMJAY beneficiaries.',
@@ -741,7 +741,7 @@ export const services = [
   },
   {
     id: 60, slug: 'abha-card-registration', category: 'smartcard',
-    name: 'ABHA Card Registration & Print', icon: '🏥',
+    name: 'ABHA Card Registration & Print', icon: 'Printer',
     description: 'Register for ABHA (Ayushman Bharat Health Account) and get your ABHA card printed.',
     documentsRequired: ['Aadhaar Card', 'Mobile Number'],
     eligibility: 'Any Indian resident.',
@@ -752,7 +752,7 @@ export const services = [
   },
   {
     id: 61, slug: 'e-shram-card', category: 'smartcard',
-    name: 'E-Shram Card', icon: '👷',
+    name: 'E-Shram Card', icon: 'Hammer',
     description: 'Register on the e-Shram portal and get an e-Shram card for unorganized sector workers providing access to social security benefits.',
     documentsRequired: ['Aadhaar Card', 'Mobile Number linked to Aadhaar', 'Bank Account Details'],
     eligibility: 'Unorganized sector workers aged 16–59 not covered by EPFO/ESIC.',
@@ -763,7 +763,7 @@ export const services = [
   },
   {
     id: 62, slug: 'labour-card', category: 'smartcard',
-    name: 'Labour Card', icon: '🔨',
+    name: 'Labour Card', icon: 'HardHat',
     description: 'Registration and card issuance under Maharashtra Building and Other Construction Workers (BOCW) welfare scheme.',
     documentsRequired: ['Aadhaar Card', 'PAN Card', 'Proof of work as construction/labour worker', 'Bank Passbook', 'Passport-size Photograph'],
     eligibility: 'Construction and other building workers aged 18–60.',

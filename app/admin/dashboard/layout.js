@@ -3,7 +3,7 @@
 import { useSession, signOut } from 'next-auth/react'
 import { useRouter, usePathname } from 'next/navigation'
 import { 
-  BarChart3, Package, FileText, MessageSquare, Mail, LogOut 
+  BarChart3, Package, FileText, MessageSquare, Mail, LogOut, Sparkles
 } from 'lucide-react'
 import Link from 'next/link'
 import { useEffect } from 'react'
@@ -25,6 +25,7 @@ export default function DashboardLayout({ children }) {
 
   const navLinks = [
     { name: 'Xerox Orders', path: '/admin/dashboard', icon: Package },
+    { name: 'Services', path: '/admin/dashboard/services', icon: Sparkles },
     { name: 'Blogs', path: '/admin/dashboard/blogs', icon: FileText },
     { name: 'Testimonials', path: '/admin/dashboard/testimonials', icon: MessageSquare },
     { name: 'Contact Messages', path: '/admin/dashboard/messages', icon: Mail },
