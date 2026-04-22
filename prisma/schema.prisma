@@ -74,3 +74,15 @@ model ServiceCustomization {
   dummyImageAltText String?
   updatedAt        DateTime @updatedAt
 }
+
+model VideoCard {
+  id          String   @id @default(cuid())
+  title       String
+  description String?
+  videoUrl    String
+  thumbnailUrl String?
+  isActive    Boolean  @default(true)
+  sortOrder   Int      @default(0)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}

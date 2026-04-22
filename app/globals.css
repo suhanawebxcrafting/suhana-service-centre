@@ -26,40 +26,93 @@ body {
 }
 
 /* Scrollbar */
-::-webkit-scrollbar { width: 6px; }
-::-webkit-scrollbar-track { background: #f1f5f9; }
-::-webkit-scrollbar-thumb { background: #2563eb; border-radius: 3px; }
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #2563eb;
+  border-radius: 3px;
+}
 
 /* Animations */
 @keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-12px); }
+
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-12px);
+  }
 }
 
 @keyframes fadeUp {
-  from { opacity: 0; transform: translateY(30px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @keyframes slideInLeft {
-  from { opacity: 0; transform: translateX(-30px); }
-  to { opacity: 1; transform: translateX(0); }
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
 @keyframes pulse-ring {
-  0% { transform: scale(0.8); opacity: 1; }
-  100% { transform: scale(2); opacity: 0; }
+  0% {
+    transform: scale(0.8);
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(2);
+    opacity: 0;
+  }
 }
 
 @keyframes gradient-shift {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
-.animate-float { animation: float 3s ease-in-out infinite; }
-.animate-fade-up { animation: fadeUp 0.7s ease forwards; }
-.animate-slide-left { animation: slideInLeft 0.7s ease forwards; }
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-fade-up {
+  animation: fadeUp 0.7s ease forwards;
+}
+
+.animate-slide-left {
+  animation: slideInLeft 0.7s ease forwards;
+}
 
 .gradient-text {
   background: linear-gradient(135deg, #2563eb, #f97316);
@@ -75,9 +128,10 @@ body {
 .card-hover {
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
+
 .card-hover:hover {
   transform: translateY(-6px);
-  box-shadow: 0 20px 50px rgba(37,99,235,0.18);
+  box-shadow: 0 20px 50px rgba(37, 99, 235, 0.18);
 }
 
 .btn-primary {
@@ -94,10 +148,11 @@ body {
   gap: 8px;
   text-decoration: none;
 }
+
 .btn-primary:hover {
   background: linear-gradient(135deg, #1e40af, #1e3a8a);
   transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(37,99,235,0.35);
+  box-shadow: 0 8px 25px rgba(37, 99, 235, 0.35);
 }
 
 .btn-accent {
@@ -114,10 +169,11 @@ body {
   gap: 8px;
   text-decoration: none;
 }
+
 .btn-accent:hover {
   background: linear-gradient(135deg, #ea580c, #c2410c);
   transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(249,115,22,0.35);
+  box-shadow: 0 8px 25px rgba(249, 115, 22, 0.35);
 }
 
 .btn-outline {
@@ -127,15 +183,16 @@ body {
   border-radius: 8px;
   font-weight: 600;
   transition: all 0.3s ease;
-  border: 2px solid rgba(255,255,255,0.7);
+  border: 2px solid rgba(255, 255, 255, 0.7);
   cursor: pointer;
   display: inline-flex;
   align-items: center;
   gap: 8px;
   text-decoration: none;
 }
+
 .btn-outline:hover {
-  background: rgba(255,255,255,0.15);
+  background: rgba(255, 255, 255, 0.15);
   border-color: white;
 }
 
@@ -179,23 +236,25 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 4px 20px rgba(37,211,102,0.5);
+  box-shadow: 0 4px 20px rgba(37, 211, 102, 0.5);
   cursor: pointer;
   transition: all 0.3s ease;
   animation: float 3s ease-in-out infinite;
   text-decoration: none;
 }
+
 .whatsapp-float:hover {
   transform: scale(1.15);
-  box-shadow: 0 6px 30px rgba(37,211,102,0.7);
+  box-shadow: 0 6px 30px rgba(37, 211, 102, 0.7);
 }
+
 .whatsapp-float::before {
   content: '';
   position: absolute;
   width: 58px;
   height: 58px;
   border-radius: 50%;
-  background: rgba(37,211,102,0.4);
+  background: rgba(37, 211, 102, 0.4);
   animation: pulse-ring 2s ease-out infinite;
 }
 
@@ -214,12 +273,13 @@ body {
   justify-content: center;
   cursor: pointer;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(37,99,235,0.4);
+  box-shadow: 0 4px 15px rgba(37, 99, 235, 0.4);
   border: none;
 }
+
 .back-to-top:hover {
   transform: translateY(-3px);
-  box-shadow: 0 8px 25px rgba(37,99,235,0.5);
+  box-shadow: 0 8px 25px rgba(37, 99, 235, 0.5);
 }
 
 /* Service category badge */
@@ -234,12 +294,24 @@ body {
 }
 
 /* Breadcrumb */
-.breadcrumb a { color: #2563eb; text-decoration: none; }
-.breadcrumb a:hover { text-decoration: underline; }
+.breadcrumb a {
+  color: #2563eb;
+  text-decoration: none;
+}
+
+.breadcrumb a:hover {
+  text-decoration: underline;
+}
 
 /* FAQ */
-.faq-item details summary { cursor: pointer; list-style: none; }
-.faq-item details summary::-webkit-details-marker { display: none; }
+.faq-item details summary {
+  cursor: pointer;
+  list-style: none;
+}
+
+.faq-item details summary::-webkit-details-marker {
+  display: none;
+}
 
 /* Step indicator */
 .step-dot {
@@ -265,21 +337,39 @@ body {
 
 /* Navbar glass */
 .navbar-glass {
-  background: rgba(255,255,255,0.95);
+  background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(37,99,235,0.1);
+  border-bottom: 1px solid rgba(37, 99, 235, 0.1);
 }
 
 /* Logo Slider */
 @keyframes scroll-logos {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+
+  to {
+    transform: translate3d(-50%, 0, 0);
+    /* GPU optimized */
+  }
 }
-.animate-scroll-logos {
-  animation: scroll-logos 20s linear infinite;
+
+/* Faster variant for 3x-duplicated logos */
+.animate-scroll-logos-fast {
+  animation: scroll-logos 14s linear infinite;
 }
-.animate-scroll-logos:hover {
+
+.animate-scroll-logos-fast:hover {
   animation-play-state: paused;
+}
+
+@media (max-width: 768px) {
+  .animate-scroll-logos-fast {
+    animation: scroll-logos 12s linear infinite;
+    will-change: transform;
+    transform: translateZ(0);
+    /* 🔥 important */
+  }
 }
 
 /* Line clamp utility */

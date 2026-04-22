@@ -5,6 +5,7 @@ import LucideIcon from '@/components/LucideIcon'
 import TestimonialSlider from '@/components/TestimonialSlider'
 import BlogCard from '@/components/BlogCard'
 import LogoSlider from '@/components/LogoSlider'
+import VideoCarousel from '@/components/VideoCarousel'
 import { prisma } from '@/lib/prisma'
 
 export const dynamic = 'force-dynamic'
@@ -29,7 +30,18 @@ const whyUs = [
 
 export default async function HomePage() {
   const blogs = await prisma.blog.findMany({ where: { isPublished: true }, orderBy: { createdAt: 'desc' }, take: 3 })
-  
+
+  // Fetch active video cards for carousel
+  let videos = []
+  try {
+    videos = await prisma.videoCard.findMany({
+      where: { isActive: true },
+      orderBy: [{ sortOrder: 'asc' }, { createdAt: 'desc' }],
+    })
+  } catch (e) {
+    console.warn('videoCard not available yet:', e.message)
+  }
+
   // Fetch admin-set logo/image customizations for featured service cards
   let customizationsMap = {}
   try {
@@ -41,7 +53,7 @@ export default async function HomePage() {
     // Prisma client may not have the new model yet — safe to ignore
     console.warn('serviceCustomization not available:', e.message)
   }
-  
+
   const featuredIds = [1, 4, 7, 73, 75, 76, 77, 79, 80, 81, 82, 83] // Curated popular services
   const featuredServices = services.filter(s => featuredIds.includes(s.id))
   const totalServices = services.length
@@ -80,7 +92,9 @@ export default async function HomePage() {
                 </a>
                 <a href="https://wa.me/917709709243" target="_blank" rel="noopener noreferrer"
                   className="bg-green-500 hover:bg-green-400 text-white font-semibold text-base px-7 py-3.5 rounded-lg transition-all hover:-translate-y-0.5 flex items-center gap-2 shadow-lg shadow-green-500/20">
-                  <LucideIcon name="MessageCircle" size={20} /> WhatsApp
+                  <svg width="25" height="25" viewBox="0 0 32 32" fill="white" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M16.002 3C9.373 3 4 8.373 4 15.002c0 2.124.558 4.118 1.535 5.848L4 29l8.374-2.194A11.95 11.95 0 0016.002 27C22.631 27 28 21.631 28 15.002 28 8.373 22.631 3 16.002 3zm0 21.846c-1.894 0-3.662-.503-5.19-1.38l-.372-.22-3.86 1.012 1.03-3.756-.24-.386A9.844 9.844 0 016.154 15c0-5.43 4.418-9.846 9.848-9.846S25.846 9.57 25.846 15c0 5.432-4.416 9.846-9.844 9.846zm5.404-7.37c-.297-.148-1.754-.866-2.026-.965-.272-.099-.47-.148-.668.149-.198.297-.766.965-.939 1.162-.173.198-.347.223-.644.075-.297-.149-1.254-.462-2.388-1.473-.883-.786-1.479-1.756-1.652-2.053-.173-.297-.018-.457.13-.605.133-.133.297-.347.445-.52.148-.174.198-.298.297-.496.099-.198.05-.372-.025-.52-.074-.149-.668-1.61-.915-2.203-.241-.579-.487-.5-.668-.51-.173-.007-.372-.01-.57-.01-.198 0-.52.074-.793.372-.272.297-1.04 1.015-1.04 2.476 0 1.46 1.065 2.872 1.213 3.07.148.198 2.095 3.2 5.077 4.487.71.306 1.263.488 1.695.624.712.227 1.36.195 1.872.118.571-.085 1.757-.719 2.006-1.413.248-.693.248-1.287.173-1.412-.074-.124-.272-.198-.57-.347z" />
+                  </svg> WhatsApp
                 </a>
               </div>
             </div>
@@ -123,7 +137,7 @@ export default async function HomePage() {
         {/* Bottom wave */}
         <div className="absolute bottom-0 left-0 right-0">
           <svg viewBox="0 0 1440 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M0,30 C360,60 1080,0 1440,30 L1440,60 L0,60 Z" fill="white"/>
+            <path d="M0,30 C360,60 1080,0 1440,30 L1440,60 L0,60 Z" fill="white" />
           </svg>
         </div>
       </section>
@@ -259,7 +273,7 @@ export default async function HomePage() {
         <div className="absolute top-0 left-0 w-full h-full pattern-bg opacity-40 -z-10"></div>
         <div className="absolute top-1/4 -left-20 w-80 h-80 bg-blue-100 rounded-full blur-3xl opacity-30"></div>
         <div className="absolute bottom-1/4 -right-20 w-80 h-80 bg-orange-100 rounded-full blur-3xl opacity-30"></div>
-        
+
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <div className="inline-flex items-center gap-2 bg-blue-50 text-blue-700 px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-widest mb-4 border border-blue-100 shadow-sm">
@@ -270,7 +284,7 @@ export default async function HomePage() {
             </h2>
             <div className="w-20 h-1.5 bg-gradient-to-r from-blue-600 to-orange-500 mx-auto rounded-full mb-6"></div>
           </div>
-          
+
           <TestimonialSlider />
         </div>
       </section>
@@ -313,7 +327,7 @@ export default async function HomePage() {
                 return (
                   <div key={cat.id} className={`${colors.bg} border ${colors.border} rounded-2xl p-5 shadow-sm`}>
                     <div className="mb-2">
-                       <LucideIcon name={cat.icon} size={28} className={colors.text} />
+                      <LucideIcon name={cat.icon} size={28} className={colors.text} />
                     </div>
                     <div className={`font-black text-2xl ${colors.text}`}>{count}</div>
                     <div className="text-gray-700 text-xs font-bold uppercase tracking-wider">{cat.label}</div>
@@ -338,7 +352,7 @@ export default async function HomePage() {
                 From Our <span className="text-blue-600">Blog</span>
               </h2>
             </div>
-            <Link href="/blog" className="btn-outline border-blue-200 text-blue-600 hover:bg-blue-600 hover:text-white hover:border-blue-600 px-8 py-3.5 flex items-center justify-center gap-2 transition-all">
+            <Link href="/blog" className="bg-blue-600 hover:bg-blue-700 text-white font-bold px-8 py-3.5 rounded-xl flex items-center justify-center gap-2 transition-all shadow-lg shadow-blue-600/20 whitespace-nowrap">
               View All Posts <LucideIcon name="ArrowRight" size={18} />
             </Link>
           </div>
@@ -352,6 +366,26 @@ export default async function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* ─── Video Carousel Section ─── */}
+      {videos.length > 0 && (
+        <section className="py-16 lg:py-20 bg-white">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
+              <div>
+                <div className="inline-flex items-center gap-2 bg-blue-50 text-blue-700 px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-widest mb-4 border border-blue-100 shadow-sm">
+                  <LucideIcon name="PlayCircle" size={14} className="text-orange-500" /> Video Guide
+                </div>
+                <h2 className="text-3xl lg:text-4xl font-black text-blue-950 tracking-tight">
+                  Watch &amp; <span className="text-blue-600">Learn</span>
+                </h2>
+                <p className="text-gray-500 text-sm mt-2">Step-by-step video guides for our most popular services</p>
+              </div>
+            </div>
+            <VideoCarousel videos={videos} />
+          </div>
+        </section>
+      )}
 
       {/* ─── FAQ Section ─── */}
       <section className="py-16 pattern-bg">
@@ -393,7 +427,8 @@ export default async function HomePage() {
             </a>
             <a href="https://wa.me/917709709243" target="_blank" rel="noopener noreferrer"
               className="bg-green-600 hover:bg-green-700 text-white font-bold px-7 py-3.5 rounded-lg transition-colors flex items-center gap-2 text-sm shadow-lg shadow-black/5">
-              <LucideIcon name="MessageCircle" size={18} /> WhatsApp Now
+              <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18" xmlns="http://www.w3.org/2000/svg"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2zm5.52 14.06c-.23.65-1.36 1.27-1.88 1.35-.48.07-1.07.1-1.73-.1-.4-.13-.9-.29-1.55-.57-2.71-1.17-4.49-3.89-4.62-4.07-.13-.17-1.07-1.43-1.07-2.73s.68-1.93.92-2.19c.23-.26.51-.32.67-.32.17 0 .34.002.48.01.16.006.36-.06.57.43.21.51.73 1.78.79 1.91.07.13.11.28.02.45-.09.17-.13.27-.26.42-.13.15-.27.33-.39.44-.13.12-.26.25-.11.49.15.24.66 1.09 1.42 1.77 1.02.91 1.88 1.19 2.13 1.32.26.13.41.11.56-.07.15-.17.64-.75.81-.99.17-.24.35-.2.59-.12.24.08 1.53.72 1.79.85.26.13.43.19.5.3.07.11.07.65-.16 1.29z" /></svg>
+              WhatsApp Now
             </a>
             <Link href="/contact" className="bg-white/20 hover:bg-white/30 text-white font-bold px-7 py-3.5 rounded-lg transition-colors flex items-center gap-2 text-sm border border-white/30 backdrop-blur-sm">
               <LucideIcon name="MapPin" size={18} /> Get Directions
