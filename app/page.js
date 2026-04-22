@@ -29,7 +29,17 @@ const whyUs = [
 ]
 
 export default async function HomePage() {
-  const blogs = await prisma.blog.findMany({ where: { isPublished: true }, orderBy: { createdAt: 'desc' }, take: 3 })
+  const blogs = await prisma.blog.findMany({ 
+    where: { 
+      isPublished: true,
+      OR: [
+        { scheduledAt: null },
+        { scheduledAt: { lte: new Date() } }
+      ]
+    }, 
+    orderBy: { createdAt: 'desc' }, 
+    take: 3 
+  })
 
   // Fetch active video cards for carousel
   let videos = []

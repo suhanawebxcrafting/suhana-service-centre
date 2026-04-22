@@ -1,0 +1,94 @@
+import { NextResponse } from 'next/server';
+import { prisma } from '@/lib/prisma';
+
+export const dynamic = 'force-dynamic';
+
+export async function POST(req) {
+  try {
+    // 1. Check Rate Limit (Max 5 per day)
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+
+    const generatedCount = await prisma.blog.count({
+      where: {
+        author: 'Suhana AI',
+        createdAt: {
+          gte: today
+        }
+      }
+    });
+
+    if (generatedCount >= 5) {
+      return NextResponse.json({ 
+        error: 'Daily limit reached. You can only generate 5 AI blogs per day. Please try again tomorrow.' 
+      }, { status: 429 });
+    }
+
+    // 2. Setup OpenRouter API Key
+    const apiKey = process.env.OPENROUTER_API_KEY;
+    if (!apiKey) {
+      return NextResponse.json({ error: 'OPENROUTER_API_KEY is not set in environment variables.' }, { status: 500 });
+    }
+
+    // 3. Prompt for SEO Blog
+    const prompt = `You are an expert SEO copywriter for "Suhana Service Centre", a government and digital services provider located in Virar East (Maharashtra, India).
+Write a new, unique, and highly SEO-optimized blog post for our website to attract local traffic.
+Topics could include: Aadhaar updates, PAN Card applications, Passport processes, Xerox/Printing services, Income/Domicile Certificates, MSME registration, or Voter ID. Pick one and write an informative guide.
+
+Return ONLY valid JSON with no markdown formatting around the JSON block. Do not include \`\`\`json. The JSON must match this structure exactly:
+{
+  "title": "A catchy, SEO-friendly title targeting local searches (e.g. How to Update Aadhaar in Virar)",
+  "excerpt": "A compelling 2-3 sentence meta description for SEO.",
+  "content": "The full blog post content in Markdown format. Use ## for headings, bullet points, and make it engaging. Mention 'Suhana Service Centre' and 'Virar' naturally.",
+  "category": "One of: 'Aadhaar Services', 'Government Documents', 'Business Services', 'Printing & Xerox'"
+}`;
+
+    // 4. Call OpenRouter API using native fetch
+    const response = await fetch("https://openrouter.ai/api/v1/chat/completions", {
+      method: "POST",
+      headers: {
+        "Authorization": `Bearer ${apiKey}`,
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        "model": "openrouter/free",
+        "messages": [{ "role": "user", "content": prompt }]
+      })
+    });
+
+    if (!response.ok) {
+      const errorText = await response.text();
+      throw new Error(`OpenRouter API Error: ${errorText}`);
+    }
+
+    const data = await response.json();
+    const responseText = data.choices[0]?.message?.content || '{}';
+    
+    // Parse the JSON out of the response
+    const jsonStr = responseText.replace(/```json/gi, '').replace(/```/g, '').trim();
+    const blogData = JSON.parse(jsonStr);
+
+    // 5. Save to Database as Draft
+    const newBlog = await prisma.blog.create({
+      data: {
+        title: blogData.title,
+        excerpt: blogData.excerpt,
+        content: blogData.content,
+        category: blogData.category,
+        author: 'Suhana AI',
+        isPublished: false, // Save as draft
+        scheduledAt: null,
+      }
+    });
+
+    return NextResponse.json({
+      success: true,
+      message: 'AI Blog successfully generated and saved as draft.',
+      blog: newBlog
+    });
+
+  } catch (error) {
+    console.error('Error generating AI blog:', error);
+    return NextResponse.json({ error: error.message }, { status: 500 });
+  }
+}

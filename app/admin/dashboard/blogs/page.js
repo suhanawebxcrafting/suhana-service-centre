@@ -1,14 +1,17 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { Loader2, Plus, Edit2, Trash2, Globe, Lock } from 'lucide-react'
+import { Loader2, Plus, Edit2, Trash2, Globe, Lock, Sparkles } from 'lucide-react'
 
 export default function BlogsDashboard() {
   const [blogs, setBlogs] = useState([])
   const [loading, setLoading] = useState(true)
   const [editingBlog, setEditingBlog] = useState(null)
+  const [uploadingImage, setUploadingImage] = useState(false)
+  const [generatingAi, setGeneratingAi] = useState(false)
+  const [popup, setPopup] = useState(null)
 
-  const [form, setForm] = useState({ title: '', excerpt: '', content: '', category: '', image: '', author: 'Suhana Team', isPublished: true })
+  const [form, setForm] = useState({ title: '', excerpt: '', content: '', category: '', image: '', author: 'Suhana Team', isPublished: true, scheduledAt: '' })
 
   useEffect(() => {
     fetchBlogs()
@@ -29,21 +32,28 @@ export default function BlogsDashboard() {
   const handleSubmit = async (e) => {
     e.preventDefault()
     try {
+      const payload = { ...form }
+      if (payload.scheduledAt) {
+        payload.scheduledAt = new Date(payload.scheduledAt).toISOString()
+      } else {
+        payload.scheduledAt = null
+      }
+
       if (editingBlog) {
         await fetch(`/api/blogs/${editingBlog.id}`, {
           method: 'PUT',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(form)
+          body: JSON.stringify(payload)
         })
       } else {
         await fetch('/api/blogs', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(form)
+          body: JSON.stringify(payload)
         })
       }
       setEditingBlog(null)
-      setForm({ title: '', excerpt: '', content: '', category: '', image: '', author: 'Suhana Team', isPublished: true })
+      setForm({ title: '', excerpt: '', content: '', category: '', image: '', author: 'Suhana Team', isPublished: true, scheduledAt: '' })
       fetchBlogs()
     } catch (error) {
       alert('Failed to save blog')
@@ -60,9 +70,66 @@ export default function BlogsDashboard() {
     }
   }
 
+  const togglePublish = async (blog) => {
+    try {
+      await fetch(`/api/blogs/${blog.id}`, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ isPublished: !blog.isPublished })
+      })
+      fetchBlogs()
+    } catch (error) {
+      alert('Failed to toggle publish status')
+    }
+  }
+
+  const handleGenerateAI = async () => {
+    setGeneratingAi(true)
+    setPopup(null)
+    try {
+      const res = await fetch('/api/admin/generate-blog', { method: 'POST' })
+      const data = await res.json()
+      if (res.ok) {
+        setPopup({ type: 'success', message: data.message })
+        fetchBlogs()
+      } else {
+        setPopup({ type: 'error', message: data.error || 'Failed to generate blog' })
+      }
+    } catch (error) {
+      setPopup({ type: 'error', message: 'Network error generating blog' })
+    } finally {
+      setGeneratingAi(false)
+      setTimeout(() => setPopup(null), 5000)
+    }
+  }
+
   const editBlog = (blog) => {
     setEditingBlog(blog)
-    setForm(blog)
+    setForm({
+      ...blog,
+      scheduledAt: blog.scheduledAt ? new Date(blog.scheduledAt).toISOString().slice(0, 16) : ''
+    })
+  }
+
+  const handleImageUpload = async (e) => {
+    const file = e.target.files[0]
+    if (!file) return
+    setUploadingImage(true)
+    const formData = new FormData()
+    formData.append('file', file)
+    try {
+      const res = await fetch('/api/upload-image', { method: 'POST', body: formData })
+      const data = await res.json()
+      if (data.url) {
+        setForm({ ...form, image: data.url })
+      } else {
+        alert(data.error || 'Upload failed')
+      }
+    } catch (err) {
+      alert('Upload failed')
+    } finally {
+      setUploadingImage(false)
+    }
   }
 
   if (loading) {
@@ -71,9 +138,25 @@ export default function BlogsDashboard() {
 
   return (
     <>
+      {popup && (
+        <div className={`fixed top-4 right-4 z-50 p-4 rounded-xl shadow-lg border flex items-start gap-3 max-w-sm animate-fade-in ${popup.type === 'error' ? 'bg-red-50 border-red-200 text-red-800' : 'bg-green-50 border-green-200 text-green-800'}`}>
+          <div className="flex-1 text-sm font-semibold">{popup.message}</div>
+          <button onClick={() => setPopup(null)} className="text-gray-400 hover:text-gray-600">×</button>
+        </div>
+      )}
       <header className="bg-white border-b border-gray-100 p-6 flex items-center justify-between sticky top-0 z-10">
         <div>
           <h1 className="text-xl font-black text-gray-900 tracking-tight">Blog Management</h1>
+        </div>
+        <div className="flex items-center gap-4">
+          <button 
+            onClick={handleGenerateAI} 
+            disabled={generatingAi}
+            className="flex items-center gap-2 bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white px-5 py-2.5 rounded-xl font-bold text-sm shadow-md transition disabled:opacity-50"
+          >
+            {generatingAi ? <Loader2 size={16} className="animate-spin" /> : <Sparkles size={16} />}
+            {generatingAi ? 'Generating...' : 'Auto-Generate Blog'}
+          </button>
         </div>
       </header>
 
@@ -84,10 +167,22 @@ export default function BlogsDashboard() {
             <div key={blog.id} className="bg-white rounded-2xl p-5 border border-gray-100 shadow-sm flex gap-4 items-start">
               {blog.image && <img src={blog.image} className="w-20 h-20 object-cover rounded-xl" alt="thumb" />}
               <div className="flex-1">
-                <div className="flex items-center gap-2 mb-1">
-                  <h3 className="font-bold text-gray-900">{blog.title}</h3>
-                  {blog.isPublished ? <Globe size={14} className="text-green-500" /> : <Lock size={14} className="text-gray-400" />}
+                <div className="flex items-center justify-between gap-2 mb-1">
+                  <div className="flex items-center gap-2">
+                    <h3 className="font-bold text-gray-900">{blog.title}</h3>
+                    {blog.isPublished ? <Globe size={14} className="text-green-500" /> : <Lock size={14} className="text-gray-400" />}
+                  </div>
+                  <label className="flex items-center cursor-pointer relative">
+                    <input type="checkbox" className="sr-only peer" checked={blog.isPublished} onChange={() => togglePublish(blog)} />
+                    <div className="w-9 h-5 bg-gray-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-green-500"></div>
+                    <span className="ml-2 text-[10px] font-bold text-gray-500 uppercase w-12">{blog.isPublished ? 'Published' : 'Draft'}</span>
+                  </label>
                 </div>
+                {blog.scheduledAt && (
+                  <p className="text-[10px] font-bold text-orange-500 uppercase tracking-wider mb-1">
+                    Scheduled: {new Date(blog.scheduledAt).toLocaleString()}
+                  </p>
+                )}
                 <p className="text-xs text-gray-500 line-clamp-2 mb-3">{blog.excerpt}</p>
                 <div className="flex items-center gap-2">
                   <button onClick={() => editBlog(blog)} className="text-xs font-bold text-blue-600 hover:text-blue-700 bg-blue-50 px-3 py-1.5 rounded-lg flex items-center gap-1"><Edit2 size={12}/> Edit</button>
@@ -112,9 +207,20 @@ export default function BlogsDashboard() {
                 <label className="block text-xs font-bold text-gray-400 mb-1">Category</label>
                 <input required type="text" value={form.category} onChange={e => setForm({...form, category: e.target.value})} className="w-full bg-gray-50 border border-gray-100 rounded-xl px-4 py-2.5 text-sm outline-none focus:ring-2 focus:ring-blue-500" />
               </div>
+              <div className="grid grid-cols-2 gap-4">
+                <div>
+                  <label className="block text-xs font-bold text-gray-400 mb-1">Upload Image</label>
+                  <input type="file" accept="image/*" onChange={handleImageUpload} className="w-full text-xs text-gray-500 file:mr-3 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-xs file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100" />
+                  {uploadingImage && <p className="text-xs text-blue-500 mt-1">Uploading...</p>}
+                </div>
+                <div>
+                  <label className="block text-xs font-bold text-gray-400 mb-1">Or Image URL</label>
+                  <input type="text" value={form.image} onChange={e => setForm({...form, image: e.target.value})} className="w-full bg-gray-50 border border-gray-100 rounded-xl px-4 py-2.5 text-sm outline-none focus:ring-2 focus:ring-blue-500" />
+                </div>
+              </div>
               <div>
-                <label className="block text-xs font-bold text-gray-400 mb-1">Image URL</label>
-                <input type="text" value={form.image} onChange={e => setForm({...form, image: e.target.value})} className="w-full bg-gray-50 border border-gray-100 rounded-xl px-4 py-2.5 text-sm outline-none focus:ring-2 focus:ring-blue-500" />
+                <label className="block text-xs font-bold text-gray-400 mb-1">Schedule Publish Date (Optional)</label>
+                <input type="datetime-local" value={form.scheduledAt} onChange={e => setForm({...form, scheduledAt: e.target.value})} className="w-full bg-gray-50 border border-gray-100 rounded-xl px-4 py-2.5 text-sm outline-none focus:ring-2 focus:ring-blue-500" />
               </div>
               <div>
                 <label className="block text-xs font-bold text-gray-400 mb-1">Excerpt</label>
@@ -132,7 +238,7 @@ export default function BlogsDashboard() {
                 {editingBlog ? 'Update Post' : 'Publish Post'}
               </button>
               {editingBlog && (
-                <button type="button" onClick={() => {setEditingBlog(null); setForm({ title: '', excerpt: '', content: '', category: '', image: '', author: 'Suhana Team', isPublished: true })}} className="w-full mt-2 text-xs font-bold text-gray-500 hover:text-gray-700 p-2">
+                <button type="button" onClick={() => {setEditingBlog(null); setForm({ title: '', excerpt: '', content: '', category: '', image: '', author: 'Suhana Team', isPublished: true, scheduledAt: '' })}} className="w-full mt-2 text-xs font-bold text-gray-500 hover:text-gray-700 p-2">
                   Cancel Edit
                 </button>
               )}

@@ -28,16 +28,17 @@ enum OrderStatus {
 }
 
 model Blog {
-  id          String   @id @default(cuid())
+  id          String    @id @default(cuid())
   title       String
   excerpt     String
   content     String
   category    String
   image       String?
-  author      String   @default("Suhana Team")
-  isPublished Boolean  @default(true)
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
+  author      String    @default("Suhana Team")
+  isPublished Boolean   @default(true)
+  scheduledAt DateTime?
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
 }
 
 model Testimonial {

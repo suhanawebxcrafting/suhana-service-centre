@@ -6,7 +6,16 @@ import LucideIcon from '@/components/LucideIcon'
 export const dynamic = 'force-dynamic'
 
 export default async function BlogPage() {
-  const blogs = await prisma.blog.findMany({ where: { isPublished: true }, orderBy: { createdAt: 'desc' } })
+  const blogs = await prisma.blog.findMany({ 
+    where: { 
+      isPublished: true,
+      OR: [
+        { scheduledAt: null },
+        { scheduledAt: { lte: new Date() } }
+      ]
+    }, 
+    orderBy: { createdAt: 'desc' } 
+  })
 
   return (
     <main className="min-h-screen pt-24 lg:pt-32 pb-20">

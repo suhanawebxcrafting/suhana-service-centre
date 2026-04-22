@@ -2,17 +2,28 @@ import Link from 'next/link'
 import LucideIcon from './LucideIcon'
 
 export default function BlogCard({ blog }) {
+  const isNew = blog.createdAt && (new Date() - new Date(blog.createdAt) <= 24 * 60 * 60 * 1000)
+
   return (
     <div className="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-premium transition-all duration-300 border border-gray-100 flex flex-col h-full">
       {/* Image Container */}
-      <div className="relative h-56 overflow-hidden">
-        <img
-          src={blog.image}
-          alt={blog.title}
-          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-        />
-        <div className="absolute top-4 left-4">
-          <span className="bg-blue-600 text-white text-[10px] font-bold px-3 py-1.5 rounded-full uppercase tracking-wider backdrop-blur-md bg-opacity-80">
+      <div className="relative h-56 overflow-hidden bg-gray-100 flex items-center justify-center">
+        {blog.image ? (
+          <img
+            src={blog.image}
+            alt={blog.title}
+            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+          />
+        ) : (
+          <LucideIcon name="Image" size={48} className="text-gray-300" />
+        )}
+        <div className="absolute top-4 left-4 flex gap-2">
+          {isNew && (
+            <span className="bg-orange-500 text-white text-[10px] font-black px-3 py-1.5 rounded-full uppercase tracking-wider shadow-md animate-pulse">
+              NEW
+            </span>
+          )}
+          <span className="bg-blue-600/90 text-white text-[10px] font-bold px-3 py-1.5 rounded-full uppercase tracking-wider backdrop-blur-md">
             {blog.category}
           </span>
         </div>
