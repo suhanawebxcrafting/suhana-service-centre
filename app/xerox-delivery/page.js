@@ -218,7 +218,7 @@ export default function XeroxDeliveryPage() {
                     <Loader2 className="animate-spin" /> Processing Order...
                   </>
                 ) : (
-                  <>Place Order (Total: ₹{deliveryCharge})</>
+                  <>Place Order</>
                 )}
               </button>
             </form>

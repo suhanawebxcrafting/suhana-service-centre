@@ -5,7 +5,7 @@ import { useSession, signOut } from 'next-auth/react'
 import { useRouter } from 'next/navigation'
 import { 
   BarChart3, Package, Clock, CheckCircle2, LogOut, ExternalLink, Download,
-  Phone, Search, Loader2, Trash2, MapPin, Ruler
+  Phone, Search, Loader2, Trash2, MapPin, Ruler, Copy, Eye, X
 } from 'lucide-react'
 
 export default function AdminDashboard() {
@@ -15,6 +15,8 @@ export default function AdminDashboard() {
   const [loading, setLoading] = useState(true)
   const [filter, setFilter] = useState('ALL')
   const [searchTerm, setSearchTerm] = useState('')
+  const [selectedAddress, setSelectedAddress] = useState(null)
+  const [copiedId, setCopiedId] = useState(null)
 
   useEffect(() => {
     if (status === 'unauthenticated') {
@@ -61,6 +63,12 @@ export default function AdminDashboard() {
     } catch (error) {
       alert('Failed to delete order')
     }
+  }
+
+  const copyToClipboard = (text, id) => {
+    navigator.clipboard.writeText(text)
+    setCopiedId(id)
+    setTimeout(() => setCopiedId(null), 2000)
   }
 
   const filteredOrders = orders.filter(order => {
@@ -178,9 +186,26 @@ export default function AdminDashboard() {
                           </a>
                         </td>
                         <td className="px-4 py-4">
-                          <div className="text-xs text-gray-600 max-w-[180px] flex items-start gap-1.5" title={order.address}>
-                            <MapPin size={13} className="text-gray-400 flex-shrink-0 mt-0.5" />
-                            <span className="line-clamp-2">{order.address}</span>
+                          <div className="flex flex-col gap-2">
+                            <div className="text-xs text-gray-600 max-w-[220px] flex items-start gap-1.5">
+                              <MapPin size={13} className="text-gray-400 flex-shrink-0 mt-0.5" />
+                              <span className="line-clamp-2">{order.address}</span>
+                            </div>
+                            <div className="flex gap-3">
+                              <button 
+                                onClick={() => setSelectedAddress(order.address)}
+                                className="text-[10px] font-black uppercase tracking-widest text-blue-600 hover:text-blue-800 flex items-center gap-1 transition-colors"
+                              >
+                                <Eye size={12} /> View Full
+                              </button>
+                              <button 
+                                onClick={() => copyToClipboard(order.address, order.id)}
+                                className="text-[10px] font-black uppercase tracking-widest text-gray-500 hover:text-gray-700 flex items-center gap-1 transition-colors"
+                              >
+                                {copiedId === order.id ? <CheckCircle2 size={12} className="text-green-500" /> : <Copy size={12} />}
+                                {copiedId === order.id ? 'Copied' : 'Copy'}
+                              </button>
+                            </div>
                           </div>
                         </td>
                         <td className="px-4 py-4">
@@ -235,6 +260,33 @@ export default function AdminDashboard() {
           </div>
         </div>
       </div>
+
+      {/* Address Modal */}
+      {selectedAddress && (
+        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm animate-fade-in">
+          <div className="bg-white rounded-3xl shadow-2xl max-w-lg w-full overflow-hidden animate-scale-up">
+            <div className="p-6 border-b border-gray-100 flex items-center justify-between bg-gray-50/50">
+              <h3 className="font-black text-gray-900 flex items-center gap-2 uppercase tracking-widest text-xs">
+                <MapPin size={16} className="text-blue-600" /> Full Delivery Address
+              </h3>
+              <button onClick={() => setSelectedAddress(null)} className="p-2 hover:bg-gray-200 rounded-full transition-colors">
+                <X size={20} />
+              </button>
+            </div>
+            <div className="p-8">
+              <div className="bg-gray-50 rounded-2xl p-6 border border-gray-100 text-gray-700 leading-relaxed whitespace-pre-wrap break-words font-medium">
+                {selectedAddress}
+              </div>
+              <button 
+                onClick={() => { copyToClipboard(selectedAddress, 'modal'); setSelectedAddress(null) }}
+                className="w-full mt-6 bg-blue-600 hover:bg-blue-700 text-white font-black py-4 rounded-xl shadow-xl shadow-blue-500/20 transition-all flex items-center justify-center gap-2 uppercase tracking-widest text-xs"
+              >
+                <Copy size={16} /> Copy Address & Close
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </>
   )
 }
