@@ -1,35 +1,45 @@
 'use client'
-import React, { useState } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 import { FileText, X, ZoomIn } from 'lucide-react'
 
 export default function CertificateSlider({ certificates }) {
   const [selectedCert, setSelectedCert] = useState(null)
+  const scrollRef = useRef(null)
+  const intervalRef = useRef(null)
+  const isPausedRef = useRef(false)
+  const isVisibleRef = useRef(false)
 
-  const [isPaused, setIsPaused] = useState(false)
-  const scrollRef = React.useRef(null)
+  useEffect(() => {
+    if (!certificates || certificates.length <= 1) return
+    const container = scrollRef.current
+    if (!container) return
 
-  React.useEffect(() => {
-    if (!scrollRef.current || isPaused || certificates.length <= 1) return
-    const interval = setInterval(() => {
-      const container = scrollRef.current
-      const cardWidth = container.querySelector('.snap-center')?.offsetWidth || 400
-      const gap = 24 // gap-6 is 24px
-      const scrollStep = cardWidth + gap
+    // Only animate when visible
+    const observer = new IntersectionObserver(([entry]) => {
+      isVisibleRef.current = entry.isIntersecting
+    }, { threshold: 0.1 })
+    observer.observe(container)
 
-      if (container.scrollLeft + container.clientWidth >= container.scrollWidth - 10) {
-        container.scrollTo({ left: 0, behavior: 'smooth' })
-      } else {
-        container.scrollBy({ left: scrollStep, behavior: 'smooth' })
+    intervalRef.current = setInterval(() => {
+      if (isPausedRef.current || !isVisibleRef.current) return
+      container.scrollLeft += 1
+      if (container.scrollLeft >= container.scrollWidth / 2) {
+        container.scrollLeft = 0
       }
-    }, 4000)
-    return () => clearInterval(interval)
-  }, [isPaused, certificates.length])
+    }, 50)
+
+    return () => {
+      observer.disconnect()
+      if (intervalRef.current) clearInterval(intervalRef.current)
+    }
+  }, [certificates])
 
   if (!certificates || certificates.length === 0) return null
 
+  const sliderItems = [...certificates, ...certificates]
+
   return (
     <section className="py-24 bg-gray-50/50 overflow-hidden border-t border-gray-100 relative">
-      {/* Background patterns */}
       <div className="absolute top-0 left-0 w-full h-full opacity-30 pointer-events-none" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, #e2e8f0 1px, transparent 0)', backgroundSize: '32px 32px' }}></div>
 
       <div className="max-w-7xl mx-auto px-6 mb-16 text-center relative z-10">
@@ -48,40 +58,30 @@ export default function CertificateSlider({ certificates }) {
         </p>
       </div>
       
-      <div 
-        className="relative w-full"
-        onMouseEnter={() => setIsPaused(true)}
-        onMouseLeave={() => setIsPaused(false)}
-        onTouchStart={() => setIsPaused(true)}
-      >
-        {/* Left and Right Fade Overlays (only on desktop) */}
-        <div className="hidden md:block absolute top-0 bottom-0 left-0 w-64 bg-gradient-to-r from-gray-50 via-gray-50/80 to-transparent z-10 pointer-events-none"></div>
-        <div className="hidden md:block absolute top-0 bottom-0 right-0 w-64 bg-gradient-to-l from-gray-50 via-gray-50/80 to-transparent z-10 pointer-events-none"></div>
+      <div className="relative w-full">
+        <div className="absolute top-0 bottom-0 left-0 w-20 md:w-64 bg-gradient-to-r from-gray-50 via-gray-50/80 to-transparent z-10 pointer-events-none"></div>
+        <div className="absolute top-0 bottom-0 right-0 w-20 md:w-64 bg-gradient-to-l from-gray-50 via-gray-50/80 to-transparent z-10 pointer-events-none"></div>
 
-        {/* Manual Scroll Container */}
         <div 
           ref={scrollRef}
-          className="flex overflow-x-auto pb-12 pt-4 px-6 md:px-24 snap-x snap-mandatory scrollbar-hide gap-6"
+          className="flex overflow-x-auto pb-12 pt-4 px-6 md:px-24 scrollbar-hide gap-6"
+          style={{ willChange: 'scroll-position' }}
+          onMouseEnter={() => { isPausedRef.current = true }}
+          onMouseLeave={() => { isPausedRef.current = false }}
+          onTouchStart={() => { isPausedRef.current = true }}
+          onTouchEnd={() => { isPausedRef.current = false }}
         >
-          {certificates.map((cert) => (
+          {sliderItems.map((cert, index) => (
             <div 
-              key={cert.id} 
-              className="flex-shrink-0 w-[85vw] sm:w-80 md:w-[400px] snap-center group cursor-pointer"
+              key={`${cert.id}-${index}`} 
+              className="flex-shrink-0 w-[85vw] sm:w-80 md:w-[400px] group cursor-pointer"
               onClick={() => setSelectedCert(cert)}
             >
               <div className="bg-white/70 backdrop-blur-sm rounded-[2.5rem] p-6 md:p-8 border border-white transition-all duration-500 shadow-[0_10px_40px_-15px_rgba(0,0,0,0.05)] group-hover:shadow-[0_25px_60px_-15px_rgba(37,99,235,0.15)] group-hover:border-blue-200 group-hover:-translate-y-3 h-full flex flex-col relative overflow-hidden">
-                
-                {/* Decorative background glow */}
                 <div className="absolute -right-20 -top-20 w-48 h-48 bg-blue-50 rounded-full blur-[80px] group-hover:bg-blue-100 transition-colors"></div>
 
                 <div className="relative z-10 w-full h-64 md:h-80 flex items-center justify-center mb-8 overflow-hidden rounded-3xl bg-gray-50/50 border border-gray-100 group-hover:bg-white transition-all duration-500 group-hover:shadow-inner">
-                  <img 
-                    src={cert.imageUrl} 
-                    alt={cert.title} 
-                    className="w-full h-full object-contain p-2 group-hover:scale-105 transition-transform duration-700"
-                  />
-                  
-                  {/* Click to Zoom Overlay */}
+                  <img src={cert.imageUrl} alt={cert.title} className="w-full h-full object-contain p-2 group-hover:scale-105 transition-transform duration-700" />
                   <div className="absolute inset-0 bg-blue-900/0 group-hover:bg-blue-900/20 transition-colors flex items-center justify-center">
                     <div className="bg-white text-blue-600 p-4 rounded-full shadow-2xl scale-0 group-hover:scale-100 transition-all duration-300">
                       <ZoomIn size={24} />
@@ -94,22 +94,13 @@ export default function CertificateSlider({ certificates }) {
                     <div className="h-[2px] w-8 bg-gradient-to-r from-blue-600 to-transparent rounded-full"></div>
                     <span className="text-[10px] font-black text-blue-600 tracking-[0.2em] uppercase">Verified Award</span>
                   </div>
-                  <h3 className="text-base md:text-xl font-black text-gray-900 line-clamp-2 leading-tight group-hover:text-blue-700 transition-colors">
-                    {cert.title}
-                  </h3>
+                  <h3 className="text-base md:text-xl font-black text-gray-900 line-clamp-2 leading-tight group-hover:text-blue-700 transition-colors">{cert.title}</h3>
                 </div>
 
-                {/* Bottom detail */}
                 <div className="mt-auto pt-6 border-t border-gray-100 flex items-center justify-between opacity-50 group-hover:opacity-100 transition-opacity">
                   <span className="text-[9px] font-bold text-gray-400 uppercase tracking-widest">Suhana Service Centre</span>
                   {cert.fileUrl && (
-                    <a 
-                      href={cert.fileUrl} 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      className="text-blue-600 hover:text-blue-700 transition-colors"
-                      onClick={(e) => e.stopPropagation()}
-                    >
+                    <a href={cert.fileUrl} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-700 transition-colors" onClick={(e) => e.stopPropagation()}>
                       <FileText size={16} />
                     </a>
                   )}
@@ -120,33 +111,19 @@ export default function CertificateSlider({ certificates }) {
         </div>
       </div>
 
-
-      {/* Preview Modal */}
       {selectedCert && (
-        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/90 backdrop-blur-md animate-fade-in" onClick={() => setSelectedCert(null)}>
+        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/90 backdrop-blur-md" onClick={() => setSelectedCert(null)}>
           <div className="relative max-w-4xl w-full max-h-[90vh] bg-white rounded-3xl overflow-hidden shadow-2xl" onClick={e => e.stopPropagation()}>
-            <button 
-              onClick={() => setSelectedCert(null)}
-              className="absolute top-4 right-4 z-10 w-10 h-10 bg-black/50 hover:bg-black/70 text-white rounded-full flex items-center justify-center transition-colors"
-            >
+            <button onClick={() => setSelectedCert(null)} className="absolute top-4 right-4 z-10 w-10 h-10 bg-black/50 hover:bg-black/70 text-white rounded-full flex items-center justify-center transition-colors">
               <X size={24} />
             </button>
             <div className="w-full h-full overflow-auto flex items-center justify-center p-4">
-              <img 
-                src={selectedCert.imageUrl} 
-                alt={selectedCert.title} 
-                className="max-w-full max-h-[80vh] object-contain"
-              />
+              <img src={selectedCert.imageUrl} alt={selectedCert.title} className="max-w-full max-h-[80vh] object-contain" />
             </div>
             <div className="p-6 bg-white border-t border-gray-100 flex items-center justify-between">
               <h3 className="text-xl font-black text-gray-900">{selectedCert.title}</h3>
               {selectedCert.fileUrl && (
-                <a 
-                  href={selectedCert.fileUrl} 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="btn-primary px-6 py-2 rounded-xl flex items-center gap-2 text-sm"
-                >
+                <a href={selectedCert.fileUrl} target="_blank" rel="noopener noreferrer" className="btn-primary px-6 py-2 rounded-xl flex items-center gap-2 text-sm">
                   <FileText size={18} /> View PDF
                 </a>
               )}
@@ -154,17 +131,6 @@ export default function CertificateSlider({ certificates }) {
           </div>
         </div>
       )}
-
-      <style jsx global>{`
-        .scrollbar-hide::-webkit-scrollbar {
-          display: none;
-        }
-        .scrollbar-hide {
-          -ms-overflow-style: none;
-          scrollbar-width: none;
-        }
-      `}</style>
     </section>
   )
 }
-
