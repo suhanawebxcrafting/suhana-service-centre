@@ -34,7 +34,7 @@ export async function generateMetadata({ params }) {
   }
 }
 
-export default function ServiceDetailPage({ params }) {
+export default async function ServiceDetailPage({ params }) {
   const service = getServiceBySlug(params.slug)
   if (!service) notFound()
 
