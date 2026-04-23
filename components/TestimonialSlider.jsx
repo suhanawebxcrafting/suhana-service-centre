@@ -17,15 +17,19 @@ export default function TestimonialSlider() {
   }, [])
 
   useEffect(() => {
-    if (!scrollRef.current || isPaused || testimonials.length === 0) return
+    if (!scrollRef.current || isPaused || testimonials.length <= 1) return
     const interval = setInterval(() => {
-      const { scrollLeft, scrollWidth, clientWidth } = scrollRef.current
-      if (scrollLeft + clientWidth >= scrollWidth - 1) {
-        scrollRef.current.scrollTo({ left: 0, behavior: 'smooth' })
+      const container = scrollRef.current
+      const cardWidth = container.querySelector('.snap-center')?.offsetWidth || 450
+      const gap = 24 // gap-6
+      const scrollStep = cardWidth + gap
+
+      if (container.scrollLeft + container.clientWidth >= container.scrollWidth - 10) {
+        container.scrollTo({ left: 0, behavior: 'smooth' })
       } else {
-        scrollRef.current.scrollBy({ left: 1, behavior: 'auto' })
+        container.scrollBy({ left: scrollStep, behavior: 'smooth' })
       }
-    }, 40)
+    }, 5000)
     return () => clearInterval(interval)
   }, [isPaused, testimonials.length])
 

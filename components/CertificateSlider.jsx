@@ -9,17 +9,21 @@ export default function CertificateSlider({ certificates }) {
   const scrollRef = React.useRef(null)
 
   React.useEffect(() => {
-    if (!scrollRef.current || isPaused) return
+    if (!scrollRef.current || isPaused || certificates.length <= 1) return
     const interval = setInterval(() => {
-      const { scrollLeft, scrollWidth, clientWidth } = scrollRef.current
-      if (scrollLeft + clientWidth >= scrollWidth - 1) {
-        scrollRef.current.scrollTo({ left: 0, behavior: 'smooth' })
+      const container = scrollRef.current
+      const cardWidth = container.querySelector('.snap-center')?.offsetWidth || 400
+      const gap = 24 // gap-6 is 24px
+      const scrollStep = cardWidth + gap
+
+      if (container.scrollLeft + container.clientWidth >= container.scrollWidth - 10) {
+        container.scrollTo({ left: 0, behavior: 'smooth' })
       } else {
-        scrollRef.current.scrollBy({ left: 1, behavior: 'auto' })
+        container.scrollBy({ left: scrollStep, behavior: 'smooth' })
       }
-    }, 30)
+    }, 4000)
     return () => clearInterval(interval)
-  }, [isPaused])
+  }, [isPaused, certificates.length])
 
   if (!certificates || certificates.length === 0) return null
 

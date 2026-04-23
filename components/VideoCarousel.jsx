@@ -104,15 +104,19 @@ export default function VideoCarousel({ videos }) {
   const scrollRef = useRef(null)
 
   useEffect(() => {
-    if (!scrollRef.current || isPaused || !videos || videos.length === 0) return
+    if (!scrollRef.current || isPaused || !videos || videos.length <= 1) return
     const interval = setInterval(() => {
-      const { scrollLeft, scrollWidth, clientWidth } = scrollRef.current
-      if (scrollLeft + clientWidth >= scrollWidth - 1) {
-        scrollRef.current.scrollTo({ left: 0, behavior: 'smooth' })
+      const container = scrollRef.current
+      const cardWidth = container.querySelector('.snap-center')?.offsetWidth || 320
+      const gap = 16 // gap-4
+      const scrollStep = cardWidth + gap
+
+      if (container.scrollLeft + container.clientWidth >= container.scrollWidth - 10) {
+        container.scrollTo({ left: 0, behavior: 'smooth' })
       } else {
-        scrollRef.current.scrollBy({ left: 1, behavior: 'auto' })
+        container.scrollBy({ left: scrollStep, behavior: 'smooth' })
       }
-    }, 35)
+    }, 4500)
     return () => clearInterval(interval)
   }, [isPaused, videos])
 
