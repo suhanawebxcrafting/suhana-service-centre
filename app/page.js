@@ -29,6 +29,18 @@ const whyUs = [
   { icon: 'Headset', title: 'Post-Service Support', desc: 'We stay with you even after service delivery. Follow-up support on WhatsApp and phone.' },
 ]
 
+export const metadata = {
+  title: 'Suhana Service Centre — Aadhaar, PAN, Passport & 70+ Online Services in Virar East',
+  description: 'Suhana Service Centre in Virar East — your trusted one-stop centre for Aadhaar card, PAN card, Passport, Voter ID, Birth Certificate, Income Certificate, Domicile, Banking & 70+ government services. Serving Virar, Vasai & Nalasopara. Call 7709709243.',
+  alternates: {
+    canonical: '/',
+  },
+  openGraph: {
+    title: 'Suhana Service Centre — All Online Services Under One Roof | Virar East',
+    description: 'Trusted by thousands in Virar for Aadhaar, PAN, Passport, Certificates & 70+ government services. Fast, reliable & affordable.',
+  },
+}
+
 export default async function HomePage() {
   const blogs = await prisma.blog.findMany({
     where: {
@@ -80,8 +92,26 @@ export default async function HomePage() {
   const featuredServices = services.filter(s => featuredIds.includes(s.id))
   const totalServices = services.length
 
+  // FAQ Schema for Google rich results
+  const faqSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map(f => ({
+      '@type': 'Question',
+      name: f.q,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: f.a,
+      },
+    })),
+  }
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
       {/* ─── Hero Section ─── */}
       <section className="hero-gradient relative min-h-screen flex items-center overflow-hidden">
         {/* Background pattern */}

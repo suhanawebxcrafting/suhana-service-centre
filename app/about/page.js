@@ -3,8 +3,16 @@ import { services, categories } from '@/data/services'
 import LucideIcon from '@/components/LucideIcon'
 
 export const metadata = {
-  title: 'About Us | Suhana Service Centre Virar',
-  description: 'Learn about Suhana Service Centre — Virar\'s trusted one-stop service centre for all government and digital services. Fast, reliable, affordable.',
+  title: 'About Us — Suhana Service Centre | Trusted Since Day One in Virar',
+  description: 'Learn about Suhana Service Centre — Virar East\'s most trusted one-stop service centre for Aadhaar, PAN, Passport, Certificates & 70+ government and digital services. Serving Virar, Vasai & Nalasopara. Fast, reliable, affordable.',
+  keywords: ['about suhana service centre', 'service centre virar east', 'trusted service centre virar', 'government services virar vasai nalasopara'],
+  alternates: {
+    canonical: '/about',
+  },
+  openGraph: {
+    title: 'About Suhana Service Centre — Virar East',
+    description: 'Your trusted one-stop centre for all government & digital services in Virar, Vasai & Nalasopara.',
+  },
 }
 
 export default function AboutPage() {

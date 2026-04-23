@@ -8,12 +8,29 @@ export async function generateStaticParams() {
   return services.map(s => ({ slug: s.slug }))
 }
 
+const SITE_URL = 'https://suhanaservicecentre.in'
+
 export async function generateMetadata({ params }) {
   const service = getServiceBySlug(params.slug)
   if (!service) return { title: 'Service Not Found' }
+  const cat = getCategoryById(service.category)
   return {
-    title: `${service.name} | Suhana Service Centre Virar`,
-    description: service.description,
+    title: `${service.name} in Virar — Apply Online | Suhana Service Centre`,
+    description: `${service.description.slice(0, 150)}... Apply for ${service.name} at Suhana Service Centre, Virar East. Fast processing, affordable rates. Call 7709709243.`,
+    keywords: [
+      `${service.name.toLowerCase()} virar`,
+      `${service.name.toLowerCase()} virar east`,
+      `${service.name.toLowerCase()} agent virar`,
+      `apply ${service.name.toLowerCase()} virar`,
+      `${cat?.label?.toLowerCase() || 'services'} virar`,
+    ],
+    alternates: {
+      canonical: `/services/${params.slug}`,
+    },
+    openGraph: {
+      title: `${service.name} — Suhana Service Centre Virar`,
+      description: `Get ${service.name} at Suhana Service Centre, Virar East. Fast, reliable & affordable.`,
+    },
   }
 }
 
@@ -27,8 +44,35 @@ export default function ServiceDetailPage({ params }) {
   // Related services (same category, different service)
   const related = services.filter(s => s.category === service.category && s.id !== service.id).slice(0, 4)
 
+  // JSON-LD for this service
+  const serviceSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    name: service.name,
+    description: service.description,
+    provider: {
+      '@type': 'LocalBusiness',
+      name: 'Suhana Service Centre',
+      address: {
+        '@type': 'PostalAddress',
+        streetAddress: 'Office No- 04, Raipada, Nr. Anand Gaushalla, Chandansar Road',
+        addressLocality: 'Virar East',
+        addressRegion: 'Maharashtra',
+        postalCode: '401305',
+        addressCountry: 'IN',
+      },
+      telephone: '+917709709243',
+    },
+    areaServed: ['Virar', 'Vasai', 'Nalasopara'],
+    url: `${SITE_URL}/services/${service.slug}`,
+  }
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+      />
       {/* Hero */}
       <section className="hero-gradient pt-28 pb-16 relative">
         <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)', backgroundSize: '30px 30px' }}></div>

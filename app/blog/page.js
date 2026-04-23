@@ -5,6 +5,19 @@ import LucideIcon from '@/components/LucideIcon'
 
 export const dynamic = 'force-dynamic'
 
+export const metadata = {
+  title: 'Blog — Tips, Guides & Updates | Suhana Service Centre Virar',
+  description: 'Read latest articles, tips and guides on Aadhaar card, PAN card, Passport, government schemes and digital services. Stay updated with Suhana Service Centre Virar blog.',
+  keywords: ['aadhaar card tips', 'pan card guide', 'passport application guide', 'government services blog virar', 'digital services tips'],
+  alternates: {
+    canonical: '/blog',
+  },
+  openGraph: {
+    title: 'Blog — Suhana Service Centre Virar',
+    description: 'Helpful guides and latest updates on government & digital services.',
+  },
+}
+
 export default async function BlogPage() {
   const blogs = await prisma.blog.findMany({ 
     where: { 
