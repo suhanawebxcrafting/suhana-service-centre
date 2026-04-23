@@ -1,15 +1,12 @@
 'use client'
-import * as LucideIcons from 'lucide-react'
+import { Activity, ArrowLeftRight, Award, Baby, Badge, BadgeCheck, BarChart, Book, Briefcase, Building2, Car, CarFront, ClipboardEdit, ClipboardList, Contact, Copy, CreditCard, Download, Edit3, Factory, FileBadge, FileEdit, FileSignature, FileText, FileX, Fingerprint, Globe, Globe2, GraduationCap, Hammer, HardHat, HeartPulse, Home, IdCard, Image as ImageIcon, Landmark, Layers, Link, MessageCircle, Newspaper, Printer, Receipt, RefreshCcw, RefreshCw, Scan, School, Settings2, Shield, ShieldCheck, Smartphone, Ticket, UserPlus, Vote, Wallet, Zap, HelpCircle, Wrench, Phone, BarChart3, Sparkles, ArrowRight, MessageSquare, PlayCircle, MapPin, Mail, Calendar, User, Truck, Info, Search, LayoutGrid, RotateCcw, SearchX, Quote, ChevronRight, AlertCircle, Clock, CheckCircle2, ChevronDown, ChevronUp, ZoomIn, Play, Pause, Trash2, Edit2, Plus, LogOut, Check, X, Handshake, CircleDollarSign, Headset, Lock } from 'lucide-react'
+
+const iconMap = {
+  Activity, ArrowLeftRight, Award, Baby, Badge, BadgeCheck, BarChart, Book, Briefcase, Building2, Car, CarFront, ClipboardEdit, ClipboardList, Contact, Copy, CreditCard, Download, Edit3, Factory, FileBadge, FileEdit, FileSignature, FileText, FileX, Fingerprint, Globe, Globe2, GraduationCap, Hammer, HardHat, HeartPulse, Home, IdCard, Image: ImageIcon, Landmark, Layers, Link, MessageCircle, Newspaper, Printer, Receipt, RefreshCcw, RefreshCw, Scan, School, Settings2, Shield, ShieldCheck, Smartphone, Ticket, UserPlus, Vote, Wallet, Zap, HelpCircle, Wrench, Phone, BarChart3, Sparkles, ArrowRight, MessageSquare, PlayCircle, MapPin, Mail, Calendar, User, Truck, Info, Search, LayoutGrid, RotateCcw, SearchX, Quote, ChevronRight, AlertCircle, Clock, CheckCircle2, ChevronDown, ChevronUp, ZoomIn, Play, Pause, Trash2, Edit2, Plus, LogOut, Check, X, Handshake, CircleDollarSign, Headset, Lock
+}
 
 export default function LucideIcon({ name, size = 24, className = '', ...props }) {
-  const Icon = LucideIcons[name]
-
-  if (!Icon) {
-    // Fallback Icon (Help Circle) if name is invalid
-    const Fallback = LucideIcons.HelpCircle
-    return <Fallback size={size} className={className} {...props} />
-  }
-
+  const Icon = iconMap[name] || HelpCircle
   return <Icon size={size} className={className} {...props} />
 }
 

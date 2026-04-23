@@ -77,34 +77,6 @@ function VideoModal({ video, onClose }) {
 
 export default function VideoCarousel({ videos }) {
   const [activeVideo, setActiveVideo] = useState(null)
-  const scrollRef = useRef(null)
-  const intervalRef = useRef(null)
-  const isPausedRef = useRef(false)
-  const isVisibleRef = useRef(false)
-
-  useEffect(() => {
-    if (!videos || videos.length <= 1) return
-    const container = scrollRef.current
-    if (!container) return
-
-    const observer = new IntersectionObserver(([entry]) => {
-      isVisibleRef.current = entry.isIntersecting
-    }, { threshold: 0.1 })
-    observer.observe(container)
-
-    intervalRef.current = setInterval(() => {
-      if (isPausedRef.current || !isVisibleRef.current) return
-      container.scrollLeft += 1
-      if (container.scrollLeft >= container.scrollWidth / 2) {
-        container.scrollLeft = 0
-      }
-    }, 50)
-
-    return () => {
-      observer.disconnect()
-      if (intervalRef.current) clearInterval(intervalRef.current)
-    }
-  }, [videos])
 
   if (!videos || videos.length === 0) return null
 
@@ -116,20 +88,14 @@ export default function VideoCarousel({ videos }) {
         <div className="absolute top-0 bottom-0 left-0 w-12 sm:w-32 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none"></div>
         <div className="absolute top-0 bottom-0 right-0 w-12 sm:w-32 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none"></div>
 
-        <div 
-          ref={scrollRef}
-          className="flex overflow-x-auto scrollbar-hide gap-4 px-4 md:px-32"
-          style={{ willChange: 'scroll-position' }}
-          onMouseEnter={() => { isPausedRef.current = true }}
-          onMouseLeave={() => { isPausedRef.current = false }}
-          onTouchStart={() => { isPausedRef.current = true }}
-          onTouchEnd={() => { isPausedRef.current = false }}
-        >
+        <div className="overflow-hidden py-2">
+          <div className="flex w-max gap-4 animate-scroll-videos px-4 md:px-32">
           {sliderItems.map((v, idx) => (
             <div key={`${v.id}-${idx}`} className="flex-shrink-0">
               <VideoCard video={v} onPlay={setActiveVideo} />
             </div>
           ))}
+          </div>
         </div>
       </div>
 

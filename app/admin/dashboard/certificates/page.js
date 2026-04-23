@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { Loader2, Plus, Edit2, Trash2, Image as ImageIcon } from 'lucide-react'
+import { Loader2, Plus, Edit2, Trash2, Image as ImageIcon, FileText } from 'lucide-react'
 
 export default function CertificatesDashboard() {
   const [certs, setCerts] = useState([])

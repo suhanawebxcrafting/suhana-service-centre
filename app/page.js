@@ -9,8 +9,7 @@ import CertificateSlider from '@/components/CertificateSlider'
 import VideoCarousel from '@/components/VideoCarousel'
 import { prisma } from '@/lib/prisma'
 
-export const dynamic = 'force-dynamic'
-export const revalidate = 0
+export const revalidate = 60
 
 const faqs = [
   { q: 'What documents do I need for Aadhaar card update?', a: 'You need your original Aadhaar card and a supporting document for the field being updated (e.g., utility bill for address, gazette for name change). Visit us with originals.' },

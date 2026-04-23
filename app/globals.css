@@ -363,12 +363,50 @@ body {
   animation-play-state: paused;
 }
 
+.animate-scroll-certificates {
+  animation: scroll-logos 30s linear infinite;
+}
+
+.animate-scroll-certificates:hover {
+  animation-play-state: paused;
+}
+
+.animate-scroll-testimonials {
+  animation: scroll-logos 25s linear infinite;
+}
+
+.animate-scroll-testimonials:hover {
+  animation-play-state: paused;
+}
+
+.animate-scroll-videos {
+  animation: scroll-logos 20s linear infinite;
+}
+
+.animate-scroll-videos:hover {
+  animation-play-state: paused;
+}
+
 @media (max-width: 768px) {
   .animate-scroll-logos-fast {
     animation: scroll-logos 12s linear infinite;
     will-change: transform;
     transform: translateZ(0);
-    /* 🔥 important */
+  }
+  .animate-scroll-certificates {
+    animation: scroll-logos 20s linear infinite;
+    will-change: transform;
+    transform: translateZ(0);
+  }
+  .animate-scroll-testimonials {
+    animation: scroll-logos 18s linear infinite;
+    will-change: transform;
+    transform: translateZ(0);
+  }
+  .animate-scroll-videos {
+    animation: scroll-logos 15s linear infinite;
+    will-change: transform;
+    transform: translateZ(0);
   }
 }
 

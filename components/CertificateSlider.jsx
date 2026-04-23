@@ -4,35 +4,6 @@ import { FileText, X, ZoomIn } from 'lucide-react'
 
 export default function CertificateSlider({ certificates }) {
   const [selectedCert, setSelectedCert] = useState(null)
-  const scrollRef = useRef(null)
-  const intervalRef = useRef(null)
-  const isPausedRef = useRef(false)
-  const isVisibleRef = useRef(false)
-
-  useEffect(() => {
-    if (!certificates || certificates.length <= 1) return
-    const container = scrollRef.current
-    if (!container) return
-
-    // Only animate when visible
-    const observer = new IntersectionObserver(([entry]) => {
-      isVisibleRef.current = entry.isIntersecting
-    }, { threshold: 0.1 })
-    observer.observe(container)
-
-    intervalRef.current = setInterval(() => {
-      if (isPausedRef.current || !isVisibleRef.current) return
-      container.scrollLeft += 1
-      if (container.scrollLeft >= container.scrollWidth / 2) {
-        container.scrollLeft = 0
-      }
-    }, 50)
-
-    return () => {
-      observer.disconnect()
-      if (intervalRef.current) clearInterval(intervalRef.current)
-    }
-  }, [certificates])
 
   if (!certificates || certificates.length === 0) return null
 
@@ -62,16 +33,9 @@ export default function CertificateSlider({ certificates }) {
         <div className="absolute top-0 bottom-0 left-0 w-20 md:w-64 bg-gradient-to-r from-gray-50 via-gray-50/80 to-transparent z-10 pointer-events-none"></div>
         <div className="absolute top-0 bottom-0 right-0 w-20 md:w-64 bg-gradient-to-l from-gray-50 via-gray-50/80 to-transparent z-10 pointer-events-none"></div>
 
-        <div 
-          ref={scrollRef}
-          className="flex overflow-x-auto pb-12 pt-4 px-6 md:px-24 scrollbar-hide gap-6"
-          style={{ willChange: 'scroll-position' }}
-          onMouseEnter={() => { isPausedRef.current = true }}
-          onMouseLeave={() => { isPausedRef.current = false }}
-          onTouchStart={() => { isPausedRef.current = true }}
-          onTouchEnd={() => { isPausedRef.current = false }}
-        >
-          {sliderItems.map((cert, index) => (
+        <div className="overflow-hidden pb-12 pt-4">
+          <div className="flex w-max gap-6 animate-scroll-certificates px-6 md:px-24">
+            {sliderItems.map((cert, index) => (
             <div 
               key={`${cert.id}-${index}`} 
               className="flex-shrink-0 w-[85vw] sm:w-80 md:w-[400px] group cursor-pointer"
@@ -108,6 +72,7 @@ export default function CertificateSlider({ certificates }) {
               </div>
             </div>
           ))}
+          </div>
         </div>
       </div>
 

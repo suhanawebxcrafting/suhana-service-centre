@@ -4,11 +4,6 @@ import LucideIcon from './LucideIcon'
 
 export default function TestimonialSlider() {
   const [testimonials, setTestimonials] = useState([])
-  const scrollRef = useRef(null)
-  const intervalRef = useRef(null)
-  const isPausedRef = useRef(false)
-  const isVisibleRef = useRef(false)
-
   useEffect(() => {
     fetch('/api/testimonials')
       .then(res => res.json())
@@ -16,46 +11,15 @@ export default function TestimonialSlider() {
       .catch(err => console.error(err))
   }, [])
 
-  useEffect(() => {
-    if (testimonials.length <= 1) return
-    const container = scrollRef.current
-    if (!container) return
-
-    const observer = new IntersectionObserver(([entry]) => {
-      isVisibleRef.current = entry.isIntersecting
-    }, { threshold: 0.1 })
-    observer.observe(container)
-
-    intervalRef.current = setInterval(() => {
-      if (isPausedRef.current || !isVisibleRef.current) return
-      container.scrollLeft += 1
-      if (container.scrollLeft >= container.scrollWidth / 2) {
-        container.scrollLeft = 0
-      }
-    }, 50)
-
-    return () => {
-      observer.disconnect()
-      if (intervalRef.current) clearInterval(intervalRef.current)
-    }
-  }, [testimonials.length])
-
   if (testimonials.length === 0) return null
 
   const sliderItems = [...testimonials, ...testimonials]
 
   return (
     <div className="relative w-full">
-      <div 
-        ref={scrollRef}
-        className="flex overflow-x-auto pb-12 pt-4 px-4 sm:px-8 scrollbar-hide gap-6"
-        style={{ willChange: 'scroll-position' }}
-        onMouseEnter={() => { isPausedRef.current = true }}
-        onMouseLeave={() => { isPausedRef.current = false }}
-        onTouchStart={() => { isPausedRef.current = true }}
-        onTouchEnd={() => { isPausedRef.current = false }}
-      >
-        {sliderItems.map((testimonial, index) => (
+      <div className="overflow-hidden pb-12 pt-4">
+        <div className="flex w-max gap-6 animate-scroll-testimonials px-4 sm:px-8">
+          {sliderItems.map((testimonial, index) => (
           <div key={`${testimonial.id}-${index}`} className="flex-shrink-0 w-[85vw] sm:w-[450px]">
             <div className="bg-white rounded-3xl p-6 sm:p-10 shadow-premium border border-blue-50 relative h-full flex flex-col transition-all hover:shadow-2xl hover:shadow-blue-500/10">
               <div className="absolute top-4 right-6 text-blue-50 pointer-events-none select-none">
@@ -87,6 +51,7 @@ export default function TestimonialSlider() {
             </div>
           </div>
         ))}
+        </div>
       </div>
     </div>
   )
