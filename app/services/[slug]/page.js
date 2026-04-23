@@ -44,6 +44,20 @@ export default function ServiceDetailPage({ params }) {
   // Related services (same category, different service)
   const related = services.filter(s => s.category === service.category && s.id !== service.id).slice(0, 4)
 
+  // Fetch customizations for related services
+  let customizationsMap = {}
+  try {
+    const { prisma } = require('@/lib/prisma')
+    const customizationsRaw = await prisma.serviceCustomization.findMany({
+      where: { serviceId: { in: related.map(s => s.id) } }
+    })
+    for (const c of customizationsRaw) {
+      customizationsMap[c.serviceId] = c
+    }
+  } catch (e) {
+    console.warn('serviceCustomization not available in detail page')
+  }
+
   // JSON-LD for this service
   const serviceSchema = {
     '@context': 'https://schema.org',
@@ -248,7 +262,7 @@ export default function ServiceDetailPage({ params }) {
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
               {related.map(s => (
-                <ServiceCard key={s.id} service={s} compact />
+                <ServiceCard key={s.id} service={s} customization={customizationsMap[s.id] || null} compact />
               ))}
             </div>
             <Link href={`/services?cat=${service.category}`} className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-800 font-bold text-sm bg-blue-50 px-4 py-2 rounded-lg transition-colors">

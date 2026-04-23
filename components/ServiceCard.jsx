@@ -2,7 +2,7 @@ import Link from 'next/link'
 import { categoryColors, getCategoryById } from '@/data/services'
 import LucideIcon from '@/components/LucideIcon'
 
-export default function ServiceCard({ service, compact = false, customization = null }) {
+export default function ServiceCard({ service, compact = false, customization = null, isLoading = false }) {
   const cat = getCategoryById(service.category)
   const colors = categoryColors[service.category] || categoryColors.other
 
@@ -15,6 +15,30 @@ export default function ServiceCard({ service, compact = false, customization = 
 
   // WhatsApp Message
   const whatsappUrl = `https://wa.me/917709709243?text=Hello%21+I%27m+interested+in+the+${encodeURIComponent(service.name)}+service.`
+
+  if (isLoading) {
+    return (
+      <div className="bg-white rounded-2xl border border-gray-100 h-full flex flex-col p-5 animate-pulse">
+        <div className="flex items-start gap-4 mb-5">
+          <div className="w-14 h-14 bg-gray-100 rounded-2xl flex-shrink-0"></div>
+          <div className="flex-1 space-y-3 min-w-0">
+            <div className="h-3 bg-gray-100 rounded-lg w-1/3"></div>
+            <div className="h-6 bg-gray-100 rounded-lg w-3/4"></div>
+          </div>
+        </div>
+        <div className="mb-5 rounded-2xl bg-gray-50 aspect-[4/3] md:aspect-[16/9] w-full"></div>
+        <div className="flex-1 space-y-2">
+          <div className="h-3 bg-gray-100 rounded-lg w-full"></div>
+          <div className="h-3 bg-gray-100 rounded-lg w-5/6"></div>
+          <div className="h-3 bg-gray-100 rounded-lg w-4/6"></div>
+        </div>
+        <div className="mt-5 pt-4 border-t border-gray-50 flex justify-between items-center">
+          <div className="h-3 bg-gray-100 rounded w-20"></div>
+          <div className="h-6 w-6 rounded-full bg-gray-100"></div>
+        </div>
+      </div>
+    )
+  }
 
   if (compact) {
     return (
