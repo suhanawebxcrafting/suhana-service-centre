@@ -5,6 +5,7 @@ import LucideIcon from '@/components/LucideIcon'
 import TestimonialSlider from '@/components/TestimonialSlider'
 import BlogCard from '@/components/BlogCard'
 import LogoSlider from '@/components/LogoSlider'
+import CertificateSlider from '@/components/CertificateSlider'
 import VideoCarousel from '@/components/VideoCarousel'
 import { prisma } from '@/lib/prisma'
 
@@ -50,6 +51,17 @@ export default async function HomePage() {
     })
   } catch (e) {
     console.warn('videoCard not available yet:', e.message)
+  }
+
+  // Fetch active certificates
+  let certificates = []
+  try {
+    certificates = await prisma.certificate.findMany({
+      where: { isActive: true },
+      orderBy: { sortOrder: 'asc' },
+    })
+  } catch (e) {
+    console.warn('certificates not available yet:', e.message)
   }
 
   // Fetch admin-set logo/image customizations for featured service cards
@@ -178,6 +190,9 @@ export default async function HomePage() {
 
       {/* ─── Partner Logos Slider ─── */}
       <LogoSlider />
+
+      {/* ─── Certificates Slider ─── */}
+      {certificates.length > 0 && <CertificateSlider certificates={certificates} />}
 
       {/* ─── Featured Services ─── */}
       <section id="featured-services" className="py-20 lg:py-28 pattern-bg relative overflow-hidden">

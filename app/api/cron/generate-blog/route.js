@@ -14,7 +14,16 @@ export async function GET(req) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
     }
 
-    // 2. Setup OpenRouter API Key
+    // 2. Check if Auto-Blog is enabled in settings
+    const setting = await prisma.systemSetting.findUnique({
+      where: { key: 'ai_blog_auto_generate' }
+    });
+    
+    if (setting && setting.value === 'false') {
+      return NextResponse.json({ message: 'Auto-blog generation is currently disabled in settings.' }, { status: 200 });
+    }
+
+    // 3. Setup OpenRouter API Key
     const apiKey = process.env.OPENROUTER_API_KEY;
     if (!apiKey) {
       return NextResponse.json({ error: 'OPENROUTER_API_KEY is not set in environment variables.' }, { status: 500 });

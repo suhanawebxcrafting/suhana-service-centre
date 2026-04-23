@@ -10,12 +10,42 @@ export default function BlogsDashboard() {
   const [uploadingImage, setUploadingImage] = useState(false)
   const [generatingAi, setGeneratingAi] = useState(false)
   const [popup, setPopup] = useState(null)
+  const [autoBlogEnabled, setAutoBlogEnabled] = useState(false)
+  const [loadingSettings, setLoadingSettings] = useState(true)
 
   const [form, setForm] = useState({ title: '', excerpt: '', content: '', category: '', image: '', author: 'Suhana Team', isPublished: true, scheduledAt: '' })
 
   useEffect(() => {
     fetchBlogs()
+    fetchSettings()
   }, [])
+
+  const fetchSettings = async () => {
+    try {
+      const res = await fetch('/api/settings?key=ai_blog_auto_generate')
+      const data = await res.json()
+      setAutoBlogEnabled(data.value === 'true')
+    } catch (e) {
+      console.error(e)
+    } finally {
+      setLoadingSettings(false)
+    }
+  }
+
+  const toggleAutoBlog = async () => {
+    const newValue = !autoBlogEnabled
+    setAutoBlogEnabled(newValue)
+    try {
+      await fetch('/api/settings', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ key: 'ai_blog_auto_generate', value: newValue.toString() })
+      })
+    } catch (e) {
+      alert('Failed to update settings')
+      setAutoBlogEnabled(!newValue)
+    }
+  }
 
   const fetchBlogs = async () => {
     try {
@@ -148,14 +178,34 @@ export default function BlogsDashboard() {
         <div>
           <h1 className="text-xl font-black text-gray-900 tracking-tight">Blog Management</h1>
         </div>
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-6">
+          {/* AI Start/Stop Button */}
+          {loadingSettings ? (
+            <div className="flex items-center gap-2 px-4 py-2.5 bg-gray-50 border border-gray-100 rounded-xl">
+              <Loader2 size={14} className="animate-spin text-gray-400" />
+              <span className="text-xs font-bold text-gray-400 uppercase tracking-widest">Loading...</span>
+            </div>
+          ) : (
+            <button 
+              onClick={toggleAutoBlog}
+              className={`flex items-center gap-3 px-4 py-2.5 rounded-xl font-black text-xs transition-all border shadow-sm ${
+                autoBlogEnabled 
+                  ? 'bg-green-50 border-green-200 text-green-700 hover:bg-green-100 ring-2 ring-green-500/10' 
+                  : 'bg-red-50 border-red-200 text-red-700 hover:bg-red-100 ring-2 ring-red-500/10'
+              }`}
+            >
+              <div className={`w-2 h-2 rounded-full ${autoBlogEnabled ? 'bg-green-500 shadow-[0_0_8px_rgba(34,197,94,0.6)] animate-pulse' : 'bg-red-500 shadow-[0_0_8px_rgba(239,68,68,0.6)]'}`}></div>
+              <span>AUTO-BLOG: {autoBlogEnabled ? 'RUNNING' : 'STOPPED'}</span>
+            </button>
+          )}
+
           <button 
             onClick={handleGenerateAI} 
             disabled={generatingAi}
             className="flex items-center gap-2 bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white px-5 py-2.5 rounded-xl font-bold text-sm shadow-md transition disabled:opacity-50"
           >
             {generatingAi ? <Loader2 size={16} className="animate-spin" /> : <Sparkles size={16} />}
-            {generatingAi ? 'Generating...' : 'Auto-Generate Blog'}
+            {generatingAi ? 'Generating...' : 'Auto-Generate Draft'}
           </button>
         </div>
       </header>

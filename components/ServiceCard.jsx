@@ -86,30 +86,32 @@ export default function ServiceCard({ service, compact = false, customization = 
 
           <div className="relative flex-1 p-5 z-10 flex flex-col">
             {/* Header: Logo + Title */}
-            <div className="flex items-start gap-3 mb-4">
+            <div className="flex items-start gap-4 mb-5 min-h-[72px]">
               {/* Logo/Icon */}
               <div className="flex-shrink-0">
                 {effectiveImage ? (
-                  <div className="w-11 h-11 rounded-xl overflow-hidden bg-white shadow-sm group-hover:scale-105 transition-all duration-300 flex items-center justify-center">
+                  <div className="w-14 h-14 rounded-2xl overflow-hidden bg-white shadow-premium group-hover:scale-105 transition-all duration-300 flex items-center justify-center border border-gray-100">
                     <img
                       src={effectiveImage}
                       alt={effectiveImageAlt}
-                      className="w-9 h-9 object-contain"
+                      className="w-10 h-10 object-contain"
                     />
                   </div>
                 ) : (
-                  <div className={`flex items-center justify-center w-11 h-11 rounded-xl ${colors.bg} shadow-sm group-hover:scale-105 transition-all duration-300`}>
-                    <LucideIcon name={effectiveIcon} size={20} className={colors.text} />
+                  <div className={`flex items-center justify-center w-14 h-14 rounded-2xl ${colors.bg} shadow-premium group-hover:scale-105 transition-all duration-300 border border-white/50`}>
+                    <LucideIcon name={effectiveIcon} size={28} className={colors.text} />
                   </div>
                 )}
               </div>
 
               {/* Title + badge */}
-              <div className="flex-1 min-w-0 pt-0.5">
-                <span className={`cat-badge ${colors.badge} text-[9px] mb-1.5 inline-flex items-center gap-1 px-2 py-0.5 font-black tracking-widest uppercase`}>
-                  <LucideIcon name={cat?.icon} size={9} /> {cat?.label}
-                </span>
-                <h3 className="font-black text-blue-950 text-sm leading-tight group-hover:text-blue-600 transition-colors">
+              <div className="flex-1 min-w-0">
+                <div className="mb-1.5">
+                  <span className={`cat-badge ${colors.badge} text-[10px] inline-flex items-center gap-1.5 px-2.5 py-0.5 font-black tracking-widest uppercase rounded-lg`}>
+                    <LucideIcon name={cat?.icon} size={10} /> {cat?.label}
+                  </span>
+                </div>
+                <h3 className="font-black text-blue-950 text-base md:text-lg leading-tight group-hover:text-blue-600 transition-colors line-clamp-2">
                   {service.name}
                 </h3>
               </div>
@@ -117,20 +119,22 @@ export default function ServiceCard({ service, compact = false, customization = 
 
             {/* Card / Dummy Image */}
             {effectiveDummy && (
-              <div className="mb-3 rounded-xl overflow-hidden h-28 w-full shadow-sm relative flex-shrink-0">
+              <div className="mb-5 rounded-2xl overflow-hidden h-36 md:h-44 w-full shadow-inner-lg relative flex-shrink-0 border border-gray-100/50">
                 <img
                   src={effectiveDummy}
                   alt={effectiveDummyAlt}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/15 to-transparent"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent"></div>
               </div>
             )}
 
             {/* Description */}
-            <p className="text-gray-500 text-xs leading-relaxed line-clamp-2 font-medium flex-1">
-              {service.description}
-            </p>
+            <div className="flex-1 flex flex-col justify-start">
+              <p className="text-gray-500 text-sm leading-relaxed line-clamp-3 font-medium">
+                {service.description}
+              </p>
+            </div>
           </div>
 
           {/* Footer */}

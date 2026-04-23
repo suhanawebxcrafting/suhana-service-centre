@@ -100,52 +100,40 @@ function VideoModal({ video, onClose }) {
 
 export default function VideoCarousel({ videos }) {
   const [activeVideo, setActiveVideo] = useState(null)
-  const scrollRef = useRef(null)
 
   if (!videos || videos.length === 0) return null
 
-  const scroll = (dir) => {
-    if (scrollRef.current) {
-      scrollRef.current.scrollBy({ left: dir * 340, behavior: 'smooth' })
-    }
-  }
+  const sliderItems = [...videos, ...videos, ...videos]
 
   return (
     <>
-      <div className="relative">
-        {/* Left arrow */}
-        {videos.length > 3 && (
-          <button
-            onClick={() => scroll(-1)}
-            className="hidden sm:flex absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-10 w-10 h-10 bg-white shadow-lg rounded-full items-center justify-center border border-gray-100 hover:bg-blue-50 transition-colors"
-          >
-            <svg width="18" height="18" fill="none" stroke="#2563eb" strokeWidth="2.5" viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg>
-          </button>
-        )}
+      <div className="relative w-full overflow-hidden py-4 -mx-4 px-4 sm:mx-0 sm:px-0">
+        {/* Fade Overlays */}
+        <div className="absolute top-0 bottom-0 left-0 w-12 sm:w-32 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none"></div>
+        <div className="absolute top-0 bottom-0 right-0 w-12 sm:w-32 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none"></div>
 
-        {/* Scrollable row */}
-        <div
-          ref={scrollRef}
-          className="flex gap-5 overflow-x-auto pb-4 scrollbar-hide scroll-smooth snap-x snap-mandatory"
-          style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
-        >
-          {videos.map(v => (
-            <div key={v.id} className="snap-start">
+        <div className="flex animate-scroll-videos hover:animation-pause">
+          {sliderItems.map((v, idx) => (
+            <div key={`${v.id}-${idx}`} className="mx-3 sm:mx-4">
               <VideoCard video={v} onPlay={setActiveVideo} />
             </div>
           ))}
         </div>
-
-        {/* Right arrow */}
-        {videos.length > 3 && (
-          <button
-            onClick={() => scroll(1)}
-            className="hidden sm:flex absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-10 w-10 h-10 bg-white shadow-lg rounded-full items-center justify-center border border-gray-100 hover:bg-blue-50 transition-colors"
-          >
-            <svg width="18" height="18" fill="none" stroke="#2563eb" strokeWidth="2.5" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
-          </button>
-        )}
       </div>
+
+      <style jsx global>{`
+        @keyframes scrollVideos {
+          0% { transform: translateX(0); }
+          100% { transform: translateX(calc(-33.333333%)); }
+        }
+        .animate-scroll-videos {
+          animation: scrollVideos 30s linear infinite;
+          width: max-content;
+        }
+        .hover\\:animation-pause:hover {
+          animation-play-state: paused;
+        }
+      `}</style>
 
       {/* Modal */}
       {activeVideo && <VideoModal video={activeVideo} onClose={() => setActiveVideo(null)} />}

@@ -26,6 +26,7 @@ export default function DashboardLayout({ children }) {
   const navLinks = [
     { name: 'Xerox Orders', path: '/admin/dashboard', icon: Package },
     { name: 'Services', path: '/admin/dashboard/services', icon: Sparkles },
+    { name: 'Certificates', path: '/admin/dashboard/certificates', icon: FileText },
     { name: 'Blogs', path: '/admin/dashboard/blogs', icon: FileText },
     { name: 'Video Cards', path: '/admin/dashboard/videos', icon: Video },
     { name: 'Testimonials', path: '/admin/dashboard/testimonials', icon: MessageSquare },
