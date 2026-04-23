@@ -220,8 +220,6 @@ export default async function HomePage() {
       {/* ─── Partner Logos Slider ─── */}
       <LogoSlider />
 
-      {/* ─── Certificates Slider ─── */}
-      {certificates.length > 0 && <CertificateSlider certificates={certificates} />}
 
       {/* ─── Featured Services ─── */}
       <section id="featured-services" className="py-20 lg:py-28 pattern-bg relative overflow-hidden">
@@ -291,6 +289,10 @@ export default async function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* ─── Certificates Slider ─── */}
+      {certificates.length > 0 && <CertificateSlider certificates={certificates} />}
+
 
       {/* ─── Why Choose Us ─── */}
       <section className="py-16 lg:py-20 bg-gradient-to-br from-blue-900 to-blue-950 relative overflow-hidden">
