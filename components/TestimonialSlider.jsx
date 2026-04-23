@@ -1,9 +1,11 @@
 'use client'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import LucideIcon from './LucideIcon'
 
 export default function TestimonialSlider() {
   const [testimonials, setTestimonials] = useState([])
+  const [isPaused, setIsPaused] = useState(false)
+  const scrollRef = useRef(null)
 
   useEffect(() => {
     fetch('/api/testimonials')
@@ -14,12 +16,33 @@ export default function TestimonialSlider() {
       .catch(err => console.error(err))
   }, [])
 
+  useEffect(() => {
+    if (!scrollRef.current || isPaused || testimonials.length === 0) return
+    const interval = setInterval(() => {
+      const { scrollLeft, scrollWidth, clientWidth } = scrollRef.current
+      if (scrollLeft + clientWidth >= scrollWidth - 1) {
+        scrollRef.current.scrollTo({ left: 0, behavior: 'smooth' })
+      } else {
+        scrollRef.current.scrollBy({ left: 1, behavior: 'auto' })
+      }
+    }, 40)
+    return () => clearInterval(interval)
+  }, [isPaused, testimonials.length])
+
   if (testimonials.length === 0) return null
 
   return (
-    <div className="relative w-full">
+    <div 
+      className="relative w-full"
+      onMouseEnter={() => setIsPaused(true)}
+      onMouseLeave={() => setIsPaused(false)}
+      onTouchStart={() => setIsPaused(true)}
+    >
       {/* Manual Scroll Container */}
-      <div className="flex overflow-x-auto pb-12 pt-4 px-4 sm:px-8 snap-x snap-mandatory scrollbar-hide gap-6">
+      <div 
+        ref={scrollRef}
+        className="flex overflow-x-auto pb-12 pt-4 px-4 sm:px-8 snap-x snap-mandatory scrollbar-hide gap-6"
+      >
         {testimonials.map((testimonial) => (
           <div
             key={testimonial.id}

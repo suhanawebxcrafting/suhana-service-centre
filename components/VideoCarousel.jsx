@@ -1,5 +1,5 @@
 'use client'
-import { useState, useRef } from 'react'
+import { useState, useRef, useEffect } from 'react'
 
 function getYouTubeId(url) {
   const match = url.match(/(?:youtube\.com\/(?:watch\?v=|embed\/)|youtu\.be\/)([a-zA-Z0-9_-]{11})/)
@@ -100,20 +100,41 @@ function VideoModal({ video, onClose }) {
 
 export default function VideoCarousel({ videos }) {
   const [activeVideo, setActiveVideo] = useState(null)
+  const [isPaused, setIsPaused] = useState(false)
+  const scrollRef = useRef(null)
+
+  useEffect(() => {
+    if (!scrollRef.current || isPaused || !videos || videos.length === 0) return
+    const interval = setInterval(() => {
+      const { scrollLeft, scrollWidth, clientWidth } = scrollRef.current
+      if (scrollLeft + clientWidth >= scrollWidth - 1) {
+        scrollRef.current.scrollTo({ left: 0, behavior: 'smooth' })
+      } else {
+        scrollRef.current.scrollBy({ left: 1, behavior: 'auto' })
+      }
+    }, 35)
+    return () => clearInterval(interval)
+  }, [isPaused, videos])
 
   if (!videos || videos.length === 0) return null
 
-  const sliderItems = [...videos, ...videos, ...videos]
-
   return (
     <>
-      <div className="relative w-full py-4 -mx-4 px-4 sm:mx-0 sm:px-0">
+      <div 
+        className="relative w-full py-4 -mx-4 px-4 sm:mx-0 sm:px-0"
+        onMouseEnter={() => setIsPaused(true)}
+        onMouseLeave={() => setIsPaused(false)}
+        onTouchStart={() => setIsPaused(true)}
+      >
         {/* Fade Overlays (only on desktop) */}
         <div className="hidden md:block absolute top-0 bottom-0 left-0 w-32 bg-gradient-to-r from-white via-white/80 to-transparent z-10 pointer-events-none"></div>
         <div className="hidden md:block absolute top-0 bottom-0 right-0 w-32 bg-gradient-to-l from-white via-white/80 to-transparent z-10 pointer-events-none"></div>
 
         {/* Manual Scroll Container */}
-        <div className="flex overflow-x-auto pb-6 pt-2 px-4 md:px-32 snap-x snap-mandatory scrollbar-hide gap-4">
+        <div 
+          ref={scrollRef}
+          className="flex overflow-x-auto pb-6 pt-2 px-4 md:px-32 snap-x snap-mandatory scrollbar-hide gap-4"
+        >
           {videos.map((v) => (
             <div key={v.id} className="flex-shrink-0 snap-center">
               <VideoCard video={v} onPlay={setActiveVideo} />

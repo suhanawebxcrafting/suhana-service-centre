@@ -19,12 +19,12 @@ export default function Footer() {
           {/* Brand */}
           <div className="lg:col-span-1">
             <div className="flex items-center gap-3 mb-6">
-              <div className="relative w-16 h-16 bg-white/10 rounded-2xl p-1.5 shadow-lg shadow-black/20 backdrop-blur-md border border-white/10 flex items-center justify-center transition-transform hover:scale-105">
+              <div className="relative w-16 h-16 bg-white rounded-2xl p-1 shadow-lg shadow-black/40 flex items-center justify-center transition-transform hover:scale-105">
                 <Image
                   src="/logo.png"
                   alt="Suhana Service Centre"
                   fill
-                  className="object-contain p-1.5 drop-shadow-[0_0_8px_rgba(255,255,255,0.3)] brightness-[1.1]"
+                  className="object-contain p-1.5"
                 />
               </div>
               <div>

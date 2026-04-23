@@ -5,6 +5,22 @@ import { FileText, X, ZoomIn } from 'lucide-react'
 export default function CertificateSlider({ certificates }) {
   const [selectedCert, setSelectedCert] = useState(null)
 
+  const [isPaused, setIsPaused] = useState(false)
+  const scrollRef = React.useRef(null)
+
+  React.useEffect(() => {
+    if (!scrollRef.current || isPaused) return
+    const interval = setInterval(() => {
+      const { scrollLeft, scrollWidth, clientWidth } = scrollRef.current
+      if (scrollLeft + clientWidth >= scrollWidth - 1) {
+        scrollRef.current.scrollTo({ left: 0, behavior: 'smooth' })
+      } else {
+        scrollRef.current.scrollBy({ left: 1, behavior: 'auto' })
+      }
+    }, 30)
+    return () => clearInterval(interval)
+  }, [isPaused])
+
   if (!certificates || certificates.length === 0) return null
 
   return (
@@ -28,13 +44,21 @@ export default function CertificateSlider({ certificates }) {
         </p>
       </div>
       
-      <div className="relative w-full">
+      <div 
+        className="relative w-full"
+        onMouseEnter={() => setIsPaused(true)}
+        onMouseLeave={() => setIsPaused(false)}
+        onTouchStart={() => setIsPaused(true)}
+      >
         {/* Left and Right Fade Overlays (only on desktop) */}
         <div className="hidden md:block absolute top-0 bottom-0 left-0 w-64 bg-gradient-to-r from-gray-50 via-gray-50/80 to-transparent z-10 pointer-events-none"></div>
         <div className="hidden md:block absolute top-0 bottom-0 right-0 w-64 bg-gradient-to-l from-gray-50 via-gray-50/80 to-transparent z-10 pointer-events-none"></div>
 
         {/* Manual Scroll Container */}
-        <div className="flex overflow-x-auto pb-12 pt-4 px-6 md:px-24 snap-x snap-mandatory scrollbar-hide gap-6">
+        <div 
+          ref={scrollRef}
+          className="flex overflow-x-auto pb-12 pt-4 px-6 md:px-24 snap-x snap-mandatory scrollbar-hide gap-6"
+        >
           {certificates.map((cert) => (
             <div 
               key={cert.id} 
@@ -50,7 +74,7 @@ export default function CertificateSlider({ certificates }) {
                   <img 
                     src={cert.imageUrl} 
                     alt={cert.title} 
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                    className="w-full h-full object-contain p-2 group-hover:scale-105 transition-transform duration-700"
                   />
                   
                   {/* Click to Zoom Overlay */}
@@ -91,6 +115,7 @@ export default function CertificateSlider({ certificates }) {
           ))}
         </div>
       </div>
+
 
       {/* Preview Modal */}
       {selectedCert && (
