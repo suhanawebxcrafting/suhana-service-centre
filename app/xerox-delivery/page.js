@@ -16,7 +16,7 @@ export default function XeroxDeliveryPage() {
   const [success, setSuccess] = useState(false)
   const [error, setError] = useState('')
 
-  const deliveryCharge = formData.distance > 4 ? 30 : 0
+  const deliveryCharge = formData.distance > 4 ? 50 : 0
 
   const handleFileUpload = (e) => {
     const selectedFile = e.target.files[0]
@@ -96,7 +96,7 @@ export default function XeroxDeliveryPage() {
             Xerox <span className="text-blue-600">Delivery</span>
           </h1>
           <p className="text-gray-500 text-lg font-medium max-w-2xl mx-auto">
-            Upload your documents and get them xeroxed and delivered to your doorstep. Free delivery within 4km!
+            Upload your documents and get them xeroxed and delivered to your doorstep. <span className="text-blue-600 font-bold">Delivery within 30min to 2hrs!</span> Free delivery within 4km!
           </p>
         </div>
 
@@ -157,7 +157,7 @@ export default function XeroxDeliveryPage() {
                 <div className="grid grid-cols-2 gap-4">
                   {[
                     { label: 'Within 4 km', value: 3, charge: 'Free' },
-                    { label: 'Beyond 4 km', value: 5, charge: '₹30' },
+                    { label: 'Beyond 4 km', value: 5, charge: '₹50 - ₹100' },
                   ].map((opt) => (
                     <button
                       key={opt.value}

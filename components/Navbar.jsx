@@ -37,12 +37,12 @@ export default function Navbar() {
         <div className="flex items-center justify-between h-16 lg:h-20">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2 lg:gap-3 group">
-            <div className={`relative w-12 h-12 lg:w-16 lg:h-16 transition-all duration-300 group-hover:scale-105 flex items-center justify-center rounded-xl p-1 ${!scrolled && isHomePage ? 'bg-white/10 backdrop-blur-sm shadow-lg shadow-white/5' : ''}`}>
+            <div className={`relative w-12 h-12 lg:w-16 lg:h-16 transition-all duration-300 group-hover:scale-105 flex items-center justify-center rounded-xl p-1 ${!scrolled && isHomePage ? 'bg-white shadow-[0_0_20px_rgba(255,255,255,0.3)]' : 'bg-white shadow-sm'}`}>
               <Image
                 src="/logo.png"
                 alt="Suhana Service Centre Logo"
                 fill
-                className={`object-contain transition-all duration-300 ${!scrolled && isHomePage ? 'drop-shadow-[0_0_8px_rgba(255,255,255,0.4)] brightness-[1.1]' : ''}`}
+                className="object-contain p-1"
                 priority
               />
             </div>

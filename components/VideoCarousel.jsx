@@ -107,14 +107,15 @@ export default function VideoCarousel({ videos }) {
 
   return (
     <>
-      <div className="relative w-full overflow-hidden py-4 -mx-4 px-4 sm:mx-0 sm:px-0">
-        {/* Fade Overlays */}
-        <div className="absolute top-0 bottom-0 left-0 w-12 sm:w-32 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none"></div>
-        <div className="absolute top-0 bottom-0 right-0 w-12 sm:w-32 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none"></div>
+      <div className="relative w-full py-4 -mx-4 px-4 sm:mx-0 sm:px-0">
+        {/* Fade Overlays (only on desktop) */}
+        <div className="hidden md:block absolute top-0 bottom-0 left-0 w-32 bg-gradient-to-r from-white via-white/80 to-transparent z-10 pointer-events-none"></div>
+        <div className="hidden md:block absolute top-0 bottom-0 right-0 w-32 bg-gradient-to-l from-white via-white/80 to-transparent z-10 pointer-events-none"></div>
 
-        <div className="flex animate-scroll-videos hover:animation-pause">
-          {sliderItems.map((v, idx) => (
-            <div key={`${v.id}-${idx}`} className="mx-3 sm:mx-4">
+        {/* Manual Scroll Container */}
+        <div className="flex overflow-x-auto pb-6 pt-2 px-4 md:px-32 snap-x snap-mandatory scrollbar-hide gap-4">
+          {videos.map((v) => (
+            <div key={v.id} className="flex-shrink-0 snap-center">
               <VideoCard video={v} onPlay={setActiveVideo} />
             </div>
           ))}
@@ -122,16 +123,12 @@ export default function VideoCarousel({ videos }) {
       </div>
 
       <style jsx global>{`
-        @keyframes scrollVideos {
-          0% { transform: translateX(0); }
-          100% { transform: translateX(calc(-33.333333%)); }
+        .scrollbar-hide::-webkit-scrollbar {
+          display: none;
         }
-        .animate-scroll-videos {
-          animation: scrollVideos 30s linear infinite;
-          width: max-content;
-        }
-        .hover\\:animation-pause:hover {
-          animation-play-state: paused;
+        .scrollbar-hide {
+          -ms-overflow-style: none;
+          scrollbar-width: none;
         }
       `}</style>
 
