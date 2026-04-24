@@ -32,29 +32,39 @@ export async function POST(req) {
 
     // 3. Prompt for SEO Blog
     const prompt = `You are an expert SEO copywriter for "Suhana Service center", a government and digital services provider located in Virar East (Maharashtra, India).
-Write a new, unique, and highly SEO-optimized blog post for our website to attract local traffic.
-Topics could include: Aadhaar updates, PAN Card applications, Passport processes, Xerox/Printing services, Income/Domicile Certificates, MSME registration, or Voter ID. Pick one and write an informative guide.
+Write a comprehensive, unique, and highly SEO-optimized blog post for our website to attract local traffic. 
+
+TARGET WORD COUNT: 1200 - 2000 words. This MUST be a long-form, detailed guide.
+
+Topics could include: Aadhaar updates, PAN Card applications, Passport processes, Xerox/Printing services, Income/Domicile Certificates, MSME registration, or Voter ID. Pick one relevant topic and write an exhaustive guide.
+
+STRUCTURE REQUIREMENTS:
+1. Engaging Introduction: Hook the reader and explain the importance of the topic in Virar.
+2. Detailed Overview: What is this service/document? Why is it needed?
+3. Step-by-Step Process: A very detailed, numbered guide on how to apply or update.
+4. Documents Checklist: A comprehensive list of every document required.
+5. Common Mistakes to Avoid: Help the reader avoid rejections.
+6. Why Visit Suhana Service center in Virar: Mention our expertise, fast service, and customer support.
+7. FAQs Section: Include at least 5-8 frequently asked questions and detailed answers.
+8. Conclusion & Call to Action: Final thoughts and an invitation to visit us.
 
 IMPORTANT FORMATTING RULES:
-- Use ## for main section headings (H2) — keep them short and descriptive
-- Use ### for sub-section headings (H3) if needed
-- Use numbered lists (1. 2. 3.) for step-by-step instructions
-- Use bullet lists (- item) for feature lists or requirements
-- Use > for important tips or notes
-- Write engaging paragraphs of 2-3 sentences each
-- DO NOT use ** around headings — just use ## or ###
-- DO NOT use excessive asterisks or stars anywhere
-- Start with an engaging introduction paragraph (no heading needed for the first paragraph)
-- Naturally mention "Suhana Service center" and "Virar" 3-5 times throughout
-- End with a clear call to action mentioning Suhana Service center
-- Make it genuinely helpful, not generic or AI-sounding
-- Target 600-900 words for good SEO value
+- Use ## for main section headings (H2) — Use at least 6-8 H2 headings.
+- Use ### for sub-section headings (H3) to break down complex parts.
+- Use numbered lists (1. 2. 3.) for processes.
+- Use bullet lists (- item) for document lists.
+- Use > for important tips, warnings, or expert notes.
+- Write professional yet easy-to-read paragraphs.
+- DO NOT use ** around headings.
+- DO NOT use excessive asterisks or decorative symbols.
+- Naturally mention "Suhana Service center" and "Virar" throughout the text.
+- Make it genuinely helpful and authoritative.
 
 Return ONLY valid JSON with no markdown formatting around the JSON block. Do not include \`\`\`json. The JSON must match this structure exactly:
 {
-  "title": "A catchy, SEO-friendly title targeting local searches (e.g. How to Update Aadhaar in Virar)",
-  "excerpt": "A compelling 2-3 sentence meta description for SEO.",
-  "content": "The full blog post content in clean Markdown format following the rules above.",
+  "title": "A catchy, SEO-friendly title (e.g. The Ultimate Guide to Aadhaar Card Updates in Virar East 2025)",
+  "excerpt": "A compelling 2-3 sentence meta description that includes keywords.",
+  "content": "The full long-form blog post content in clean Markdown format following the structure above.",
   "category": "One of: 'Aadhaar Services', 'Government Documents', 'Business Services', 'Printing & Xerox'"
 }`;
 
