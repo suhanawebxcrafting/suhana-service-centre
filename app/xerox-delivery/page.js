@@ -152,7 +152,7 @@ export default function XeroxDeliveryPage() {
               {/* Distance Selection */}
               <div>
                 <label className="block text-sm font-bold text-gray-700 mb-2">
-                  Approx. Distance from Centre (Virar E)
+                  Approx. Distance from center (Virar E)
                 </label>
                 <div className="grid grid-cols-2 gap-4">
                   {[

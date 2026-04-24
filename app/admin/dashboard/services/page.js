@@ -8,16 +8,16 @@ import {
 
 // ─── Lucide icon name list for the dropdown ───
 const ICON_OPTIONS = [
-  'Fingerprint','CreditCard','IdCard','Globe','Book','RefreshCw','ShieldCheck',
-  'Landmark','FileText','ArrowLeftRight','Link','Shield','UserPlus','Baby','FileX',
-  'Ring','Wallet','BadgeCheck','Home','Newspaper','FileSignature','ClipboardList',
-  'GraduationCap','Briefcase','Ticket','Zap','Smartphone','Car','School','Edit3',
-  'BarChart','Award','Printer','Copy','Scan','Image','Layers','Wrench','Phone',
-  'Mail','Download','Upload','Star','Heart','Settings','Bell','Lock','Eye',
-  'MapPin','Clock','Calendar','Users','MessageCircle','Flag','Activity',
-  'HeartPulse','Hammer','HardHat','Factory','Receipt','Building2','SimCard',
-  'Vote','ClipboardEdit','RefreshCcw','Bank','Cpu','Globe2','FileBadge','Contact',
-  'NotepadText','PenLine','FileCheck','Stamp','HandCoins','Coins','Banknote',
+  'Fingerprint', 'CreditCard', 'IdCard', 'Globe', 'Book', 'RefreshCw', 'ShieldCheck',
+  'Landmark', 'FileText', 'ArrowLeftRight', 'Link', 'Shield', 'UserPlus', 'Baby', 'FileX',
+  'Ring', 'Wallet', 'BadgeCheck', 'Home', 'Newspaper', 'FileSignature', 'ClipboardList',
+  'GraduationCap', 'Briefcase', 'Ticket', 'Zap', 'Smartphone', 'Car', 'School', 'Edit3',
+  'BarChart', 'Award', 'Printer', 'Copy', 'Scan', 'Image', 'Layers', 'Wrench', 'Phone',
+  'Mail', 'Download', 'Upload', 'Star', 'Heart', 'Settings', 'Bell', 'Lock', 'Eye',
+  'MapPin', 'Clock', 'Calendar', 'Users', 'MessageCircle', 'Flag', 'Activity',
+  'HeartPulse', 'Hammer', 'HardHat', 'Factory', 'Receipt', 'Building2', 'SimCard',
+  'Vote', 'ClipboardEdit', 'RefreshCcw', 'Bank', 'Cpu', 'Globe2', 'FileBadge', 'Contact',
+  'NotepadText', 'PenLine', 'FileCheck', 'Stamp', 'HandCoins', 'Coins', 'Banknote',
 ]
 
 // ─── Local service card images from /service-card-images/ ───
@@ -59,7 +59,7 @@ const SERVICE_ICON_SVGS = [
   { label: 'GST Network', file: 'Goods-and-Service-Tax-Network-Color.svg' },
   { label: 'Govt. of India', file: 'Government_of_India_logo.svg' },
   { label: 'Income Tax Dept', file: 'Income-Tax-Department-Black.svg' },
-  { label: 'CSC', file: 'Logo_of_Common_Service_Centres.svg' },
+  { label: 'CSC', file: 'Logo_of_Common_Service_centers.svg' },
   { label: 'NVSP', file: 'NVSP-Color.svg' },
   { label: 'RBI', file: 'ReserveBankOfIndia_idqucZxAGF_1.svg' },
   { label: 'Credit Card', file: 'credit-card.svg' },
@@ -240,7 +240,7 @@ export default function ServicesCustomizationPage() {
                     {effective.image ? (
                       <img src={effective.image} alt={service.name} className="w-full h-full object-contain p-1" />
                     ) : (
-                      <span className="text-blue-600 text-xs font-black">{service.icon?.slice(0,3)}</span>
+                      <span className="text-blue-600 text-xs font-black">{service.icon?.slice(0, 3)}</span>
                     )}
                   </div>
 
@@ -282,11 +282,10 @@ export default function ServicesCustomizationPage() {
                         <button
                           key={t.id}
                           onClick={() => setActiveTab(prev => ({ ...prev, [service.id]: t.id }))}
-                          className={`px-4 py-2 rounded-xl text-xs font-black uppercase tracking-widest transition-all ${
-                            tab === t.id
+                          className={`px-4 py-2 rounded-xl text-xs font-black uppercase tracking-widest transition-all ${tab === t.id
                               ? 'bg-blue-600 text-white shadow-sm'
                               : 'bg-gray-100 text-gray-500 hover:bg-gray-200'
-                          }`}
+                            }`}
                         >
                           {t.label}
                         </button>
@@ -358,11 +357,10 @@ export default function ServicesCustomizationPage() {
                                   key={icon.label}
                                   onClick={() => updateEdit(service.id, 'imageOverride', iconUrl)}
                                   title={icon.label}
-                                  className={`flex flex-col items-center gap-1 p-2 rounded-xl border-2 transition-all ${
-                                    isSelected
+                                  className={`flex flex-col items-center gap-1 p-2 rounded-xl border-2 transition-all ${isSelected
                                       ? 'border-blue-500 bg-blue-50 shadow-md ring-2 ring-blue-200'
                                       : 'border-gray-200 hover:border-blue-300 bg-white'
-                                  }`}
+                                    }`}
                                 >
                                   <div className="w-10 h-10 flex items-center justify-center">
                                     <img src={iconUrl} alt={icon.label} className="max-w-full max-h-full object-contain" />
@@ -446,11 +444,10 @@ export default function ServicesCustomizationPage() {
                                   key={img.id}
                                   onClick={() => updateEdit(service.id, 'dummyImageOverride', imgUrl)}
                                   title={`Image ${img.id}`}
-                                  className={`relative rounded-xl overflow-hidden border-2 transition-all h-20 ${
-                                    isSelected
+                                  className={`relative rounded-xl overflow-hidden border-2 transition-all h-20 ${isSelected
                                       ? 'border-blue-500 shadow-md ring-2 ring-blue-200'
                                       : 'border-gray-200 hover:border-blue-300'
-                                  }`}
+                                    }`}
                                 >
                                   <img src={imgUrl} alt={`Card image ${img.id}`} className="w-full h-full object-cover" />
                                   {isSelected && (

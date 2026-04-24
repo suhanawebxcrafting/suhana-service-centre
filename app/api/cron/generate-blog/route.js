@@ -8,7 +8,7 @@ export async function GET(req) {
     // 1. Authorization check
     const authHeader = req.headers.get('authorization');
     const cronSecret = process.env.CRON_SECRET;
-    
+
     // In production, require CRON_SECRET to match Authorization Bearer token
     if (cronSecret && authHeader !== `Bearer ${cronSecret}`) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
@@ -18,7 +18,7 @@ export async function GET(req) {
     const setting = await prisma.systemSetting.findUnique({
       where: { key: 'ai_blog_auto_generate' }
     });
-    
+
     if (setting && setting.value === 'false') {
       return NextResponse.json({ message: 'Auto-blog generation is currently disabled in settings.' }, { status: 200 });
     }
@@ -30,7 +30,7 @@ export async function GET(req) {
     }
 
     // 3. Prompt for SEO Blog
-    const prompt = `You are an expert SEO copywriter for "Suhana Service Centre", a government and digital services provider located in Virar East (Maharashtra, India).
+    const prompt = `You are an expert SEO copywriter for "Suhana Service center", a government and digital services provider located in Virar East (Maharashtra, India).
 Write a new, unique, and highly SEO-optimized blog post for our website to attract local traffic.
 Topics could include: Aadhaar updates, PAN Card applications, Passport processes, Xerox/Printing services, Income/Domicile Certificates, MSME registration, or Voter ID. Pick one and write an informative guide.
 
@@ -44,8 +44,8 @@ IMPORTANT FORMATTING RULES:
 - DO NOT use ** around headings — just use ## or ###
 - DO NOT use excessive asterisks or stars anywhere
 - Start with an engaging introduction paragraph (no heading needed for the first paragraph)
-- Naturally mention "Suhana Service Centre" and "Virar" 3-5 times throughout
-- End with a clear call to action mentioning Suhana Service Centre
+- Naturally mention "Suhana Service center" and "Virar" 3-5 times throughout
+- End with a clear call to action mentioning Suhana Service center
 - Make it genuinely helpful, not generic or AI-sounding
 - Target 600-900 words for good SEO value
 
@@ -77,7 +77,7 @@ Return ONLY valid JSON with no markdown formatting around the JSON block. Do not
 
     const data = await response.json();
     const responseText = data.choices[0]?.message?.content || '{}';
-    
+
     // Parse the JSON out of the response
     const jsonStr = responseText.replace(/```json/gi, '').replace(/```/g, '').trim();
     const blogData = JSON.parse(jsonStr);

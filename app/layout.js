@@ -2,28 +2,28 @@ import './globals.css'
 import Providers from '@/components/Providers'
 import LayoutShell from '@/components/LayoutShell'
 
-const SITE_URL = 'https://suhanaservicecentre.in'
+const SITE_URL = 'https://suhanaservicecenter.in'
 
 export const metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: 'Suhana Service Centre — Aadhaar, PAN, Passport & 70+ Services in Virar',
-    template: '%s | Suhana Service Centre Virar',
+    default: 'Suhana Service center — Aadhaar, PAN, Passport & 70+ Services in Virar',
+    template: '%s | Suhana Service center Virar',
   },
-  description: 'Suhana Service Centre in Virar (East) offers Aadhaar card, PAN card, Passport, Voter ID, Birth & Death Certificate, Income Certificate, Domicile, Caste Certificate, Banking, Xerox Delivery & 70+ government and digital services. Trusted by thousands in Virar, Vasai & Nalasopara. आपकी सेवा, हमारा संकल्प',
+  description: 'Suhana Service center in Virar (East) offers Aadhaar card, PAN card, Passport, Voter ID, Birth & Death Certificate, Income Certificate, Domicile, Caste Certificate, Banking, Xerox Delivery & 70+ government and digital services. Trusted by thousands in Virar, Vasai & Nalasopara. आपकी सेवा, हमारा संकल्प',
   keywords: [
-    'service centre virar', 'aadhaar card virar', 'aadhaar update virar', 'pan card virar',
+    'service center virar', 'aadhaar card virar', 'aadhaar update virar', 'pan card virar',
     'passport agent virar', 'voter id virar', 'birth certificate virar', 'death certificate virar',
     'income certificate virar', 'domicile certificate virar', 'caste certificate virar',
     'online services virar', 'government services virar', 'xerox delivery virar',
-    'service centre virar east', 'suhana service centre', 'digital services virar',
+    'service center virar east', 'suhana service center', 'digital services virar',
     'certificate attestation virar', 'smart card virar', 'banking services virar',
-    'service centre vasai', 'service centre nalasopara', 'all services under one roof virar',
-    'CSC centre virar', 'Aaple Sarkar centre virar', 'document services virar',
+    'service center vasai', 'service center nalasopara', 'all services under one roof virar',
+    'CSC center virar', 'Aaple Sarkar center virar', 'document services virar',
   ],
-  authors: [{ name: 'Suhana Service Centre', url: SITE_URL }],
-  creator: 'Suhana Service Centre',
-  publisher: 'Suhana Service Centre',
+  authors: [{ name: 'Suhana Service center', url: SITE_URL }],
+  creator: 'Suhana Service center',
+  publisher: 'Suhana Service center',
   formatDetection: {
     telephone: true,
     email: true,
@@ -33,10 +33,10 @@ export const metadata = {
     canonical: '/',
   },
   openGraph: {
-    title: 'Suhana Service Centre — All Online Services Under One Roof | Virar',
-    description: 'Trusted service centre in Virar East for Aadhaar, PAN, Passport, Certificates, Banking & 70+ government services. Fast, reliable & affordable. Call 7709709243.',
+    title: 'Suhana Service center — All Online Services Under One Roof | Virar',
+    description: 'Trusted service center in Virar East for Aadhaar, PAN, Passport, Certificates, Banking & 70+ government services. Fast, reliable & affordable. Call 7709709243.',
     url: SITE_URL,
-    siteName: 'Suhana Service Centre',
+    siteName: 'Suhana Service center',
     locale: 'en_IN',
     type: 'website',
     images: [
@@ -44,14 +44,14 @@ export const metadata = {
         url: '/logo.png',
         width: 512,
         height: 512,
-        alt: 'Suhana Service Centre Virar Logo',
+        alt: 'Suhana Service center Virar Logo',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Suhana Service Centre — 70+ Services in Virar',
-    description: 'Your trusted one-stop service centre in Virar for all government & digital services.',
+    title: 'Suhana Service center — 70+ Services in Virar',
+    description: 'Your trusted one-stop service center in Virar for all government & digital services.',
     images: ['/logo.png'],
   },
   icons: {
@@ -82,9 +82,9 @@ const jsonLd = {
     {
       '@type': 'LocalBusiness',
       '@id': `${SITE_URL}/#business`,
-      name: 'Suhana Service Centre',
-      alternateName: 'CSC Aaple Sarkar Centre Virar',
-      description: 'Trusted service centre in Virar East offering Aadhaar, PAN, Passport, Certificates, Banking & 70+ government and digital services under one roof.',
+      name: 'Suhana Service center',
+      alternateName: 'CSC Aaple Sarkar center Virar',
+      description: 'Trusted service center in Virar East offering Aadhaar, PAN, Passport, Certificates, Banking & 70+ government and digital services under one roof.',
       url: SITE_URL,
       logo: `${SITE_URL}/logo.png`,
       image: `${SITE_URL}/logo.png`,
@@ -136,7 +136,7 @@ const jsonLd = {
       '@type': 'WebSite',
       '@id': `${SITE_URL}/#website`,
       url: SITE_URL,
-      name: 'Suhana Service Centre',
+      name: 'Suhana Service center',
       publisher: { '@id': `${SITE_URL}/#business` },
       potentialAction: {
         '@type': 'SearchAction',

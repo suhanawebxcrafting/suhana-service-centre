@@ -22,7 +22,7 @@ export default function Footer() {
               <div className="relative w-16 h-16 bg-white rounded-2xl p-1 shadow-lg shadow-black/40 flex items-center justify-center transition-transform hover:scale-105">
                 <Image
                   src="/logo.png"
-                  alt="Suhana Service Centre"
+                  alt="Suhana Service center"
                   fill
                   className="object-contain p-1.5"
                 />
@@ -32,7 +32,7 @@ export default function Footer() {
                   Suhana Service
                 </div>
                 <div className="text-orange-400 text-sm font-bold tracking-widest uppercase">
-                  Centre
+                  center
                 </div>
               </div>
             </div>
@@ -41,7 +41,7 @@ export default function Footer() {
               <span className="text-blue-300 font-medium">All Online Services Under One Roof</span>
             </p>
             <p className="text-blue-300 text-xs leading-relaxed mb-6">
-              Your trusted service centre in Virar for all government and digital services. Fast, reliable, and affordable.
+              Your trusted service center in Virar for all government and digital services. Fast, reliable, and affordable.
             </p>
             <div className="flex gap-3">
               <a href="https://wa.me/917709709243" target="_blank" rel="noopener noreferrer"
@@ -153,7 +153,7 @@ export default function Footer() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex flex-col sm:flex-row items-center justify-between gap-2">
           <div className="flex items-center gap-4">
             <p className="text-blue-300 text-xs text-center sm:text-left">
-              © {new Date().getFullYear()} Suhana Service Centre, Virar. All rights reserved
+              © {new Date().getFullYear()} Suhana Service center, Virar. All rights reserved
               <Link href="/admin/login" className="text-blue-300 hover:text-white transition-colors cursor-default">.</Link>
             </p>
           </div>

@@ -1,6 +1,6 @@
 import { services } from '@/data/services'
 
-const SITE_URL = 'https://suhanaservicecentre.in'
+const SITE_URL = 'https://suhanaservicecenter.in'
 
 export default function sitemap() {
   const servicePages = services.map((service) => ({

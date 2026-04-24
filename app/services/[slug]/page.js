@@ -8,15 +8,15 @@ export async function generateStaticParams() {
   return services.map(s => ({ slug: s.slug }))
 }
 
-const SITE_URL = 'https://suhanaservicecentre.in'
+const SITE_URL = 'https://suhanaservicecenter.in'
 
 export async function generateMetadata({ params }) {
   const service = getServiceBySlug(params.slug)
   if (!service) return { title: 'Service Not Found' }
   const cat = getCategoryById(service.category)
   return {
-    title: `${service.name} in Virar — Apply Online | Suhana Service Centre`,
-    description: `${service.description.slice(0, 150)}... Apply for ${service.name} at Suhana Service Centre, Virar East. Fast processing, affordable rates. Call 7709709243.`,
+    title: `${service.name} in Virar — Apply Online | Suhana Service center`,
+    description: `${service.description.slice(0, 150)}... Apply for ${service.name} at Suhana Service center, Virar East. Fast processing, affordable rates. Call 7709709243.`,
     keywords: [
       `${service.name.toLowerCase()} virar`,
       `${service.name.toLowerCase()} virar east`,
@@ -28,8 +28,8 @@ export async function generateMetadata({ params }) {
       canonical: `/services/${params.slug}`,
     },
     openGraph: {
-      title: `${service.name} — Suhana Service Centre Virar`,
-      description: `Get ${service.name} at Suhana Service Centre, Virar East. Fast, reliable & affordable.`,
+      title: `${service.name} — Suhana Service center Virar`,
+      description: `Get ${service.name} at Suhana Service center, Virar East. Fast, reliable & affordable.`,
     },
   }
 }
@@ -66,7 +66,7 @@ export default async function ServiceDetailPage({ params }) {
     description: service.description,
     provider: {
       '@type': 'LocalBusiness',
-      name: 'Suhana Service Centre',
+      name: 'Suhana Service center',
       address: {
         '@type': 'PostalAddress',
         streetAddress: 'Office No- 04, Raipada, Nr. Anand Gaushalla, Chandansar Road',
@@ -119,7 +119,7 @@ export default async function ServiceDetailPage({ params }) {
           </div>
         </div>
         <div className="absolute bottom-0 left-0 right-0">
-          <svg viewBox="0 0 1440 40" fill="white"><path d="M0,20 C360,40 1080,0 1440,20 L1440,40 L0,40 Z"/></svg>
+          <svg viewBox="0 0 1440 40" fill="white"><path d="M0,20 C360,40 1080,0 1440,20 L1440,40 L0,40 Z" /></svg>
         </div>
       </section>
 
@@ -196,9 +196,9 @@ export default async function ServiceDetailPage({ params }) {
             {/* Right: Sidebar */}
             <div className="space-y-5">
               {/* Quick Info Card */}
-               <div className="bg-gradient-to-br from-blue-900 to-blue-800 rounded-2xl p-6 text-white shadow-xl">
+              <div className="bg-gradient-to-br from-blue-900 to-blue-800 rounded-2xl p-6 text-white shadow-xl">
                 <h3 className="font-bold text-base mb-4 flex items-center gap-2">
-                   <LucideIcon name="BarChart4" size={18} className="text-orange-400" /> Quick Info
+                  <LucideIcon name="BarChart4" size={18} className="text-orange-400" /> Quick Info
                 </h3>
                 <div className="space-y-3">
                   <div className="flex items-center justify-between py-2 border-b border-blue-700">
@@ -225,7 +225,7 @@ export default async function ServiceDetailPage({ params }) {
                   className="flex items-center justify-center gap-2 w-full bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-semibold py-3.5 rounded-xl transition-all hover:-translate-y-0.5 text-sm shadow-md">
                   <LucideIcon name="Phone" size={16} /> Call Now: 7709709243
                 </a>
-                <a href="https://wa.me/917709709243?text=Hello%2C%20I%20need%20help%20with%20" 
+                <a href="https://wa.me/917709709243?text=Hello%2C%20I%20need%20help%20with%20"
                   target="_blank" rel="noopener noreferrer"
                   className="flex items-center justify-center gap-2 w-full bg-green-500 hover:bg-green-600 text-white font-semibold py-3.5 rounded-xl transition-all hover:-translate-y-0.5 text-sm shadow-md shadow-green-500/20">
                   <LucideIcon name="MessageCircle" size={16} /> WhatsApp Now
@@ -245,7 +245,7 @@ export default async function ServiceDetailPage({ params }) {
                   Office No- 04, Raipada, Nr. Anand Gaushalla, Chandansar Road, Virar (E) - 401305
                 </p>
                 <div className="flex items-center gap-2 text-gray-500 text-xs font-semibold">
-                   <LucideIcon name="Clock" size={14} className="text-blue-500" /> Mon–Sat: 9:00 AM – 8:00 PM
+                  <LucideIcon name="Clock" size={14} className="text-blue-500" /> Mon–Sat: 9:00 AM – 8:00 PM
                 </div>
               </div>
             </div>

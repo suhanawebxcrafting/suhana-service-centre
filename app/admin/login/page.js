@@ -51,7 +51,7 @@ export default function AdminLoginPage() {
             <Lock className="text-white w-8 h-8" />
           </div>
           <h1 className="text-2xl font-black text-white uppercase tracking-tight">Admin Portal</h1>
-          <p className="text-blue-200 text-sm mt-1 uppercase font-bold tracking-widest">Suhana Service Centre</p>
+          <p className="text-blue-200 text-sm mt-1 uppercase font-bold tracking-widest">Suhana Service center</p>
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-6">

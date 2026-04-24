@@ -3,15 +3,15 @@ import { services, categories } from '@/data/services'
 import LucideIcon from '@/components/LucideIcon'
 
 export const metadata = {
-  title: 'About Us — Suhana Service Centre | Trusted Since Day One in Virar',
-  description: 'Learn about Suhana Service Centre — Virar East\'s most trusted one-stop service centre for Aadhaar, PAN, Passport, Certificates & 70+ government and digital services. Serving Virar, Vasai & Nalasopara. Fast, reliable, affordable.',
-  keywords: ['about suhana service centre', 'service centre virar east', 'trusted service centre virar', 'government services virar vasai nalasopara'],
+  title: 'About Us — Suhana Service center | Trusted Since Day One in Virar',
+  description: 'Learn about Suhana Service center — Virar East\'s most trusted one-stop service center for Aadhaar, PAN, Passport, Certificates & 70+ government and digital services. Serving Virar, Vasai & Nalasopara. Fast, reliable, affordable.',
+  keywords: ['about suhana service center', 'service center virar east', 'trusted service center virar', 'government services virar vasai nalasopara'],
   alternates: {
     canonical: '/about',
   },
   openGraph: {
-    title: 'About Suhana Service Centre — Virar East',
-    description: 'Your trusted one-stop centre for all government & digital services in Virar, Vasai & Nalasopara.',
+    title: 'About Suhana Service center — Virar East',
+    description: 'Your trusted one-stop center for all government & digital services in Virar, Vasai & Nalasopara.',
   },
 }
 
@@ -28,7 +28,7 @@ export default function AboutPage() {
             <LucideIcon name="Building2" size={16} /> About Us
           </div>
           <h1 className="text-4xl lg:text-5xl font-black text-white mb-4">
-            About Suhana<br /><span className="text-orange-400">Service Centre</span>
+            About Suhana<br /><span className="text-orange-400">Service center</span>
           </h1>
           <p className="text-blue-200 text-lg">आपकी सेवा, हमारा संकल्प</p>
         </div>
@@ -45,20 +45,20 @@ export default function AboutPage() {
           <div className="grid lg:grid-cols-2 gap-14 items-center">
             <div>
               <h2 className="text-3xl font-bold text-blue-900 mb-5">
-                Your Trusted Service Centre in Virar
+                Your Trusted Service center in Virar
               </h2>
               <p className="text-gray-600 leading-relaxed mb-4">
-                <strong>Suhana Service Centre</strong> is a well-established, trusted service centre located in Virar (East), offering a comprehensive range of government and digital services under one roof. We serve thousands of residents from Virar, Vasai, Nalasopara, and surrounding areas.
+                <strong>Suhana Service center</strong> is a well-established, trusted service center located in Virar (East), offering a comprehensive range of government and digital services under one roof. We serve thousands of residents from Virar, Vasai, Nalasopara, and surrounding areas.
               </p>
               <p className="text-gray-600 leading-relaxed mb-4">
-                Our centre is managed by an experienced team that is dedicated to providing accurate, fast, and affordable assistance with all types of government applications, digital services, and document processing.
+                Our center is managed by an experienced team that is dedicated to providing accurate, fast, and affordable assistance with all types of government applications, digital services, and document processing.
               </p>
               <p className="text-gray-600 leading-relaxed mb-6">
                 We understand that navigating government procedures can be complex and time-consuming. That's why we take care of every step for you — from document preparation to final submission — ensuring a smooth and hassle-free experience.
               </p>
               <div className="grid grid-cols-2 gap-3">
                 {[
-                  { icon: 'Building2', title: 'Established Centre', sub: 'Trusted by community' },
+                  { icon: 'Building2', title: 'Established center', sub: 'Trusted by community' },
                   { icon: 'CheckCircle2', title: `${totalServices}+ Services`, sub: 'All under one roof' },
                   { icon: 'Zap', title: 'Fast Processing', sub: 'Minimal wait time' },
                   { icon: 'CreditCard', title: 'Affordable', sub: 'Transparent charges' },
@@ -95,7 +95,7 @@ export default function AboutPage() {
                   <h3 className="font-bold text-orange-900 text-lg">Our Vision</h3>
                 </div>
                 <p className="text-gray-700 text-sm leading-relaxed">
-                  To be the most trusted and comprehensive service centre in Virar, where every citizen can walk in with a problem and walk out with a solution. We envision a community where no one is left behind due to lack of knowledge or access to government services.
+                  To be the most trusted and comprehensive service center in Virar, where every citizen can walk in with a problem and walk out with a solution. We envision a community where no one is left behind due to lack of knowledge or access to government services.
                 </p>
               </div>
               {/* Values */}

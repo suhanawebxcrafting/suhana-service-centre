@@ -10,9 +10,9 @@ export async function generateMetadata({ params }) {
   const blog = await prisma.blog.findUnique({ where: { slug: params.slug } })
   if (!blog || !blog.isPublished) return { title: 'Blog Not Found' }
   return {
-    title: `${blog.title} | Suhana Service Centre Blog`,
+    title: `${blog.title} | Suhana Service center Blog`,
     description: blog.excerpt,
-    keywords: [blog.category, 'suhana service centre', 'virar', blog.title.toLowerCase()],
+    keywords: [blog.category, 'suhana service center', 'virar', blog.title.toLowerCase()],
     openGraph: {
       title: blog.title,
       description: blog.excerpt,
@@ -64,21 +64,21 @@ export default async function BlogPostPage({ params }) {
           {/* Meta Info */}
           <div className="flex flex-wrap items-center gap-4 text-sm text-gray-500 font-semibold pb-8">
             <div className="flex items-center gap-1.5 bg-white/80 backdrop-blur-sm px-3 py-1.5 rounded-full border border-gray-100 shadow-sm">
-              <LucideIcon name="Calendar" size={14} className="text-blue-500" /> 
+              <LucideIcon name="Calendar" size={14} className="text-blue-500" />
               <span>{new Date(blog.createdAt).toLocaleDateString('en-IN', { year: 'numeric', month: 'long', day: 'numeric' })}</span>
             </div>
             <div className="flex items-center gap-1.5 bg-white/80 backdrop-blur-sm px-3 py-1.5 rounded-full border border-gray-100 shadow-sm">
-              <LucideIcon name="User" size={14} className="text-blue-500" /> 
+              <LucideIcon name="User" size={14} className="text-blue-500" />
               <span>{blog.author}</span>
             </div>
             <div className="flex items-center gap-1.5 bg-white/80 backdrop-blur-sm px-3 py-1.5 rounded-full border border-gray-100 shadow-sm">
-              <LucideIcon name="Clock" size={14} className="text-blue-500" /> 
+              <LucideIcon name="Clock" size={14} className="text-blue-500" />
               <span>{readTime} min read</span>
             </div>
           </div>
         </div>
       </div>
-      
+
       {/* Featured Image */}
       {blog.image && (
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 -mt-4">
@@ -87,7 +87,7 @@ export default async function BlogPostPage({ params }) {
           </div>
         </div>
       )}
-      
+
       {/* Blog Content */}
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 mt-12">
         <BlogContent content={blog.content} />
@@ -100,7 +100,7 @@ export default async function BlogPostPage({ params }) {
             S
           </div>
           <div className="text-center sm:text-left flex-1">
-            <h3 className="text-lg font-black text-gray-900 mb-1">Suhana Service Centre</h3>
+            <h3 className="text-lg font-black text-gray-900 mb-1">Suhana Service center</h3>
             <p className="text-gray-500 text-sm font-medium">Your trusted partner for government & digital services in Virar East. Visit us for expert assistance!</p>
           </div>
           <a href="https://wa.me/917709709243" target="_blank" rel="noopener noreferrer" className="bg-green-500 hover:bg-green-600 text-white font-bold px-6 py-3 rounded-2xl transition-all hover:-translate-y-0.5 shadow-md shadow-green-500/20 flex items-center gap-2 text-sm flex-shrink-0">
