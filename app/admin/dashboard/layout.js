@@ -34,8 +34,8 @@ export default function DashboardLayout({ children }) {
   ]
 
   return (
-    <div className="min-h-screen bg-gray-50 flex">
-      {/* Sidebar */}
+    <div className="min-h-screen bg-gray-50 flex flex-col lg:flex-row">
+      {/* Sidebar for Desktop */}
       <aside className="w-64 bg-blue-950 text-white hidden lg:flex flex-col justify-between h-screen sticky top-0">
         <div className="p-6">
           <div className="flex items-center gap-3 mb-8">
@@ -74,8 +74,41 @@ export default function DashboardLayout({ children }) {
         </div>
       </aside>
 
+      {/* Mobile Navigation - Top Bar */}
+      <div className="lg:hidden bg-blue-950 text-white p-4 flex items-center justify-between sticky top-0 z-50">
+        <div className="flex items-center gap-2">
+          <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
+            <BarChart3 size={16} />
+          </div>
+          <span className="font-black text-xs tracking-widest">SUHANA ADMIN</span>
+        </div>
+        <button 
+          onClick={() => signOut({ callbackUrl: '/' })}
+          className="p-2 text-red-400 hover:bg-white/5 rounded-lg"
+        >
+          <LogOut size={18} />
+        </button>
+      </div>
+
+      {/* Mobile Bottom Nav Bar */}
+      <div className="lg:hidden fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 flex justify-around p-2 z-50 shadow-[0_-4px_20px_rgba(0,0,0,0.05)] overflow-x-auto">
+        {navLinks.map(link => {
+          const Icon = link.icon
+          const isActive = pathname === link.path
+          return (
+            <Link key={link.path} href={link.path}
+              className={`flex flex-col items-center gap-1 p-2 min-w-[70px] rounded-lg transition-all ${
+                isActive ? 'text-blue-600 bg-blue-50' : 'text-gray-400'
+              }`}>
+              <Icon size={20} />
+              <span className="text-[10px] font-bold whitespace-nowrap">{link.name.split(' ')[0]}</span>
+            </Link>
+          )
+        })}
+      </div>
+
       {/* Main Content */}
-      <main className="flex-1 overflow-y-auto">
+      <main className="flex-1 overflow-y-auto pb-24 lg:pb-0">
         {children}
       </main>
     </div>
