@@ -1,4 +1,4 @@
-const SITE_URL = 'https://suhanaservicecenter.in'
+const SITE_URL = 'https://www.suhanaservicecentre.in'
 
 export default function robots() {
   return {
