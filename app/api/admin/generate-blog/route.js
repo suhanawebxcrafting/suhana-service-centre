@@ -35,11 +35,26 @@ export async function POST(req) {
 Write a new, unique, and highly SEO-optimized blog post for our website to attract local traffic.
 Topics could include: Aadhaar updates, PAN Card applications, Passport processes, Xerox/Printing services, Income/Domicile Certificates, MSME registration, or Voter ID. Pick one and write an informative guide.
 
+IMPORTANT FORMATTING RULES:
+- Use ## for main section headings (H2) — keep them short and descriptive
+- Use ### for sub-section headings (H3) if needed
+- Use numbered lists (1. 2. 3.) for step-by-step instructions
+- Use bullet lists (- item) for feature lists or requirements
+- Use > for important tips or notes
+- Write engaging paragraphs of 2-3 sentences each
+- DO NOT use ** around headings — just use ## or ###
+- DO NOT use excessive asterisks or stars anywhere
+- Start with an engaging introduction paragraph (no heading needed for the first paragraph)
+- Naturally mention "Suhana Service Centre" and "Virar" 3-5 times throughout
+- End with a clear call to action mentioning Suhana Service Centre
+- Make it genuinely helpful, not generic or AI-sounding
+- Target 600-900 words for good SEO value
+
 Return ONLY valid JSON with no markdown formatting around the JSON block. Do not include \`\`\`json. The JSON must match this structure exactly:
 {
   "title": "A catchy, SEO-friendly title targeting local searches (e.g. How to Update Aadhaar in Virar)",
   "excerpt": "A compelling 2-3 sentence meta description for SEO.",
-  "content": "The full blog post content in Markdown format. Use ## for headings, bullet points, and make it engaging. Mention 'Suhana Service Centre' and 'Virar' naturally.",
+  "content": "The full blog post content in clean Markdown format following the rules above.",
   "category": "One of: 'Aadhaar Services', 'Government Documents', 'Business Services', 'Printing & Xerox'"
 }`;
 

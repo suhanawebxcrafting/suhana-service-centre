@@ -93,6 +93,7 @@ model Certificate {
   title       String
   imageUrl    String
   fileUrl     String?  // For PDF or other documents
+  pageImages  String?  // JSON array of page image URLs for multi-page PDFs
   isActive    Boolean  @default(true)
   sortOrder   Int      @default(0)
   createdAt   DateTime @default(now())
