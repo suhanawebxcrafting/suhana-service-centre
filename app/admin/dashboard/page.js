@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react'
 import { useSession, signOut } from 'next-auth/react'
 import { useRouter } from 'next/navigation'
-import { 
+import {
   BarChart3, Package, Clock, CheckCircle2, LogOut, ExternalLink, Download,
   Phone, Search, Loader2, Trash2, MapPin, Ruler, Copy, Eye, X
 } from 'lucide-react'
@@ -73,8 +73,8 @@ export default function AdminDashboard() {
 
   const filteredOrders = orders.filter(order => {
     const matchesFilter = filter === 'ALL' || order.status === filter
-    const matchesSearch = order.customerName?.toLowerCase().includes(searchTerm.toLowerCase()) || 
-                          order.phoneNumber?.includes(searchTerm)
+    const matchesSearch = order.customerName?.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      order.phoneNumber?.includes(searchTerm)
     return matchesFilter && matchesSearch
   })
 
@@ -87,7 +87,7 @@ export default function AdminDashboard() {
 
   if (status === 'loading' || loading) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-gray-50">
+      <div className="min-h-screen flex items-centre justify-centre bg-gray-50">
         <Loader2 className="w-10 h-10 text-blue-600 animate-spin" />
       </div>
     )
@@ -98,15 +98,15 @@ export default function AdminDashboard() {
       {/* Main Content */}
       <div className="flex-1 overflow-y-auto">
         {/* Header */}
-        <header className="bg-white border-b border-gray-100 p-6 flex flex-col md:flex-row md:items-center justify-between gap-4 sticky top-0 z-10">
+        <header className="bg-white border-b border-gray-100 p-6 flex flex-col md:flex-row md:items-centre justify-between gap-4 sticky top-0 z-10">
           <div>
             <h1 className="text-xl font-black text-gray-900 tracking-tight">Xerox Order Management</h1>
             <p className="text-gray-500 text-xs font-bold uppercase tracking-widest mt-0.5">Delivery Service Dashboard</p>
           </div>
-          <div className="flex items-center gap-4">
+          <div className="flex items-centre gap-4">
             <div className="relative">
               <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 w-4 h-4" />
-              <input 
+              <input
                 type="text" placeholder="Search by name or phone..."
                 className="bg-gray-50 border border-gray-100 rounded-xl py-3 pl-10 pr-4 text-sm outline-none focus:ring-2 focus:ring-blue-500 w-64"
                 value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)}
@@ -128,8 +128,8 @@ export default function AdminDashboard() {
               { label: 'Completed', value: stats.completed, icon: CheckCircle2, color: 'bg-green-500' },
             ].map((s, i) => (
               <div key={i} className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
-                <div className="flex items-center justify-between mb-2">
-                  <div className={`w-10 h-10 ${s.color} rounded-xl flex items-center justify-center text-white shadow-lg`}>
+                <div className="flex items-centre justify-between mb-2">
+                  <div className={`w-10 h-10 ${s.color} rounded-xl flex items-centre justify-centre text-white shadow-lg`}>
                     <s.icon size={20} />
                   </div>
                   <div className="text-2xl font-black text-gray-900">{s.value}</div>
@@ -143,9 +143,8 @@ export default function AdminDashboard() {
           <div className="flex gap-2 mb-6 overflow-x-auto pb-2">
             {['ALL', 'PENDING', 'PROCESSING', 'COMPLETED', 'CANCELLED'].map((f) => (
               <button key={f} onClick={() => setFilter(f)}
-                className={`px-5 py-2 rounded-full text-xs font-black tracking-widest transition-all whitespace-nowrap ${
-                  filter === f ? 'bg-blue-600 text-white shadow-lg' : 'bg-white text-gray-500 border border-gray-100 hover:bg-gray-50'
-                }`}
+                className={`px-5 py-2 rounded-full text-xs font-black tracking-widest transition-all whitespace-nowrap ${filter === f ? 'bg-blue-600 text-white shadow-lg' : 'bg-white text-gray-500 border border-gray-100 hover:bg-gray-50'
+                  }`}
               >{f}</button>
             ))}
           </div>
@@ -169,7 +168,7 @@ export default function AdminDashboard() {
                 <tbody className="divide-y divide-gray-50">
                   {filteredOrders.length === 0 ? (
                     <tr>
-                      <td colSpan="8" className="px-6 py-12 text-center text-gray-400 font-medium">
+                      <td colSpan="8" className="px-6 py-12 text-centre text-gray-400 font-medium">
                         No orders found.
                       </td>
                     </tr>
@@ -181,7 +180,7 @@ export default function AdminDashboard() {
                           <div className="text-[10px] text-gray-400 mt-0.5">{new Date(order.createdAt).toLocaleDateString()}</div>
                         </td>
                         <td className="px-4 py-4">
-                          <a href={`tel:${order.phoneNumber}`} className="flex items-center gap-1.5 text-sm text-blue-600 hover:underline font-medium">
+                          <a href={`tel:${order.phoneNumber}`} className="flex items-centre gap-1.5 text-sm text-blue-600 hover:underline font-medium">
                             <Phone size={13} /> {order.phoneNumber}
                           </a>
                         </td>
@@ -192,15 +191,15 @@ export default function AdminDashboard() {
                               <span className="line-clamp-2">{order.address}</span>
                             </div>
                             <div className="flex gap-3">
-                              <button 
+                              <button
                                 onClick={() => setSelectedAddress(order.address)}
-                                className="text-[10px] font-black uppercase tracking-widest text-blue-600 hover:text-blue-800 flex items-center gap-1 transition-colors"
+                                className="text-[10px] font-black uppercase tracking-widest text-blue-600 hover:text-blue-800 flex items-centre gap-1 transition-colors"
                               >
                                 <Eye size={12} /> View Full
                               </button>
-                              <button 
+                              <button
                                 onClick={() => copyToClipboard(order.address, order.id)}
-                                className="text-[10px] font-black uppercase tracking-widest text-gray-500 hover:text-gray-700 flex items-center gap-1 transition-colors"
+                                className="text-[10px] font-black uppercase tracking-widest text-gray-500 hover:text-gray-700 flex items-centre gap-1 transition-colors"
                               >
                                 {copiedId === order.id ? <CheckCircle2 size={12} className="text-green-500" /> : <Copy size={12} />}
                                 {copiedId === order.id ? 'Copied' : 'Copy'}
@@ -209,7 +208,7 @@ export default function AdminDashboard() {
                           </div>
                         </td>
                         <td className="px-4 py-4">
-                          <span className="flex items-center gap-1 text-xs font-bold text-blue-700">
+                          <span className="flex items-centre gap-1 text-xs font-bold text-blue-700">
                             <Ruler size={13} /> {order.distance} km
                           </span>
                         </td>
@@ -221,23 +220,22 @@ export default function AdminDashboard() {
                         <td className="px-4 py-4">
                           <div className="flex gap-2">
                             <a href={order.documentUrl} target="_blank"
-                              className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-blue-50 text-blue-700 rounded-lg text-[10px] font-black uppercase tracking-widest hover:bg-blue-100 transition-all">
+                              className="inline-flex items-centre gap-1.5 px-3 py-1.5 bg-blue-50 text-blue-700 rounded-lg text-[10px] font-black uppercase tracking-widest hover:bg-blue-100 transition-all">
                               <ExternalLink size={11} /> View
                             </a>
                             <a href={order.documentUrl} download
-                              className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-green-50 text-green-700 rounded-lg text-[10px] font-black uppercase tracking-widest hover:bg-green-100 transition-all">
+                              className="inline-flex items-centre gap-1.5 px-3 py-1.5 bg-green-50 text-green-700 rounded-lg text-[10px] font-black uppercase tracking-widest hover:bg-green-100 transition-all">
                               <Download size={11} /> Download
                             </a>
                           </div>
                         </td>
                         <td className="px-4 py-4">
                           <select value={order.status} onChange={(e) => updateStatus(order.id, e.target.value)}
-                            className={`bg-white border rounded-lg text-[10px] font-black p-2 outline-none focus:ring-2 focus:ring-blue-500 transition-all uppercase tracking-wider ${
-                              order.status === 'PENDING' ? 'border-orange-200 text-orange-600' :
-                              order.status === 'PROCESSING' ? 'border-indigo-200 text-indigo-600' :
-                              order.status === 'COMPLETED' ? 'border-green-200 text-green-600' :
-                              'border-red-200 text-red-600'
-                            }`}
+                            className={`bg-white border rounded-lg text-[10px] font-black p-2 outline-none focus:ring-2 focus:ring-blue-500 transition-all uppercase tracking-wider ${order.status === 'PENDING' ? 'border-orange-200 text-orange-600' :
+                                order.status === 'PROCESSING' ? 'border-indigo-200 text-indigo-600' :
+                                  order.status === 'COMPLETED' ? 'border-green-200 text-green-600' :
+                                    'border-red-200 text-red-600'
+                              }`}
                           >
                             <option value="PENDING">PENDING</option>
                             <option value="PROCESSING">PROCESSING</option>
@@ -263,10 +261,10 @@ export default function AdminDashboard() {
 
       {/* Address Modal */}
       {selectedAddress && (
-        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm animate-fade-in">
+        <div className="fixed inset-0 z-[100] flex items-centre justify-centre p-4 bg-black/50 backdrop-blur-sm animate-fade-in">
           <div className="bg-white rounded-3xl shadow-2xl max-w-lg w-full overflow-hidden animate-scale-up">
-            <div className="p-6 border-b border-gray-100 flex items-center justify-between bg-gray-50/50">
-              <h3 className="font-black text-gray-900 flex items-center gap-2 uppercase tracking-widest text-xs">
+            <div className="p-6 border-b border-gray-100 flex items-centre justify-between bg-gray-50/50">
+              <h3 className="font-black text-gray-900 flex items-centre gap-2 uppercase tracking-widest text-xs">
                 <MapPin size={16} className="text-blue-600" /> Full Delivery Address
               </h3>
               <button onClick={() => setSelectedAddress(null)} className="p-2 hover:bg-gray-200 rounded-full transition-colors">
@@ -277,9 +275,9 @@ export default function AdminDashboard() {
               <div className="bg-gray-50 rounded-2xl p-6 border border-gray-100 text-gray-700 leading-relaxed whitespace-pre-wrap break-words font-medium">
                 {selectedAddress}
               </div>
-              <button 
+              <button
                 onClick={() => { copyToClipboard(selectedAddress, 'modal'); setSelectedAddress(null) }}
-                className="w-full mt-6 bg-blue-600 hover:bg-blue-700 text-white font-black py-4 rounded-xl shadow-xl shadow-blue-500/20 transition-all flex items-center justify-center gap-2 uppercase tracking-widest text-xs"
+                className="w-full mt-6 bg-blue-600 hover:bg-blue-700 text-white font-black py-4 rounded-xl shadow-xl shadow-blue-500/20 transition-all flex items-centre justify-centre gap-2 uppercase tracking-widest text-xs"
               >
                 <Copy size={16} /> Copy Address & Close
               </button>

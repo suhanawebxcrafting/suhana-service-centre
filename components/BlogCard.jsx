@@ -7,7 +7,7 @@ export default function BlogCard({ blog }) {
   return (
     <div className="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-premium transition-all duration-300 border border-gray-100 flex flex-col h-full">
       {/* Image Container */}
-      <div className="relative h-56 overflow-hidden bg-gray-100 flex items-center justify-center">
+      <div className="relative h-56 overflow-hidden bg-gray-100 flex items-centre justify-centre">
         {blog.image ? (
           <img
             src={blog.image}
@@ -31,7 +31,7 @@ export default function BlogCard({ blog }) {
 
       {/* Content */}
       <div className="p-6 flex flex-col flex-grow">
-        <div className="flex items-center gap-2 text-gray-400 text-xs font-semibold mb-3">
+        <div className="flex items-centre gap-2 text-gray-400 text-xs font-semibold mb-3">
           <LucideIcon name="Calendar" size={14} />
           <span>{blog.createdAt ? new Date(blog.createdAt).toLocaleDateString() : 'Recent'}</span>
           <span className="mx-1">•</span>
@@ -50,7 +50,7 @@ export default function BlogCard({ blog }) {
         <div className="mt-auto">
           <Link
             href={`/blog/${blog.slug}`}
-            className="inline-flex items-center gap-2 text-blue-600 font-bold text-sm group/link"
+            className="inline-flex items-centre gap-2 text-blue-600 font-bold text-sm group/link"
           >
             Read Full Article
             <LucideIcon

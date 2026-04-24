@@ -26,7 +26,7 @@ export const services = [
     ],
     eligibility: 'Any resident of India (including infants and children) can apply for an Aadhaar card.',
     processSteps: [
-      'Visit our center with original identity and address proofs',
+      'Visit our centre with original identity and address proofs',
       'Fill the Aadhaar Enrolment Form (Form 5 for Adults, Form 6 for Kids)',
       'Capturing biometric data (fingerprints, iris scan) and facial photograph',
       'Collection of acknowledgment slip with 14-digit Enrolment ID (EID)',
@@ -47,9 +47,9 @@ export const services = [
     ],
     eligibility: 'Existing Aadhaar holders who need to correct errors or update outdated information.',
     processSteps: [
-      'Visit center with Original Aadhaar and supporting documents',
+      'Visit centre with Original Aadhaar and supporting documents',
       'Fill the Aadhaar Correction/Update Form',
-      'Authentication via OTP or Biometric verification at the center',
+      'Authentication via OTP or Biometric verification at the centre',
       'Payment of UIDAI update fees and receiving acknowledgment (URN)',
       'Check status online using URN; reflected in 30 days usually'
     ],
@@ -63,7 +63,7 @@ export const services = [
     description: 'Download your e-Aadhaar (electronic Aadhaar) from the official UIDAI website. e-Aadhaar is a password-protected digital copy of your Aadhaar card.',
     documentsRequired: ['Aadhaar Number or Enrolment ID', 'Registered Mobile Number (for OTP)'],
     eligibility: 'Any Aadhaar holder with a registered mobile number.',
-    processSteps: ['Visit our center', 'Provide Aadhaar number or EID', 'OTP sent to registered mobile', 'e-Aadhaar PDF downloaded', 'Print taken (optional)'],
+    processSteps: ['Visit our centre', 'Provide Aadhaar number or EID', 'OTP sent to registered mobile', 'e-Aadhaar PDF downloaded', 'Print taken (optional)'],
     processingTime: 'Same day / Instant',
     charges: 'Contact for latest charges',
     notes: 'e-Aadhaar password is first 4 letters of name (capital) + birth year. Documents and process may vary.'
@@ -76,7 +76,7 @@ export const services = [
     description: 'Order a PVC (Polyvinyl Chloride) Aadhaar card — a durable, credit-card-sized physical Aadhaar card from UIDAI.',
     documentsRequired: ['Aadhaar Number', 'Registered Mobile Number (for OTP)'],
     eligibility: 'Any Aadhaar holder with a registered mobile number.',
-    processSteps: ['Provide Aadhaar number at our center', 'OTP verification on registered mobile', 'Online order placed on UIDAI portal', 'PVC card delivered by India Post within 5–10 days'],
+    processSteps: ['Provide Aadhaar number at our centre', 'OTP verification on registered mobile', 'Online order placed on UIDAI portal', 'PVC card delivered by India Post within 5–10 days'],
     processingTime: '5–10 working days',
     charges: 'Contact for latest charges',
     notes: 'UIDAI charges ₹50 (including GST) for PVC card. Documents and process may vary.'
@@ -109,7 +109,7 @@ export const services = [
     description: 'Correct or update details on your existing PAN card such as name, date of birth, father\'s name, address, or photo.',
     documentsRequired: ['Existing PAN Card', 'Supporting document for correction', 'Proof of Identity and Address', 'Passport-size Photograph'],
     eligibility: 'Existing PAN card holders requiring corrections.',
-    processSteps: ['Fill PAN correction form', 'Attach supporting documents', 'Submit at our center', 'Receive acknowledgment', 'Updated PAN card delivered'],
+    processSteps: ['Fill PAN correction form', 'Attach supporting documents', 'Submit at our centre', 'Receive acknowledgment', 'Updated PAN card delivered'],
     processingTime: '15–20 working days',
     charges: 'Contact for latest charges',
     notes: 'Documents and process may vary. Please contact or visit our office for confirmation.'
@@ -122,7 +122,7 @@ export const services = [
     description: 'Get an instant e-PAN (electronic PAN) using your Aadhaar number. This is a free, paperless process for individuals who do not have a PAN.',
     documentsRequired: ['Aadhaar Card', 'Registered Mobile Number (for OTP)'],
     eligibility: 'Indian residents who have an Aadhaar card and registered mobile number and do not already have a PAN.',
-    processSteps: ['Provide Aadhaar number at our center', 'OTP verification', 'Details auto-fetched from Aadhaar', 'e-PAN issued instantly via Income Tax portal', 'Print or download e-PAN PDF'],
+    processSteps: ['Provide Aadhaar number at our centre', 'OTP verification', 'Details auto-fetched from Aadhaar', 'e-PAN issued instantly via Income Tax portal', 'Print or download e-PAN PDF'],
     processingTime: 'Instant (same day)',
     charges: 'Contact for latest charges',
     notes: 'Instant e-PAN is free but physical PAN card may have charges. Documents and process may vary.'
@@ -133,7 +133,7 @@ export const services = [
     description: 'Register for a new Voter ID (Electoral Photo Identity Card - EPIC) to exercise your right to vote in elections.',
     documentsRequired: ['Age Proof (Birth Certificate / Marksheet / Aadhaar)', 'Address Proof (Aadhaar / Utility Bill / Ration Card)', 'Passport-size Photograph'],
     eligibility: 'Indian citizens who are 18 years of age or older as of the qualifying date.',
-    processSteps: ['Fill Form 6 at our center', 'Attach required documents', 'Submit to Electoral Registration Officer', 'Field verification done by BLO', 'Voter ID issued within 30–45 days'],
+    processSteps: ['Fill Form 6 at our centre', 'Attach required documents', 'Submit to Electoral Registration Officer', 'Field verification done by BLO', 'Voter ID issued within 30–45 days'],
     processingTime: '30–45 days',
     charges: 'Contact for latest charges',
     notes: 'Documents and process may vary. Please contact or visit our office for confirmation.'
@@ -144,7 +144,7 @@ export const services = [
     description: 'Correct errors in your Voter ID such as name, date of birth, or update your address due to relocation.',
     documentsRequired: ['Existing Voter ID', 'Supporting document for correction', 'New Address Proof (if address change)'],
     eligibility: 'Existing Voter ID holders needing corrections or address update.',
-    processSteps: ['Fill Form 8 (correction) or Form 6 (new address)', 'Attach supporting documents', 'Submit at our center or online', 'Verification done', 'Updated Voter ID issued'],
+    processSteps: ['Fill Form 8 (correction) or Form 6 (new address)', 'Attach supporting documents', 'Submit at our centre or online', 'Verification done', 'Updated Voter ID issued'],
     processingTime: '30–45 days',
     charges: 'Contact for latest charges',
     notes: 'Documents and process may vary. Please contact or visit our office for confirmation.'
@@ -155,7 +155,7 @@ export const services = [
     description: 'Download your digital Voter ID (e-EPIC) from the official Election Commission of India website.',
     documentsRequired: ['EPIC Number or Form Reference Number', 'Registered Mobile Number'],
     eligibility: 'Registered voters with a valid EPIC number.',
-    processSteps: ['Provide EPIC number at our center', 'OTP verification', 'e-EPIC downloaded from Voters Service Portal', 'Print taken if required'],
+    processSteps: ['Provide EPIC number at our centre', 'OTP verification', 'e-EPIC downloaded from Voters Service Portal', 'Print taken if required'],
     processingTime: 'Same day / Instant',
     charges: 'Contact for latest charges',
     notes: 'Documents and process may vary. Please contact or visit our office for confirmation.'
@@ -292,7 +292,7 @@ export const services = [
     description: 'Assistance with pension enrollment and management for government schemes like Atal Pension Yojana (APY), PM Vaya Vandana Yojana, etc.',
     documentsRequired: ['Aadhaar Card', 'Bank Account Details', 'PAN Card', 'Mobile Number'],
     eligibility: 'Varies by pension scheme (typically 18–40 years for APY).',
-    processSteps: ['Select appropriate pension scheme', 'Fill application form', 'Attach KYC documents', 'Submit at bank or our center', 'PRAN (Permanent Retirement Account Number) issued'],
+    processSteps: ['Select appropriate pension scheme', 'Fill application form', 'Attach KYC documents', 'Submit at bank or our centre', 'PRAN (Permanent Retirement Account Number) issued'],
     processingTime: '3–7 days',
     charges: 'Contact for latest charges',
     notes: 'Documents and process may vary depending on scheme. Please contact or visit our office.'
@@ -305,7 +305,7 @@ export const services = [
     description: 'Apply for an official birth certificate from the Municipal Corporation or Gram Panchayat.',
     documentsRequired: ['Hospital Birth Proof / Discharge Summary', 'Parents\' Aadhaar Cards', 'Parents\' Marriage Certificate', 'Proof of Address'],
     eligibility: 'Parents of newborns or individuals who do not have a birth certificate.',
-    processSteps: ['Gather documents', 'Fill application form', 'Submit at Municipal Office / our center', 'Verification by registrar', 'Certificate issued'],
+    processSteps: ['Gather documents', 'Fill application form', 'Submit at Municipal Office / our centre', 'Verification by registrar', 'Certificate issued'],
     processingTime: '7–15 working days',
     charges: 'Contact for latest charges',
     notes: 'Late registration (after 1 year) requires court order. Documents and process may vary.'
@@ -316,7 +316,7 @@ export const services = [
     description: 'Apply for an official death certificate from the Municipal Corporation or Gram Panchayat.',
     documentsRequired: ['Hospital Death Certificate / Doctor\'s Certificate', 'Deceased\'s Aadhaar Card', 'Applicant\'s ID Proof and Aadhaar', 'Proof of Address'],
     eligibility: 'Family members or legal representatives of the deceased.',
-    processSteps: ['Gather documents', 'Fill application form', 'Submit at Municipal Office / our center', 'Verification', 'Certificate issued'],
+    processSteps: ['Gather documents', 'Fill application form', 'Submit at Municipal Office / our centre', 'Verification', 'Certificate issued'],
     processingTime: '7–15 working days',
     charges: 'Contact for latest charges',
     notes: 'Documents and process may vary. Please contact or visit our office for confirmation.'
@@ -350,7 +350,7 @@ export const services = [
     description: 'Obtain an income certificate issued by the Tehsildar/Revenue Department to prove annual family income for government schemes, admissions, etc.',
     documentsRequired: ['Aadhaar Card', 'Ration Card / Residence Proof', 'Proof of Income (salary slip / affidavit)', 'Passport-size Photograph'],
     eligibility: 'Any Indian resident needing to certify their income.',
-    processSteps: ['Fill application form', 'Attach documents', 'Submit at Tehsil office / our center', 'Verification by revenue officer', 'Certificate issued'],
+    processSteps: ['Fill application form', 'Attach documents', 'Submit at Tehsil office / our centre', 'Verification by revenue officer', 'Certificate issued'],
     processingTime: '7–21 days',
     charges: 'Contact for latest charges',
     notes: 'Documents and process may vary. Please contact or visit our office for confirmation.'
@@ -563,9 +563,9 @@ export const services = [
     id: 44, slug: 'photo-print', category: 'printing',
     name: 'Photo Print (Passport Size)', icon: 'Image',
     description: 'Print passport-size, stamp-size, or custom-size photographs for various documents and applications.',
-    documentsRequired: ['Digital photo or we can take photo at our center'],
+    documentsRequired: ['Digital photo or we can take photo at our centre'],
     eligibility: 'Anyone.',
-    processSteps: ['Provide digital photo or sit for photo at our center', 'Edit and crop to required size', 'Print in required quantity'],
+    processSteps: ['Provide digital photo or sit for photo at our centre', 'Edit and crop to required size', 'Print in required quantity'],
     processingTime: 'Instant to 10 minutes',
     charges: 'Contact for latest charges',
     notes: 'White background for passport photos. Documents and process may vary.'
@@ -619,7 +619,7 @@ export const services = [
   {
     id: 49, slug: 'csc-services', category: 'other',
     name: 'CSC Services', icon: 'Building2',
-    description: 'Common Service center (CSC) services providing government-to-citizen services including digital payments, certificates, and utility services.',
+    description: 'Common Service centre (CSC) services providing government-to-citizen services including digital payments, certificates, and utility services.',
     documentsRequired: ['Varies by service'],
     eligibility: 'Any citizen requiring CSC services.',
     processSteps: ['Select required CSC service', 'Provide necessary documents', 'Service processed via CSC portal', 'Receipt/Certificate issued'],
@@ -668,7 +668,7 @@ export const services = [
     description: 'PVC format Voter ID card (e-EPIC) — a modern, durable replacement for the old paper-based Voter ID.',
     documentsRequired: ['EPIC Number', 'Registered Mobile Number'],
     eligibility: 'Registered voters.',
-    processSteps: ['Provide EPIC number', 'Download e-EPIC', 'Print on PVC at our center'],
+    processSteps: ['Provide EPIC number', 'Download e-EPIC', 'Print on PVC at our centre'],
     processingTime: 'Same day',
     charges: 'Contact for latest charges',
     notes: 'Documents and process may vary. Please contact or visit our office.'
@@ -690,7 +690,7 @@ export const services = [
     description: 'Ayushman Bharat Pradhan Mantri Jan Arogya Yojana (AB-PMJAY) health insurance card providing ₹5 lakh health cover.',
     documentsRequired: ['Aadhaar Card', 'Ration Card', 'Mobile Number linked to Aadhaar'],
     eligibility: 'Families listed in SECC-2011 database or those covered under state government schemes.',
-    processSteps: ['Check eligibility on PMJAY portal', 'Visit our center with documents', 'Biometric verification', 'Ayushman card issued'],
+    processSteps: ['Check eligibility on PMJAY portal', 'Visit our centre with documents', 'Biometric verification', 'Ayushman card issued'],
     processingTime: '1–3 days',
     charges: 'Contact for latest charges',
     notes: 'Documents and process may vary. Please contact or visit our office.'
@@ -745,7 +745,7 @@ export const services = [
     description: 'Register for ABHA (Ayushman Bharat Health Account) and get your ABHA card printed.',
     documentsRequired: ['Aadhaar Card', 'Mobile Number'],
     eligibility: 'Any Indian resident.',
-    processSteps: ['Register ABHA ID using Aadhaar', 'OTP verification', 'ABHA card generated', 'Print at our center'],
+    processSteps: ['Register ABHA ID using Aadhaar', 'OTP verification', 'ABHA card generated', 'Print at our centre'],
     processingTime: 'Same day',
     charges: 'Contact for latest charges',
     notes: 'Documents and process may vary. Please contact or visit our office.'
@@ -789,7 +789,7 @@ export const services = [
     description: 'Apply for a RuPay debit card — India\'s indigenous payment card network offering domestic and international payment acceptance.',
     documentsRequired: ['Bank Account Details', 'Aadhaar Card', 'PAN Card'],
     eligibility: 'Existing bank account holders.',
-    processSteps: ['Apply at bank / our center', 'Submit KYC documents', 'RuPay card issued', 'Activate card'],
+    processSteps: ['Apply at bank / our centre', 'Submit KYC documents', 'RuPay card issued', 'Activate card'],
     processingTime: '7–10 days',
     charges: 'Contact for latest charges',
     notes: 'Documents and process may vary. Please contact or visit our office.'
@@ -800,7 +800,7 @@ export const services = [
     description: 'Apply for Kisan Credit Card providing farmers with affordable short-term credit for agricultural needs.',
     documentsRequired: ['Aadhaar Card', 'Land Records (7/12 extract)', 'PAN Card', 'Bank Account Passbook', 'Passport-size Photograph'],
     eligibility: 'Farmers, fishermen, self-help groups, and other allied agricultural workers.',
-    processSteps: ['Fill KCC application at our center', 'Attach land and KYC documents', 'Submit at bank', 'Bank verification and approval', 'KCC issued'],
+    processSteps: ['Fill KCC application at our centre', 'Attach land and KYC documents', 'Submit at bank', 'Bank verification and approval', 'KCC issued'],
     processingTime: '7–15 days',
     charges: 'Contact for latest charges',
     notes: 'Documents and process may vary. Please contact or visit our office.'
@@ -811,7 +811,7 @@ export const services = [
     description: 'Open a Pradhan Mantri Jan Dhan Yojana (PMJDY) zero-balance bank account and get a RuPay debit card with ₹2 lakh accident insurance.',
     documentsRequired: ['Aadhaar Card', 'Passport-size Photograph'],
     eligibility: 'Indian residents who do not have any bank account (unbanked individuals).',
-    processSteps: ['Fill Jan Dhan account opening form', 'Submit at bank or our center', 'Account opened with zero balance', 'RuPay card issued with ₹2 lakh accidental insurance'],
+    processSteps: ['Fill Jan Dhan account opening form', 'Submit at bank or our centre', 'Account opened with zero balance', 'RuPay card issued with ₹2 lakh accidental insurance'],
     processingTime: '1–3 days',
     charges: 'Contact for latest charges',
     notes: 'Documents and process may vary. Please contact or visit our office.'
@@ -920,7 +920,7 @@ export const services = [
     description: 'Transfer electricity bill connection name to a new owner or correct existing name/address details with MSEDCL.',
     documentsRequired: ['Latest Electricity Bill', 'Property Ownership Proof (Sale Deed / Gharpatti)', 'Aadhaar Card', 'No Objection Certificate from previous owner (for transfer)'],
     eligibility: 'New property owners or existing consumers needing corrections.',
-    processSteps: ['Visit our center with documents', 'Fill MSEDCL name transfer/correction form', 'Submit application at MSEDCL office', 'Verification and processing', 'Updated bill issued in new name'],
+    processSteps: ['Visit our centre with documents', 'Fill MSEDCL name transfer/correction form', 'Submit application at MSEDCL office', 'Verification and processing', 'Updated bill issued in new name'],
     processingTime: '15–30 days',
     charges: 'Contact for latest charges',
     notes: 'Documents and process may vary. Please contact or visit our office for confirmation.'
@@ -935,7 +935,7 @@ export const services = [
     description: 'Apply for a new ration card or add/remove family member names from an existing ration card under the Public Distribution System (PDS).',
     documentsRequired: ['Aadhaar Card of all family members', 'Address Proof', 'Income Certificate', 'Existing Ration Card (for modification)', 'Passport-size Photographs'],
     eligibility: 'Indian residents eligible under PDS guidelines for BPL/APL/AAY categories.',
-    processSteps: ['Fill ration card application form', 'Attach family members\' Aadhaar and photos', 'Submit at Tahsil / our center', 'Field verification by supply officer', 'Ration card issued or updated'],
+    processSteps: ['Fill ration card application form', 'Attach family members\' Aadhaar and photos', 'Submit at Tahsil / our centre', 'Field verification by supply officer', 'Ration card issued or updated'],
     processingTime: '30–45 days',
     charges: 'Contact for latest charges',
     notes: 'Documents and process may vary. Please contact or visit our office for confirmation.'

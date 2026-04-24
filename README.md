@@ -1,6 +1,6 @@
-# Suhana Service center
+# Suhana Service centre
 
-A professional, high-end web application for Suhana Service center, Virar (E). 
+A professional, high-end web application for Suhana Service centre, Virar (E). 
 Built with Next.js and Tailwind CSS, featuring Elite Service Cards with interactive floating actions and blurred background imagery.
 
 ## Features

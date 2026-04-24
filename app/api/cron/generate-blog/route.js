@@ -30,7 +30,7 @@ export async function GET(req) {
     }
 
     // 3. Prompt for SEO Blog
-    const prompt = `You are an expert SEO copywriter for "Suhana Service center", a government and digital services provider located in Virar East (Maharashtra, India).
+    const prompt = `You are an expert SEO copywriter for "Suhana Service centre", a government and digital services provider located in Virar East (Maharashtra, India).
 Write a comprehensive, unique, and highly SEO-optimized blog post for our website to attract local traffic. 
 
 TARGET WORD COUNT: 1200 - 2000 words. This MUST be a long-form, detailed guide.
@@ -43,7 +43,7 @@ STRUCTURE REQUIREMENTS:
 3. Step-by-Step Process: A very detailed, numbered guide on how to apply or update.
 4. Documents Checklist: A comprehensive list of every document required.
 5. Common Mistakes to Avoid: Help the reader avoid rejections.
-6. Why Visit Suhana Service center in Virar: Mention our expertise, fast service, and customer support.
+6. Why Visit Suhana Service centre in Virar: Mention our expertise, fast service, and customer support.
 7. FAQs Section: Include at least 5-8 frequently asked questions and detailed answers.
 8. Conclusion & Call to Action: Final thoughts and an invitation to visit us.
 
@@ -56,7 +56,7 @@ IMPORTANT FORMATTING RULES:
 - Write professional yet easy-to-read paragraphs.
 - DO NOT use ** around headings.
 - DO NOT use excessive asterisks or decorative symbols.
-- Naturally mention "Suhana Service center" and "Virar" throughout the text.
+- Naturally mention "Suhana Service centre" and "Virar" throughout the text.
 - Make it genuinely helpful and authoritative.
 
 Return ONLY valid JSON with no markdown formatting around the JSON block. Do not include \`\`\`json. The JSON must match this structure exactly:

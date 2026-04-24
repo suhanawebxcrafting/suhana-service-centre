@@ -1,7 +1,7 @@
 import { services } from '@/data/services'
 import { prisma } from '@/lib/prisma'
 
-const SITE_URL = 'https://suhanaservicecenter.in'
+const SITE_URL = 'https://suhanaservicecentre.in'
 
 export default async function sitemap() {
   // Static Service Pages from data/services.js

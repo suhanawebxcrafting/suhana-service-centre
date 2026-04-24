@@ -32,7 +32,7 @@ export default function ServiceCard({ service, compact = false, customization = 
           <div className="h-3 bg-gray-100 rounded-lg w-5/6"></div>
           <div className="h-3 bg-gray-100 rounded-lg w-4/6"></div>
         </div>
-        <div className="mt-5 pt-4 border-t border-gray-50 flex justify-between items-center">
+        <div className="mt-5 pt-4 border-t border-gray-50 flex justify-between items-centre">
           <div className="h-3 bg-gray-100 rounded w-20"></div>
           <div className="h-6 w-6 rounded-full bg-gray-100"></div>
         </div>
@@ -58,7 +58,7 @@ export default function ServiceCard({ service, compact = false, customization = 
             )}
 
             <div className="relative z-10">
-              <div className={`inline-flex items-center justify-center w-10 h-10 rounded-xl ${colors.bg} mb-4 group-hover:scale-110 transition-all duration-500 shadow-inner`}>
+              <div className={`inline-flex items-centre justify-centre w-10 h-10 rounded-xl ${colors.bg} mb-4 group-hover:scale-110 transition-all duration-500 shadow-inner`}>
                 {effectiveImage ? (
                   <img
                     src={effectiveImage}
@@ -72,7 +72,7 @@ export default function ServiceCard({ service, compact = false, customization = 
               <h3 className="font-black text-gray-900 text-sm leading-tight group-hover:text-blue-600 transition-colors mb-2">
                 {service.name}
               </h3>
-              <span className={`cat-badge ${colors.badge} text-[10px] flex items-center gap-1.5 w-fit px-2.5 py-1 font-bold`}>
+              <span className={`cat-badge ${colors.badge} text-[10px] flex items-centre gap-1.5 w-fit px-2.5 py-1 font-bold`}>
                 <LucideIcon name={cat?.icon} size={10} /> {cat?.label}
               </span>
             </div>
@@ -81,7 +81,7 @@ export default function ServiceCard({ service, compact = false, customization = 
         {/* Floating Quick Actions for Compact */}
         <div className="absolute top-4 right-4 flex flex-col gap-2 opacity-0 group-hover:opacity-100 translate-x-2 group-hover:translate-x-0 transition-all duration-300 z-20">
           <a href={whatsappUrl} target="_blank" rel="noopener noreferrer"
-            className="w-8 h-8 rounded-full bg-green-500 text-white flex items-center justify-center shadow-lg hover:bg-green-600 hover:scale-110 transition-all" title="WhatsApp Us">
+            className="w-8 h-8 rounded-full bg-green-500 text-white flex items-centre justify-centre shadow-lg hover:bg-green-600 hover:scale-110 transition-all" title="WhatsApp Us">
             <LucideIcon name="MessageCircle" size={14} />
           </a>
         </div>
@@ -114,7 +114,7 @@ export default function ServiceCard({ service, compact = false, customization = 
               {/* Logo/Icon */}
               <div className="flex-shrink-0">
                 {effectiveImage ? (
-                  <div className="w-14 h-14 rounded-2xl overflow-hidden bg-white shadow-premium group-hover:scale-105 transition-all duration-300 flex items-center justify-center border border-gray-100">
+                  <div className="w-14 h-14 rounded-2xl overflow-hidden bg-white shadow-premium group-hover:scale-105 transition-all duration-300 flex items-centre justify-centre border border-gray-100">
                     <img
                       src={effectiveImage}
                       alt={effectiveImageAlt}
@@ -122,7 +122,7 @@ export default function ServiceCard({ service, compact = false, customization = 
                     />
                   </div>
                 ) : (
-                  <div className={`flex items-center justify-center w-14 h-14 rounded-2xl ${colors.bg} shadow-premium group-hover:scale-105 transition-all duration-300 border border-white/50`}>
+                  <div className={`flex items-centre justify-centre w-14 h-14 rounded-2xl ${colors.bg} shadow-premium group-hover:scale-105 transition-all duration-300 border border-white/50`}>
                     <LucideIcon name={effectiveIcon} size={28} className={colors.text} />
                   </div>
                 )}
@@ -131,7 +131,7 @@ export default function ServiceCard({ service, compact = false, customization = 
               {/* Title + badge */}
               <div className="flex-1 min-w-0">
                 <div className="mb-1.5">
-                  <span className={`cat-badge ${colors.badge} text-[10px] inline-flex items-center gap-1.5 px-2.5 py-0.5 font-black tracking-widest uppercase rounded-lg`}>
+                  <span className={`cat-badge ${colors.badge} text-[10px] inline-flex items-centre gap-1.5 px-2.5 py-0.5 font-black tracking-widest uppercase rounded-lg`}>
                     <LucideIcon name={cat?.icon} size={10} /> {cat?.label}
                   </span>
                 </div>
@@ -162,18 +162,18 @@ export default function ServiceCard({ service, compact = false, customization = 
           </div>
 
           {/* Footer */}
-          <div className="relative flex items-center justify-between px-5 pb-5 pt-3 border-t border-gray-50 z-10">
-            <div className="flex items-center gap-1.5">
-              <div className="w-6 h-6 rounded-full bg-gray-50 flex items-center justify-center border border-gray-100">
+          <div className="relative flex items-centre justify-between px-5 pb-5 pt-3 border-t border-gray-50 z-10">
+            <div className="flex items-centre gap-1.5">
+              <div className="w-6 h-6 rounded-full bg-gray-50 flex items-centre justify-centre border border-gray-100">
                 <LucideIcon name="Clock" size={11} className="text-blue-500" />
               </div>
               <span className="text-[9px] font-black text-gray-400 tracking-tight uppercase">
                 {service.processingTime}
               </span>
             </div>
-            <div className="flex items-center gap-1 text-blue-600 text-[10px] font-black group-hover:gap-2 transition-all uppercase tracking-widest">
+            <div className="flex items-centre gap-1 text-blue-600 text-[10px] font-black group-hover:gap-2 transition-all uppercase tracking-widest">
               <span>Explore</span>
-              <div className="w-5 h-5 rounded-full bg-blue-50 flex items-center justify-center group-hover:bg-blue-600 group-hover:text-white transition-colors">
+              <div className="w-5 h-5 rounded-full bg-blue-50 flex items-centre justify-centre group-hover:bg-blue-600 group-hover:text-white transition-colors">
                 <LucideIcon name="ChevronRight" size={12} strokeWidth={3} />
               </div>
             </div>
@@ -184,11 +184,11 @@ export default function ServiceCard({ service, compact = false, customization = 
       {/* Floating Action Buttons */}
       <div className="absolute top-3 right-3 flex flex-col gap-2 opacity-0 group-hover:opacity-100 translate-x-2 group-hover:translate-x-0 transition-all duration-300 z-20">
         <a href={whatsappUrl} target="_blank" rel="noopener noreferrer"
-          className="w-8 h-8 rounded-xl bg-white text-green-500 flex items-center justify-center shadow-lg hover:bg-green-500 hover:text-white transition-all border border-gray-100" title="WhatsApp Instant Query">
+          className="w-8 h-8 rounded-xl bg-white text-green-500 flex items-centre justify-centre shadow-lg hover:bg-green-500 hover:text-white transition-all border border-gray-100" title="WhatsApp Instant Query">
           <LucideIcon name="MessageCircle" size={16} />
         </a>
         <a href="tel:7709709243"
-          className="w-8 h-8 rounded-xl bg-white text-blue-600 flex items-center justify-center shadow-lg hover:bg-blue-600 hover:text-white transition-all border border-gray-100" title="Call Us Directly">
+          className="w-8 h-8 rounded-xl bg-white text-blue-600 flex items-centre justify-centre shadow-lg hover:bg-blue-600 hover:text-white transition-all border border-gray-100" title="Call Us Directly">
           <LucideIcon name="Phone" size={16} />
         </a>
       </div>

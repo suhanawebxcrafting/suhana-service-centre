@@ -52,7 +52,7 @@ export default function MessagesDashboard() {
 
   if (loading) {
     return (
-      <div className="h-full flex items-center justify-center">
+      <div className="h-full flex items-centre justify-centre">
         <Loader2 className="w-10 h-10 text-blue-600 animate-spin" />
       </div>
     )
@@ -60,7 +60,7 @@ export default function MessagesDashboard() {
 
   return (
     <>
-      <header className="bg-white border-b border-gray-100 p-6 flex flex-col md:flex-row md:items-center justify-between gap-4 sticky top-0 z-10">
+      <header className="bg-white border-b border-gray-100 p-6 flex flex-col md:flex-row md:items-centre justify-between gap-4 sticky top-0 z-10">
         <div>
           <h1 className="text-xl font-black text-gray-900 tracking-tight">Contact Messages</h1>
           <p className="text-gray-500 text-xs font-bold uppercase tracking-widest mt-0.5">Manage Customer Inquiries</p>
@@ -69,18 +69,18 @@ export default function MessagesDashboard() {
 
       <div className="p-6 max-w-7xl mx-auto space-y-4">
         {messages.length === 0 ? (
-          <div className="text-center py-12 text-gray-400 font-medium">No messages found.</div>
+          <div className="text-centre py-12 text-gray-400 font-medium">No messages found.</div>
         ) : (
           messages.map(msg => (
             <div key={msg.id} className={`bg-white rounded-2xl p-6 shadow-sm border transition-all ${msg.isRead ? 'border-gray-100' : 'border-blue-200 shadow-blue-500/10'}`}>
               <div className="flex justify-between items-start gap-4">
                 <div className="flex-1">
-                  <div className="flex items-center gap-3 mb-2">
+                  <div className="flex items-centre gap-3 mb-2">
                     <h3 className="font-bold text-gray-900">{msg.name}</h3>
                     {!msg.isRead && <span className="bg-blue-100 text-blue-700 text-[10px] font-black uppercase tracking-widest px-2 py-0.5 rounded-full">New</span>}
                     <span className="text-xs text-gray-400">{new Date(msg.createdAt).toLocaleString()}</span>
                   </div>
-                  <div className="flex items-center gap-4 text-sm text-gray-600 mb-4">
+                  <div className="flex items-centre gap-4 text-sm text-gray-600 mb-4">
                     <span>Phone: <a href={`tel:${msg.phone}`} className="text-blue-600 hover:underline">{msg.phone}</a></span>
                     {msg.email && <span>Email: {msg.email}</span>}
                     {msg.service && <span className="bg-gray-100 px-2 py-1 rounded-md text-xs">Service: {msg.service}</span>}

@@ -144,7 +144,7 @@ body {
   border: none;
   cursor: pointer;
   display: inline-flex;
-  align-items: center;
+  align-items: centre;
   gap: 8px;
   text-decoration: none;
 }
@@ -165,7 +165,7 @@ body {
   border: none;
   cursor: pointer;
   display: inline-flex;
-  align-items: center;
+  align-items: centre;
   gap: 8px;
   text-decoration: none;
 }
@@ -186,7 +186,7 @@ body {
   border: 2px solid rgba(255, 255, 255, 0.7);
   cursor: pointer;
   display: inline-flex;
-  align-items: center;
+  align-items: centre;
   gap: 8px;
   text-decoration: none;
 }
@@ -200,12 +200,12 @@ body {
   font-size: clamp(1.75rem, 3vw, 2.5rem);
   font-weight: 700;
   color: #1e3a8a;
-  text-align: center;
+  text-align: centre;
 }
 
 .section-subtitle {
   color: #6b7280;
-  text-align: center;
+  text-align: centre;
   font-size: 1.05rem;
   max-width: 600px;
   margin: 0 auto;
@@ -234,8 +234,8 @@ body {
   background: #25D366;
   border-radius: 50%;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  align-items: centre;
+  justify-content: centre;
   box-shadow: 0 4px 20px rgba(37, 211, 102, 0.5);
   cursor: pointer;
   transition: all 0.3s ease;
@@ -269,8 +269,8 @@ body {
   background: linear-gradient(135deg, #2563eb, #1e40af);
   border-radius: 50%;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  align-items: centre;
+  justify-content: centre;
   cursor: pointer;
   transition: all 0.3s ease;
   box-shadow: 0 4px 15px rgba(37, 99, 235, 0.4);
@@ -321,8 +321,8 @@ body {
   background: linear-gradient(135deg, #2563eb, #1e40af);
   color: white;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  align-items: centre;
+  justify-content: centre;
   font-weight: 700;
   font-size: 0.85rem;
   flex-shrink: 0;
@@ -552,8 +552,8 @@ body {
   font-size: 0.75rem;
   font-weight: 800;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  align-items: centre;
+  justify-content: centre;
   box-shadow: 0 2px 8px rgba(37, 99, 235, 0.25);
 }
 
@@ -640,4 +640,4 @@ body {
   .blog-paragraph:first-child {
     font-size: 1.05rem;
   }
-}
+}

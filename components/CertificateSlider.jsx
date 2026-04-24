@@ -35,8 +35,8 @@ export default function CertificateSlider({ certificates }) {
     <section className="py-20 bg-gray-50/50 overflow-hidden border-t border-gray-100 relative">
       <div className="absolute top-0 left-0 w-full h-full opacity-30 pointer-events-none" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, #e2e8f0 1px, transparent 0)', backgroundSize: '32px 32px' }}></div>
 
-      <div className="max-w-7xl mx-auto px-6 mb-12 text-center relative z-10">
-        <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-blue-50 rounded-full border border-blue-100 text-blue-600 text-[10px] font-black uppercase tracking-widest mb-4 shadow-sm">
+      <div className="max-w-7xl mx-auto px-6 mb-12 text-centre relative z-10">
+        <div className="inline-flex items-centre gap-2 px-4 py-1.5 bg-blue-50 rounded-full border border-blue-100 text-blue-600 text-[10px] font-black uppercase tracking-widest mb-4 shadow-sm">
           <span className="relative flex h-2 w-2">
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
             <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
@@ -68,9 +68,9 @@ export default function CertificateSlider({ certificates }) {
                   <div className="bg-white/70 backdrop-blur-sm rounded-2xl p-4 border border-white transition-all duration-500 shadow-[0_8px_30px_-10px_rgba(0,0,0,0.05)] group-hover:shadow-[0_15px_40px_-10px_rgba(37,99,235,0.15)] group-hover:border-blue-200 group-hover:-translate-y-2 h-full flex flex-col relative overflow-hidden">
                     <div className="absolute -right-16 -top-16 w-36 h-36 bg-blue-50 rounded-full blur-[60px] group-hover:bg-blue-100 transition-colors"></div>
 
-                    <div className="relative z-10 w-full h-40 md:h-48 flex items-center justify-center mb-4 overflow-hidden rounded-xl bg-gray-50/50 border border-gray-100 group-hover:bg-white transition-all duration-500 group-hover:shadow-inner">
+                    <div className="relative z-10 w-full h-40 md:h-48 flex items-centre justify-centre mb-4 overflow-hidden rounded-xl bg-gray-50/50 border border-gray-100 group-hover:bg-white transition-all duration-500 group-hover:shadow-inner">
                       <img src={cert.imageUrl} alt={cert.title} className="w-full h-full object-contain p-1.5 group-hover:scale-105 transition-transform duration-700" />
-                      <div className="absolute inset-0 bg-blue-900/0 group-hover:bg-blue-900/20 transition-colors flex items-center justify-center">
+                      <div className="absolute inset-0 bg-blue-900/0 group-hover:bg-blue-900/20 transition-colors flex items-centre justify-centre">
                         <div className="bg-white text-blue-600 p-3 rounded-full shadow-2xl scale-0 group-hover:scale-100 transition-all duration-300">
                           <LucideIcon name="ZoomIn" size={18} />
                         </div>
@@ -83,15 +83,15 @@ export default function CertificateSlider({ certificates }) {
                     </div>
 
                     <div className="relative z-10">
-                      <div className="flex items-center gap-2 mb-1.5">
+                      <div className="flex items-centre gap-2 mb-1.5">
                         <div className="h-[2px] w-6 bg-gradient-to-r from-blue-600 to-transparent rounded-full"></div>
                         <span className="text-[9px] font-black text-blue-600 tracking-[0.2em] uppercase">Verified</span>
                       </div>
                       <h3 className="text-xs md:text-sm font-black text-gray-900 line-clamp-2 leading-tight group-hover:text-blue-700 transition-colors">{cert.title}</h3>
                     </div>
 
-                    <div className="mt-auto pt-3 border-t border-gray-100 flex items-center justify-between opacity-50 group-hover:opacity-100 transition-opacity">
-                      <span className="text-[8px] font-bold text-gray-400 uppercase tracking-widest">Suhana Service center</span>
+                    <div className="mt-auto pt-3 border-t border-gray-100 flex items-centre justify-between opacity-50 group-hover:opacity-100 transition-opacity">
+                      <span className="text-[8px] font-bold text-gray-400 uppercase tracking-widest">Suhana Service centre</span>
                     </div>
                   </div>
                 </div>
@@ -103,10 +103,10 @@ export default function CertificateSlider({ certificates }) {
 
       {/* Full-screen Modal with Multi-Page Support */}
       {selectedCert && (
-        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/90 backdrop-blur-md" onClick={closeCert}>
+        <div className="fixed inset-0 z-[100] flex items-centre justify-centre p-4 bg-black/90 backdrop-blur-md" onClick={closeCert}>
           <div className="relative max-w-4xl w-full max-h-[90vh] bg-white rounded-3xl overflow-hidden shadow-2xl flex flex-col" onClick={e => e.stopPropagation()}>
             {/* Close Button */}
-            <button onClick={closeCert} className="absolute top-4 right-4 z-20 w-10 h-10 bg-black/50 hover:bg-black/70 text-white rounded-full flex items-center justify-center transition-colors">
+            <button onClick={closeCert} className="absolute top-4 right-4 z-20 w-10 h-10 bg-black/50 hover:bg-black/70 text-white rounded-full flex items-centre justify-centre transition-colors">
               <LucideIcon name="X" size={24} />
             </button>
 
@@ -118,7 +118,7 @@ export default function CertificateSlider({ certificates }) {
             )}
 
             {/* Image Container */}
-            <div className="flex-1 overflow-auto flex items-center justify-center p-4 relative min-h-0">
+            <div className="flex-1 overflow-auto flex items-centre justify-centre p-4 relative min-h-0">
               <img
                 src={pageImages[currentPage]}
                 alt={`${selectedCert.title} - Page ${currentPage + 1}`}
@@ -131,14 +131,14 @@ export default function CertificateSlider({ certificates }) {
                   <button
                     onClick={() => setCurrentPage(p => Math.max(0, p - 1))}
                     disabled={currentPage === 0}
-                    className="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/90 hover:bg-white text-gray-800 rounded-full flex items-center justify-center shadow-lg transition-all disabled:opacity-30 disabled:cursor-not-allowed"
+                    className="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/90 hover:bg-white text-gray-800 rounded-full flex items-centre justify-centre shadow-lg transition-all disabled:opacity-30 disabled:cursor-not-allowed"
                   >
                     <LucideIcon name="ChevronLeft" size={20} />
                   </button>
                   <button
                     onClick={() => setCurrentPage(p => Math.min(pageImages.length - 1, p + 1))}
                     disabled={currentPage === pageImages.length - 1}
-                    className="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/90 hover:bg-white text-gray-800 rounded-full flex items-center justify-center shadow-lg transition-all disabled:opacity-30 disabled:cursor-not-allowed"
+                    className="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/90 hover:bg-white text-gray-800 rounded-full flex items-centre justify-centre shadow-lg transition-all disabled:opacity-30 disabled:cursor-not-allowed"
                   >
                     <LucideIcon name="ChevronRight" size={20} />
                   </button>
@@ -158,8 +158,8 @@ export default function CertificateSlider({ certificates }) {
                       key={idx}
                       onClick={() => setCurrentPage(idx)}
                       className={`flex-shrink-0 w-14 h-18 rounded-lg border-2 overflow-hidden transition-all ${currentPage === idx
-                          ? 'border-blue-500 shadow-md ring-2 ring-blue-200'
-                          : 'border-gray-200 hover:border-blue-300 opacity-60 hover:opacity-100'
+                        ? 'border-blue-500 shadow-md ring-2 ring-blue-200'
+                        : 'border-gray-200 hover:border-blue-300 opacity-60 hover:opacity-100'
                         }`}
                     >
                       <img src={pageUrl} alt={`Page ${idx + 1}`} className="w-full h-full object-cover" />
