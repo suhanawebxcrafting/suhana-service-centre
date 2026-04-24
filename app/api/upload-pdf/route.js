@@ -26,8 +26,7 @@ export async function POST(req) {
         { 
           resource_type: 'image', 
           folder: 'suhana/certificates',
-          format: 'jpg',
-          pages: true  // Enable multi-page processing
+          // Do not specify format: 'jpg' here, otherwise it only saves the first page and discards the rest
         },
         (error, result) => {
           if (error) reject(error);
@@ -37,27 +36,28 @@ export async function POST(req) {
       uploadStream.end(buffer);
     });
 
-    // The first page image URL
-    const baseUrl = uploadResponse.secure_url;
     const totalPages = uploadResponse.pages || 1;
+    
+    // original secure_url might end in .pdf since we uploaded a pdf
+    const originalUrl = uploadResponse.secure_url;
+    // convert extension to .jpg so it renders as an image
+    const baseImageUrl = originalUrl.replace(/\.pdf$/i, '.jpg');
 
     // Generate URLs for all pages
-    // Cloudinary pattern: insert /pg_X before the file extension
     const pageUrls = [];
     for (let i = 1; i <= totalPages; i++) {
-      if (i === 1) {
-        pageUrls.push(baseUrl);
-      } else {
-        // Insert page transformation into URL
-        // Pattern: .../upload/pg_X/...
-        const url = baseUrl.replace('/upload/', `/upload/pg_${i}/`);
-        pageUrls.push(url);
-      }
+      // Insert page transformation into URL
+      // Pattern: .../upload/v1234... -> .../upload/pg_X/v1234...
+      const url = baseImageUrl.replace('/upload/', `/upload/pg_${i}/`);
+      pageUrls.push(url);
     }
 
+    // Use the explicit first page URL for the cover image
+    const firstPageUrl = pageUrls[0] || baseImageUrl;
+
     return NextResponse.json({ 
-      url: baseUrl,
-      fileUrl: uploadResponse.secure_url,
+      url: firstPageUrl,
+      fileUrl: originalUrl,
       pageUrls: pageUrls,
       totalPages: totalPages,
       publicId: uploadResponse.public_id

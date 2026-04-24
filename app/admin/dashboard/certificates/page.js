@@ -73,7 +73,7 @@ export default function CertificatesDashboard() {
         // Set the first page as the display image if no image is set
         const newForm = {
           ...form,
-          fileUrl: data.url,
+          fileUrl: data.fileUrl || data.url,
           pageImages: JSON.stringify(data.pageUrls || [data.url])
         }
         if (!form.imageUrl) {

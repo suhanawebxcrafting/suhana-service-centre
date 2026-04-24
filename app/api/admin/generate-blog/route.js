@@ -87,6 +87,7 @@ Return ONLY valid JSON with no markdown formatting around the JSON block. Do not
     const newBlog = await prisma.blog.create({
       data: {
         title: blogData.title,
+        slug: generateSlug(blogData.title),
         excerpt: blogData.excerpt,
         content: blogData.content,
         category: blogData.category,

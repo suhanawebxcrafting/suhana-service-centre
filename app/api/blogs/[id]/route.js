@@ -1,9 +1,16 @@
 import { NextResponse } from 'next/server'
 import { prisma } from '@/lib/prisma'
+import { generateSlug } from '@/lib/utils'
 
 export async function PUT(req, { params }) {
   try {
     const data = await req.json();
+    
+    // Update slug if title is changed but slug is not provided
+    if (data.title && !data.slug) {
+      data.slug = generateSlug(data.title);
+    }
+    
     const blog = await prisma.blog.update({
       where: { id: params.id },
       data

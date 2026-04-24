@@ -30,6 +30,7 @@ enum OrderStatus {
 model Blog {
   id          String    @id @default(cuid())
   title       String
+  slug        String    @unique @default(cuid())
   excerpt     String
   content     String
   category    String

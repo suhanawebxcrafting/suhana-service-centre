@@ -13,7 +13,7 @@ export default function BlogsDashboard() {
   const [autoBlogEnabled, setAutoBlogEnabled] = useState(false)
   const [loadingSettings, setLoadingSettings] = useState(true)
 
-  const [form, setForm] = useState({ title: '', excerpt: '', content: '', category: '', image: '', author: 'Suhana Team', isPublished: true, scheduledAt: '' })
+  const [form, setForm] = useState({ title: '', slug: '', excerpt: '', content: '', category: '', image: '', author: 'Suhana Team', isPublished: true, scheduledAt: '' })
 
   useEffect(() => {
     fetchBlogs()
@@ -83,7 +83,7 @@ export default function BlogsDashboard() {
         })
       }
       setEditingBlog(null)
-      setForm({ title: '', excerpt: '', content: '', category: '', image: '', author: 'Suhana Team', isPublished: true, scheduledAt: '' })
+      setForm({ title: '', slug: '', excerpt: '', content: '', category: '', image: '', author: 'Suhana Team', isPublished: true, scheduledAt: '' })
       fetchBlogs()
     } catch (error) {
       alert('Failed to save blog')
@@ -254,6 +254,10 @@ export default function BlogsDashboard() {
                 <input required type="text" value={form.title} onChange={e => setForm({...form, title: e.target.value})} className="w-full bg-gray-50 border border-gray-100 rounded-xl px-4 py-2.5 text-sm outline-none focus:ring-2 focus:ring-blue-500" />
               </div>
               <div>
+                <label className="block text-xs font-bold text-gray-400 mb-1">Slug (SEO Friendly URL)</label>
+                <input type="text" placeholder="auto-generated-if-empty" value={form.slug || ''} onChange={e => setForm({...form, slug: e.target.value})} className="w-full bg-gray-50 border border-gray-100 rounded-xl px-4 py-2.5 text-sm outline-none focus:ring-2 focus:ring-blue-500" />
+              </div>
+              <div>
                 <label className="block text-xs font-bold text-gray-400 mb-1">Category</label>
                 <input required type="text" value={form.category} onChange={e => setForm({...form, category: e.target.value})} className="w-full bg-gray-50 border border-gray-100 rounded-xl px-4 py-2.5 text-sm outline-none focus:ring-2 focus:ring-blue-500" />
               </div>
@@ -288,7 +292,7 @@ export default function BlogsDashboard() {
                 {editingBlog ? 'Update Post' : 'Publish Post'}
               </button>
               {editingBlog && (
-                <button type="button" onClick={() => {setEditingBlog(null); setForm({ title: '', excerpt: '', content: '', category: '', image: '', author: 'Suhana Team', isPublished: true, scheduledAt: '' })}} className="w-full mt-2 text-xs font-bold text-gray-500 hover:text-gray-700 p-2">
+                <button type="button" onClick={() => {setEditingBlog(null); setForm({ title: '', slug: '', excerpt: '', content: '', category: '', image: '', author: 'Suhana Team', isPublished: true, scheduledAt: '' })}} className="w-full mt-2 text-xs font-bold text-gray-500 hover:text-gray-700 p-2">
                   Cancel Edit
                 </button>
               )}

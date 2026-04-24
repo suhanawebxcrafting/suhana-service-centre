@@ -49,7 +49,7 @@ export default function BlogCard({ blog }) {
 
         <div className="mt-auto">
           <Link
-            href={`/blog/${blog.id}`}
+            href={`/blog/${blog.slug}`}
             className="inline-flex items-center gap-2 text-blue-600 font-bold text-sm group/link"
           >
             Read Full Article

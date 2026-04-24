@@ -7,7 +7,7 @@ import BlogContent from '@/components/BlogContent'
 export const dynamic = 'force-dynamic'
 
 export async function generateMetadata({ params }) {
-  const blog = await prisma.blog.findUnique({ where: { id: params.id } })
+  const blog = await prisma.blog.findUnique({ where: { slug: params.slug } })
   if (!blog || !blog.isPublished) return { title: 'Blog Not Found' }
   return {
     title: `${blog.title} | Suhana Service Centre Blog`,
@@ -23,7 +23,7 @@ export async function generateMetadata({ params }) {
 
 export default async function BlogPostPage({ params }) {
   const blog = await prisma.blog.findUnique({
-    where: { id: params.id }
+    where: { slug: params.slug }
   })
 
   if (!blog || !blog.isPublished) {
