@@ -1,14 +1,33 @@
 import { services } from '@/data/services'
+import { prisma } from '@/lib/prisma'
 
 const SITE_URL = 'https://suhanaservicecenter.in'
 
-export default function sitemap() {
+export default async function sitemap() {
+  // Static Service Pages from data/services.js
   const servicePages = services.map((service) => ({
     url: `${SITE_URL}/services/${service.slug}`,
     lastModified: new Date(),
     changeFrequency: 'monthly',
     priority: 0.7,
   }))
+
+  // Dynamic Blog Pages from Database
+  let blogPages = []
+  try {
+    const blogs = await prisma.blog.findMany({
+      where: { isPublished: true },
+      select: { slug: true, updatedAt: true }
+    })
+    blogPages = blogs.map((blog) => ({
+      url: `${SITE_URL}/blog/${blog.slug}`,
+      lastModified: blog.updatedAt,
+      changeFrequency: 'weekly',
+      priority: 0.6,
+    }))
+  } catch (error) {
+    console.error('Error fetching blogs for sitemap:', error)
+  }
 
   return [
     {
@@ -48,5 +67,6 @@ export default function sitemap() {
       priority: 0.6,
     },
     ...servicePages,
+    ...blogPages,
   ]
 }
