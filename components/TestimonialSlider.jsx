@@ -34,8 +34,8 @@ export default function TestimonialSlider() {
                   <p className="text-gray-700 text-base sm:text-lg font-medium leading-relaxed mb-6 italic flex-grow">
                     &ldquo;{testimonial.feedback}&rdquo;
                   </p>
-                  <div className="flex items-centre gap-3 mt-auto pt-6 border-t border-gray-50">
-                    <div className="w-12 h-12 rounded-full overflow-hidden border-2 border-blue-100 shadow-sm bg-gray-100 flex items-centre justify-centre font-bold text-gray-400 flex-shrink-0">
+                  <div className="flex items-center gap-3 mt-auto pt-6 border-t border-gray-50">
+                    <div className="w-12 h-12 rounded-full overflow-hidden border-2 border-blue-100 shadow-sm bg-gray-100 flex items-center justify-center font-bold text-gray-400 flex-shrink-0">
                       {testimonial.image ? (
                         <img src={testimonial.image} alt={testimonial.name} className="w-full h-full object-cover" />
                       ) : (

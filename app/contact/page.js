@@ -12,7 +12,7 @@ function Field({ id, label, error, children }) {
       </label>
       {children}
       {error && (
-        <p className="text-red-500 text-[11px] mt-1 font-semibold flex items-centre gap-1">
+        <p className="text-red-500 text-[11px] mt-1 font-semibold flex items-center gap-1">
           <LucideIcon name="AlertCircle" size={11} />
           {error}
         </p>
@@ -88,8 +88,8 @@ export default function ContactPage() {
       {/* Hero */}
       <section className="hero-gradient pt-28 pb-16 relative">
         <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)', backgroundSize: '30px 30px' }}></div>
-        <div className="relative max-w-4xl mx-auto px-4 sm:px-6 text-centre">
-          <div className="inline-flex items-centre gap-2 bg-white/15 text-white px-4 py-1.5 rounded-full text-sm font-semibold mb-4 border border-white/10 mx-auto w-fit">
+        <div className="relative max-w-4xl mx-auto px-4 sm:px-6 text-center">
+          <div className="inline-flex items-center gap-2 bg-white/15 text-white px-4 py-1.5 rounded-full text-sm font-semibold mb-4 border border-white/10 mx-auto w-fit">
             <LucideIcon name="Phone" size={16} /> Contact Us
           </div>
           <h1 className="text-4xl lg:text-5xl font-black text-white mb-3">
@@ -114,7 +114,7 @@ export default function ContactPage() {
 
                 {/* Address */}
                 <div className="flex items-start gap-4 p-5 bg-blue-50 rounded-2xl border border-blue-100 shadow-sm">
-                  <div className="w-11 h-11 bg-blue-600 rounded-xl flex items-centre justify-centre text-white flex-shrink-0">
+                  <div className="w-11 h-11 bg-blue-600 rounded-xl flex items-center justify-center text-white flex-shrink-0">
                     <LucideIcon name="MapPin" size={24} />
                   </div>
                   <div>
@@ -133,9 +133,9 @@ export default function ContactPage() {
                   {/* Phone — all content INSIDE the <a> tag */}
                   <a
                     href="tel:7709709243"
-                    className="flex items-centre gap-4 p-5 bg-orange-50 rounded-2xl border border-orange-100 hover:shadow-md transition-shadow group"
+                    className="flex items-center gap-4 p-5 bg-orange-50 rounded-2xl border border-orange-100 hover:shadow-md transition-shadow group"
                   >
-                    <div className="w-11 h-11 bg-orange-500 rounded-xl flex items-centre justify-centre text-white flex-shrink-0 group-hover:scale-110 transition-transform">
+                    <div className="w-11 h-11 bg-orange-500 rounded-xl flex items-center justify-center text-white flex-shrink-0 group-hover:scale-110 transition-transform">
                       <LucideIcon name="Phone" size={22} />
                     </div>
                     <div>
@@ -145,8 +145,8 @@ export default function ContactPage() {
                   </a>
 
                   {/* Email */}
-                  <a href="mailto:suhanaservicec@gmail.com" className="flex items-centre gap-4 p-5 bg-green-50 rounded-2xl border border-green-100 hover:shadow-md transition-shadow group">
-                    <div className="w-11 h-11 bg-green-500 rounded-xl flex items-centre justify-centre text-white flex-shrink-0 group-hover:scale-110 transition-transform">
+                  <a href="mailto:suhanaservicec@gmail.com" className="flex items-center gap-4 p-5 bg-green-50 rounded-2xl border border-green-100 hover:shadow-md transition-shadow group">
+                    <div className="w-11 h-11 bg-green-500 rounded-xl flex items-center justify-center text-white flex-shrink-0 group-hover:scale-110 transition-transform">
                       <LucideIcon name="Mail" size={22} />
                     </div>
                     <div>
@@ -158,8 +158,8 @@ export default function ContactPage() {
 
                 {/* WhatsApp */}
                 <a href="https://wa.me/917709709243" target="_blank" rel="noopener noreferrer"
-                  className="flex items-centre gap-4 p-5 bg-green-50 rounded-2xl border border-green-100 hover:shadow-md transition-shadow group">
-                  <div className="w-11 h-11 bg-[#25D366] rounded-xl flex items-centre justify-centre text-white flex-shrink-0 group-hover:scale-110 transition-transform">
+                  className="flex items-center gap-4 p-5 bg-green-50 rounded-2xl border border-green-100 hover:shadow-md transition-shadow group">
+                  <div className="w-11 h-11 bg-[#25D366] rounded-xl flex items-center justify-center text-white flex-shrink-0 group-hover:scale-110 transition-transform">
                     <svg width="32" height="32" viewBox="0 0 32 32" fill="white" xmlns="http://www.w3.org/2000/svg">
                       <path d="M16.002 3C9.373 3 4 8.373 4 15.002c0 2.124.558 4.118 1.535 5.848L4 29l8.374-2.194A11.95 11.95 0 0016.002 27C22.631 27 28 21.631 28 15.002 28 8.373 22.631 3 16.002 3zm0 21.846c-1.894 0-3.662-.503-5.19-1.38l-.372-.22-3.86 1.012 1.03-3.756-.24-.386A9.844 9.844 0 016.154 15c0-5.43 4.418-9.846 9.848-9.846S25.846 9.57 25.846 15c0 5.432-4.416 9.846-9.844 9.846zm5.404-7.37c-.297-.148-1.754-.866-2.026-.965-.272-.099-.47-.148-.668.149-.198.297-.766.965-.939 1.162-.173.198-.347.223-.644.075-.297-.149-1.254-.462-2.388-1.473-.883-.786-1.479-1.756-1.652-2.053-.173-.297-.018-.457.13-.605.133-.133.297-.347.445-.52.148-.174.198-.298.297-.496.099-.198.05-.372-.025-.52-.074-.149-.668-1.61-.915-2.203-.241-.579-.487-.5-.668-.51-.173-.007-.372-.01-.57-.01-.198 0-.52.074-.793.372-.272.297-1.04 1.015-1.04 2.476 0 1.46 1.065 2.872 1.213 3.07.148.198 2.095 3.2 5.077 4.487.71.306 1.263.488 1.695.624.712.227 1.36.195 1.872.118.571-.085 1.757-.719 2.006-1.413.248-.693.248-1.287.173-1.412-.074-.124-.272-.198-.57-.347z" />
                     </svg>
@@ -171,8 +171,8 @@ export default function ContactPage() {
                 </a>
 
                 {/* Working Hours */}
-                <div className="flex items-centre gap-4 p-5 bg-gray-50 rounded-2xl border border-gray-100">
-                  <div className="w-11 h-11 bg-gray-600 rounded-xl flex items-centre justify-centre text-white flex-shrink-0">
+                <div className="flex items-center gap-4 p-5 bg-gray-50 rounded-2xl border border-gray-100">
+                  <div className="w-11 h-11 bg-gray-600 rounded-xl flex items-center justify-center text-white flex-shrink-0">
                     <LucideIcon name="Clock" size={22} />
                   </div>
                   <div>
@@ -184,11 +184,11 @@ export default function ContactPage() {
 
               {/* Quick action buttons */}
               <div className="grid grid-cols-2 gap-3">
-                <a href="tel:7709709243" className="btn-primary text-sm py-3 justify-centre text-centre rounded-xl flex items-centre gap-2">
+                <a href="tel:7709709243" className="btn-primary text-sm py-3 justify-center text-center rounded-xl flex items-center gap-2">
                   <LucideIcon name="Phone" size={18} /> Call Now
                 </a>
                 <a href="https://wa.me/917709709243" target="_blank" rel="noopener noreferrer"
-                  className="bg-green-500 hover:bg-green-600 text-white font-semibold text-sm py-3 rounded-xl transition-colors flex items-centre justify-centre gap-2">
+                  className="bg-green-500 hover:bg-green-600 text-white font-semibold text-sm py-3 rounded-xl transition-colors flex items-center justify-center gap-2">
                   <svg width="32" height="32" viewBox="0 0 32 32" fill="white" xmlns="http://www.w3.org/2000/svg">
                     <path d="M16.002 3C9.373 3 4 8.373 4 15.002c0 2.124.558 4.118 1.535 5.848L4 29l8.374-2.194A11.95 11.95 0 0016.002 27C22.631 27 28 21.631 28 15.002 28 8.373 22.631 3 16.002 3zm0 21.846c-1.894 0-3.662-.503-5.19-1.38l-.372-.22-3.86 1.012 1.03-3.756-.24-.386A9.844 9.844 0 016.154 15c0-5.43 4.418-9.846 9.848-9.846S25.846 9.57 25.846 15c0 5.432-4.416 9.846-9.844 9.846zm5.404-7.37c-.297-.148-1.754-.866-2.026-.965-.272-.099-.47-.148-.668.149-.198.297-.766.965-.939 1.162-.173.198-.347.223-.644.075-.297-.149-1.254-.462-2.388-1.473-.883-.786-1.479-1.756-1.652-2.053-.173-.297-.018-.457.13-.605.133-.133.297-.347.445-.52.148-.174.198-.298.297-.496.099-.198.05-.372-.025-.52-.074-.149-.668-1.61-.915-2.203-.241-.579-.487-.5-.668-.51-.173-.007-.372-.01-.57-.01-.198 0-.52.074-.793.372-.272.297-1.04 1.015-1.04 2.476 0 1.46 1.065 2.872 1.213 3.07.148.198 2.095 3.2 5.077 4.487.71.306 1.263.488 1.695.624.712.227 1.36.195 1.872.118.571-.085 1.757-.719 2.006-1.413.248-.693.248-1.287.173-1.412-.074-.124-.272-.198-.57-.347z" />
                   </svg>WhatsApp
@@ -204,13 +204,13 @@ export default function ContactPage() {
 
                 {/* Success banner */}
                 {submitted && !saveFailed && (
-                  <div className="bg-green-50 border border-green-200 rounded-xl p-4 mb-5 text-green-700 text-sm font-medium flex items-centre gap-2">
+                  <div className="bg-green-50 border border-green-200 rounded-xl p-4 mb-5 text-green-700 text-sm font-medium flex items-center gap-2">
                     <LucideIcon name="CheckCircle2" size={18} />
                     Message sent &amp; saved! We&apos;ll respond on WhatsApp soon.
                   </div>
                 )}
                 {submitted && saveFailed && (
-                  <div className="bg-orange-50 border border-orange-200 rounded-xl p-4 mb-5 text-orange-700 text-sm font-medium flex items-centre gap-2">
+                  <div className="bg-orange-50 border border-orange-200 rounded-xl p-4 mb-5 text-orange-700 text-sm font-medium flex items-center gap-2">
                     <LucideIcon name="AlertCircle" size={18} />
                     WhatsApp opened — but saving to system failed. Please call us directly.
                   </div>
@@ -295,7 +295,7 @@ export default function ContactPage() {
                   <button
                     type="submit"
                     disabled={submitting}
-                    className="w-full btn-primary py-3.5 justify-centre text-base rounded-xl flex items-centre gap-2 hover:-translate-y-1 transition-all shadow-lg active:scale-[0.98] disabled:opacity-60 disabled:hover:translate-y-0 disabled:cursor-not-allowed"
+                    className="w-full btn-primary py-3.5 justify-center text-base rounded-xl flex items-center gap-2 hover:-translate-y-1 transition-all shadow-lg active:scale-[0.98] disabled:opacity-60 disabled:hover:translate-y-0 disabled:cursor-not-allowed"
                   >
                     {submitting ? (
                       <><LucideIcon name="Loader2" size={20} className="animate-spin" /> Saving &amp; Sending...</>
@@ -313,7 +313,7 @@ export default function ContactPage() {
       {/* Google Map */}
       <section className="bg-gray-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
-          <h2 className="text-xl font-bold text-blue-900 mb-5 text-centre flex items-centre justify-centre gap-2">
+          <h2 className="text-xl font-bold text-blue-900 mb-5 text-center flex items-center justify-center gap-2">
             <LucideIcon name="MapPin" size={24} className="text-orange-500" /> Find Us on Map
           </h2>
           <div className="rounded-2xl overflow-hidden shadow-lg border border-gray-200">
@@ -328,7 +328,7 @@ export default function ContactPage() {
               title="Suhana Service centre Location - Virar East"
             ></iframe>
           </div>
-          <p className="text-centre text-gray-500 text-xs mt-3">
+          <p className="text-center text-gray-500 text-xs mt-3">
             Office No- 04, Raipada, Nr. Anand Gaushalla, Chandansar Road, Virar (E) - 401305
           </p>
         </div>
@@ -336,7 +336,7 @@ export default function ContactPage() {
 
       {/* Global Toast Popup */}
       {submitted && !saveFailed && (
-        <div className="fixed bottom-10 right-10 bg-green-600 text-white px-6 py-4 rounded-xl shadow-2xl flex items-centre gap-3 z-50 animate-fade-up">
+        <div className="fixed bottom-10 right-10 bg-green-600 text-white px-6 py-4 rounded-xl shadow-2xl flex items-center gap-3 z-50 animate-fade-up">
           <LucideIcon name="CheckCircle2" size={24} />
           <div>
             <h4 className="font-bold text-sm">Message Sent!</h4>
@@ -346,7 +346,7 @@ export default function ContactPage() {
       )}
 
       {submitted && saveFailed && (
-        <div className="fixed bottom-10 right-10 bg-orange-600 text-white px-6 py-4 rounded-xl shadow-2xl flex items-centre gap-3 z-50 animate-fade-up">
+        <div className="fixed bottom-10 right-10 bg-orange-600 text-white px-6 py-4 rounded-xl shadow-2xl flex items-center gap-3 z-50 animate-fade-up">
           <LucideIcon name="AlertCircle" size={24} />
           <div>
             <h4 className="font-bold text-sm">Action Needs Attention</h4>

@@ -45,7 +45,7 @@ export default async function BlogPostPage({ params }) {
 
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           {/* Back Button */}
-          <Link href="/blog" className="inline-flex items-centre gap-2 text-blue-600 font-bold mb-8 hover:text-blue-800 transition-colors group">
+          <Link href="/blog" className="inline-flex items-center gap-2 text-blue-600 font-bold mb-8 hover:text-blue-800 transition-colors group">
             <LucideIcon name="ArrowLeft" size={16} className="group-hover:-translate-x-1 transition-transform" /> Back to Blogs
           </Link>
 
@@ -62,16 +62,16 @@ export default async function BlogPostPage({ params }) {
           </h1>
 
           {/* Meta Info */}
-          <div className="flex flex-wrap items-centre gap-4 text-sm text-gray-500 font-semibold pb-8">
-            <div className="flex items-centre gap-1.5 bg-white/80 backdrop-blur-sm px-3 py-1.5 rounded-full border border-gray-100 shadow-sm">
+          <div className="flex flex-wrap items-center gap-4 text-sm text-gray-500 font-semibold pb-8">
+            <div className="flex items-center gap-1.5 bg-white/80 backdrop-blur-sm px-3 py-1.5 rounded-full border border-gray-100 shadow-sm">
               <LucideIcon name="Calendar" size={14} className="text-blue-500" />
               <span>{new Date(blog.createdAt).toLocaleDateString('en-IN', { year: 'numeric', month: 'long', day: 'numeric' })}</span>
             </div>
-            <div className="flex items-centre gap-1.5 bg-white/80 backdrop-blur-sm px-3 py-1.5 rounded-full border border-gray-100 shadow-sm">
+            <div className="flex items-center gap-1.5 bg-white/80 backdrop-blur-sm px-3 py-1.5 rounded-full border border-gray-100 shadow-sm">
               <LucideIcon name="User" size={14} className="text-blue-500" />
               <span>{blog.author}</span>
             </div>
-            <div className="flex items-centre gap-1.5 bg-white/80 backdrop-blur-sm px-3 py-1.5 rounded-full border border-gray-100 shadow-sm">
+            <div className="flex items-center gap-1.5 bg-white/80 backdrop-blur-sm px-3 py-1.5 rounded-full border border-gray-100 shadow-sm">
               <LucideIcon name="Clock" size={14} className="text-blue-500" />
               <span>{readTime} min read</span>
             </div>
@@ -95,15 +95,15 @@ export default async function BlogPostPage({ params }) {
 
       {/* Author Card / CTA */}
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 mt-16">
-        <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-3xl p-8 border border-blue-100/50 flex flex-col sm:flex-row items-centre gap-6">
-          <div className="w-16 h-16 bg-gradient-to-br from-blue-600 to-indigo-600 rounded-2xl flex items-centre justify-centre text-white font-black text-xl shadow-lg shadow-blue-500/20 flex-shrink-0">
+        <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-3xl p-8 border border-blue-100/50 flex flex-col sm:flex-row items-center gap-6">
+          <div className="w-16 h-16 bg-gradient-to-br from-blue-600 to-indigo-600 rounded-2xl flex items-center justify-center text-white font-black text-xl shadow-lg shadow-blue-500/20 flex-shrink-0">
             S
           </div>
-          <div className="text-centre sm:text-left flex-1">
+          <div className="text-center sm:text-left flex-1">
             <h3 className="text-lg font-black text-gray-900 mb-1">Suhana Service centre</h3>
             <p className="text-gray-500 text-sm font-medium">Your trusted partner for government & digital services in Virar East. Visit us for expert assistance!</p>
           </div>
-          <a href="https://wa.me/917709709243" target="_blank" rel="noopener noreferrer" className="bg-green-500 hover:bg-green-600 text-white font-bold px-6 py-3 rounded-2xl transition-all hover:-translate-y-0.5 shadow-md shadow-green-500/20 flex items-centre gap-2 text-sm flex-shrink-0">
+          <a href="https://wa.me/917709709243" target="_blank" rel="noopener noreferrer" className="bg-green-500 hover:bg-green-600 text-white font-bold px-6 py-3 rounded-2xl transition-all hover:-translate-y-0.5 shadow-md shadow-green-500/20 flex items-center gap-2 text-sm flex-shrink-0">
             <LucideIcon name="MessageCircle" size={16} />
             WhatsApp Us
           </a>
@@ -111,7 +111,7 @@ export default async function BlogPostPage({ params }) {
       </div>
 
       {/* Share Section */}
-      <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 mt-10 flex items-centre justify-centre gap-4">
+      <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 mt-10 flex items-center justify-center gap-4">
         <span className="text-sm font-bold text-gray-400 uppercase tracking-widest">Share this article</span>
         <div className="h-px flex-1 bg-gray-100"></div>
       </div>

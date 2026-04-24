@@ -38,7 +38,7 @@ export default function AdminLoginPage() {
   }
 
   return (
-    <div className="min-h-screen bg-blue-950 flex items-centre justify-centre px-4 py-12 relative overflow-hidden">
+    <div className="min-h-screen bg-blue-950 flex items-center justify-center px-4 py-12 relative overflow-hidden">
       {/* Decorative background */}
       <div className="absolute top-0 left-0 w-full h-full opacity-10">
         <div className="absolute top-1/4 -left-20 w-80 h-80 bg-blue-400 rounded-full blur-3xl"></div>
@@ -46,8 +46,8 @@ export default function AdminLoginPage() {
       </div>
 
       <div className="relative max-w-md w-full bg-white/10 backdrop-blur-md rounded-3xl p-8 border border-white/20 shadow-2xl">
-        <div className="text-centre mb-8">
-          <div className="w-16 h-16 bg-blue-600 rounded-2xl flex items-centre justify-centre mx-auto mb-4 shadow-lg shadow-blue-500/30">
+        <div className="text-center mb-8">
+          <div className="w-16 h-16 bg-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg shadow-blue-500/30">
             <Lock className="text-white w-8 h-8" />
           </div>
           <h1 className="text-2xl font-black text-white uppercase tracking-tight">Admin Portal</h1>
@@ -86,14 +86,14 @@ export default function AdminLoginPage() {
           </div>
 
           {error && (
-            <div className="bg-red-500/20 text-red-200 p-4 rounded-xl flex items-centre gap-3 text-sm font-bold border border-red-500/20">
+            <div className="bg-red-500/20 text-red-200 p-4 rounded-xl flex items-center gap-3 text-sm font-bold border border-red-500/20">
               <AlertCircle size={18} /> {error}
             </div>
           )}
 
           <button
             disabled={loading}
-            className="w-full bg-blue-600 hover:bg-blue-500 text-white font-black py-4 rounded-xl shadow-xl shadow-blue-900/30 transition-all flex items-centre justify-centre gap-3"
+            className="w-full bg-blue-600 hover:bg-blue-500 text-white font-black py-4 rounded-xl shadow-xl shadow-blue-900/30 transition-all flex items-center justify-center gap-3"
           >
             {loading ? (
               <>
@@ -105,7 +105,7 @@ export default function AdminLoginPage() {
           </button>
         </form>
 
-        <p className="text-centre mt-8 text-blue-300 text-xs font-medium">
+        <p className="text-center mt-8 text-blue-300 text-xs font-medium">
           Protected area. Unauthorized access is prohibited.
         </p>
       </div>

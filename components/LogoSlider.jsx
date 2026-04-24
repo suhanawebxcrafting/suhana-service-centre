@@ -15,7 +15,7 @@ export default function LogoSlider() {
   return (
     <section className="py-8 bg-white border-b border-gray-100 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 mb-5">
-        <p className="text-centre text-[11px] font-black text-gray-400 uppercase tracking-[0.2em]">
+        <p className="text-center text-[11px] font-black text-gray-400 uppercase tracking-[0.2em]">
           Trusted Government & Digital Partners
         </p>
       </div>
@@ -27,8 +27,8 @@ export default function LogoSlider() {
         {/* Triple the logos for seamless infinite scroll on all screen sizes */}
         <div className="flex w-max  animate-scroll-logos-fast">
           {[...logos, ...logos].map((logo, i) => (
-            <div key={i} className="flex-shrink-0 mx-6 flex flex-col items-centre gap-2 group">
-              <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl bg-white border border-gray-100 flex items-centre justify-centre p-3 group-hover:scale-110 shadow-sm group-hover:shadow-md transition-all relative overflow-hidden">
+            <div key={i} className="flex-shrink-0 mx-6 flex flex-col items-center gap-2 group">
+              <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl bg-white border border-gray-100 flex items-center justify-center p-3 group-hover:scale-110 shadow-sm group-hover:shadow-md transition-all relative overflow-hidden">
                 <img
                   src={logo.img}
                   alt={logo.name}

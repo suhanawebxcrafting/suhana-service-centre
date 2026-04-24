@@ -67,12 +67,12 @@ export default function TestimonialsDashboard() {
   }
 
   if (loading) {
-    return <div className="h-full flex justify-centre items-centre"><Loader2 className="animate-spin text-blue-600 w-10 h-10" /></div>
+    return <div className="h-full flex justify-center items-center"><Loader2 className="animate-spin text-blue-600 w-10 h-10" /></div>
   }
 
   return (
     <>
-      <header className="bg-white border-b border-gray-100 p-6 flex items-centre justify-between sticky top-0 z-10">
+      <header className="bg-white border-b border-gray-100 p-6 flex items-center justify-between sticky top-0 z-10">
         <div>
           <h1 className="text-xl font-black text-gray-900 tracking-tight">Testimonials Management</h1>
         </div>
@@ -85,7 +85,7 @@ export default function TestimonialsDashboard() {
             <div key={item.id} className="bg-white rounded-2xl p-5 border border-gray-100 shadow-sm">
               <div className="flex justify-between items-start mb-3">
                 <div>
-                  <h3 className="font-bold text-gray-900 flex items-centre gap-2">
+                  <h3 className="font-bold text-gray-900 flex items-center gap-2">
                     {item.name}
                     {item.isFeatured && <span className="bg-orange-100 text-orange-700 text-[10px] uppercase font-black px-2 py-0.5 rounded-full">Featured</span>}
                   </h3>
@@ -96,9 +96,9 @@ export default function TestimonialsDashboard() {
                 </div>
               </div>
               <p className="text-sm text-gray-600 bg-gray-50 p-3 rounded-xl mb-4 italic">"{item.feedback}"</p>
-              <div className="flex items-centre gap-2">
-                <button onClick={() => editTestimonial(item)} className="text-xs font-bold text-blue-600 hover:text-blue-700 bg-blue-50 px-3 py-1.5 rounded-lg flex items-centre gap-1"><Edit2 size={12} /> Edit</button>
-                <button onClick={() => handleDelete(item.id)} className="text-xs font-bold text-red-600 hover:text-red-700 bg-red-50 px-3 py-1.5 rounded-lg flex items-centre gap-1"><Trash2 size={12} /> Delete</button>
+              <div className="flex items-center gap-2">
+                <button onClick={() => editTestimonial(item)} className="text-xs font-bold text-blue-600 hover:text-blue-700 bg-blue-50 px-3 py-1.5 rounded-lg flex items-center gap-1"><Edit2 size={12} /> Edit</button>
+                <button onClick={() => handleDelete(item.id)} className="text-xs font-bold text-red-600 hover:text-red-700 bg-red-50 px-3 py-1.5 rounded-lg flex items-center gap-1"><Trash2 size={12} /> Delete</button>
               </div>
             </div>
           ))}
@@ -106,7 +106,7 @@ export default function TestimonialsDashboard() {
 
         <div className="w-full lg:w-96">
           <div className="bg-white border border-gray-100 shadow-sm rounded-2xl p-6 sticky top-24">
-            <h2 className="text-sm font-bold uppercase tracking-widest text-gray-900 mb-6 flex items-centre gap-2">
+            <h2 className="text-sm font-bold uppercase tracking-widest text-gray-900 mb-6 flex items-center gap-2">
               <Plus size={16} /> {editingTestimonial ? 'Edit Testimonial' : 'Add Testimonial'}
             </h2>
             <form onSubmit={handleSubmit} className="space-y-4">
@@ -126,7 +126,7 @@ export default function TestimonialsDashboard() {
                 <label className="block text-xs font-bold text-gray-400 mb-1">Feedback</label>
                 <textarea required rows={4} value={form.feedback} onChange={e => setForm({ ...form, feedback: e.target.value })} className="w-full bg-gray-50 border border-gray-100 rounded-xl px-4 py-2.5 text-sm outline-none focus:ring-2 focus:ring-blue-500" />
               </div>
-              <div className="flex items-centre gap-2">
+              <div className="flex items-center gap-2">
                 <input type="checkbox" id="feat" checked={form.isFeatured} onChange={e => setForm({ ...form, isFeatured: e.target.checked })} className="w-4 h-4 text-blue-600 rounded bg-gray-100 border-gray-300" />
                 <label htmlFor="feat" className="text-sm font-medium text-gray-700">Featured (Show on homepage)</label>
               </div>

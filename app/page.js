@@ -112,7 +112,7 @@ export default async function HomePage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
       {/* ─── Hero Section ─── */}
-      <section className="hero-gradient relative min-h-screen flex items-centre overflow-hidden">
+      <section className="hero-gradient relative min-h-screen flex items-center overflow-hidden">
         {/* Background pattern */}
         <div className="absolute inset-0 opacity-10">
           <div className="absolute inset-0" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)', backgroundSize: '40px 40px' }}></div>
@@ -122,8 +122,8 @@ export default async function HomePage() {
         <div className="absolute bottom-20 left-10 w-60 h-60 bg-blue-400 rounded-full opacity-10 blur-3xl"></div>
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-28 lg:py-36">
-          <div className="grid lg:grid-cols-2 gap-12 items-centre">
-            <div className="text-centre lg:text-left animate-fade-up">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div className="text-center lg:text-left animate-fade-up">
               <div className="tag mb-5 inline-block">🏆 Virar's Trusted Service centre</div>
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-white leading-tight mb-3">
                 Suhana<br />
@@ -134,15 +134,15 @@ export default async function HomePage() {
               <p className="text-blue-100 text-base leading-relaxed mb-8 max-w-lg">
                 Your one-stop destination for <strong className="text-white">{totalServices}+ government and digital services</strong> — from Aadhaar & PAN to passports, certificates, smart cards, and more.
               </p>
-              <div className="flex flex-wrap gap-3 justify-centre lg:justify-start">
-                <Link href="/services" className="btn-accent text-base px-7 py-3.5 flex items-centre gap-2">
+              <div className="flex flex-wrap gap-3 justify-center lg:justify-start">
+                <Link href="/services" className="btn-accent text-base px-7 py-3.5 flex items-center gap-2">
                   <LucideIcon name="Wrench" size={20} /> View All Services
                 </Link>
-                <a href="tel:7709709243" className="btn-outline text-base px-7 py-3.5 flex items-centre gap-2">
+                <a href="tel:7709709243" className="btn-outline text-base px-7 py-3.5 flex items-center gap-2">
                   <LucideIcon name="Phone" size={20} /> Call Now
                 </a>
                 <a href="https://wa.me/917709709243" target="_blank" rel="noopener noreferrer"
-                  className="bg-green-500 hover:bg-green-400 text-white font-semibold text-base px-7 py-3.5 rounded-lg transition-all hover:-translate-y-0.5 flex items-centre gap-2 shadow-lg shadow-green-500/20">
+                  className="bg-green-500 hover:bg-green-400 text-white font-semibold text-base px-7 py-3.5 rounded-lg transition-all hover:-translate-y-0.5 flex items-center gap-2 shadow-lg shadow-green-500/20">
                   <svg width="25" height="25" viewBox="0 0 32 32" fill="white" xmlns="http://www.w3.org/2000/svg">
                     <path d="M16.002 3C9.373 3 4 8.373 4 15.002c0 2.124.558 4.118 1.535 5.848L4 29l8.374-2.194A11.95 11.95 0 0016.002 27C22.631 27 28 21.631 28 15.002 28 8.373 22.631 3 16.002 3zm0 21.846c-1.894 0-3.662-.503-5.19-1.38l-.372-.22-3.86 1.012 1.03-3.756-.24-.386A9.844 9.844 0 016.154 15c0-5.43 4.418-9.846 9.848-9.846S25.846 9.57 25.846 15c0 5.432-4.416 9.846-9.844 9.846zm5.404-7.37c-.297-.148-1.754-.866-2.026-.965-.272-.099-.47-.148-.668.149-.198.297-.766.965-.939 1.162-.173.198-.347.223-.644.075-.297-.149-1.254-.462-2.388-1.473-.883-.786-1.479-1.756-1.652-2.053-.173-.297-.018-.457.13-.605.133-.133.297-.347.445-.52.148-.174.198-.298.297-.496.099-.198.05-.372-.025-.52-.074-.149-.668-1.61-.915-2.203-.241-.579-.487-.5-.668-.51-.173-.007-.372-.01-.57-.01-.198 0-.52.074-.793.372-.272.297-1.04 1.015-1.04 2.476 0 1.46 1.065 2.872 1.213 3.07.148.198 2.095 3.2 5.077 4.487.71.306 1.263.488 1.695.624.712.227 1.36.195 1.872.118.571-.085 1.757-.719 2.006-1.413.248-.693.248-1.287.173-1.412-.074-.124-.272-.198-.57-.347z" />
                   </svg> WhatsApp
@@ -153,14 +153,14 @@ export default async function HomePage() {
             {/* Hero card */}
             <div className="hidden lg:flex flex-col gap-4 animate-fade-up" style={{ animationDelay: '0.2s', opacity: 0 }}>
               <div className="bg-white/10 backdrop-blur-sm rounded-3xl p-6 border border-white/20">
-                <h3 className="text-white font-bold text-lg mb-4 flex items-centre gap-2">
+                <h3 className="text-white font-bold text-lg mb-4 flex items-center gap-2">
                   <LucideIcon name="BarChart3" size={20} className="text-orange-400" /> Our Services at a Glance
                 </h3>
                 <div className="grid grid-cols-3 gap-3">
                   {categories.map(cat => (
                     <Link key={cat.id} href={`/services?cat=${cat.id}`}
-                      className="bg-white/10 hover:bg-white/20 rounded-xl p-3 text-centre transition-all hover:-translate-y-0.5 cursor-pointer border border-white/5 group">
-                      <div className="mb-2 flex justify-centre">
+                      className="bg-white/10 hover:bg-white/20 rounded-xl p-3 text-center transition-all hover:-translate-y-0.5 cursor-pointer border border-white/5 group">
+                      <div className="mb-2 flex justify-center">
                         <LucideIcon name={cat.icon} size={24} className="text-white group-hover:scale-110 transition-transform" />
                       </div>
                       <div className="text-white text-[10px] font-semibold leading-tight uppercase tracking-wider">{cat.label}</div>
@@ -175,7 +175,7 @@ export default async function HomePage() {
                   { n: '5000+', l: 'Customers Served' },
                   { n: '10+', l: 'Years Experience' },
                 ].map((s, i) => (
-                  <div key={i} className="bg-white/10 backdrop-blur-sm rounded-2xl p-4 text-centre border border-white/15">
+                  <div key={i} className="bg-white/10 backdrop-blur-sm rounded-2xl p-4 text-center border border-white/15">
                     <div className="text-2xl font-black text-orange-400">{s.n}</div>
                     <div className="text-blue-200 text-xs font-medium mt-0.5">{s.l}</div>
                   </div>
@@ -203,8 +203,8 @@ export default async function HomePage() {
               { icon: 'Zap', n: 'Same Day', l: 'Quick Services', color: 'text-orange-600' },
               { icon: 'MapPin', n: 'Virar (E)', l: 'Our Location', color: 'text-red-600' },
             ].map((s, i) => (
-              <div key={i} className="flex items-centre gap-3 p-4 rounded-xl bg-blue-50 border border-blue-100">
-                <div className="w-10 h-10 rounded-lg bg-white flex items-centre justify-centre shadow-sm">
+              <div key={i} className="flex items-center gap-3 p-4 rounded-xl bg-blue-50 border border-blue-100">
+                <div className="w-10 h-10 rounded-lg bg-white flex items-center justify-center shadow-sm">
                   <LucideIcon name={s.icon} size={24} className={s.color} />
                 </div>
                 <div>
@@ -227,8 +227,8 @@ export default async function HomePage() {
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-blue-100/30 rounded-full blur-[120px] pointer-events-none"></div>
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-centre mb-16 max-w-2xl mx-auto">
-            <div className="inline-flex items-centre gap-2 bg-blue-600/10 text-blue-700 px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-widest mb-4 border border-blue-200/50 shadow-sm animate-fade-in">
+          <div className="text-center mb-16 max-w-2xl mx-auto">
+            <div className="inline-flex items-center gap-2 bg-blue-600/10 text-blue-700 px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-widest mb-4 border border-blue-200/50 shadow-sm animate-fade-in">
               <LucideIcon name="Sparkles" size={14} className="text-orange-500" /> Most Popular Services
             </div>
             <h2 className="text-3xl lg:text-5xl font-black text-blue-950 mb-4 tracking-tight leading-tight">
@@ -248,8 +248,8 @@ export default async function HomePage() {
             ))}
           </div>
 
-          <div className="text-centre">
-            <Link href="/services" className="group btn-primary text-base px-10 py-4.5 rounded-2xl shadow-xl shadow-blue-500/20 flex items-centre gap-3 mx-auto w-fit">
+          <div className="text-center">
+            <Link href="/services" className="group btn-primary text-base px-10 py-4.5 rounded-2xl shadow-xl shadow-blue-500/20 flex items-center gap-3 mx-auto w-fit">
               <span className="font-extrabold tracking-tight">EXPLORE ALL {totalServices}+ SERVICES</span>
               <LucideIcon name="ArrowRight" size={18} className="group-hover:translate-x-2 transition-transform duration-300" />
             </Link>
@@ -260,8 +260,8 @@ export default async function HomePage() {
       {/* ─── Categories Section ─── */}
       <section className="py-16 bg-white relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-centre mb-12">
-            <div className="inline-flex items-centre gap-2 bg-orange-50 text-orange-700 px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-widest mb-4 border border-orange-100 shadow-sm">
+          <div className="text-center mb-12">
+            <div className="inline-flex items-center gap-2 bg-orange-50 text-orange-700 px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-widest mb-4 border border-orange-100 shadow-sm">
               <LucideIcon name="Layers" size={14} className="text-blue-600" /> Browse by Category
             </div>
             <h2 className="section-title mb-3">Service Categories</h2>
@@ -273,9 +273,9 @@ export default async function HomePage() {
               const count = services.filter(s => s.category === cat.id).length
               return (
                 <Link key={cat.id} href={`/services?cat=${cat.id}`}
-                  className={`${colors.bg} border ${colors.border} rounded-2xl p-6 text-centre card-hover cursor-pointer group block shadow-sm hover:shadow-md transition-all`}>
-                  <div className="mb-4 flex justify-centre">
-                    <div className={`w-16 h-16 rounded-2xl flex items-centre justify-centre ${colors.bg} border ${colors.border} group-hover:scale-110 group-hover:rotate-3 transition-transform shadow-sm bg-white/50 backdrop-blur-sm`}>
+                  className={`${colors.bg} border ${colors.border} rounded-2xl p-6 text-center card-hover cursor-pointer group block shadow-sm hover:shadow-md transition-all`}>
+                  <div className="mb-4 flex justify-center">
+                    <div className={`w-16 h-16 rounded-2xl flex items-center justify-center ${colors.bg} border ${colors.border} group-hover:scale-110 group-hover:rotate-3 transition-transform shadow-sm bg-white/50 backdrop-blur-sm`}>
                       <LucideIcon name={cat.icon} size={36} className={colors.text} />
                     </div>
                   </div>
@@ -298,7 +298,7 @@ export default async function HomePage() {
       <section className="py-16 lg:py-20 bg-gradient-to-br from-blue-900 to-blue-950 relative overflow-hidden">
         <div className="absolute inset-0 opacity-5" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)', backgroundSize: '30px 30px' }}></div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-centre mb-12">
+          <div className="text-center mb-12">
             <div className="inline-block bg-orange-500/20 text-orange-400 px-4 py-1.5 rounded-full text-sm font-semibold mb-3">
               💪 Why Choose Us
             </div>
@@ -312,7 +312,7 @@ export default async function HomePage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {whyUs.map((item, i) => (
               <div key={i} className="bg-white/8 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:bg-white/12 transition-all hover:-translate-y-1">
-                <div className="w-12 h-12 bg-orange-500/20 rounded-xl flex items-centre justify-centre text-orange-400 mb-4">
+                <div className="w-12 h-12 bg-orange-500/20 rounded-xl flex items-center justify-center text-orange-400 mb-4">
                   <LucideIcon name={item.icon} size={24} />
                 </div>
                 <h3 className="text-white font-semibold text-base mb-2">{item.title}</h3>
@@ -331,8 +331,8 @@ export default async function HomePage() {
         <div className="absolute bottom-1/4 -right-20 w-80 h-80 bg-orange-100 rounded-full blur-3xl opacity-30"></div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-centre mb-12">
-            <div className="inline-flex items-centre gap-2 bg-blue-50 text-blue-700 px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-widest mb-4 border border-blue-100 shadow-sm">
+          <div className="text-center mb-12">
+            <div className="inline-flex items-center gap-2 bg-blue-50 text-blue-700 px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-widest mb-4 border border-blue-100 shadow-sm">
               <LucideIcon name="MessageSquare" size={14} className="text-orange-500" /> Testimonials
             </div>
             <h2 className="text-3xl lg:text-5xl font-black text-blue-950 mb-4 tracking-tight">
@@ -348,7 +348,7 @@ export default async function HomePage() {
       {/* ─── About Preview ─── */}
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-12 items-centre">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <div className="tag mb-4">🏢 About Us</div>
               <h2 className="text-3xl lg:text-4xl font-bold text-blue-900 mb-4 leading-tight">
@@ -367,7 +367,7 @@ export default async function HomePage() {
                   { icon: 'Clock', text: 'Mon–Sat: 9 AM – 8 PM' },
                   { icon: 'CheckCircle2', text: `${totalServices}+ Services Available` }
                 ].map((item, i) => (
-                  <div key={i} className="flex items-centre gap-2 text-xs font-semibold text-gray-700 bg-blue-50 rounded-lg p-3">
+                  <div key={i} className="flex items-center gap-2 text-xs font-semibold text-gray-700 bg-blue-50 rounded-lg p-3">
                     <LucideIcon name={item.icon} size={18} className="text-blue-600" /> {item.text}
                   </div>
                 ))}
@@ -401,14 +401,14 @@ export default async function HomePage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
             <div className="max-w-2xl">
-              <div className="inline-flex items-centre gap-2 bg-orange-50 text-orange-700 px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-widest mb-4 border border-orange-100 shadow-sm">
+              <div className="inline-flex items-center gap-2 bg-orange-50 text-orange-700 px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-widest mb-4 border border-orange-100 shadow-sm">
                 <LucideIcon name="Newspaper" size={14} className="text-blue-600" /> Latest Updates
               </div>
               <h2 className="text-3xl lg:text-5xl font-black text-blue-950 mb-0 tracking-tight">
                 From Our <span className="text-blue-600">Blog</span>
               </h2>
             </div>
-            <Link href="/blog" className="bg-blue-600 hover:bg-blue-700 text-white font-bold px-8 py-3.5 rounded-xl flex items-centre justify-centre gap-2 transition-all shadow-lg shadow-blue-600/20 whitespace-nowrap">
+            <Link href="/blog" className="bg-blue-600 hover:bg-blue-700 text-white font-bold px-8 py-3.5 rounded-xl flex items-center justify-center gap-2 transition-all shadow-lg shadow-blue-600/20 whitespace-nowrap">
               View All Posts <LucideIcon name="ArrowRight" size={18} />
             </Link>
           </div>
@@ -429,7 +429,7 @@ export default async function HomePage() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
               <div>
-                <div className="inline-flex items-centre gap-2 bg-blue-50 text-blue-700 px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-widest mb-4 border border-blue-100 shadow-sm">
+                <div className="inline-flex items-center gap-2 bg-blue-50 text-blue-700 px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-widest mb-4 border border-blue-100 shadow-sm">
                   <LucideIcon name="PlayCircle" size={14} className="text-orange-500" /> Video Guide
                 </div>
                 <h2 className="text-3xl lg:text-4xl font-black text-blue-950 tracking-tight">
@@ -446,7 +446,7 @@ export default async function HomePage() {
       {/* ─── FAQ Section ─── */}
       <section className="py-16 pattern-bg">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-centre mb-10">
+          <div className="text-center mb-10">
             <div className="tag mb-3">❓ FAQ</div>
             <h2 className="section-title mb-3">Frequently Asked Questions</h2>
             <p className="section-subtitle">Quick answers to common questions</p>
@@ -454,7 +454,7 @@ export default async function HomePage() {
           <div className="space-y-3">
             {faqs.map((faq, i) => (
               <details key={i} className="faq-item group bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
-                <summary className="flex items-centre justify-between p-5 cursor-pointer">
+                <summary className="flex items-center justify-between p-5 cursor-pointer">
                   <span className="font-semibold text-gray-800 text-sm pr-4">{faq.q}</span>
                   <span className="text-blue-600 flex-shrink-0 text-lg transition-transform group-open:rotate-45">+</span>
                 </summary>
@@ -470,24 +470,24 @@ export default async function HomePage() {
       {/* ─── CTA Banner ─── */}
       <section className="py-14 bg-gradient-to-r from-orange-500 to-orange-600 relative overflow-hidden">
         <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)', backgroundSize: '24px 24px' }}></div>
-        <div className="relative max-w-4xl mx-auto px-4 text-centre">
+        <div className="relative max-w-4xl mx-auto px-4 text-center">
           <h2 className="text-3xl lg:text-4xl font-bold text-white mb-3">
             Need Any Service Today?
           </h2>
           <p className="text-orange-100 text-base mb-7 max-w-xl mx-auto">
             Visit us at Virar (E) or contact us on phone/WhatsApp. We're here to help you with all government and digital services.
           </p>
-          <div className="flex flex-wrap gap-3 justify-centre">
-            <a href="tel:7709709243" className="bg-white text-orange-600 font-bold px-7 py-3.5 rounded-lg hover:bg-orange-50 transition-colors flex items-centre gap-2 text-sm shadow-lg shadow-black/5">
+          <div className="flex flex-wrap gap-3 justify-center">
+            <a href="tel:7709709243" className="bg-white text-orange-600 font-bold px-7 py-3.5 rounded-lg hover:bg-orange-50 transition-colors flex items-center gap-2 text-sm shadow-lg shadow-black/5">
               <LucideIcon name="Phone" size={18} /> Call 7709709243
             </a>
             <a href="https://wa.me/917709709243" target="_blank" rel="noopener noreferrer"
-              className="bg-green-600 hover:bg-green-700 text-white font-bold px-7 py-3.5 rounded-lg transition-colors flex items-centre gap-2 text-sm shadow-lg shadow-black/5">
+              className="bg-green-600 hover:bg-green-700 text-white font-bold px-7 py-3.5 rounded-lg transition-colors flex items-center gap-2 text-sm shadow-lg shadow-black/5">
               <svg width="25" height="25" viewBox="0 0 32 32" fill="white" xmlns="http://www.w3.org/2000/svg">
                 <path d="M16.002 3C9.373 3 4 8.373 4 15.002c0 2.124.558 4.118 1.535 5.848L4 29l8.374-2.194A11.95 11.95 0 0016.002 27C22.631 27 28 21.631 28 15.002 28 8.373 22.631 3 16.002 3zm0 21.846c-1.894 0-3.662-.503-5.19-1.38l-.372-.22-3.86 1.012 1.03-3.756-.24-.386A9.844 9.844 0 016.154 15c0-5.43 4.418-9.846 9.848-9.846S25.846 9.57 25.846 15c0 5.432-4.416 9.846-9.844 9.846zm5.404-7.37c-.297-.148-1.754-.866-2.026-.965-.272-.099-.47-.148-.668.149-.198.297-.766.965-.939 1.162-.173.198-.347.223-.644.075-.297-.149-1.254-.462-2.388-1.473-.883-.786-1.479-1.756-1.652-2.053-.173-.297-.018-.457.13-.605.133-.133.297-.347.445-.52.148-.174.198-.298.297-.496.099-.198.05-.372-.025-.52-.074-.149-.668-1.61-.915-2.203-.241-.579-.487-.5-.668-.51-.173-.007-.372-.01-.57-.01-.198 0-.52.074-.793.372-.272.297-1.04 1.015-1.04 2.476 0 1.46 1.065 2.872 1.213 3.07.148.198 2.095 3.2 5.077 4.487.71.306 1.263.488 1.695.624.712.227 1.36.195 1.872.118.571-.085 1.757-.719 2.006-1.413.248-.693.248-1.287.173-1.412-.074-.124-.272-.198-.57-.347z" />
               </svg>     WhatsApp Now
             </a>
-            <Link href="/contact" className="bg-white/20 hover:bg-white/30 text-white font-bold px-7 py-3.5 rounded-lg transition-colors flex items-centre gap-2 text-sm border border-white/30 backdrop-blur-sm">
+            <Link href="/contact" className="bg-white/20 hover:bg-white/30 text-white font-bold px-7 py-3.5 rounded-lg transition-colors flex items-center gap-2 text-sm border border-white/30 backdrop-blur-sm">
               <LucideIcon name="MapPin" size={18} /> Get Directions
             </Link>
           </div>

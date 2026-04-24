@@ -175,7 +175,7 @@ export default function ServicesCustomizationPage() {
 
   if (loading) {
     return (
-      <div className="flex items-centre justify-centre h-full min-h-[60vh]">
+      <div className="flex items-center justify-center h-full min-h-[60vh]">
         <Loader2 className="w-10 h-10 text-blue-600 animate-spin" />
       </div>
     )
@@ -184,9 +184,9 @@ export default function ServicesCustomizationPage() {
   return (
     <>
       {/* Header */}
-      <header className="bg-white border-b border-gray-100 p-6 flex flex-col md:flex-row md:items-centre justify-between gap-4 sticky top-0 z-10">
+      <header className="bg-white border-b border-gray-100 p-6 flex flex-col md:flex-row md:items-center justify-between gap-4 sticky top-0 z-10">
         <div>
-          <h1 className="text-xl font-black text-gray-900 tracking-tight flex items-centre gap-2">
+          <h1 className="text-xl font-black text-gray-900 tracking-tight flex items-center gap-2">
             <Sparkles className="text-orange-500 w-5 h-5" /> Services Customization
           </h1>
           <p className="text-gray-500 text-xs font-bold uppercase tracking-widest mt-0.5">
@@ -207,11 +207,11 @@ export default function ServicesCustomizationPage() {
 
       <div className="p-6 max-w-7xl mx-auto">
         {/* Legend */}
-        <div className="flex items-centre gap-6 mb-6 text-xs text-gray-500 font-bold">
-          <span className="flex items-centre gap-1.5">
+        <div className="flex items-center gap-6 mb-6 text-xs text-gray-500 font-bold">
+          <span className="flex items-center gap-1.5">
             <span className="w-2.5 h-2.5 rounded-full bg-orange-400 inline-block"></span> Customized
           </span>
-          <span className="flex items-centre gap-1.5">
+          <span className="flex items-center gap-1.5">
             <span className="w-2.5 h-2.5 rounded-full bg-gray-200 inline-block"></span> Default (from data file)
           </span>
           <span className="text-gray-400 font-medium normal-case">{filteredServices.length} services</span>
@@ -233,10 +233,10 @@ export default function ServicesCustomizationPage() {
                 {/* Row summary */}
                 <button
                   onClick={() => setEditingId(isOpen ? null : service.id)}
-                  className="w-full flex items-centre gap-4 p-4 text-left group"
+                  className="w-full flex items-center gap-4 p-4 text-left group"
                 >
                   {/* Logo preview */}
-                  <div className="w-12 h-12 rounded-xl bg-blue-50 border border-blue-100 flex items-centre justify-centre flex-shrink-0 overflow-hidden">
+                  <div className="w-12 h-12 rounded-xl bg-blue-50 border border-blue-100 flex items-center justify-center flex-shrink-0 overflow-hidden">
                     {effective.image ? (
                       <img src={effective.image} alt={service.name} className="w-full h-full object-contain p-1" />
                     ) : (
@@ -260,9 +260,9 @@ export default function ServicesCustomizationPage() {
                     </div>
                   </div>
 
-                  <div className="flex items-centre gap-2 flex-shrink-0">
+                  <div className="flex items-center gap-2 flex-shrink-0">
                     {saved === service.id && (
-                      <span className="flex items-centre gap-1 text-green-600 text-xs font-bold">
+                      <span className="flex items-center gap-1 text-green-600 text-xs font-bold">
                         <CheckCircle2 size={14} /> Saved!
                       </span>
                     )}
@@ -357,15 +357,15 @@ export default function ServicesCustomizationPage() {
                                   key={icon.label}
                                   onClick={() => updateEdit(service.id, 'imageOverride', iconUrl)}
                                   title={icon.label}
-                                  className={`flex flex-col items-centre gap-1 p-2 rounded-xl border-2 transition-all ${isSelected
+                                  className={`flex flex-col items-center gap-1 p-2 rounded-xl border-2 transition-all ${isSelected
                                     ? 'border-blue-500 bg-blue-50 shadow-md ring-2 ring-blue-200'
                                     : 'border-gray-200 hover:border-blue-300 bg-white'
                                     }`}
                                 >
-                                  <div className="w-10 h-10 flex items-centre justify-centre">
+                                  <div className="w-10 h-10 flex items-center justify-center">
                                     <img src={iconUrl} alt={icon.label} className="max-w-full max-h-full object-contain" />
                                   </div>
-                                  <span className="text-[8px] font-bold text-gray-500 leading-tight text-centre truncate w-full">{icon.label}</span>
+                                  <span className="text-[8px] font-bold text-gray-500 leading-tight text-center truncate w-full">{icon.label}</span>
                                   {isSelected && (
                                     <CheckCircle2 size={12} className="text-blue-600" />
                                   )}
@@ -374,10 +374,10 @@ export default function ServicesCustomizationPage() {
                             })}
                             <button
                               onClick={() => updateEdit(service.id, 'imageOverride', null)}
-                              className="flex flex-col items-centre gap-1 p-2 rounded-xl border-2 border-dashed border-gray-300 text-gray-400 hover:border-red-400 hover:text-red-400 transition-all"
+                              className="flex flex-col items-center gap-1 p-2 rounded-xl border-2 border-dashed border-gray-300 text-gray-400 hover:border-red-400 hover:text-red-400 transition-all"
                               title="Clear logo"
                             >
-                              <div className="w-10 h-10 flex items-centre justify-centre">
+                              <div className="w-10 h-10 flex items-center justify-center">
                                 <X size={18} />
                               </div>
                               <span className="text-[8px] font-bold">Clear</span>
@@ -451,11 +451,11 @@ export default function ServicesCustomizationPage() {
                                 >
                                   <img src={imgUrl} alt={`Card image ${img.id}`} className="w-full h-full object-cover" />
                                   {isSelected && (
-                                    <div className="absolute top-1 right-1 bg-blue-600 text-white rounded-full w-5 h-5 flex items-centre justify-centre">
+                                    <div className="absolute top-1 right-1 bg-blue-600 text-white rounded-full w-5 h-5 flex items-center justify-center">
                                       <CheckCircle2 size={12} />
                                     </div>
                                   )}
-                                  <div className="absolute bottom-0 left-0 right-0 bg-black/50 text-white text-[9px] font-bold text-centre py-0.5">
+                                  <div className="absolute bottom-0 left-0 right-0 bg-black/50 text-white text-[9px] font-bold text-center py-0.5">
                                     {img.id}
                                   </div>
                                 </button>
@@ -463,7 +463,7 @@ export default function ServicesCustomizationPage() {
                             })}
                             <button
                               onClick={() => updateEdit(service.id, 'dummyImageOverride', null)}
-                              className="rounded-xl border-2 border-dashed border-gray-300 text-gray-400 hover:border-red-400 hover:text-red-400 transition-all flex items-centre justify-centre h-20 text-xs font-bold flex-col gap-1"
+                              className="rounded-xl border-2 border-dashed border-gray-300 text-gray-400 hover:border-red-400 hover:text-red-400 transition-all flex items-center justify-center h-20 text-xs font-bold flex-col gap-1"
                             >
                               <X size={16} />
                               <span>Clear</span>
@@ -488,11 +488,11 @@ export default function ServicesCustomizationPage() {
                     )}
 
                     {/* Action buttons */}
-                    <div className="flex items-centre gap-3 mt-5 pt-4 border-t border-gray-50">
+                    <div className="flex items-center gap-3 mt-5 pt-4 border-t border-gray-50">
                       <button
                         onClick={() => handleSave(service)}
                         disabled={saving === service.id}
-                        className="flex items-centre gap-2 px-5 py-2.5 bg-blue-600 text-white rounded-xl text-sm font-black hover:bg-blue-700 transition-all disabled:opacity-60 shadow-sm"
+                        className="flex items-center gap-2 px-5 py-2.5 bg-blue-600 text-white rounded-xl text-sm font-black hover:bg-blue-700 transition-all disabled:opacity-60 shadow-sm"
                       >
                         {saving === service.id ? <Loader2 size={16} className="animate-spin" /> : <Save size={16} />}
                         Save Changes
@@ -501,7 +501,7 @@ export default function ServicesCustomizationPage() {
                       {customized && (
                         <button
                           onClick={() => handleReset(service)}
-                          className="flex items-centre gap-2 px-4 py-2.5 bg-red-50 text-red-600 rounded-xl text-sm font-bold hover:bg-red-100 transition-all"
+                          className="flex items-center gap-2 px-4 py-2.5 bg-red-50 text-red-600 rounded-xl text-sm font-bold hover:bg-red-100 transition-all"
                         >
                           <RotateCcw size={14} /> Reset to Default
                         </button>
@@ -510,7 +510,7 @@ export default function ServicesCustomizationPage() {
                       {unsaved && (
                         <button
                           onClick={() => setLocalEdits(prev => { const n = { ...prev }; delete n[service.id]; return n })}
-                          className="flex items-centre gap-2 px-4 py-2.5 bg-gray-50 text-gray-500 rounded-xl text-sm font-bold hover:bg-gray-100 transition-all"
+                          className="flex items-center gap-2 px-4 py-2.5 bg-gray-50 text-gray-500 rounded-xl text-sm font-bold hover:bg-gray-100 transition-all"
                         >
                           <X size={14} /> Discard
                         </button>
@@ -526,7 +526,7 @@ export default function ServicesCustomizationPage() {
 
       {/* Global Toast Popup */}
       {saved && (
-        <div className="fixed bottom-10 right-10 bg-green-600 text-white px-6 py-4 rounded-xl shadow-2xl flex items-centre gap-3 z-50 animate-fade-up">
+        <div className="fixed bottom-10 right-10 bg-green-600 text-white px-6 py-4 rounded-xl shadow-2xl flex items-center gap-3 z-50 animate-fade-up">
           <CheckCircle2 size={24} />
           <div>
             <h4 className="font-bold text-sm">Successfully Saved!</h4>

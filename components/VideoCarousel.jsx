@@ -27,12 +27,12 @@ function VideoCard({ video, onPlay }) {
         {thumb ? (
           <img src={thumb} alt={video.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
         ) : (
-          <div className="w-full h-full flex items-centre justify-centre">
+          <div className="w-full h-full flex items-center justify-center">
             <svg className="text-white/30" width="64" height="64" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg>
           </div>
         )}
-        <div className="absolute inset-0 bg-black/30 group-hover:bg-black/40 transition-colors flex items-centre justify-centre">
-          <div className="w-14 h-14 bg-white/90 rounded-full flex items-centre justify-centre shadow-lg group-hover:scale-110 transition-transform">
+        <div className="absolute inset-0 bg-black/30 group-hover:bg-black/40 transition-colors flex items-center justify-center">
+          <div className="w-14 h-14 bg-white/90 rounded-full flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
             <svg width="24" height="24" fill="#2563eb" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg>
           </div>
         </div>
@@ -54,9 +54,9 @@ function VideoModal({ video, onClose }) {
   const ytId = isYouTubeUrl(video.videoUrl) ? getYouTubeId(video.videoUrl) : null
 
   return (
-    <div className="fixed inset-0 z-[999] flex items-centre justify-centre p-4 bg-black/80 backdrop-blur-sm" onClick={onClose}>
+    <div className="fixed inset-0 z-[999] flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm" onClick={onClose}>
       <div className="relative w-full max-w-3xl bg-black rounded-2xl overflow-hidden shadow-2xl" onClick={e => e.stopPropagation()}>
-        <button onClick={onClose} className="absolute top-3 right-3 z-10 w-9 h-9 bg-white/20 hover:bg-white/30 rounded-full flex items-centre justify-centre text-white transition-colors">
+        <button onClick={onClose} className="absolute top-3 right-3 z-10 w-9 h-9 bg-white/20 hover:bg-white/30 rounded-full flex items-center justify-center text-white transition-colors">
           <svg width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12" /></svg>
         </button>
         <div className="aspect-video w-full bg-black">

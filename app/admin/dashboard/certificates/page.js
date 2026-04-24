@@ -149,7 +149,7 @@ export default function CertificatesDashboard() {
 
   return (
     <>
-      <header className="bg-white border-b border-gray-100 p-6 flex items-centre justify-between sticky top-0 z-10">
+      <header className="bg-white border-b border-gray-100 p-6 flex items-center justify-between sticky top-0 z-10">
         <div>
           <h1 className="text-xl font-black text-gray-900 tracking-tight">Certificates & Awards</h1>
           <p className="text-xs font-bold text-gray-400 uppercase tracking-widest mt-1">Manage your professional credentials</p>
@@ -160,8 +160,8 @@ export default function CertificatesDashboard() {
         {/* Left: Form */}
         <div className="w-full lg:w-[400px]">
           <div className="bg-white rounded-3xl p-8 border border-gray-100 shadow-premium sticky top-28">
-            <h2 className="text-lg font-black text-gray-900 mb-8 flex items-centre gap-3">
-              <div className="w-10 h-10 rounded-xl bg-blue-50 flex items-centre justify-centre text-blue-600">
+            <h2 className="text-lg font-black text-gray-900 mb-8 flex items-center gap-3">
+              <div className="w-10 h-10 rounded-xl bg-blue-50 flex items-center justify-center text-blue-600">
                 <Plus size={20} />
               </div>
               {editingCert ? 'Edit Certificate' : 'New Certificate'}
@@ -187,7 +187,7 @@ export default function CertificatesDashboard() {
                 </label>
                 <div className="space-y-3">
                   {form.fileUrl && (
-                    <div className="flex items-centre gap-3 p-3 bg-green-50 border border-green-100 rounded-xl">
+                    <div className="flex items-center gap-3 p-3 bg-green-50 border border-green-100 rounded-xl">
                       <FileText className="text-green-600 flex-shrink-0" size={20} />
                       <div className="flex-1 min-w-0">
                         <span className="text-xs font-bold text-green-700 block">PDF Uploaded Successfully</span>
@@ -202,7 +202,7 @@ export default function CertificatesDashboard() {
                       </button>
                     </div>
                   )}
-                  <label className={`cursor-pointer flex items-centre justify-centre gap-3 border-2 border-dashed rounded-2xl p-6 hover:bg-blue-50 transition-all group ${uploadingPdf ? 'bg-blue-50/50 border-blue-200' : 'bg-gray-50/50 border-gray-200'}`}>
+                  <label className={`cursor-pointer flex items-center justify-center gap-3 border-2 border-dashed rounded-2xl p-6 hover:bg-blue-50 transition-all group ${uploadingPdf ? 'bg-blue-50/50 border-blue-200' : 'bg-gray-50/50 border-gray-200'}`}>
                     {uploadingPdf ? (
                       <>
                         <Loader2 size={20} className="animate-spin text-blue-500" />
@@ -231,7 +231,7 @@ export default function CertificatesDashboard() {
                       </button>
                     </div>
                   )}
-                  <label className="cursor-pointer flex items-centre justify-centre gap-3 bg-gray-50/50 border-2 border-dashed border-gray-200 rounded-2xl p-4 hover:bg-gray-100 transition-all group">
+                  <label className="cursor-pointer flex items-center justify-center gap-3 bg-gray-50/50 border-2 border-dashed border-gray-200 rounded-2xl p-4 hover:bg-gray-100 transition-all group">
                     {uploadingImage ? <Loader2 size={18} className="animate-spin text-blue-500" /> : <ImageIcon size={18} className="text-gray-400 group-hover:scale-110 transition-transform" />}
                     <span className="text-xs font-bold text-gray-500">{uploadingImage ? 'Uploading...' : 'Upload Image Instead'}</span>
                     <input type="file" className="hidden" accept="image/*" onChange={handleImageUpload} />
@@ -251,7 +251,7 @@ export default function CertificatesDashboard() {
                 </div>
                 <div>
                   <label className="block text-[10px] font-black text-gray-400 uppercase tracking-widest mb-2">Visibility</label>
-                  <label className="flex items-centre cursor-pointer mt-2.5">
+                  <label className="flex items-center cursor-pointer mt-2.5">
                     <input type="checkbox" className="sr-only peer" checked={form.isActive} onChange={e => setForm({ ...form, isActive: e.target.checked })} />
                     <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
                     <span className="ml-3 text-sm font-bold text-gray-700">{form.isActive ? 'Active' : 'Hidden'}</span>
@@ -263,7 +263,7 @@ export default function CertificatesDashboard() {
                 <button
                   type="submit"
                   disabled={uploadingImage || uploadingPdf || !form.imageUrl}
-                  className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-black py-4 rounded-2xl transition-all shadow-lg hover:shadow-blue-500/25 disabled:opacity-50 disabled:shadow-none flex items-centre justify-centre gap-2"
+                  className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-black py-4 rounded-2xl transition-all shadow-lg hover:shadow-blue-500/25 disabled:opacity-50 disabled:shadow-none flex items-center justify-center gap-2"
                 >
                   {editingCert ? 'Update Credential' : 'Save Credential'}
                 </button>
@@ -284,17 +284,17 @@ export default function CertificatesDashboard() {
         {/* Right: List */}
         <div className="flex-1">
           {loading ? (
-            <div className="flex justify-centre p-24">
+            <div className="flex justify-center p-24">
               <Loader2 className="w-12 h-12 animate-spin text-blue-600" />
             </div>
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5">
               {certs.map(cert => (
                 <div key={cert.id} className="group bg-white rounded-2xl p-4 border border-gray-100 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col relative overflow-hidden">
-                  <div className="relative h-40 bg-gray-50 rounded-xl overflow-hidden border border-gray-100 mb-4 flex items-centre justify-centre">
+                  <div className="relative h-40 bg-gray-50 rounded-xl overflow-hidden border border-gray-100 mb-4 flex items-center justify-center">
                     <img src={cert.imageUrl} alt={cert.title} className="w-full h-full object-contain p-3 group-hover:scale-105 transition-transform duration-500" />
                     {!cert.isActive && (
-                      <div className="absolute inset-0 bg-white/60 backdrop-blur-[2px] flex items-centre justify-centre">
+                      <div className="absolute inset-0 bg-white/60 backdrop-blur-[2px] flex items-center justify-center">
                         <span className="bg-gray-900 text-white text-[9px] font-black px-3 py-1 rounded-full uppercase tracking-widest shadow-xl">Hidden</span>
                       </div>
                     )}
@@ -307,7 +307,7 @@ export default function CertificatesDashboard() {
 
                   <div className="flex items-start justify-between gap-3">
                     <div className="flex-1 min-w-0">
-                      <div className="flex items-centre gap-1.5 mb-1">
+                      <div className="flex items-center gap-1.5 mb-1">
                         <span className="w-1.5 h-1.5 rounded-full bg-blue-500"></span>
                         <span className="text-[9px] font-black text-gray-400 uppercase tracking-widest">#{cert.sortOrder}</span>
                       </div>
@@ -325,8 +325,8 @@ export default function CertificatesDashboard() {
                 </div>
               ))}
               {certs.length === 0 && (
-                <div className="col-span-full p-16 text-centre bg-white rounded-[2rem] border-2 border-dashed border-gray-100">
-                  <div className="w-16 h-16 bg-gray-50 rounded-2xl flex items-centre justify-centre mx-auto mb-4 text-gray-300">
+                <div className="col-span-full p-16 text-center bg-white rounded-[2rem] border-2 border-dashed border-gray-100">
+                  <div className="w-16 h-16 bg-gray-50 rounded-2xl flex items-center justify-center mx-auto mb-4 text-gray-300">
                     <ImageIcon size={32} />
                   </div>
                   <h3 className="text-lg font-black text-gray-900 mb-2">No Certificates Yet</h3>

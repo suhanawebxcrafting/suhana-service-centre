@@ -96,12 +96,12 @@ export default function AdminVideosPage() {
 
       <div className="max-w-5xl mx-auto">
         {/* Header */}
-        <div className="flex items-centre justify-between mb-8">
+        <div className="flex items-center justify-between mb-8">
           <div>
             <h1 className="text-2xl font-black text-blue-950">🎬 Video Cards</h1>
             <p className="text-gray-500 text-sm mt-1">Add videos via file upload or URL (YouTube/MP4). They appear in a carousel on the homepage.</p>
           </div>
-          <button onClick={openAdd} className="bg-blue-600 hover:bg-blue-700 text-white font-bold px-5 py-2.5 rounded-xl flex items-centre gap-2 transition-colors shadow-lg shadow-blue-600/20 text-sm">
+          <button onClick={openAdd} className="bg-blue-600 hover:bg-blue-700 text-white font-bold px-5 py-2.5 rounded-xl flex items-center gap-2 transition-colors shadow-lg shadow-blue-600/20 text-sm">
             + Add Video
           </button>
         </div>
@@ -150,8 +150,8 @@ export default function AdminVideosPage() {
                 <input type="number" value={form.sortOrder} onChange={e => setForm(f => ({ ...f, sortOrder: e.target.value }))} className="w-full border border-gray-200 rounded-xl px-4 py-2.5 text-sm focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none" min="0" />
               </div>
 
-              <div className="flex items-centre gap-3">
-                <label className="relative inline-flex items-centre cursor-pointer">
+              <div className="flex items-center gap-3">
+                <label className="relative inline-flex items-center cursor-pointer">
                   <input type="checkbox" checked={form.isActive} onChange={e => setForm(f => ({ ...f, isActive: e.target.checked }))} className="sr-only peer" />
                   <div className="w-11 h-6 bg-gray-200 rounded-full peer peer-checked:bg-blue-600 transition-colors after:content-[''] after:absolute after:top-0.5 after:left-0.5 after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:after:translate-x-5"></div>
                 </label>
@@ -170,9 +170,9 @@ export default function AdminVideosPage() {
 
         {/* Video list */}
         {loading ? (
-          <div className="text-centre py-20 text-gray-400 font-semibold">Loading...</div>
+          <div className="text-center py-20 text-gray-400 font-semibold">Loading...</div>
         ) : videos.length === 0 ? (
-          <div className="text-centre py-20 bg-white rounded-2xl border border-gray-200">
+          <div className="text-center py-20 bg-white rounded-2xl border border-gray-200">
             <div className="text-5xl mb-4">🎬</div>
             <p className="text-gray-500 font-semibold">No videos yet. Add your first video!</p>
           </div>
@@ -185,7 +185,7 @@ export default function AdminVideosPage() {
                 <div key={v.id} className={`bg-white rounded-2xl overflow-hidden border shadow-sm transition-all ${v.isActive ? 'border-gray-100' : 'border-red-100 opacity-70'}`}>
                   <div className="h-36 bg-gradient-to-br from-blue-900 to-blue-700 relative">
                     {thumb && <img src={thumb} alt={v.title} className="w-full h-full object-cover" />}
-                    <div className="absolute inset-0 bg-black/30 flex items-centre justify-centre">
+                    <div className="absolute inset-0 bg-black/30 flex items-center justify-center">
                       <svg className="text-white" width="40" height="40" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg>
                     </div>
                     {!v.isActive && <div className="absolute top-2 left-2 bg-red-500 text-white text-[10px] font-black px-2 py-0.5 rounded-full">Hidden</div>}
@@ -195,9 +195,9 @@ export default function AdminVideosPage() {
                     <h3 className="font-bold text-blue-900 text-sm line-clamp-1 mb-1">{v.title}</h3>
                     {v.description && <p className="text-gray-400 text-xs line-clamp-1 mb-3">{v.description}</p>}
                     <div className="flex gap-2">
-                      <button onClick={() => openEdit(v)} className="flex-1 text-centre text-xs font-bold text-blue-600 border border-blue-200 py-1.5 rounded-lg hover:bg-blue-50 transition-colors">Edit</button>
-                      <button onClick={() => toggleActive(v)} className={`flex-1 text-centre text-xs font-bold py-1.5 rounded-lg transition-colors border ${v.isActive ? 'text-orange-600 border-orange-200 hover:bg-orange-50' : 'text-green-600 border-green-200 hover:bg-green-50'}`}>{v.isActive ? 'Hide' : 'Show'}</button>
-                      <button onClick={() => handleDelete(v.id)} className="flex-1 text-centre text-xs font-bold text-red-600 border border-red-200 py-1.5 rounded-lg hover:bg-red-50 transition-colors">Delete</button>
+                      <button onClick={() => openEdit(v)} className="flex-1 text-center text-xs font-bold text-blue-600 border border-blue-200 py-1.5 rounded-lg hover:bg-blue-50 transition-colors">Edit</button>
+                      <button onClick={() => toggleActive(v)} className={`flex-1 text-center text-xs font-bold py-1.5 rounded-lg transition-colors border ${v.isActive ? 'text-orange-600 border-orange-200 hover:bg-orange-50' : 'text-green-600 border-green-200 hover:bg-green-50'}`}>{v.isActive ? 'Hide' : 'Show'}</button>
+                      <button onClick={() => handleDelete(v.id)} className="flex-1 text-center text-xs font-bold text-red-600 border border-red-200 py-1.5 rounded-lg hover:bg-red-50 transition-colors">Delete</button>
                     </div>
                   </div>
                 </div>

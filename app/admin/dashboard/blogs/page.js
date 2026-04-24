@@ -163,7 +163,7 @@ export default function BlogsDashboard() {
   }
 
   if (loading) {
-    return <div className="h-full flex justify-centre items-centre"><Loader2 className="animate-spin text-blue-600 w-10 h-10" /></div>
+    return <div className="h-full flex justify-center items-center"><Loader2 className="animate-spin text-blue-600 w-10 h-10" /></div>
   }
 
   return (
@@ -174,21 +174,21 @@ export default function BlogsDashboard() {
           <button onClick={() => setPopup(null)} className="text-gray-400 hover:text-gray-600">×</button>
         </div>
       )}
-      <header className="bg-white border-b border-gray-100 p-6 flex items-centre justify-between sticky top-0 z-10">
+      <header className="bg-white border-b border-gray-100 p-6 flex items-center justify-between sticky top-0 z-10">
         <div>
           <h1 className="text-xl font-black text-gray-900 tracking-tight">Blog Management</h1>
         </div>
-        <div className="flex items-centre gap-6">
+        <div className="flex items-center gap-6">
           {/* AI Start/Stop Button */}
           {loadingSettings ? (
-            <div className="flex items-centre gap-2 px-4 py-2.5 bg-gray-50 border border-gray-100 rounded-xl">
+            <div className="flex items-center gap-2 px-4 py-2.5 bg-gray-50 border border-gray-100 rounded-xl">
               <Loader2 size={14} className="animate-spin text-gray-400" />
               <span className="text-xs font-bold text-gray-400 uppercase tracking-widest">Loading...</span>
             </div>
           ) : (
             <button
               onClick={toggleAutoBlog}
-              className={`flex items-centre gap-3 px-4 py-2.5 rounded-xl font-black text-xs transition-all border shadow-sm ${autoBlogEnabled
+              className={`flex items-center gap-3 px-4 py-2.5 rounded-xl font-black text-xs transition-all border shadow-sm ${autoBlogEnabled
                   ? 'bg-green-50 border-green-200 text-green-700 hover:bg-green-100 ring-2 ring-green-500/10'
                   : 'bg-red-50 border-red-200 text-red-700 hover:bg-red-100 ring-2 ring-red-500/10'
                 }`}
@@ -201,7 +201,7 @@ export default function BlogsDashboard() {
           <button
             onClick={handleGenerateAI}
             disabled={generatingAi}
-            className="flex items-centre gap-2 bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white px-5 py-2.5 rounded-xl font-bold text-sm shadow-md transition disabled:opacity-50"
+            className="flex items-center gap-2 bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white px-5 py-2.5 rounded-xl font-bold text-sm shadow-md transition disabled:opacity-50"
           >
             {generatingAi ? <Loader2 size={16} className="animate-spin" /> : <Sparkles size={16} />}
             {generatingAi ? 'Generating...' : 'Auto-Generate Draft'}
@@ -216,12 +216,12 @@ export default function BlogsDashboard() {
             <div key={blog.id} className="bg-white rounded-2xl p-5 border border-gray-100 shadow-sm flex gap-4 items-start">
               {blog.image && <img src={blog.image} className="w-20 h-20 object-cover rounded-xl" alt="thumb" />}
               <div className="flex-1">
-                <div className="flex items-centre justify-between gap-2 mb-1">
-                  <div className="flex items-centre gap-2">
+                <div className="flex items-center justify-between gap-2 mb-1">
+                  <div className="flex items-center gap-2">
                     <h3 className="font-bold text-gray-900">{blog.title}</h3>
                     {blog.isPublished ? <Globe size={14} className="text-green-500" /> : <Lock size={14} className="text-gray-400" />}
                   </div>
-                  <label className="flex items-centre cursor-pointer relative">
+                  <label className="flex items-center cursor-pointer relative">
                     <input type="checkbox" className="sr-only peer" checked={blog.isPublished} onChange={() => togglePublish(blog)} />
                     <div className="w-9 h-5 bg-gray-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-green-500"></div>
                     <span className="ml-2 text-[10px] font-bold text-gray-500 uppercase w-12">{blog.isPublished ? 'Published' : 'Draft'}</span>
@@ -233,9 +233,9 @@ export default function BlogsDashboard() {
                   </p>
                 )}
                 <p className="text-xs text-gray-500 line-clamp-2 mb-3">{blog.excerpt}</p>
-                <div className="flex items-centre gap-2">
-                  <button onClick={() => editBlog(blog)} className="text-xs font-bold text-blue-600 hover:text-blue-700 bg-blue-50 px-3 py-1.5 rounded-lg flex items-centre gap-1"><Edit2 size={12} /> Edit</button>
-                  <button onClick={() => handleDelete(blog.id)} className="text-xs font-bold text-red-600 hover:text-red-700 bg-red-50 px-3 py-1.5 rounded-lg flex items-centre gap-1"><Trash2 size={12} /> Delete</button>
+                <div className="flex items-center gap-2">
+                  <button onClick={() => editBlog(blog)} className="text-xs font-bold text-blue-600 hover:text-blue-700 bg-blue-50 px-3 py-1.5 rounded-lg flex items-center gap-1"><Edit2 size={12} /> Edit</button>
+                  <button onClick={() => handleDelete(blog.id)} className="text-xs font-bold text-red-600 hover:text-red-700 bg-red-50 px-3 py-1.5 rounded-lg flex items-center gap-1"><Trash2 size={12} /> Delete</button>
                 </div>
               </div>
             </div>
@@ -244,7 +244,7 @@ export default function BlogsDashboard() {
 
         <div className="w-full lg:w-96">
           <div className="bg-white border border-gray-100 shadow-sm rounded-2xl p-6 sticky top-24">
-            <h2 className="text-sm font-bold uppercase tracking-widest text-gray-900 mb-6 flex items-centre gap-2">
+            <h2 className="text-sm font-bold uppercase tracking-widest text-gray-900 mb-6 flex items-center gap-2">
               <Plus size={16} /> {editingBlog ? 'Edit Post' : 'Create Post'}
             </h2>
             <form onSubmit={handleSubmit} className="space-y-4">
@@ -283,7 +283,7 @@ export default function BlogsDashboard() {
                 <label className="block text-xs font-bold text-gray-400 mb-1">Content</label>
                 <textarea required rows={6} value={form.content} onChange={e => setForm({ ...form, content: e.target.value })} className="w-full bg-gray-50 border border-gray-100 rounded-xl px-4 py-2.5 text-sm outline-none focus:ring-2 focus:ring-blue-500" />
               </div>
-              <div className="flex items-centre gap-2">
+              <div className="flex items-center gap-2">
                 <input type="checkbox" id="pub" checked={form.isPublished} onChange={e => setForm({ ...form, isPublished: e.target.checked })} className="w-4 h-4 text-blue-600 rounded bg-gray-100 border-gray-300" />
                 <label htmlFor="pub" className="text-sm font-medium text-gray-700">Published</label>
               </div>
