@@ -73,13 +73,9 @@ export default function ContactPage() {
       setSaveFailed(true)
     }
 
-    // Also open WhatsApp
-    const msg = `Hello Suhana Service centre!%0A%0AName: ${form.name}%0APhone: ${form.phone}%0AEmail: ${form.email}%0AService Needed: ${form.service}%0AMessage: ${form.message}`
-    window.open(`https://wa.me/917709709243?text=${msg}`, '_blank')
-
     setSubmitting(false)
     setSubmitted(true)
-    setTimeout(() => { setSubmitted(false); setSaveFailed(false) }, 7000)
+    setTimeout(() => { setSubmitted(false); setSaveFailed(false) }, 5000)
     setForm({ name: '', phone: '', email: '', service: '', message: '' })
   }
 
@@ -200,19 +196,19 @@ export default function ContactPage() {
             <div>
               <div className="bg-white rounded-2xl shadow-card border border-gray-100 p-7">
                 <h2 className="text-xl font-bold text-blue-900 mb-1">Send us a Message</h2>
-                <p className="text-gray-400 text-xs mb-5">Your message is saved to our system &amp; sent on WhatsApp.</p>
+                <p className="text-gray-400 text-xs mb-5">Your message is securely saved to our system.</p>
 
                 {/* Success banner */}
                 {submitted && !saveFailed && (
                   <div className="bg-green-50 border border-green-200 rounded-xl p-4 mb-5 text-green-700 text-sm font-medium flex items-center gap-2">
                     <LucideIcon name="CheckCircle2" size={18} />
-                    Message sent &amp; saved! We&apos;ll respond on WhatsApp soon.
+                    Message sent successfully! We will contact you soon.
                   </div>
                 )}
                 {submitted && saveFailed && (
                   <div className="bg-orange-50 border border-orange-200 rounded-xl p-4 mb-5 text-orange-700 text-sm font-medium flex items-center gap-2">
                     <LucideIcon name="AlertCircle" size={18} />
-                    WhatsApp opened — but saving to system failed. Please call us directly.
+                    Failed to send message. Please call us directly.
                   </div>
                 )}
 
@@ -340,7 +336,7 @@ export default function ContactPage() {
           <LucideIcon name="CheckCircle2" size={24} />
           <div>
             <h4 className="font-bold text-sm">Message Sent!</h4>
-            <p className="text-xs opacity-90">Redirecting to WhatsApp...</p>
+            <p className="text-xs opacity-90">We will get back to you soon.</p>
           </div>
         </div>
       )}
@@ -350,7 +346,7 @@ export default function ContactPage() {
           <LucideIcon name="AlertCircle" size={24} />
           <div>
             <h4 className="font-bold text-sm">Action Needs Attention</h4>
-            <p className="text-xs opacity-90">Couldn't save to DB. Opening WhatsApp directly.</p>
+            <p className="text-xs opacity-90">Couldn't save to DB. Please call us directly.</p>
           </div>
         </div>
       )}
