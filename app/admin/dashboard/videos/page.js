@@ -39,15 +39,30 @@ export default function AdminVideosPage() {
     if (!file) return
     setUploading(true)
     try {
+      // 1. Get upload signature from our backend
+      const signRes = await fetch('/api/cloudinary-sign', { method: 'POST' })
+      if (!signRes.ok) throw new Error('Failed to get signature')
+      const signData = await signRes.json()
+
+      // 2. Upload directly to Cloudinary bypassing Next.js API payload limits
       const fd = new FormData()
       fd.append('file', file)
-      const res = await fetch('/api/upload-video', { method: 'POST', body: fd })
-      const data = await res.json()
-      if (data.url) {
-        setForm(f => ({ ...f, videoUrl: data.url }))
+      fd.append('api_key', signData.apiKey)
+      fd.append('timestamp', signData.timestamp)
+      fd.append('signature', signData.signature)
+      fd.append('folder', signData.folder)
+
+      const cloudinaryRes = await fetch(`https://api.cloudinary.com/v1_1/${signData.cloudName}/video/upload`, {
+        method: 'POST',
+        body: fd
+      })
+      const data = await cloudinaryRes.json()
+
+      if (data.secure_url) {
+        setForm(f => ({ ...f, videoUrl: data.secure_url }))
         showToast('Video uploaded successfully!')
       } else {
-        showToast(data.error || 'Upload failed', 'error')
+        showToast(data.error?.message || 'Upload failed', 'error')
       }
     } catch (e) { showToast('Upload failed: ' + e.message, 'error') }
     finally { setUploading(false) }
