@@ -16,15 +16,28 @@ export async function POST(req) {
       return NextResponse.json({ error: 'No file uploaded' }, { status: 400 })
     }
 
-    // Convert file to base64 for Cloudinary
+    // Generate a safe unique filename
+    const originalName = file.name ? file.name.replace(/[^a-zA-Z0-9.]/g, '_') : 'document.pdf'
+    const publicId = `${Date.now()}_${originalName}`
+
+    // Convert file to buffer for Cloudinary
     const bytes = await file.arrayBuffer()
     const buffer = Buffer.from(bytes)
-    const fileBase64 = `data:${file.type};base64,${buffer.toString('base64')}`
 
-    // Upload to Cloudinary
-    const uploadRes = await cloudinary.uploader.upload(fileBase64, {
-      folder: 'suhana-xerox-orders',
-      resource_type: 'auto',
+    // Upload to Cloudinary using stream and resource_type 'raw' to prevent PDF corruption
+    const uploadRes = await new Promise((resolve, reject) => {
+      const uploadStream = cloudinary.uploader.upload_stream(
+        {
+          folder: 'suhana-xerox-orders',
+          resource_type: 'raw',
+          public_id: publicId,
+        },
+        (error, result) => {
+          if (error) reject(error)
+          else resolve(result)
+        }
+      )
+      uploadStream.end(buffer)
     })
 
     // Save to Database
