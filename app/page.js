@@ -29,14 +29,14 @@ const whyUs = [
 ]
 
 export const metadata = {
-  title: 'Suhana Service centre — Aadhaar, PAN, Passport & 70+ Online Services in Virar East',
-  description: 'Suhana Service centre in Virar East — your trusted one-stop centre for Aadhaar card, PAN card, Passport, Voter ID, Birth Certificate, Income Certificate, Domicile, Banking & 70+ government services. Serving Virar, Vasai & Nalasopara. Call 7709709243.',
+  title: 'Suhana Service Centre — 70+ Online Services Virar East',
+  description: 'Suhana Service Centre Virar East — Aadhaar, PAN, Passport, Voter ID, Certificates, Banking & 70+ govt services. Call 7709709243.',
   alternates: {
     canonical: '/',
   },
   openGraph: {
-    title: 'Suhana Service centre — All Online Services Under One Roof | Virar East',
-    description: 'Trusted by thousands in Virar for Aadhaar, PAN, Passport, Certificates & 70+ government services. Fast, reliable & affordable.',
+    title: 'Suhana Service Centre — All Services Under One Roof',
+    description: 'Trusted by thousands in Virar for Aadhaar, PAN, Passport, Certificates & 70+ services. Fast & affordable.',
   },
 }
 

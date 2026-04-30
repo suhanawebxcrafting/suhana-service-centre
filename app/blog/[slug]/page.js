@@ -9,16 +9,17 @@ export const dynamic = 'force-dynamic'
 export async function generateMetadata({ params }) {
   const blog = await prisma.blog.findUnique({ where: { slug: params.slug } })
   if (!blog || !blog.isPublished) return { title: 'Blog Not Found' }
+  const shortExcerpt = blog.excerpt ? blog.excerpt.slice(0, 145) + (blog.excerpt.length > 145 ? '...' : '') : ''
   return {
-    title: `${blog.title} | Suhana Service centre Blog`,
-    description: blog.excerpt,
+    title: `${blog.title} | Suhana Service Centre`,
+    description: shortExcerpt,
     keywords: [blog.category, 'suhana service centre', 'virar', blog.title.toLowerCase()],
     alternates: {
       canonical: `/blog/${params.slug}`,
     },
     openGraph: {
       title: blog.title,
-      description: blog.excerpt,
+      description: shortExcerpt,
       images: blog.image ? [{ url: blog.image }] : [],
     },
   }
@@ -86,7 +87,7 @@ export default async function BlogPostPage({ params }) {
       {blog.image && (
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 -mt-4">
           <div className="rounded-3xl overflow-hidden shadow-2xl shadow-gray-200/50 border border-gray-100">
-            <img src={blog.image} alt={blog.title} className="w-full h-auto object-cover" />
+            <img src={blog.image} alt={blog.title} width={896} height={504} className="w-full h-auto object-cover" />
           </div>
         </div>
       )}

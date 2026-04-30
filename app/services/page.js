@@ -41,41 +41,24 @@ function ServicesContent() {
 
   return (
     <>
-      {/* Hero */}
-      <section className="hero-gradient pt-28 pb-16 relative">
-        <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)', backgroundSize: '30px 30px' }}></div>
-        <div className="relative max-w-4xl mx-auto px-4 sm:px-6 text-center">
-          <div className="inline-block bg-white/15 text-white px-4 py-1.5 rounded-full text-sm font-semibold mb-4 flex items-center gap-2 mx-auto w-fit border border-white/10">
-            <LucideIcon name="Layers" size={16} /> All Services
-          </div>
-          <h1 className="text-4xl lg:text-5xl font-black text-white mb-4">
-            {services.length}+ Services
-            <span className="text-orange-400"> Available</span>
-          </h1>
-          <p className="text-blue-200 text-base mb-7">Search, filter and find any service instantly</p>
-          {/* Search Bar */}
-          <div className="relative max-w-lg mx-auto">
-            <span className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400">
-              <LucideIcon name="Search" size={20} />
-            </span>
-            <input
-              type="text"
-              placeholder="Search services... (e.g. Aadhaar, PAN, Passport)"
-              value={search}
-              onChange={e => setSearch(e.target.value)}
-              className="w-full pl-12 pr-4 py-4 rounded-xl text-gray-800 text-base font-medium shadow-xl outline-none focus:ring-2 focus:ring-orange-400 border-0"
-            />
-            {search && (
-              <button onClick={() => setSearch('')} className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 text-xl">×</button>
-            )}
-          </div>
+      {/* Search Bar - inside hero area */}
+      <div className="bg-gradient-to-b from-blue-700 to-blue-800 pb-8 -mt-4 relative z-10">
+        <div className="relative max-w-lg mx-auto px-4">
+          <span className="absolute left-8 top-1/2 -translate-y-1/2 text-gray-400">
+            <LucideIcon name="Search" size={20} />
+          </span>
+          <input
+            type="text"
+            placeholder="Search services... (e.g. Aadhaar, PAN, Passport)"
+            value={search}
+            onChange={e => setSearch(e.target.value)}
+            className="w-full pl-12 pr-4 py-4 rounded-xl text-gray-800 text-base font-medium shadow-xl outline-none focus:ring-2 focus:ring-orange-400 border-0"
+          />
+          {search && (
+            <button onClick={() => setSearch('')} className="absolute right-8 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 text-xl">×</button>
+          )}
         </div>
-        <div className="absolute bottom-0 left-0 right-0">
-          <svg viewBox="0 0 1440 40" fill="white" xmlns="http://www.w3.org/2000/svg">
-            <path d="M0,20 C360,40 1080,0 1440,20 L1440,40 L0,40 Z" />
-          </svg>
-        </div>
-      </section>
+      </div>
 
       <section className="py-8 bg-white sticky top-16 lg:top-20 z-40 shadow-sm border-b border-gray-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -195,13 +178,33 @@ function ServicesContent() {
 
 export default function ServicesPage() {
   return (
-    <Suspense fallback={
-      <div className="min-h-screen flex items-center justify-center bg-white">
-        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-600"></div>
-      </div>
-    }>
-      <ServicesContent />
-    </Suspense>
+    <>
+      {/* Hero - rendered outside Suspense so H1 is always visible to crawlers */}
+      <section className="hero-gradient pt-28 pb-16 relative">
+        <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)', backgroundSize: '30px 30px' }}></div>
+        <div className="relative max-w-4xl mx-auto px-4 sm:px-6 text-center">
+          <div className="inline-block bg-white/15 text-white px-4 py-1.5 rounded-full text-sm font-semibold mb-4 flex items-center gap-2 mx-auto w-fit border border-white/10">
+            <LucideIcon name="Layers" size={16} /> All Services
+          </div>
+          <h1 className="text-4xl lg:text-5xl font-black text-white mb-4">
+            {services.length}+ Services
+            <span className="text-orange-400"> Available</span>
+          </h1>
+          <p className="text-blue-200 text-base mb-7">Search, filter and find any service instantly</p>
+        </div>
+        <div className="absolute bottom-0 left-0 right-0">
+          <svg viewBox="0 0 1440 40" fill="white" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0,20 C360,40 1080,0 1440,20 L1440,40 L0,40 Z" />
+          </svg>
+        </div>
+      </section>
+      <Suspense fallback={
+        <div className="min-h-[60vh] flex items-center justify-center bg-white">
+          <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-600"></div>
+        </div>
+      }>
+        <ServicesContent />
+      </Suspense>
+    </>
   )
 }
-

@@ -7,10 +7,10 @@ const SITE_URL = 'https://suhanaservicecentre.in'
 export const metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: 'Suhana Service centre — Aadhaar, PAN, Passport & 70+ Services in Virar',
-    template: '%s | Suhana Service centre Virar',
+    default: 'Suhana Service Centre — 70+ Govt Services Virar',
+    template: '%s | Suhana Service Centre',
   },
-  description: 'Suhana Service centre in Virar (East) offers Aadhaar card, PAN card, Passport, Voter ID, Birth & Death Certificate, Income Certificate, Domicile, Caste Certificate, Banking, Xerox Delivery & 70+ government and digital services. Trusted by thousands in Virar, Vasai & Nalasopara. आपकी सेवा, हमारा संकल्प',
+  description: 'Suhana Service Centre Virar East — Aadhaar, PAN, Passport, Voter ID, Certificates, Banking & 70+ government services. Call 7709709243.',
   keywords: [
     'service centre virar', 'aadhaar card virar', 'aadhaar update virar', 'pan card virar',
     'passport agent virar', 'voter id virar', 'birth certificate virar', 'death certificate virar',

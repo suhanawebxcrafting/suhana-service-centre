@@ -6,14 +6,14 @@ import LucideIcon from '@/components/LucideIcon'
 export const dynamic = 'force-dynamic'
 
 export const metadata = {
-  title: 'Blog — Tips, Guides & Updates | Suhana Service centre Virar',
-  description: 'Read latest articles, tips and guides on Aadhaar card, PAN card, Passport, government schemes and digital services. Stay updated with Suhana Service centre Virar blog.',
+  title: 'Blog — Tips & Guides | Suhana Service Centre',
+  description: 'Read latest tips and guides on Aadhaar, PAN, Passport & government services at Suhana Service Centre Virar.',
   keywords: ['aadhaar card tips', 'pan card guide', 'passport application guide', 'government services blog virar', 'digital services tips'],
   alternates: {
     canonical: '/blog',
   },
   openGraph: {
-    title: 'Blog — Suhana Service centre Virar',
+    title: 'Blog — Suhana Service Centre Virar',
     description: 'Helpful guides and latest updates on government & digital services.',
   },
 }

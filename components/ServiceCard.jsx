@@ -51,6 +51,8 @@ export default function ServiceCard({ service, compact = false, customization = 
                 <img
                   src={cat.bgImage}
                   alt={cat.label}
+                  width={400}
+                  height={400}
                   className="w-full h-full object-cover opacity-[0.05] blur-[15px] group-hover:scale-125 group-hover:opacity-[0.12] transition-all duration-1000"
                 />
                 <div className="absolute inset-0 bg-gradient-to-br from-white via-white/60 to-transparent"></div>
@@ -63,6 +65,8 @@ export default function ServiceCard({ service, compact = false, customization = 
                   <img
                     src={effectiveImage}
                     alt={effectiveImageAlt}
+                    width={32}
+                    height={32}
                     className="w-8 h-8 object-contain"
                   />
                 ) : (
@@ -99,6 +103,8 @@ export default function ServiceCard({ service, compact = false, customization = 
               <img
                 src={cat.bgImage}
                 alt={cat.label}
+                width={400}
+                height={400}
                 className="w-full h-full object-cover opacity-[0.06] blur-[20px] group-hover:scale-110 group-hover:opacity-[0.12] transition-all duration-1000"
               />
               <div className="absolute inset-0 bg-gradient-to-br from-white via-white/50 to-transparent"></div>
@@ -118,6 +124,8 @@ export default function ServiceCard({ service, compact = false, customization = 
                     <img
                       src={effectiveImage}
                       alt={effectiveImageAlt}
+                      width={40}
+                      height={40}
                       className="w-10 h-10 object-contain"
                     />
                   </div>
@@ -147,6 +155,8 @@ export default function ServiceCard({ service, compact = false, customization = 
                 <img
                   src={effectiveDummy}
                   alt={effectiveDummyAlt}
+                  width={400}
+                  height={176}
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent"></div>

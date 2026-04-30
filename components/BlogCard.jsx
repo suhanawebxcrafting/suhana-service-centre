@@ -12,6 +12,8 @@ export default function BlogCard({ blog }) {
           <img
             src={blog.image}
             alt={blog.title}
+            width={400}
+            height={224}
             className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
           />
         ) : (
