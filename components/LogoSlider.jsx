@@ -1,5 +1,7 @@
 'use client'
 
+import Image from 'next/image'
+
 const logos = [
   { name: 'CSC', img: '/logoslider/csc.png' },
   { name: 'Digital India', img: '/logoslider/digital-india.png' },
@@ -29,9 +31,11 @@ export default function LogoSlider() {
           {[...logos, ...logos].map((logo, i) => (
             <div key={i} className="flex-shrink-0 mx-6 flex flex-col items-center gap-2 group">
               <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl bg-white border border-gray-100 flex items-center justify-center p-3 group-hover:scale-110 shadow-sm group-hover:shadow-md transition-all relative overflow-hidden">
-                <img
+                <Image
                   src={logo.img}
                   alt={logo.name}
+                  width={80}
+                  height={80}
                   className="w-full h-full object-contain mix-blend-multiply"
                   style={{ filter: 'contrast(1.1)' }}
                   loading="eager"
