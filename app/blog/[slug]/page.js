@@ -13,6 +13,9 @@ export async function generateMetadata({ params }) {
     title: `${blog.title} | Suhana Service centre Blog`,
     description: blog.excerpt,
     keywords: [blog.category, 'suhana service centre', 'virar', blog.title.toLowerCase()],
+    alternates: {
+      canonical: `/blog/${params.slug}`,
+    },
     openGraph: {
       title: blog.title,
       description: blog.excerpt,
