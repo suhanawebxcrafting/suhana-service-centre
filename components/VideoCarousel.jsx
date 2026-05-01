@@ -63,7 +63,7 @@ function VideoModal({ video, onClose }) {
           {ytId ? (
             <iframe src={`https://www.youtube.com/embed/${ytId}?autoplay=1&rel=0`} className="w-full h-full" allow="autoplay; fullscreen" allowFullScreen title={video.title} />
           ) : (
-            <video src={video.videoUrl} controls autoPlay className="w-full h-full" title={video.title} />
+            <video src={video.videoUrl} controls autoPlay playsInline className="w-full h-full" title={video.title} />
           )}
         </div>
         <div className="p-4 bg-white">

@@ -1,11 +1,14 @@
 import { prisma } from '@/lib/prisma'
 import { NextResponse } from 'next/server'
 
-// GET /api/videos — public, returns all active videos ordered by sortOrder
-export async function GET() {
+// GET /api/videos — public, returns all active videos ordered by sortOrder (or all videos if all=true is passed)
+export async function GET(req) {
   try {
+    const { searchParams } = new URL(req.url)
+    const showAll = searchParams.get('all') === 'true'
+
     const videos = await prisma.videoCard.findMany({
-      where: { isActive: true },
+      where: showAll ? undefined : { isActive: true },
       orderBy: [{ sortOrder: 'asc' }, { createdAt: 'desc' }],
     })
     return NextResponse.json(videos)

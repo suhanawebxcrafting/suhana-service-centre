@@ -23,7 +23,7 @@ export default function AdminVideosPage() {
   const load = async () => {
     setLoading(true)
     try {
-      const res = await fetch('/api/videos')
+      const res = await fetch('/api/videos?all=true')
       const data = await res.json()
       // Admin view: fetch all (including inactive) — for now we filter none
       setVideos(Array.isArray(data) ? data : [])
