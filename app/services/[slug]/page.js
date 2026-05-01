@@ -16,8 +16,8 @@ export async function generateMetadata({ params }) {
   if (!service) return { title: 'Service Not Found' }
   const cat = getCategoryById(service.category)
   return {
-    title: `${service.name} in Virar | Suhana Service Centre`,
-    description: `Apply for ${service.name} at Suhana Service Centre, Virar East. ${service.description.slice(0, 80)}...`,
+    title: `${service.name} in Virar | Suhana Service Center`,
+    description: `Apply for ${service.name} at Suhana Service Center, Virar East. ${service.description.slice(0, 80)}...`,
     keywords: [
       `${service.name.toLowerCase()} virar`,
       `${service.name.toLowerCase()} virar east`,
@@ -29,8 +29,8 @@ export async function generateMetadata({ params }) {
       canonical: `/services/${params.slug}`,
     },
     openGraph: {
-      title: `${service.name} — Suhana Service Centre`,
-      description: `Get ${service.name} at Suhana Service Centre, Virar East. Fast, reliable & affordable.`,
+      title: `${service.name} — Suhana Service Center`,
+      description: `Get ${service.name} at Suhana Service Center, Virar East. Fast, reliable & affordable.`,
     },
   }
 }
@@ -67,7 +67,7 @@ export default async function ServiceDetailPage({ params }) {
     description: service.description,
     provider: {
       '@type': 'LocalBusiness',
-      name: 'Suhana Service centre',
+      name: 'Suhana Service Center',
       address: {
         '@type': 'PostalAddress',
         streetAddress: 'Office No- 04, Raipada, Nr. Anand Gaushalla, Chandansar Road',

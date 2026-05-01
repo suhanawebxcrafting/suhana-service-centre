@@ -15,7 +15,7 @@ export const revalidate = 60
 const faqs = [
   { q: 'What documents do I need for Aadhaar card update?', a: 'You need your original Aadhaar card and a supporting document for the field being updated (e.g., utility bill for address, gazette for name change). Visit us with originals.' },
   { q: 'How long does PAN card processing take?', a: 'A new PAN card typically takes 15–20 working days for delivery. Instant e-PAN can be obtained on the same day if you have Aadhaar with a registered mobile number.' },
-  { q: 'Can I apply for passport at your centre?', a: 'Yes! We assist with the complete passport application process including form filling, document verification, and appointment booking at the Passport Seva Kendra.' },
+  { q: 'Can I apply for passport at your center?', a: 'Yes! We assist with the complete passport application process including form filling, document verification, and appointment booking at the Passport Seva Kendra.' },
   { q: 'Do you offer same-day services?', a: 'Many services like printing, photocopies, e-Aadhaar download, mobile recharge, and bill payments are done on the same day. Government document services may take longer.' },
   { q: 'What are your working hours?', a: 'We are open Monday to Saturday, 9:00 AM to 8:00 PM. For urgent queries, you can reach us on WhatsApp anytime.' },
 ]
@@ -30,13 +30,13 @@ const whyUs = [
 ]
 
 export const metadata = {
-  title: 'Suhana Service Centre — 70+ Online Services Virar East',
-  description: 'Suhana Service Centre Virar East — Aadhaar, PAN, Passport, Voter ID, Certificates, Banking & 70+ govt services. Call 7709709243.',
+  title: 'Suhana Service Center — 70+ Online Services Virar East',
+  description: 'Suhana Service Center Virar East — Aadhaar, PAN, Passport, Voter ID, Certificates, Banking & 70+ govt services. Call 7709709243.',
   alternates: {
     canonical: '/',
   },
   openGraph: {
-    title: 'Suhana Service Centre — All Services Under One Roof',
+    title: 'Suhana Service Center — All Services Under One Roof',
     description: 'Trusted by thousands in Virar for Aadhaar, PAN, Passport, Certificates & 70+ services. Fast & affordable.',
   },
 }
@@ -125,10 +125,10 @@ export default async function HomePage() {
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-28 lg:py-36">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="text-center lg:text-left animate-fade-up">
-              <div className="tag mb-5 inline-block">🏆 Virar's Trusted Service centre</div>
+              <div className="tag mb-5 inline-block">🏆 Virar's Trusted Service center</div>
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-white leading-tight mb-3">
                 Suhana<br />
-                <span className="text-orange-400">Service centre</span>
+                <span className="text-orange-400">Service center</span>
               </h1>
               <p className="text-2xl text-white/80 font-medium mb-2">आपकी सेवा, हमारा संकल्प</p>
               <p className="text-blue-200 text-lg mb-6">All Online Services Under One Roof</p>
@@ -304,7 +304,7 @@ export default async function HomePage() {
               💪 Why Choose Us
             </div>
             <h2 className="text-3xl lg:text-4xl font-bold text-white mb-3">
-              Why Suhana Service centre?
+              Why Suhana Service center?
             </h2>
             <p className="text-blue-200 text-base max-w-xl mx-auto">
               Trusted by thousands of residents in Virar for reliable, fast, and affordable services
@@ -353,10 +353,10 @@ export default async function HomePage() {
             <div>
               <div className="tag mb-4">🏢 About Us</div>
               <h2 className="text-3xl lg:text-4xl font-bold text-blue-900 mb-4 leading-tight">
-                Virar's Most Trusted<br />Service centre
+                Virar's Most Trusted<br />Service center
               </h2>
               <p className="text-gray-600 leading-relaxed mb-4">
-                Suhana Service centre has been serving the residents of Virar and surrounding areas with dedication and expertise. We offer a comprehensive range of government and digital services under one roof, ensuring our customers don't have to travel to multiple offices.
+                Suhana Service center has been serving the residents of Virar and surrounding areas with dedication and expertise. We offer a comprehensive range of government and digital services under one roof, ensuring our customers don't have to travel to multiple offices.
               </p>
               <p className="text-gray-600 leading-relaxed mb-6">
                 Our experienced team provides accurate guidance, fast processing, and complete support from application to delivery. We are committed to making government services accessible and hassle-free for everyone.

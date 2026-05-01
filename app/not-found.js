@@ -2,8 +2,8 @@ import Link from 'next/link'
 import LucideIcon from '@/components/LucideIcon'
 
 export const metadata = {
-  title: 'Page Not Found — Suhana Service Centre',
-  description: 'The page you are looking for does not exist. Visit Suhana Service Centre for 70+ government & digital services in Virar.',
+  title: 'Page Not Found — Suhana Service Center',
+  description: 'The page you are looking for does not exist. Visit Suhana Service Center for 70+ government & digital services in Virar.',
   robots: {
     index: false,
     follow: true,

@@ -91,7 +91,7 @@ export default function CertificateSlider({ certificates }) {
                     </div>
 
                     <div className="mt-auto pt-3 border-t border-gray-100 flex items-center justify-between opacity-50 group-hover:opacity-100 transition-opacity">
-                      <span className="text-[8px] font-bold text-gray-400 uppercase tracking-widest">Suhana Service centre</span>
+                      <span className="text-[8px] font-bold text-gray-400 uppercase tracking-widest">Suhana Service center</span>
                     </div>
                   </div>
                 </div>

@@ -12,9 +12,9 @@ export async function generateMetadata({ params }) {
   if (!blog || !blog.isPublished) return { title: 'Blog Not Found' }
   const shortExcerpt = blog.excerpt ? blog.excerpt.slice(0, 145) + (blog.excerpt.length > 145 ? '...' : '') : ''
   return {
-    title: `${blog.title} | Suhana Service Centre`,
+    title: `${blog.title} | Suhana Service Center`,
     description: shortExcerpt,
-    keywords: [blog.category, 'suhana service centre', 'virar', blog.title.toLowerCase()],
+    keywords: [blog.category, 'suhana service center', 'virar', blog.title.toLowerCase()],
     alternates: {
       canonical: `/blog/${params.slug}`,
     },
@@ -105,7 +105,7 @@ export default async function BlogPostPage({ params }) {
             S
           </div>
           <div className="text-center sm:text-left flex-1">
-            <h3 className="text-lg font-black text-gray-900 mb-1">Suhana Service centre</h3>
+            <h3 className="text-lg font-black text-gray-900 mb-1">Suhana Service center</h3>
             <p className="text-gray-500 text-sm font-medium">Your trusted partner for government & digital services in Virar East. Visit us for expert assistance!</p>
           </div>
           <a href="https://wa.me/917709709243" target="_blank" rel="noopener noreferrer" className="bg-green-500 hover:bg-green-600 text-white font-bold px-6 py-3 rounded-2xl transition-all hover:-translate-y-0.5 shadow-md shadow-green-500/20 flex items-center gap-2 text-sm flex-shrink-0">

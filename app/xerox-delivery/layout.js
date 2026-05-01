@@ -6,7 +6,7 @@ export const metadata = {
     canonical: '/xerox-delivery',
   },
   openGraph: {
-    title: 'Xerox Delivery — Suhana Service Centre',
+    title: 'Xerox Delivery — Suhana Service Center',
     description: 'Upload documents online. Get them xeroxed & delivered to your doorstep.',
   },
 }

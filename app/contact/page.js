@@ -321,7 +321,7 @@ export default function ContactPage() {
               allowFullScreen=""
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
-              title="Suhana Service centre Location - Virar East"
+              title="Suhana Service Center Location - Virar East"
             ></iframe>
           </div>
           <p className="text-center text-gray-500 text-xs mt-3">

@@ -6,14 +6,14 @@ import LucideIcon from '@/components/LucideIcon'
 export const revalidate = 3600 // ISR: re-generate at most once per hour
 
 export const metadata = {
-  title: 'Blog — Tips & Guides | Suhana Service Centre',
-  description: 'Read latest tips and guides on Aadhaar, PAN, Passport & government services at Suhana Service Centre Virar.',
+  title: 'Blog — Tips & Guides | Suhana Service Center',
+  description: 'Read latest tips and guides on Aadhaar, PAN, Passport & government services at Suhana Service Center Virar.',
   keywords: ['aadhaar card tips', 'pan card guide', 'passport application guide', 'government services blog virar', 'digital services tips'],
   alternates: {
     canonical: '/blog',
   },
   openGraph: {
-    title: 'Blog — Suhana Service Centre Virar',
+    title: 'Blog — Suhana Service Center Virar',
     description: 'Helpful guides and latest updates on government & digital services.',
   },
 }

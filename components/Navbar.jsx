@@ -40,7 +40,7 @@ export default function Navbar() {
             <div className={`relative w-12 h-12 lg:w-16 lg:h-16 transition-all duration-300 group-hover:scale-105 flex items-center justify-center rounded-xl p-1 ${!scrolled && isHomePage ? 'bg-white shadow-[0_0_20px_rgba(255,255,255,0.3)]' : 'bg-white shadow-sm'}`}>
               <Image
                 src="/logo.png"
-                alt="Suhana Service centre Logo"
+                alt="Suhana Service center Logo"
                 fill
                 className="object-contain p-1"
                 priority
@@ -51,7 +51,7 @@ export default function Navbar() {
                 Suhana Service
               </span>
               <span className={`text-xs font-semibold tracking-wider transition-colors ${accentColor}`}>
-                centre
+                center
               </span>
             </div>
           </Link>
