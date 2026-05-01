@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { services, categories } from '@/data/services'
 import LucideIcon from '@/components/LucideIcon'
+import CategoryLink from '@/components/CategoryLink'
 
 export const metadata = {
   title: 'About Us — Suhana Service Centre Virar',
@@ -130,7 +131,7 @@ export default function AboutPage() {
             {categories.map(cat => {
               const count = services.filter(s => s.category === cat.id).length
               return (
-                <Link key={cat.id} href={`/services?cat=${cat.id}`}
+                <CategoryLink key={cat.id} catId={cat.id}
                   className="bg-white rounded-2xl p-6 text-center shadow-sm border border-gray-100 card-hover block group hover:shadow-md transition-all">
                   <div className="flex justify-center mb-4">
                     <div className="w-16 h-16 rounded-2xl bg-blue-50 border border-blue-100 flex items-center justify-center group-hover:scale-110 group-hover:-rotate-3 transition-transform">
@@ -141,7 +142,7 @@ export default function AboutPage() {
                   <div className="inline-block bg-blue-600/5 px-3 py-1 rounded-full text-[10px] font-black text-blue-600 uppercase tracking-widest">
                     {count} services
                   </div>
-                </Link>
+                </CategoryLink>
               )
             })}
           </div>

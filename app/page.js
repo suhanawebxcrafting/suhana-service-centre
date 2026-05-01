@@ -6,6 +6,7 @@ import TestimonialSlider from '@/components/TestimonialSlider'
 import BlogCard from '@/components/BlogCard'
 import LogoSlider from '@/components/LogoSlider'
 import CertificateSlider from '@/components/CertificateSlider'
+import CategoryLink from '@/components/CategoryLink'
 import VideoCarousel from '@/components/VideoCarousel'
 import { prisma } from '@/lib/prisma'
 
@@ -158,13 +159,13 @@ export default async function HomePage() {
                 </h3>
                 <div className="grid grid-cols-3 gap-3">
                   {categories.map(cat => (
-                    <Link key={cat.id} href={`/services?cat=${cat.id}`}
+                    <CategoryLink key={cat.id} catId={cat.id}
                       className="bg-white/10 hover:bg-white/20 rounded-xl p-3 text-center transition-all hover:-translate-y-0.5 cursor-pointer border border-white/5 group">
                       <div className="mb-2 flex justify-center">
                         <LucideIcon name={cat.icon} size={24} className="text-white group-hover:scale-110 transition-transform" />
                       </div>
                       <div className="text-white text-[10px] font-semibold leading-tight uppercase tracking-wider">{cat.label}</div>
-                    </Link>
+                    </CategoryLink>
                   ))}
                 </div>
               </div>
@@ -272,7 +273,7 @@ export default async function HomePage() {
               const colors = categoryColors[cat.id] || categoryColors.other
               const count = services.filter(s => s.category === cat.id).length
               return (
-                <Link key={cat.id} href={`/services?cat=${cat.id}`}
+                <CategoryLink key={cat.id} catId={cat.id}
                   className={`${colors.bg} border ${colors.border} rounded-2xl p-6 text-center card-hover cursor-pointer group block shadow-sm hover:shadow-md transition-all`}>
                   <div className="mb-4 flex justify-center">
                     <div className={`w-16 h-16 rounded-2xl flex items-center justify-center ${colors.bg} border ${colors.border} group-hover:scale-110 group-hover:rotate-3 transition-transform shadow-sm bg-white/50 backdrop-blur-sm`}>
@@ -283,7 +284,7 @@ export default async function HomePage() {
                   <div className="inline-block bg-white/60 px-3 py-1 rounded-full text-[10px] font-black text-gray-400 uppercase tracking-widest border border-white/20">
                     {count} services
                   </div>
-                </Link>
+                </CategoryLink>
               )
             })}
           </div>

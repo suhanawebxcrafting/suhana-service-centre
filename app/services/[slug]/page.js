@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation'
 import { getServiceBySlug, getCategoryById, categoryColors, services } from '@/data/services'
 import LucideIcon from '@/components/LucideIcon'
 import ServiceCard from '@/components/ServiceCard'
+import CategoryLink from '@/components/CategoryLink'
 
 export async function generateStaticParams() {
   return services.map(s => ({ slug: s.slug }))
@@ -97,9 +98,9 @@ export default async function ServiceDetailPage({ params }) {
             <span className="text-blue-300">›</span>
             <Link href="/services" className="text-blue-200 hover:text-white transition-colors">Services</Link>
             <span className="text-blue-300">›</span>
-            <Link href={`/services?cat=${service.category}`} className="text-blue-200 hover:text-white transition-colors">
+            <CategoryLink catId={service.category} className="text-blue-200 hover:text-white transition-colors">
               {cat?.label}
-            </Link>
+            </CategoryLink>
             <span className="text-blue-300">›</span>
             <span className="text-white font-medium truncate max-w-xs">{service.name}</span>
           </nav>
@@ -265,9 +266,9 @@ export default async function ServiceDetailPage({ params }) {
                 <ServiceCard key={s.id} service={s} customization={customizationsMap[s.id] || null} compact />
               ))}
             </div>
-            <Link href={`/services?cat=${service.category}`} className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-800 font-bold text-sm bg-blue-50 px-4 py-2 rounded-lg transition-colors">
+            <CategoryLink catId={service.category} className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-800 font-bold text-sm bg-blue-50 px-4 py-2 rounded-lg transition-colors">
               View All {cat?.label} Services <LucideIcon name="ArrowRight" size={14} />
-            </Link>
+            </CategoryLink>
           </div>
         </section>
       )}
