@@ -82,11 +82,27 @@ export default async function ServiceDetailPage({ params }) {
     url: `${SITE_URL}/services/${service.slug}`,
   }
 
+  // BreadcrumbList schema for rich SERP breadcrumbs
+  const breadcrumbSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_URL },
+      { '@type': 'ListItem', position: 2, name: 'Services', item: `${SITE_URL}/services` },
+      { '@type': 'ListItem', position: 3, name: cat?.label || 'Services', item: `${SITE_URL}/services` },
+      { '@type': 'ListItem', position: 4, name: service.name, item: `${SITE_URL}/services/${service.slug}` },
+    ],
+  }
+
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
       {/* Hero */}
       <section className="hero-gradient pt-28 pb-16 relative">

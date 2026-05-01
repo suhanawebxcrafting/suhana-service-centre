@@ -1,6 +1,14 @@
 export const metadata = {
   title: 'Gallery | Suhana Service centre Virar',
   description: 'Photos of Suhana Service centre — our office and work at Virar.',
+  keywords: ['suhana service centre gallery', 'service centre virar photos', 'office gallery virar'],
+  alternates: {
+    canonical: '/gallery',
+  },
+  openGraph: {
+    title: 'Gallery — Suhana Service Centre Virar',
+    description: 'A glimpse of our well-equipped service centre in Virar East.',
+  },
 }
 
 const galleryItems = [

@@ -82,7 +82,7 @@ export default function Footer() {
             <ul className="space-y-2.5">
               {categories.slice(0, 5).map(cat => (
                 <li key={cat.id}>
-                  <Link href={`/services?cat=${cat.id}`} className="text-blue-200 hover:text-orange-400 text-sm font-semibold transition-colors flex items-center gap-2 group">
+                  <Link href="/services" className="text-blue-200 hover:text-orange-400 text-sm font-semibold transition-colors flex items-center gap-2 group">
                     <LucideIcon name={cat.icon} size={14} className="text-orange-400 group-hover:scale-110 transition-transform" /> {cat.label}
                   </Link>
                 </li>
@@ -99,7 +99,7 @@ export default function Footer() {
             <ul className="space-y-2">
               {categories.slice(5).map(cat => (
                 <li key={cat.id}>
-                  <Link href={`/services?cat=${cat.id}`} className="text-blue-200 hover:text-orange-400 text-sm font-semibold transition-colors flex items-center gap-2">
+                  <Link href="/services" className="text-blue-200 hover:text-orange-400 text-sm font-semibold transition-colors flex items-center gap-2">
                     <span>{cat.icon}</span> {cat.label}
                   </Link>
                 </li>

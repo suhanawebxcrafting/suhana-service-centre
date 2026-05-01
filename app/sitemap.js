@@ -3,11 +3,14 @@ import { prisma } from '@/lib/prisma'
 
 const SITE_URL = 'https://suhanaservicecentre.in'
 
+// Fixed date for truly static pages — update this when you actually modify them
+const STATIC_LAST_MOD = '2026-04-30T00:00:00.000Z'
+
 export default async function sitemap() {
   // Static Service Pages from data/services.js
   const servicePages = services.map((service) => ({
     url: `${SITE_URL}/services/${service.slug}`,
-    lastModified: new Date(),
+    lastModified: STATIC_LAST_MOD,
     changeFrequency: 'monthly',
     priority: 0.7,
   }))
@@ -38,19 +41,19 @@ export default async function sitemap() {
     },
     {
       url: `${SITE_URL}/services`,
-      lastModified: new Date(),
+      lastModified: STATIC_LAST_MOD,
       changeFrequency: 'weekly',
       priority: 0.9,
     },
     {
       url: `${SITE_URL}/about`,
-      lastModified: new Date(),
+      lastModified: STATIC_LAST_MOD,
       changeFrequency: 'monthly',
       priority: 0.8,
     },
     {
       url: `${SITE_URL}/contact`,
-      lastModified: new Date(),
+      lastModified: STATIC_LAST_MOD,
       changeFrequency: 'monthly',
       priority: 0.8,
     },
@@ -61,8 +64,14 @@ export default async function sitemap() {
       priority: 0.7,
     },
     {
+      url: `${SITE_URL}/gallery`,
+      lastModified: STATIC_LAST_MOD,
+      changeFrequency: 'monthly',
+      priority: 0.5,
+    },
+    {
       url: `${SITE_URL}/xerox-delivery`,
-      lastModified: new Date(),
+      lastModified: STATIC_LAST_MOD,
       changeFrequency: 'monthly',
       priority: 0.6,
     },
@@ -70,3 +79,4 @@ export default async function sitemap() {
     ...blogPages,
   ]
 }
+

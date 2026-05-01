@@ -3,7 +3,7 @@ import { prisma } from '@/lib/prisma'
 import BlogCard from '@/components/BlogCard'
 import LucideIcon from '@/components/LucideIcon'
 
-export const dynamic = 'force-dynamic'
+export const revalidate = 3600 // ISR: re-generate at most once per hour
 
 export const metadata = {
   title: 'Blog — Tips & Guides | Suhana Service Centre',

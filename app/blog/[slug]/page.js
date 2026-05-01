@@ -1,10 +1,11 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import { prisma } from '@/lib/prisma'
 import { notFound } from 'next/navigation'
 import LucideIcon from '@/components/LucideIcon'
 import BlogContent from '@/components/BlogContent'
 
-export const dynamic = 'force-dynamic'
+export const revalidate = 3600 // ISR: re-generate at most once per hour
 
 export async function generateMetadata({ params }) {
   const blog = await prisma.blog.findUnique({ where: { slug: params.slug } })
@@ -87,7 +88,7 @@ export default async function BlogPostPage({ params }) {
       {blog.image && (
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 -mt-4">
           <div className="rounded-3xl overflow-hidden shadow-2xl shadow-gray-200/50 border border-gray-100">
-            <img src={blog.image} alt={blog.title} width={896} height={504} className="w-full h-auto object-cover" />
+            <Image src={blog.image} alt={blog.title} width={896} height={504} className="w-full h-auto object-cover" priority />
           </div>
         </div>
       )}
