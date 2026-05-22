@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server'
 import { prisma } from '@/lib/prisma'
 import { generateSlug } from '@/lib/utils'
+import { revalidatePath } from 'next/cache'
 
 export async function PUT(req, { params }) {
   try {
@@ -15,6 +16,13 @@ export async function PUT(req, { params }) {
       where: { id: params.id },
       data
     });
+
+    // Trigger on-demand ISR revalidation for homepage, blog listing, the updated post, and sitemap
+    revalidatePath('/')
+    revalidatePath('/blog')
+    revalidatePath(`/blog/${blog.slug}`)
+    revalidatePath('/sitemap.xml')
+
     return NextResponse.json(blog);
   } catch (error) {
     return NextResponse.json({ error: 'Failed to update blog' }, { status: 500 });
@@ -23,9 +31,18 @@ export async function PUT(req, { params }) {
 
 export async function DELETE(req, { params }) {
   try {
-    await prisma.blog.delete({
+    const blog = await prisma.blog.delete({
       where: { id: params.id }
     });
+
+    // Trigger on-demand ISR revalidation for homepage, blog listing, the deleted post, and sitemap
+    if (blog) {
+      revalidatePath('/')
+      revalidatePath('/blog')
+      revalidatePath(`/blog/${blog.slug}`)
+      revalidatePath('/sitemap.xml')
+    }
+
     return NextResponse.json({ success: true });
   } catch (error) {
     return NextResponse.json({ error: 'Failed to delete blog' }, { status: 500 });

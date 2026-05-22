@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
 import { prisma } from '@/lib/prisma';
+import { revalidatePath } from 'next/cache';
 
 export const dynamic = 'force-dynamic';
 
@@ -110,6 +111,12 @@ Return ONLY valid JSON with no markdown formatting around the JSON block. Do not
         scheduledAt: tomorrow,
       }
     });
+
+    // Trigger on-demand ISR revalidation for homepage, blog listing, the new post, and sitemap
+    revalidatePath('/')
+    revalidatePath('/blog')
+    revalidatePath(`/blog/${newBlog.slug}`)
+    revalidatePath('/sitemap.xml')
 
     return NextResponse.json({
       success: true,

@@ -6,6 +6,8 @@ const SITE_URL = 'https://suhanaservicecentre.in'
 // Fixed date for truly static pages — update this when you actually modify them
 const STATIC_LAST_MOD = '2026-04-30T00:00:00.000Z'
 
+export const revalidate = 3600 // ISR: revalidate at most once per hour
+
 export default async function sitemap() {
   // Static Service Pages from data/services.js
   const servicePages = services.map((service) => ({

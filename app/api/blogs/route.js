@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server'
 import { prisma } from '@/lib/prisma'
 import { generateSlug } from '@/lib/utils'
+import { revalidatePath } from 'next/cache'
 
 export async function GET() {
   try {
@@ -23,6 +24,15 @@ export async function POST(req) {
     }
     
     const blog = await prisma.blog.create({ data });
+    
+    // Trigger on-demand ISR revalidation for homepage, blog listing, the new post, and sitemap
+    if (blog.isPublished) {
+      revalidatePath('/')
+      revalidatePath('/blog')
+      revalidatePath(`/blog/${blog.slug}`)
+      revalidatePath('/sitemap.xml')
+    }
+
     return NextResponse.json(blog);
   } catch (error) {
     return NextResponse.json({ error: 'Failed to create blog' }, { status: 500 });
