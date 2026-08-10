@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import { services, categories, categoryColors } from '@/data/services'
+import { locations } from '@/data/locations'
 import ServiceCard from '@/components/ServiceCard'
 import LucideIcon from '@/components/LucideIcon'
 import TestimonialSlider from '@/components/TestimonialSlider'
@@ -341,7 +342,9 @@ export default async function HomePage() {
             </h2>
             <div className="w-20 h-1.5 bg-gradient-to-r from-blue-600 to-orange-500 mx-auto rounded-full mb-6"></div>
           </div>
+        </div>
 
+        <div className="w-full">
           <TestimonialSlider />
         </div>
       </section>
@@ -443,6 +446,34 @@ export default async function HomePage() {
           </div>
         </section>
       )}
+
+      {/* ─── Areas We Serve (SEO) ─── */}
+      <section className="py-16 bg-blue-50/50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-10">
+            <div className="inline-flex items-center gap-2 bg-orange-50 text-orange-700 px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-widest mb-4 border border-orange-100 shadow-sm">
+              <LucideIcon name="MapPin" size={14} className="text-blue-600" /> Locations
+            </div>
+            <h2 className="text-3xl lg:text-4xl font-black text-blue-950 tracking-tight mb-3">
+              Areas We <span className="text-blue-600">Serve</span>
+            </h2>
+            <p className="text-gray-600 max-w-2xl mx-auto">
+              We provide comprehensive online and government services to residents across the Vasai-Virar region. Find services specific to your location below.
+            </p>
+          </div>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            {locations.map((loc) => (
+              <div key={loc.slug} className="bg-white rounded-xl p-5 text-center border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
+                <LucideIcon name="MapPin" size={24} className="text-orange-500 mx-auto mb-3" />
+                <h3 className="font-bold text-gray-900 mb-2">{loc.name}</h3>
+                <Link href={`/locations/${loc.slug}/aadhaar-new-registration`} className="text-blue-600 text-xs font-semibold hover:underline">
+                  View Services →
+                </Link>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* ─── FAQ Section ─── */}
       <section className="py-16 pattern-bg">

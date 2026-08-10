@@ -9,6 +9,7 @@ export default function Footer() {
     { href: '/about', label: 'About Us' },
     { href: '/services', label: 'All Services' },
     { href: '/contact', label: 'Contact Us' },
+    { href: '/sitemap', label: 'Sitemap' },
   ]
 
   return (
@@ -66,41 +67,28 @@ export default function Footer() {
               <span className="w-1 h-5 bg-orange-400 rounded-full inline-block"></span>
               Quick Links
             </h3>
-            <ul className="space-y-2.5">
+            <ul className="space-y-3.5">
               {quickLinks.map(link => (
                 <li key={link.href}>
-                  <Link href={link.href} className="text-blue-200 hover:text-orange-400 text-sm font-semibold transition-colors flex items-center gap-2">
+                  <Link href={link.href} className="text-blue-200 hover:text-orange-400 text-sm font-medium transition-colors flex items-center gap-2">
                     <span className="text-orange-400">›</span> {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-            <h3 className="text-white font-bold text-base mt-7 mb-4 flex items-center gap-2">
-              <span className="w-1 h-5 bg-orange-400 rounded-full inline-block"></span>
-              Service Categories
-            </h3>
-            <ul className="space-y-2.5">
-              {categories.slice(0, 5).map(cat => (
-                <li key={cat.id}>
-                  <Link href="/services" className="text-blue-200 hover:text-orange-400 text-sm font-semibold transition-colors flex items-center gap-2 group">
-                    <LucideIcon name={cat.icon} size={14} className="text-orange-400 group-hover:scale-110 transition-transform" /> {cat.label}
                   </Link>
                 </li>
               ))}
             </ul>
           </div>
 
-          {/* More Services */}
+          {/* Service Categories */}
           <div>
             <h3 className="text-white font-bold text-base mb-5 flex items-center gap-2">
               <span className="w-1 h-5 bg-orange-400 rounded-full inline-block"></span>
-              More Services
+              Service Categories
             </h3>
-            <ul className="space-y-2">
-              {categories.slice(5).map(cat => (
+            <ul className="space-y-3.5">
+              {categories.slice(0, 7).map(cat => (
                 <li key={cat.id}>
-                  <Link href="/services" className="text-blue-200 hover:text-orange-400 text-sm font-semibold transition-colors flex items-center gap-2">
-                    <span>{cat.icon}</span> {cat.label}
+                  <Link href="/services" className="text-blue-200 hover:text-orange-400 text-sm font-medium transition-colors flex items-center gap-2 group">
+                    <LucideIcon name={cat.icon} size={14} className="text-orange-400 group-hover:scale-110 transition-transform" /> {cat.label}
                   </Link>
                 </li>
               ))}

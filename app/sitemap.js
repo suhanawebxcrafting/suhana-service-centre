@@ -1,4 +1,5 @@
 import { services } from '@/data/services'
+import { locations } from '@/data/locations'
 import { prisma } from '@/lib/prisma'
 
 const SITE_URL = 'https://suhanaservicecentre.in'
@@ -15,6 +16,27 @@ export default async function sitemap() {
     lastModified: STATIC_LAST_MOD,
     changeFrequency: 'monthly',
     priority: 0.7,
+  }))
+
+  // Dynamic Location Service Pages
+  const locationPages = []
+  for (const location of locations) {
+    for (const service of services) {
+      locationPages.push({
+        url: `${SITE_URL}/locations/${location.slug}/${service.slug}`,
+        lastModified: STATIC_LAST_MOD,
+        changeFrequency: 'monthly',
+        priority: 0.8,
+      })
+    }
+  }
+
+  // Dynamic Xerox Location Pages
+  const xeroxLocationPages = locations.map((location) => ({
+    url: `${SITE_URL}/xerox-delivery/${location.slug}`,
+    lastModified: STATIC_LAST_MOD,
+    changeFrequency: 'monthly',
+    priority: 0.8,
   }))
 
   // Dynamic Blog Pages from Database
@@ -78,6 +100,8 @@ export default async function sitemap() {
       priority: 0.6,
     },
     ...servicePages,
+    ...locationPages,
+    ...xeroxLocationPages,
     ...blogPages,
   ]
 }

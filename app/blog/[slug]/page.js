@@ -39,8 +39,34 @@ export default async function BlogPostPage({ params }) {
   const wordCount = blog.content.split(/\s+/).length
   const readTime = Math.max(1, Math.ceil(wordCount / 200))
 
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BlogPosting',
+    headline: blog.title,
+    image: blog.image ? [blog.image] : [],
+    datePublished: new Date(blog.createdAt).toISOString(),
+    dateModified: new Date(blog.updatedAt).toISOString(),
+    author: [{
+      '@type': 'Person',
+      name: blog.author || 'Suhana Service Center',
+      url: 'https://suhanaservicecentre.in/about'
+    }],
+    publisher: {
+      '@type': 'Organization',
+      name: 'Suhana Service Center',
+      logo: {
+        '@type': 'ImageObject',
+        url: 'https://suhanaservicecentre.in/logo.png'
+      }
+    }
+  }
+
   return (
     <main className="min-h-screen pt-24 pb-20 bg-white">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       {/* Hero Section */}
       <div className="relative bg-gradient-to-br from-slate-50 via-blue-50/30 to-white pb-12">
         <div className="absolute inset-0 pointer-events-none overflow-hidden">

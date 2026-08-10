@@ -14,6 +14,21 @@ const nextConfig = {
       }
     ],
   },
+  async redirects() {
+    return [
+      {
+        source: '/:path*',
+        has: [
+          {
+            type: 'host',
+            value: 'www.suhanaservicecentre.in',
+          },
+        ],
+        destination: 'https://suhanaservicecentre.in/:path*',
+        permanent: true,
+      },
+    ]
+  },
   async headers() {
     return [
       {

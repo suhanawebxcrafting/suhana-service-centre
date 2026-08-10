@@ -42,21 +42,40 @@ function ServicesContent() {
   return (
     <>
       {/* Search Bar - inside hero area */}
-      <div className="bg-gradient-to-b from-blue-700 to-blue-800 pb-8 -mt-4 relative z-10">
-        <div className="relative max-w-lg mx-auto px-4">
-          <span className="absolute left-8 top-1/2 -translate-y-1/2 text-gray-400">
-            <LucideIcon name="Search" size={20} />
-          </span>
-          <input
-            type="text"
-            placeholder="Search services... (e.g. Aadhaar, PAN, Passport)"
-            value={search}
-            onChange={e => setSearch(e.target.value)}
-            className="w-full pl-12 pr-4 py-4 rounded-xl text-gray-800 text-base font-medium shadow-xl outline-none focus:ring-2 focus:ring-orange-400 border-0"
-          />
-          {search && (
-            <button onClick={() => setSearch('')} className="absolute right-8 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 text-xl">×</button>
-          )}
+      <div className="bg-gradient-to-b from-blue-700 to-blue-800 pb-12 -mt-4 relative z-10">
+        <div className="relative max-w-2xl mx-auto px-4">
+          <div className="relative group transition-all duration-300">
+            {/* Outer Glow Effect */}
+            <div className="absolute inset-0 bg-blue-500/20 blur-xl rounded-full group-hover:bg-blue-400/30 transition-all duration-500"></div>
+            
+            {/* Main Search Container */}
+            <div className="relative flex items-center bg-white rounded-full p-2 shadow-[0_8px_30px_rgb(0,0,0,0.12)] border-[3px] border-white/50 focus-within:border-blue-400 focus-within:shadow-[0_8px_30px_rgba(59,130,246,0.3)] transition-all duration-300">
+              {/* Search Icon Badge */}
+              <div className="w-12 h-12 rounded-full bg-blue-50 flex items-center justify-center flex-shrink-0 text-blue-600 ml-1">
+                <LucideIcon name="Search" size={20} />
+              </div>
+              
+              {/* Input Field */}
+              <input
+                type="text"
+                placeholder="Search services... (e.g. Aadhaar, PAN, Passport)"
+                value={search}
+                onChange={e => setSearch(e.target.value)}
+                className="w-full bg-transparent pl-4 pr-12 py-3 text-gray-800 text-lg font-semibold placeholder-gray-400 outline-none border-0"
+              />
+              
+              {/* Clear Button */}
+              {search && (
+                <button 
+                  onClick={() => setSearch('')} 
+                  className="absolute right-5 w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center text-gray-500 hover:bg-gray-200 hover:text-gray-700 transition-colors"
+                  title="Clear search"
+                >
+                  <LucideIcon name="X" size={16} />
+                </button>
+              )}
+            </div>
+          </div>
         </div>
       </div>
 

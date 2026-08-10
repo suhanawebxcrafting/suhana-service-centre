@@ -122,41 +122,42 @@ export default function AdminDashboard() {
           {/* Stats */}
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
             {[
-              { label: 'Total Orders', value: stats.total, icon: Package, color: 'bg-blue-600' },
-              { label: 'Pending', value: stats.pending, icon: Clock, color: 'bg-orange-500' },
-              { label: 'Processing', value: stats.processing, icon: Loader2, color: 'bg-indigo-500' },
-              { label: 'Completed', value: stats.completed, icon: CheckCircle2, color: 'bg-green-500' },
+              { label: 'Total Orders', value: stats.total, icon: Package, color: 'text-blue-600', bg: 'bg-blue-50' },
+              { label: 'Pending', value: stats.pending, icon: Clock, color: 'text-orange-500', bg: 'bg-orange-50' },
+              { label: 'Processing', value: stats.processing, icon: Loader2, color: 'text-indigo-500', bg: 'bg-indigo-50' },
+              { label: 'Completed', value: stats.completed, icon: CheckCircle2, color: 'text-green-500', bg: 'bg-green-50' },
             ].map((s, i) => (
-              <div key={i} className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
-                <div className="flex items-center justify-between mb-2">
-                  <div className={`w-10 h-10 ${s.color} rounded-xl flex items-center justify-center text-white shadow-lg`}>
-                    <s.icon size={20} />
+              <div key={i} className="relative overflow-hidden bg-white rounded-3xl p-7 shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-gray-100 group transition-all duration-300 hover:shadow-[0_15px_40px_rgb(0,0,0,0.08)] hover:-translate-y-1">
+                <div className="flex items-center justify-between mb-4 relative z-10">
+                  <div className={`w-14 h-14 ${s.bg} rounded-2xl flex items-center justify-center shadow-sm`}>
+                    <s.icon size={26} className={s.color} />
                   </div>
-                  <div className="text-2xl font-black text-gray-900">{s.value}</div>
+                  <div className="text-4xl font-black text-gray-900 tracking-tight">{s.value}</div>
                 </div>
-                <div className="text-xs font-bold text-gray-400 uppercase tracking-widest">{s.label}</div>
+                <div className="text-[11px] font-bold text-gray-400 uppercase tracking-widest relative z-10">{s.label}</div>
               </div>
             ))}
           </div>
 
           {/* Filters */}
-          <div className="flex gap-2 mb-6 overflow-x-auto pb-2">
+          <div className="bg-white inline-flex p-1.5 rounded-2xl shadow-sm border border-gray-100 mb-8 overflow-x-auto max-w-full hide-scrollbar">
             {['ALL', 'PENDING', 'PROCESSING', 'COMPLETED', 'CANCELLED'].map((f) => (
               <button key={f} onClick={() => setFilter(f)}
-                className={`px-5 py-2 rounded-full text-xs font-black tracking-widest transition-all whitespace-nowrap ${filter === f ? 'bg-blue-600 text-white shadow-lg' : 'bg-white text-gray-500 border border-gray-100 hover:bg-gray-50'
+                className={`px-6 py-2.5 rounded-xl text-[11px] font-bold tracking-widest transition-all whitespace-nowrap ${filter === f ? 'bg-blue-600 text-white shadow-md' : 'text-gray-500 hover:text-gray-900 hover:bg-gray-50'
                   }`}
               >{f}</button>
             ))}
           </div>
 
           {/* Orders Table */}
-          <div className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
+          <div className="bg-white rounded-3xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-gray-100 overflow-hidden">
             <div className="overflow-x-auto">
               <table className="w-full text-left">
                 <thead>
-                  <tr className="bg-gray-50/50 border-b border-gray-50">
-                    <th className="px-4 py-4 text-[10px] font-black text-gray-400 uppercase tracking-widest">Customer</th>
-                    <th className="px-4 py-4 text-[10px] font-black text-gray-400 uppercase tracking-widest">Phone</th>
+                  <tr className="bg-gray-50/80 border-b border-gray-100">
+                    <th className="px-5 py-5 text-[10px] font-black text-gray-500 uppercase tracking-widest">Customer</th>
+                    <th className="px-4 py-5 text-[10px] font-black text-gray-500 uppercase tracking-widest">Service</th>
+                    <th className="px-4 py-5 text-[10px] font-black text-gray-500 uppercase tracking-widest">Phone</th>
                     <th className="px-4 py-4 text-[10px] font-black text-gray-400 uppercase tracking-widest">Address</th>
                     <th className="px-4 py-4 text-[10px] font-black text-gray-400 uppercase tracking-widest">Distance</th>
                     <th className="px-4 py-4 text-[10px] font-black text-gray-400 uppercase tracking-widest">Charge</th>
@@ -178,6 +179,11 @@ export default function AdminDashboard() {
                         <td className="px-4 py-4">
                           <div className="font-bold text-gray-900 text-sm">{order.customerName}</div>
                           <div className="text-[10px] text-gray-400 mt-0.5">{new Date(order.createdAt).toLocaleDateString()}</div>
+                        </td>
+                        <td className="px-4 py-4">
+                          <span className="inline-block px-2.5 py-1 bg-purple-50 text-purple-700 rounded-md text-[10px] font-black uppercase tracking-widest max-w-[150px] truncate" title={order.serviceRequested || 'Xerox Delivery'}>
+                            {order.serviceRequested || 'Xerox Delivery'}
+                          </span>
                         </td>
                         <td className="px-4 py-4">
                           <a href={`tel:${order.phoneNumber}`} className="flex items-center gap-1.5 text-sm text-blue-600 hover:underline font-medium">
@@ -231,10 +237,10 @@ export default function AdminDashboard() {
                         </td>
                         <td className="px-4 py-4">
                           <select value={order.status} onChange={(e) => updateStatus(order.id, e.target.value)}
-                            className={`bg-white border rounded-lg text-[10px] font-black p-2 outline-none focus:ring-2 focus:ring-blue-500 transition-all uppercase tracking-wider ${order.status === 'PENDING' ? 'border-orange-200 text-orange-600' :
-                                order.status === 'PROCESSING' ? 'border-indigo-200 text-indigo-600' :
-                                  order.status === 'COMPLETED' ? 'border-green-200 text-green-600' :
-                                    'border-red-200 text-red-600'
+                            className={`bg-white border-2 rounded-xl text-[10px] font-black p-2.5 outline-none focus:ring-4 focus:ring-opacity-20 transition-all uppercase tracking-wider cursor-pointer shadow-sm ${order.status === 'PENDING' ? 'border-orange-200 text-orange-600 focus:ring-orange-500' :
+                                order.status === 'PROCESSING' ? 'border-indigo-200 text-indigo-600 focus:ring-indigo-500' :
+                                  order.status === 'COMPLETED' ? 'border-green-200 text-green-600 focus:ring-green-500' :
+                                    'border-red-200 text-red-600 focus:ring-red-500'
                               }`}
                           >
                             <option value="PENDING">PENDING</option>

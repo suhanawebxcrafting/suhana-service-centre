@@ -10,6 +10,7 @@ export async function POST(req) {
     const address = formData.get('address')
     const distance = parseFloat(formData.get('distance'))
     const deliveryCharge = parseFloat(formData.get('charge'))
+    const serviceRequested = formData.get('serviceRequested') || formData.get('serviceNeeded') || 'Xerox Delivery'
     const file = formData.get('file')
 
     if (!file) {
@@ -48,6 +49,7 @@ export async function POST(req) {
         address: address,
         distance: distance,
         deliveryCharge: deliveryCharge,
+        serviceRequested: serviceRequested,
         documentUrl: uploadRes.secure_url,
       },
     })

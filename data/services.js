@@ -527,62 +527,187 @@ export const services = [
 
   // ─── G. Printing & Digital ───
   {
-    id: 41, slug: 'printout', category: 'printing',
-    name: 'Printout (B/W & Color)', icon: 'Printer',
-    description: 'Black & white and color printing services for documents, forms, applications, photographs, and more.',
-    documentsRequired: ['File to print (USB / Email / WhatsApp)', 'No special documents required'],
-    eligibility: 'Anyone.',
-    processSteps: ['Provide file via USB / email / WhatsApp', 'Select print type (B/W or Color)', 'Print done instantly', 'Collect printout'],
-    processingTime: 'Instant',
-    charges: 'Contact for latest charges',
-    notes: 'Per-page charges apply. Color printing costs more than B/W.'
+    id: 41, slug: 'color-printing', category: 'printing',
+    name: 'Color Printing', icon: 'Printer',
+    description: 'Vibrant colour prints for presentations, brochures, posters and project work.',
+    documentsRequired: ['File to print (PDF, JPG, PNG)'],
+    eligibility: 'Anyone requiring color prints.',
+    processSteps: ['Upload file', 'Select print size and quantity', 'We print and deliver to your doorstep'],
+    processingTime: 'Same Day', charges: '₹9 / page (A4)', notes: 'High-quality 100 GSM paper used for standard prints.'
   },
   {
-    id: 42, slug: 'photocopy', category: 'printing',
-    name: 'Photocopy (Xerox)', icon: 'Copy',
-    description: 'Photocopy services for documents, certificates, books, and any paper documents.',
-    documentsRequired: ['Original document to photocopy'],
-    eligibility: 'Anyone.',
-    processSteps: ['Provide original document', 'Specify number of copies', 'Photocopies done instantly'],
-    processingTime: 'Instant',
-    charges: 'Contact for latest charges',
-    notes: 'Per-page charges apply.'
+    id: 42, slug: 'bw-printing', category: 'printing',
+    name: 'Black & White Printing', icon: 'FileText',
+    description: 'Sharp monochrome prints for forms, assignments, reports and office documents.',
+    documentsRequired: ['File to print (PDF, JPG, PNG)'],
+    eligibility: 'Anyone requiring B&W prints.',
+    processSteps: ['Upload file', 'Select print size and quantity', 'We print and deliver to your doorstep'],
+    processingTime: 'Same Day', charges: '₹1.50 / page (A4)', notes: 'Bulk discount available for large volume printing.'
   },
   {
-    id: 43, slug: 'scan-documents', category: 'printing',
-    name: 'Scan Documents', icon: 'Scan',
-    description: 'Scan your physical documents to create digital copies in PDF or image format.',
-    documentsRequired: ['Original document to scan'],
-    eligibility: 'Anyone.',
-    processSteps: ['Provide document for scanning', 'We scan to PDF/JPG', 'Digital file shared via WhatsApp / email or on USB'],
-    processingTime: 'Instant',
-    charges: 'Contact for latest charges',
-    notes: 'Per-page charges apply. Please contact or visit our office for confirmation.'
+    id: 43, slug: 'blackbook-printing', category: 'printing',
+    name: 'Blackbook Printing', icon: 'BookOpen',
+    description: 'Clear and durable blackbook print service for projects, records, and submissions.',
+    documentsRequired: ['Project file (PDF)'],
+    eligibility: 'Students and professionals.',
+    processSteps: ['Upload project file', 'Specify binding requirements', 'We print, bind, and deliver'],
+    processingTime: '1-2 Days', charges: 'Contact for best price', notes: 'Includes premium black rexine binding with golden embossing.'
   },
   {
-    id: 44, slug: 'photo-print', category: 'printing',
-    name: 'Photo Print (Passport Size)', icon: 'Image',
-    description: 'Print passport-size, stamp-size, or custom-size photographs for various documents and applications.',
-    documentsRequired: ['Digital photo or we can take photo at our center'],
-    eligibility: 'Anyone.',
-    processSteps: ['Provide digital photo or sit for photo at our center', 'Edit and crop to required size', 'Print in required quantity'],
-    processingTime: 'Instant to 10 minutes',
-    charges: 'Contact for latest charges',
-    notes: 'White background for passport photos. Documents and process may vary.'
+    id: 44, slug: 'jumbo-xerox', category: 'printing',
+    name: 'Jumbo Xerox (A3, A2, A1, A0)', icon: 'Maximize2',
+    description: 'Large-size xerox and copy solutions available in A3, A2, A1, A0, A00 for drawings, plans, posters, and charts.',
+    documentsRequired: ['File to print or original physical copy'],
+    eligibility: 'Architects, engineers, students, and businesses.',
+    processSteps: ['Upload digital file or provide physical copy', 'Select required paper size', 'We print and deliver'],
+    processingTime: 'Same Day', charges: 'Varies by size (A3 starting at ₹3)', notes: 'High precision plotting available for CAD drawings.'
   },
   {
-    id: 45, slug: 'lamination', category: 'printing',
+    id: 45, slug: 'visiting-card-printing', category: 'printing',
+    name: 'Visiting Card Printing', icon: 'CreditCard',
+    description: 'Neat visiting card printing with quality finish for personal and business use.',
+    documentsRequired: ['Design file (PDF/CDR/AI) or we can design it for you'],
+    eligibility: 'Business owners and professionals.',
+    processSteps: ['Provide design or select template', 'Choose paper quality (matte, glossy, textured)', 'We print and deliver'],
+    processingTime: '1-2 Days', charges: 'Starting from ₹300 / 1000 cards', notes: 'Double-sided and spot UV options available.'
+  },
+  {
+    id: 46, slug: 'all-size-scanning', category: 'printing',
+    name: 'All Size Scanning', icon: 'Scan',
+    description: 'Document scanning support in multiple sizes for records, forms, and submissions.',
+    documentsRequired: ['Original documents'],
+    eligibility: 'Anyone needing digital copies.',
+    processSteps: ['Provide physical documents', 'We scan in high resolution (PDF/JPG)', 'Files sent via WhatsApp/Email'],
+    processingTime: 'Instant', charges: 'Contact for latest charges', notes: 'Bulk scanning available for offices.'
+  },
+  {
+    id: 47, slug: 'smart-card-printing', category: 'printing',
+    name: 'Smart Card Printing', icon: 'CreditCard',
+    description: 'Smart card printing for ID cards, membership cards, office cards and custom cards. Starting from ₹80.',
+    documentsRequired: ['Data and photos for ID cards'],
+    eligibility: 'Schools, offices, clubs, and organizations.',
+    processSteps: ['Provide card design and employee data', 'We print on high-quality PVC', 'Delivery to your office/home'],
+    processingTime: '1-3 Days', charges: 'Starting from ₹80 / card', notes: 'Lanyard and card holder also provided on request.'
+  },
+  {
+    id: 48, slug: 'letterhead-print', category: 'printing',
+    name: 'Letterhead Print', icon: 'FileBadge',
+    description: 'Professional letterhead printing for offices, shops, and local business branding.',
+    documentsRequired: ['Company logo and details'],
+    eligibility: 'Businesses and professionals.',
+    processSteps: ['Provide design or logo', 'Select paper quality (Bond paper recommended)', 'We print and deliver'],
+    processingTime: '1-2 Days', charges: 'Contact for best price', notes: 'Premium Alabaster and Bond paper available.'
+  },
+  {
+    id: 49, slug: 'passport-photos', category: 'printing',
+    name: 'Passport Photos', icon: 'Image',
+    description: 'Quick passport-size photo prints with clean framing and fast delivery.',
+    documentsRequired: ['Digital photo (we can also click in-store)'],
+    eligibility: 'Anyone requiring official photos.',
+    processSteps: ['Upload your photo', 'We crop, adjust lighting, and format to correct size', 'Printed and delivered'],
+    processingTime: 'Same Day', charges: 'Contact for latest charges', notes: 'Printed on premium glossy photo paper.'
+  },
+  {
+    id: 50, slug: 'project-printing', category: 'printing',
+    name: 'Project Printing', icon: 'GraduationCap',
+    description: 'Complete support for school and college projects with print and finishing options.',
+    documentsRequired: ['Project files (PDF/Word)'],
+    eligibility: 'Students.',
+    processSteps: ['Upload project files', 'Select binding and cover page options', 'We print, bind, and deliver'],
+    processingTime: 'Same Day', charges: 'Contact for latest charges', notes: 'Special discounts for bulk college submissions.'
+  },
+  {
+    id: 51, slug: 'billbook-print', category: 'printing',
+    name: 'Billbook Print', icon: 'Receipt',
+    description: 'Custom billbook printing for daily billing, invoicing, and store operations.',
+    documentsRequired: ['Shop details, logo, and terms'],
+    eligibility: 'Shopkeepers and businesses.',
+    processSteps: ['Provide business details', 'We prepare the layout', 'Printed in duplicate/triplicate format', 'Delivered'],
+    processingTime: '2-4 Days', charges: 'Contact for best price', notes: 'Available in A4, A5, and custom sizes with serial numbering.'
+  },
+  {
+    id: 52, slug: 'cartridge-refilling', category: 'printing',
+    name: 'Cartridge Refilling', icon: 'Droplet',
+    description: 'Reliable ink and toner cartridge refilling for regular office and home printing.',
+    documentsRequired: ['Empty cartridge'],
+    eligibility: 'Printer owners.',
+    processSteps: ['Bring or send empty cartridge', 'We clean and refill with high-quality ink/toner', 'Test print provided'],
+    processingTime: 'Same Day', charges: 'Contact for latest charges', notes: 'Compatible with HP, Canon, Epson, Brother.'
+  },
+  {
+    id: 53, slug: 'computer-accessories', category: 'printing',
+    name: 'Computer Accessories', icon: 'Mouse',
+    description: 'Essential computer accessories including cables, peripherals, and daily-use items.',
+    documentsRequired: ['None'],
+    eligibility: 'Anyone.',
+    processSteps: ['Tell us what you need', 'We check stock', 'Delivered to your location'],
+    processingTime: 'Same Day', charges: 'Varies by item', notes: 'Mouse, keyboards, pen drives, cables available.'
+  },
+  {
+    id: 54, slug: 'custom-rubber-stamps', category: 'printing',
+    name: 'Custom Rubber Stamps', icon: 'CheckSquare',
+    description: 'Quick manufacturing of self-inking, pre-inked, and traditional rubber stamps for official business use.',
+    documentsRequired: ['Stamp matter / Shop Act License (for proprietary stamps)'],
+    eligibility: 'Businesses, doctors, lawyers, professionals.',
+    processSteps: ['Provide stamp content', 'Select stamp type (Self-inking/Nylon)', 'Manufactured and delivered'],
+    processingTime: 'Same Day', charges: 'Contact for latest charges', notes: 'Company round seal and pocket stamps available.'
+  },
+  {
+    id: 55, slug: 'stationery-products', category: 'printing',
+    name: 'Stationery Products', icon: 'PenTool',
+    description: 'Daily-use stationery, notebooks, pens, files, and office essentials in one place.',
+    documentsRequired: ['None'],
+    eligibility: 'Students, offices, anyone.',
+    processSteps: ['Order required items', 'We package and deliver'],
+    processingTime: 'Same Day', charges: 'MRP / Discounted rates', notes: 'Bulk supply for offices available.'
+  },
+  {
+    id: 56, slug: 'spiral-binding', category: 'printing',
+    name: 'Spiral Binding', icon: 'Book',
+    description: 'Professional binding for project reports, files and presentations.',
+    documentsRequired: ['Documents to be bound'],
+    eligibility: 'Anyone.',
+    processSteps: ['Provide printed documents or upload files to print', 'We punch and bind with transparent covers', 'Delivered'],
+    processingTime: 'Instant / Same Day', charges: 'Contact for latest charges', notes: 'Wire-O binding also available.'
+  },
+  {
+    id: 57, slug: 'lamination', category: 'printing',
     name: 'Lamination', icon: 'Layers',
-    description: 'Laminate your important documents, certificates, photos, and ID cards for protection and durability.',
-    documentsRequired: ['Document to laminate'],
+    description: 'Protect important certificates, ID cards and documents with durable lamination.',
+    documentsRequired: ['Original documents'],
     eligibility: 'Anyone.',
-    processSteps: ['Provide document', 'Select lamination type (matte/glossy)', 'Lamination done'],
-    processingTime: 'Instant to 5 minutes',
-    charges: 'Contact for latest charges',
-    notes: 'Size-based charges. Please contact or visit our office for confirmation.'
+    processSteps: ['Provide documents', 'We laminate using high-quality pouches', 'Delivered securely'],
+    processingTime: 'Same Day', charges: 'Contact for latest charges', notes: 'A4, A3, and ID card sizes available.'
   },
   {
-    id: 46, slug: 'resume-making', category: 'printing',
+    id: 58, slug: 'photocopy-xerox', category: 'printing',
+    name: 'Xerox / Photocopy', icon: 'Copy',
+    description: 'Affordable photocopying for books, forms, IDs and daily office needs.',
+    documentsRequired: ['Original documents'],
+    eligibility: 'Anyone.',
+    processSteps: ['Provide documents', 'Specify quantity and B/W or Color', 'Copied and delivered'],
+    processingTime: 'Same Day', charges: '₹1.50 / page (B&W)', notes: 'Back-to-back copying available.'
+  },
+  {
+    id: 59, slug: 'sticker-label-printing', category: 'printing',
+    name: 'Sticker & Label Printing', icon: 'Tag',
+    description: 'Product labels, MRP & barcode labels, name stickers — custom sizes, same day.',
+    documentsRequired: ['Design file (PDF/JPG)'],
+    eligibility: 'Businesses, schools, product manufacturers.',
+    processSteps: ['Upload design', 'Specify dimensions and shape', 'Printed on adhesive sheets and delivered'],
+    processingTime: '1-2 Days', charges: 'Contact for latest charges', notes: 'Die-cut and kiss-cut options available.'
+  },
+  {
+    id: 60, slug: 'aadhaar-pan-print', category: 'printing',
+    name: 'Aadhaar & PAN Card Print', icon: 'IdCard',
+    description: 'PVC card-size prints from your e-Aadhaar, ID xerox for forms, lamination.',
+    documentsRequired: ['e-Aadhaar PDF or PAN PDF (password if any)'],
+    eligibility: 'Aadhaar/PAN holders.',
+    processSteps: ['Upload e-Aadhaar/PAN PDF securely', 'We print on PVC or high-quality photo paper', 'Delivered securely'],
+    processingTime: 'Same Day', charges: 'Contact for latest charges', notes: 'Strict data privacy maintained.'
+  },
+  {
+    id: 61, slug: 'resume-making', category: 'printing',
     name: 'Online Resume / CV Making', icon: 'FileText',
     description: 'Professional resume and CV creation service. We create well-formatted, ATS-friendly resumes for job applications.',
     documentsRequired: ['Personal details (name, contact, address)', 'Educational qualifications', 'Work experience details', 'Skills and achievements'],
@@ -595,7 +720,7 @@ export const services = [
 
   // ─── H. Other Services ───
   {
-    id: 47, slug: 'sim-card-activation', category: 'other',
+    id: 62, slug: 'sim-card-activation', category: 'other',
     name: 'SIM Card Activation', icon: 'SimCard',
     description: 'Assistance with SIM card activation for various telecom operators.',
     documentsRequired: ['Aadhaar Card', 'PAN Card / Valid ID Proof', 'Passport-size Photograph'],
@@ -606,7 +731,7 @@ export const services = [
     notes: 'Subject to operator availability. Documents and process may vary.'
   },
   {
-    id: 48, slug: 'whatsapp-email-support', category: 'other',
+    id: 63, slug: 'whatsapp-email-support', category: 'other',
     name: 'WhatsApp / Email Support', icon: 'MessageCircle',
     description: 'We provide guidance and support for document submission via WhatsApp and email for various services.',
     documentsRequired: ['As per the service being availed'],
@@ -617,7 +742,7 @@ export const services = [
     notes: 'Documents and process may vary depending on service.'
   },
   {
-    id: 49, slug: 'csc-services', category: 'other',
+    id: 64, slug: 'csc-services', category: 'other',
     name: 'CSC Services', icon: 'Building2',
     description: 'Common Service Center (CSC) services providing government-to-citizen services including digital payments, certificates, and utility services.',
     documentsRequired: ['Varies by service'],
@@ -628,7 +753,7 @@ export const services = [
     notes: 'Subject to CSC registration status. Documents and process may vary.'
   },
   {
-    id: 50, slug: 'udyam-registration', category: 'other',
+    id: 65, slug: 'udyam-registration', category: 'other',
     name: 'Udyam Registration (MSME)', icon: 'Factory',
     description: 'Register your micro, small, or medium enterprise (MSME) under the Udyam Registration portal for government benefits and schemes.',
     documentsRequired: ['Aadhaar Card of owner', 'PAN Card', 'Business Address Proof', 'Bank Account Details', 'NIC Code (business activity code)'],
@@ -639,7 +764,7 @@ export const services = [
     notes: 'Udyam Registration is free on the official portal. Documents and process may vary.'
   },
   {
-    id: 51, slug: 'gst-registration', category: 'other',
+    id: 66, slug: 'gst-registration', category: 'other',
     name: 'GST Registration (Basic Help)', icon: 'Receipt',
     description: 'Assistance with basic GST (Goods and Services Tax) registration for businesses and traders.',
     documentsRequired: ['PAN Card of business/owner', 'Aadhaar Card', 'Business Address Proof', 'Bank Account Statement / Cancelled Cheque', 'Digital Signature Certificate (DSC) if applicable'],
@@ -652,53 +777,14 @@ export const services = [
 
   // ─── I. Smart Card Services ───
   {
-    id: 52, slug: 'aadhaar-pvc-smart-card', category: 'smartcard',
+    id: 67, slug: 'aadhaar-pvc-smart-card', category: 'smartcard',
     name: 'Aadhaar PVC Smart Card', icon: 'CreditCard',
     description: 'Durable PVC credit-card-sized Aadhaar card with embedded security features from UIDAI.',
     documentsRequired: ['Aadhaar Number', 'Registered Mobile Number'],
     eligibility: 'Any Aadhaar card holder.',
-    processSteps: ['Provide Aadhaar number', 'OTP verification', 'Order placed on UIDAI portal', 'Card delivered by post'],
+    processSteps: ['Provide Aadhaar number', 'OTP verification', 'Order placed online', 'Delivered by India Post'],
     processingTime: '5–10 days',
     charges: 'Contact for latest charges',
-    notes: 'Documents and process may vary. Please contact or visit our office.'
-  },
-  {
-    id: 53, slug: 'voter-pvc-smart-card', category: 'smartcard',
-    name: 'Voter ID PVC Smart Card', icon: 'IdCard',
-    description: 'PVC format Voter ID card (e-EPIC) — a modern, durable replacement for the old paper-based Voter ID.',
-    documentsRequired: ['EPIC Number', 'Registered Mobile Number'],
-    eligibility: 'Registered voters.',
-    processSteps: ['Provide EPIC number', 'Download e-EPIC', 'Print on PVC at our center'],
-    processingTime: 'Same day',
-    charges: 'Contact for latest charges',
-    notes: 'Documents and process may vary. Please contact or visit our office.'
-  },
-  {
-    id: 54, slug: 'pan-pvc-smart-card', category: 'smartcard',
-    name: 'PAN Card PVC / Smart Card', icon: 'CreditCard',
-    description: 'PVC format PAN card for durability and easy wallet storage.',
-    documentsRequired: ['PAN Number', 'Aadhaar Card'],
-    eligibility: 'Any PAN card holder.',
-    processSteps: ['Provide PAN details', 'We print PVC PAN card', 'Laminated and ready to use'],
-    processingTime: 'Same day',
-    charges: 'Contact for latest charges',
-    notes: 'Documents and process may vary. Please contact or visit our office.'
-  },
-  {
-    id: 55, slug: 'ayushman-bharat-card', category: 'smartcard',
-    name: 'Ayushman Bharat Card (Health Card)', icon: 'HeartPulse',
-    description: 'Ayushman Bharat Pradhan Mantri Jan Arogya Yojana (AB-PMJAY) health insurance card providing ₹5 lakh health cover.',
-    documentsRequired: ['Aadhaar Card', 'Ration Card', 'Mobile Number linked to Aadhaar'],
-    eligibility: 'Families listed in SECC-2011 database or those covered under state government schemes.',
-    processSteps: ['Check eligibility on PMJAY portal', 'Visit our center with documents', 'Biometric verification', 'Ayushman card issued'],
-    processingTime: '1–3 days',
-    charges: 'Contact for latest charges',
-    notes: 'Documents and process may vary. Please contact or visit our office.'
-  },
-  {
-    id: 56, slug: 'abha-health-id', category: 'smartcard',
-    name: 'ABHA Health ID Card', icon: 'Activity',
-    description: 'Ayushman Bharat Health Account (ABHA) — a unique 14-digit health ID for storing and accessing your health records digitally.',
     documentsRequired: ['Aadhaar Card', 'Mobile Number linked to Aadhaar'],
     eligibility: 'Any Indian resident.',
     processSteps: ['Provide Aadhaar and mobile number', 'OTP verification', 'ABHA ID created instantly', 'ABHA card printed'],

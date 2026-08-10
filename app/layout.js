@@ -110,9 +110,14 @@ const jsonLd = {
         closes: '20:00',
       },
       areaServed: [
-        { '@type': 'City', name: 'Virar' },
-        { '@type': 'City', name: 'Vasai' },
-        { '@type': 'City', name: 'Nalasopara' },
+        { '@type': 'City', name: 'Virar East' },
+        { '@type': 'City', name: 'Virar West' },
+        { '@type': 'City', name: 'Nalasopara East' },
+        { '@type': 'City', name: 'Nalasopara West' },
+        { '@type': 'City', name: 'Vasai East' },
+        { '@type': 'City', name: 'Vasai West' },
+        { '@type': 'City', name: 'Naigaon East' },
+        { '@type': 'City', name: 'Naigaon West' },
       ],
       priceRange: '₹',
       sameAs: [
