@@ -45,7 +45,7 @@ export default function ServiceCard({ service, compact = false, customization = 
     return (
       <div className="group relative h-full">
         <Link href={targetHref} className="block h-full">
-          <div className={`relative bg-white rounded-3xl border-[2px] border-gray-200 h-full transition-all duration-500 shadow-sm hover:shadow-xl hover:shadow-blue-500/10 hover:-translate-y-1.5 group-hover:border-${service.category === 'banking' ? 'green' : 'blue'}-400 p-5 overflow-hidden`}>
+          <div className={`relative bg-white rounded-3xl border-[2px] border-${service.category === 'banking' ? 'green' : 'blue'}-400 lg:border-gray-200 h-full transition-all duration-500 shadow-sm hover:shadow-xl hover:shadow-blue-500/10 lg:hover:-translate-y-1.5 lg:group-hover:border-${service.category === 'banking' ? 'green' : 'blue'}-400 p-5 overflow-hidden`}>
             {/* Background Image Layer */}
             {cat?.bgImage && (
               <div className="absolute inset-0 z-0">
@@ -54,14 +54,14 @@ export default function ServiceCard({ service, compact = false, customization = 
                   alt={cat.label}
                   width={400}
                   height={400}
-                  className="w-full h-full object-cover opacity-[0.05] blur-[15px] group-hover:scale-125 group-hover:opacity-[0.12] transition-all duration-1000"
+                  className="w-full h-full object-cover opacity-[0.12] lg:opacity-[0.05] blur-[15px] scale-125 lg:scale-100 lg:group-hover:scale-125 lg:group-hover:opacity-[0.12] transition-all duration-1000"
                 />
                 <div className="absolute inset-0 bg-gradient-to-br from-white via-white/60 to-transparent"></div>
               </div>
             )}
 
             <div className="relative z-10">
-              <div className={`inline-flex items-center justify-center w-10 h-10 rounded-xl ${effectiveImage ? 'bg-white border-[2px] border-gray-200 group-hover:border-blue-300' : `${colors.bg} border-[2px] border-white/60 group-hover:border-blue-300`} mb-4 group-hover:scale-110 transition-all duration-500 shadow-inner`}>
+              <div className={`inline-flex items-center justify-center w-10 h-10 rounded-xl ${effectiveImage ? 'bg-white border-[2px] border-blue-300 lg:border-gray-200 lg:group-hover:border-blue-300' : `${colors.bg} border-[2px] border-blue-300 lg:border-white/60 lg:group-hover:border-blue-300`} mb-4 scale-110 lg:scale-100 lg:group-hover:scale-110 transition-all duration-500 shadow-inner`}>
                 {effectiveImage ? (
                   <img
                     src={effectiveImage}
@@ -74,7 +74,7 @@ export default function ServiceCard({ service, compact = false, customization = 
                   <LucideIcon name={effectiveIcon} size={20} className={colors.text} />
                 )}
               </div>
-              <h3 className="font-black text-gray-900 text-sm leading-tight group-hover:text-blue-600 transition-colors mb-2">
+              <h3 className="font-black text-blue-600 lg:text-gray-900 text-sm leading-tight lg:group-hover:text-blue-600 transition-colors mb-2">
                 {service.name}
               </h3>
               <span className={`cat-badge ${colors.badge} text-[10px] flex items-center gap-1.5 w-fit px-2.5 py-1 font-bold`}>
@@ -97,7 +97,7 @@ export default function ServiceCard({ service, compact = false, customization = 
   return (
     <div className="group relative h-full">
       <Link href={targetHref} className="block h-full">
-        <div className="bg-white rounded-3xl border-[2px] border-gray-200 h-full flex flex-col transition-all duration-500 shadow-sm hover:shadow-2xl hover:shadow-blue-500/15 group-hover:-translate-y-1 overflow-hidden relative group-hover:border-blue-400">
+        <div className="bg-white rounded-3xl border-[2px] border-blue-400 lg:border-gray-200 h-full flex flex-col transition-all duration-500 shadow-sm hover:shadow-2xl hover:shadow-blue-500/15 lg:group-hover:-translate-y-1 overflow-hidden relative lg:group-hover:border-blue-400">
           {/* Background Image Layer */}
           {cat?.bgImage && (
             <div className="absolute inset-0 z-0 pointer-events-none">
@@ -106,14 +106,14 @@ export default function ServiceCard({ service, compact = false, customization = 
                 alt={cat.label}
                 width={400}
                 height={400}
-                className="w-full h-full object-cover opacity-[0.06] blur-[20px] group-hover:scale-110 group-hover:opacity-[0.12] transition-all duration-1000"
+                className="w-full h-full object-cover opacity-[0.12] lg:opacity-[0.06] blur-[20px] scale-110 lg:scale-100 lg:group-hover:scale-110 lg:group-hover:opacity-[0.12] transition-all duration-1000"
               />
               <div className="absolute inset-0 bg-gradient-to-br from-white via-white/50 to-transparent"></div>
             </div>
           )}
 
           {/* Animated background glow */}
-          <div className={`absolute -right-8 -top-8 w-28 h-28 rounded-full ${colors.bg} opacity-10 blur-3xl group-hover:opacity-30 group-hover:scale-150 transition-all duration-1000 z-0 pointer-events-none`}></div>
+          <div className={`absolute -right-8 -top-8 w-28 h-28 rounded-full ${colors.bg} opacity-30 lg:opacity-10 blur-3xl lg:group-hover:opacity-30 scale-150 lg:scale-100 lg:group-hover:scale-150 transition-all duration-1000 z-0 pointer-events-none`}></div>
 
           <div className="relative flex-1 p-5 z-10 flex flex-col">
             {/* Header: Logo + Title */}
@@ -121,7 +121,7 @@ export default function ServiceCard({ service, compact = false, customization = 
               {/* Logo/Icon */}
               <div className="flex-shrink-0">
                 {effectiveImage ? (
-                  <div className="w-14 h-14 rounded-2xl overflow-hidden bg-white shadow-premium group-hover:scale-105 transition-all duration-300 flex items-center justify-center border-[2px] border-gray-200 group-hover:border-blue-300">
+                  <div className="w-14 h-14 rounded-2xl overflow-hidden bg-white shadow-premium scale-105 lg:scale-100 lg:group-hover:scale-105 transition-all duration-300 flex items-center justify-center border-[2px] border-blue-300 lg:border-gray-200 lg:group-hover:border-blue-300">
                     <img
                       src={effectiveImage}
                       alt={effectiveImageAlt}
@@ -131,7 +131,7 @@ export default function ServiceCard({ service, compact = false, customization = 
                     />
                   </div>
                 ) : (
-                  <div className={`flex items-center justify-center w-14 h-14 rounded-2xl ${colors.bg} shadow-premium group-hover:scale-105 transition-all duration-300 border-[2px] border-white/60 group-hover:border-blue-300`}>
+                  <div className={`flex items-center justify-center w-14 h-14 rounded-2xl ${colors.bg} shadow-premium scale-105 lg:scale-100 lg:group-hover:scale-105 transition-all duration-300 border-[2px] border-blue-300 lg:border-white/60 lg:group-hover:border-blue-300`}>
                     <LucideIcon name={effectiveIcon} size={28} className={colors.text} />
                   </div>
                 )}
@@ -144,7 +144,7 @@ export default function ServiceCard({ service, compact = false, customization = 
                     <LucideIcon name={cat?.icon} size={10} /> {cat?.label}
                   </span>
                 </div>
-                <h3 className="font-extrabold text-gray-950 text-[18px] leading-[1.3] group-hover:text-blue-700 transition-colors line-clamp-2">
+                <h3 className="font-extrabold text-blue-700 lg:text-gray-950 text-[18px] leading-[1.3] lg:group-hover:text-blue-700 transition-colors line-clamp-2">
                   {service.name}
                 </h3>
               </div>
