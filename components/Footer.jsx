@@ -10,6 +10,7 @@ export default function Footer() {
     { href: '/services', label: 'All Services' },
     { href: '/contact', label: 'Contact Us' },
     { href: '/sitemap', label: 'Sitemap' },
+    { href: '/privacy', label: 'Privacy Policy' },
   ]
 
   return (
