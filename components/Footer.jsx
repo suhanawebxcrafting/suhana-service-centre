@@ -133,18 +133,28 @@ export default function Footer() {
                 </a>
               </div>
               
-              <div className="mt-4 rounded-xl overflow-hidden h-32 border-[2px] border-blue-800/50 shadow-inner group relative">
+              <div className="mt-4 rounded-xl overflow-hidden h-36 border-[2px] border-blue-800/50 shadow-inner group relative flex flex-col">
                 <div className="absolute inset-0 bg-blue-900/20 group-hover:bg-transparent transition-colors pointer-events-none z-10"></div>
-                <iframe 
-                  width="100%" 
-                  height="100%" 
-                  frameBorder="0" 
-                  scrolling="no" 
-                  marginHeight="0" 
-                  marginWidth="0" 
-                  src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=Anand%20Gaushala,%20Chandansar%20Road,%20Virar%20East&amp;t=&amp;z=15&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
-                  className="grayscale-[30%] contrast-125 group-hover:grayscale-0 transition-all duration-500"
-                ></iframe>
+                <div className="flex-1">
+                  <iframe 
+                    width="100%" 
+                    height="100%" 
+                    frameBorder="0" 
+                    scrolling="no" 
+                    marginHeight="0" 
+                    marginWidth="0" 
+                    src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=Suhana%20Service%20centre%20Virar&amp;t=&amp;z=16&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
+                    className="grayscale-[30%] contrast-125 group-hover:grayscale-0 transition-all duration-500 h-full w-full"
+                  ></iframe>
+                </div>
+                <a 
+                  href="https://share.google/WSHO8xeatiA8sLkRW" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="bg-blue-600 text-white text-[11px] font-bold py-1.5 px-3 flex items-center justify-center gap-1.5 hover:bg-blue-500 transition-colors z-20"
+                >
+                  <LucideIcon name="MapPin" size={12} /> Open in Google Maps
+                </a>
               </div>
             </div>
           </div>
