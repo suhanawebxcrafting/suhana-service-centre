@@ -132,6 +132,20 @@ export default function Footer() {
                   suhanaservicec@gmail.com
                 </a>
               </div>
+              
+              <div className="mt-4 rounded-xl overflow-hidden h-32 border-[2px] border-blue-800/50 shadow-inner group relative">
+                <div className="absolute inset-0 bg-blue-900/20 group-hover:bg-transparent transition-colors pointer-events-none z-10"></div>
+                <iframe 
+                  width="100%" 
+                  height="100%" 
+                  frameBorder="0" 
+                  scrolling="no" 
+                  marginHeight="0" 
+                  marginWidth="0" 
+                  src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=Anand%20Gaushala,%20Chandansar%20Road,%20Virar%20East&amp;t=&amp;z=15&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
+                  className="grayscale-[30%] contrast-125 group-hover:grayscale-0 transition-all duration-500"
+                ></iframe>
+              </div>
             </div>
           </div>
         </div>
