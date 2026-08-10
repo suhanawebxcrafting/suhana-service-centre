@@ -25,8 +25,8 @@ export async function generateMetadata({ params }) {
   if (!service || !location) return { title: 'Not Found' }
   const cat = getCategoryById(service.category)
   return {
-    title: `${service.name} in ${location.name} | Suhana Service Center`,
-    description: `Apply for ${service.name} at Suhana Service Center, ${location.name}. Fast, reliable & affordable ${cat?.label || 'services'} in ${location.name}.`,
+    title: `${service.name} in ${location.name} (🎁 10% OFF) | Suhana Service Center`,
+    description: `Apply for ${service.name} at Suhana Service Center, ${location.name}. Fast, reliable & affordable ${cat?.label || 'services'}. 🎁 Get Flat 10% OFF on your first order!`,
     keywords: [
       `${service.name.toLowerCase()} ${location.name.toLowerCase()}`,
       `${service.name.toLowerCase()} agent ${location.name.toLowerCase()}`,

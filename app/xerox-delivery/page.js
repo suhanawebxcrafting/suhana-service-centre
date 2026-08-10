@@ -4,8 +4,8 @@ import { locations } from '@/data/locations'
 import LucideIcon from '@/components/LucideIcon'
 
 export const metadata = {
-  title: 'Best Xerox & Document Print Delivery in Virar | Suhana Service Center',
-  description: 'Need urgent printing? We offer fast print and doorstep delivery for A4, A3, Jumbo A0, blackbook, and smart cards across Vasai-Virar. Transparent pricing with ₹1.5 per page for B&W.',
+  title: 'Best Xerox & Print Delivery in Virar (🎁 10% OFF) | Suhana Service Center',
+  description: 'Need urgent printing? We offer fast print and doorstep delivery for A4, A3, Jumbo A0, blackbook, and smart cards across Vasai-Virar. 🎁 Get 10% OFF today!',
   keywords: [
     'xerox shop near me virar',
     'document print delivery virar',

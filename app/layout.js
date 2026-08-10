@@ -7,10 +7,10 @@ const SITE_URL = 'https://suhanaservicecentre.in'
 export const metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: 'Suhana Service Center — 70+ Govt Services Virar',
+    default: 'Suhana Service Center — 70+ Govt Services Virar | 🎁 10% OFF',
     template: '%s | Suhana Service Center',
   },
-  description: 'Suhana Service Center Virar East — Aadhaar, PAN, Passport, Voter ID, Certificates, Banking & 70+ government services. Call 7709709243.',
+  description: 'Suhana Service Center Virar East — Aadhaar, PAN, Passport, Voter ID, Certificates & 70+ government services. 🎁 Get Flat 10% OFF on your first order. Call 7709709243.',
   keywords: [
     'service center virar', 'service centre virar', 'aadhaar card virar', 'aadhaar update virar', 'pan card virar',
     'passport agent virar', 'voter id virar', 'birth certificate virar', 'death certificate virar',

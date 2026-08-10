@@ -31,8 +31,8 @@ const whyUs = [
 ]
 
 export const metadata = {
-  title: 'Suhana Service Center — 70+ Online Services Virar East',
-  description: 'Suhana Service Center Virar East — Aadhaar, PAN, Passport, Voter ID, Certificates, Banking & 70+ govt services. Call 7709709243.',
+  title: 'Suhana Service Center — 70+ Online Services Virar East | 🎁 10% OFF',
+  description: 'Suhana Service Center Virar East — Aadhaar, PAN, Passport, Certificates & 70+ govt services. 🎁 Get Flat 10% OFF on your first order! Call 7709709243.',
   alternates: {
     canonical: '/',
   },
