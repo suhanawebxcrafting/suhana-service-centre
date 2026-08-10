@@ -350,11 +350,11 @@ export default function XeroxDeliveryContent({ location }) {
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {printServices.map((service, index) => (
-              <div key={index} className="bg-white rounded-[2rem] p-7 lg:p-8 border-[2px] border-gray-200 hover:border-blue-400 shadow-[0_4px_25px_rgb(0,0,0,0.03)] hover:shadow-[0_20px_40px_rgb(0,0,0,0.08)] transition-all duration-300 group flex flex-col h-full hover:-translate-y-2 relative overflow-hidden">
-                <div className="absolute top-0 right-0 w-40 h-40 bg-blue-50/50 rounded-bl-[100px] -z-10 group-hover:scale-110 transition-transform duration-500"></div>
+              <div key={index} className="bg-white rounded-[2rem] p-7 lg:p-8 border-[2px] border-blue-400 lg:border-gray-200 lg:hover:border-blue-400 shadow-[0_4px_25px_rgb(0,0,0,0.03)] hover:shadow-[0_20px_40px_rgb(0,0,0,0.08)] transition-all duration-300 group flex flex-col h-full hover:-translate-y-2 relative overflow-hidden">
+                <div className="absolute top-0 right-0 w-40 h-40 bg-blue-50/50 rounded-bl-[100px] -z-10 scale-110 lg:scale-100 lg:group-hover:scale-110 transition-transform duration-500"></div>
                 
                 <div className="flex justify-between items-start mb-6">
-                  <div className="w-16 h-16 rounded-2xl flex items-center justify-center bg-gradient-to-br from-blue-50 to-blue-100 text-blue-600 group-hover:from-blue-600 group-hover:to-blue-700 group-hover:text-white transition-all duration-300 shadow-sm">
+                  <div className="w-16 h-16 rounded-2xl flex items-center justify-center bg-gradient-to-br from-blue-600 to-blue-700 text-white lg:from-blue-50 lg:to-blue-100 lg:text-blue-600 lg:group-hover:from-blue-600 lg:group-hover:to-blue-700 lg:group-hover:text-white transition-all duration-300 shadow-sm">
                     <LucideIcon name={service.icon} size={30} />
                   </div>
                   <span className={`text-[10px] font-extrabold uppercase tracking-widest px-3 py-1.5 rounded-full shadow-sm ${service.badge.includes('High') ? 'bg-orange-50 text-orange-600 border border-orange-100' : service.badge.includes('Delay') ? 'bg-yellow-50 text-yellow-700 border border-yellow-100' : 'bg-green-50 text-green-700 border border-green-100'}`}>
@@ -362,7 +362,7 @@ export default function XeroxDeliveryContent({ location }) {
                   </span>
                 </div>
                 
-                <h3 className="font-extrabold text-gray-950 text-[20px] mb-3 tracking-tight group-hover:text-blue-700 transition-colors">{service.title}</h3>
+                <h3 className="font-extrabold text-blue-700 lg:text-gray-950 text-[20px] mb-3 tracking-tight lg:group-hover:text-blue-700 transition-colors">{service.title}</h3>
                 
                 <p className="text-gray-700 text-[15px] leading-relaxed flex-1 mb-8 font-semibold">{service.desc}</p>
                 
