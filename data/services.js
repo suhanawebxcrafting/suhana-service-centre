@@ -129,13 +129,37 @@ export const services = [
     name: 'PVC Aadhaar Card Order', icon: 'CreditCard',
     image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Flag_of_India.svg/512px-Flag_of_India.svg.png',
     dummyImage: 'https://images.unsplash.com/photo-1544866092-194121a9953d?auto=format&fit=crop&q=80&w=400',
-    description: 'Order a PVC (Polyvinyl Chloride) Aadhaar card — a durable, credit-card-sized physical Aadhaar card from UIDAI.',
-    documentsRequired: ['Aadhaar Number', 'Registered Mobile Number (for OTP)'],
-    eligibility: 'Any Aadhaar holder with a registered mobile number.',
-    processSteps: ['Provide Aadhaar number at our center', 'OTP verification on registered mobile', 'Online order placed on UIDAI portal', 'PVC card delivered by India Post within 5–10 days'],
-    processingTime: '5–10 working days',
-    charges: 'Contact for latest charges',
-    notes: 'UIDAI charges ₹50 (including GST) for PVC card. Documents and process may vary.'
+    description: 'Tired of paper Aadhaar cards getting damaged? Order the official UIDAI PVC Aadhaar Card! It is a highly durable, credit-card-sized smart card with modern security features like a secure QR code, hologram, micro text, and ghost image. We help you place the order quickly and securely in Virar.',
+    documentsRequired: [
+      'Aadhaar Number or 14-digit Enrolment ID (EID)',
+      'Mobile Number (Registered OR Non-Registered both work!)'
+    ],
+    eligibility: 'Any Aadhaar holder can order a PVC card. Unlike other services, you do NOT need a registered mobile number to order a PVC Aadhaar Card.',
+    processSteps: [
+      'Step 1: Visit our CSC center in Virar with your Aadhaar number.',
+      'Step 2: We will enter your Aadhaar details on the UIDAI portal.',
+      'Step 3: Verification via OTP (OTP can be sent to ANY mobile number if your number is not linked).',
+      'Step 4: Payment of the official UIDAI fee.',
+      'Step 5: Receive an SRN (Service Request Number) to track your delivery status.',
+      'Step 6: The PVC card will be printed and delivered directly to your registered address via Speed Post.'
+    ],
+    processingTime: 'Delivered to your home in 5 to 15 working days by India Post',
+    charges: '₹50 (Official UIDAI Fee including GST & Speed Post charges) + Nominal Service Fee',
+    notes: 'Important: The PVC card is only delivered to the address printed on your Aadhaar card. If you want to change the delivery address, you must update your Aadhaar address first.',
+    keywords: [
+      'Order PVC Aadhaar Card',
+      'Plastic Aadhaar Card Virar',
+      'Smart Aadhaar Card order',
+      'Aadhaar PVC card near me',
+      'UIDAI PVC card print',
+      'Original PVC Aadhaar apply'
+    ],
+    faqs: [
+      { q: 'Can I order a PVC Aadhaar card if my mobile number is not registered?', a: 'Yes! UIDAI allows you to order a PVC Aadhaar card using any alternate or non-registered mobile number to receive the OTP for ordering.' },
+      { q: 'What are the security features of the official PVC Aadhaar Card?', a: 'The official PVC card contains advanced security features such as a secure QR Code, Hologram, Ghost image, Guilloche Pattern, and Micro text, making it highly secure and tamper-proof.' },
+      { q: 'Where will the PVC Aadhaar card be delivered?', a: 'The card will be delivered exclusively to the residential address registered in your Aadhaar data via India Post (Speed Post). It cannot be delivered to our center or any other custom address.' },
+      { q: 'How can I track the delivery status of my PVC card?', a: 'After placing the order, you will receive a Service Request Number (SRN). You can track your order status on the UIDAI website using this SRN and your Aadhaar number.' }
+    ]
   },
   {
     id: 5, slug: 'pan-card-new', category: 'identity',
