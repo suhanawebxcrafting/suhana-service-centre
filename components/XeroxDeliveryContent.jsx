@@ -404,11 +404,11 @@ export default function XeroxDeliveryContent({ location }) {
                 <div className="flex-1"></div>
                 
                 <div className="grid grid-cols-2 gap-3 mt-auto pt-6 border-t border-gray-100/80">
-                  <button onClick={() => openServiceModal(service)} className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3.5 rounded-xl transition-all duration-300 flex items-center justify-center gap-1.5 text-[14px] shadow-md shadow-blue-600/20 hover:shadow-lg hover:shadow-blue-600/30">
+                  <button onClick={() => openServiceModal(service)} className="w-full bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-bold py-3.5 rounded-xl transition-all duration-300 flex items-center justify-center gap-1.5 text-[14px] shadow-md shadow-blue-600/20 hover:shadow-xl hover:shadow-blue-600/40 hover:-translate-y-1">
                     Order Now <ChevronRight size={16} className="opacity-80" />
                   </button>
                   {service.slug && (
-                    <Link href={`/locations/${location?.slug || 'virar-east'}/${service.slug}`} className="w-full bg-white hover:bg-gray-50 text-gray-900 font-bold py-3.5 rounded-xl transition-all duration-300 flex items-center justify-center text-[14px] border border-gray-200 hover:border-gray-300 shadow-sm">
+                    <Link href={`/locations/${location?.slug || 'virar-east'}/${service.slug}`} className="w-full bg-white hover:bg-blue-50 text-gray-900 hover:text-blue-700 font-bold py-3.5 rounded-xl transition-all duration-300 flex items-center justify-center text-[14px] border border-gray-200 hover:border-blue-200 shadow-sm hover:shadow-md hover:-translate-y-1">
                       View Details
                     </Link>
                   )}
