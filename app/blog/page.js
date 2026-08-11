@@ -32,28 +32,37 @@ export default async function BlogPage() {
 
   return (
     <main className="min-h-screen pt-24 lg:pt-32 pb-20">
-      {/* Header Section */}
-      <section className="relative py-16 lg:py-24 overflow-hidden">
-        {/* Background Decorations */}
-        <div className="absolute inset-0 bg-blue-50/50 -z-10"></div>
-        <div className="absolute top-0 right-0 w-96 h-96 bg-blue-100 rounded-full blur-3xl opacity-50 -mr-48 -mt-48"></div>
-        <div className="absolute bottom-0 left-0 w-96 h-96 bg-orange-100 rounded-full blur-3xl opacity-50 -ml-48 -mb-48"></div>
+      {/* Premium Header Section */}
+      <section className="relative pt-32 pb-40 overflow-hidden bg-[#0f172a]">
+        {/* Abstract Background Elements */}
+        <div className="absolute inset-0">
+          <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-blue-600/20 rounded-full blur-[120px] -mr-96 -mt-96 opacity-70 animate-pulse"></div>
+          <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-indigo-500/20 rounded-full blur-[100px] -ml-64 -mb-64 opacity-60"></div>
+          <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)', backgroundSize: '40px 40px' }}></div>
+        </div>
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <nav className="flex justify-center mb-6 animate-fade-up">
-            <ol className="flex items-center gap-2 text-sm font-semibold text-gray-500">
-              <li><Link href="/" className="hover:text-blue-600 transition-colors">Home</Link></li>
-              <li className="text-gray-300"><LucideIcon name="ChevronRight" size={14} /></li>
-              <li className="text-blue-600">Blog</li>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+          <nav className="flex justify-center mb-8 animate-fade-up">
+            <ol className="inline-flex items-center gap-2 text-sm font-semibold bg-white/5 backdrop-blur-md px-5 py-2.5 rounded-full border border-white/10 shadow-lg">
+              <li><Link href="/" className="text-gray-400 hover:text-white transition-colors">Home</Link></li>
+              <li className="text-gray-500"><LucideIcon name="ChevronRight" size={14} /></li>
+              <li className="text-white">Blog</li>
             </ol>
           </nav>
 
-          <h1 className="text-4xl lg:text-6xl font-black text-blue-950 mb-6 animate-fade-up">
-            Insights & <span className="text-blue-600">Updates</span>
+          <h1 className="text-4xl sm:text-5xl lg:text-7xl font-black text-white mb-6 tracking-tight drop-shadow-xl animate-fade-up" style={{ fontFamily: "'Poppins', 'Inter', sans-serif" }}>
+            Insights & <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-yellow-400">Updates</span>
           </h1>
-          <p className="text-gray-500 text-lg lg:text-xl max-w-2xl mx-auto font-medium animate-fade-up leading-relaxed" style={{ animationDelay: '0.1s' }}>
+          <p className="text-blue-100/90 text-lg lg:text-xl max-w-2xl mx-auto font-medium animate-fade-up leading-relaxed" style={{ animationDelay: '0.1s' }}>
             Stay informed with our latest articles on government services, digital tools, and helpful guides for daily tasks.
           </p>
+        </div>
+        
+        {/* Bottom Wave Transition */}
+        <div className="absolute bottom-0 left-0 right-0 w-full overflow-hidden leading-none z-10">
+          <svg className="relative block w-full h-[60px]" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+            <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V95.8C59.71,118.08,130.83,119.26,192.39,102.53Z" fill="#ffffff"></path>
+          </svg>
         </div>
       </section>
 
