@@ -90,14 +90,39 @@ export const services = [
   },
   {
     id: 3, slug: 'e-aadhaar-download', category: 'identity',
-    name: 'e-Aadhaar Download', icon: 'Download',
-    description: 'Download your e-Aadhaar (electronic Aadhaar) from the official UIDAI website. e-Aadhaar is a password-protected digital copy of your Aadhaar card.',
-    documentsRequired: ['Aadhaar Number or Enrolment ID', 'Registered Mobile Number (for OTP)'],
-    eligibility: 'Any Aadhaar holder with a registered mobile number.',
-    processSteps: ['Visit our center', 'Provide Aadhaar number or EID', 'OTP sent to registered mobile', 'e-Aadhaar PDF downloaded', 'Print taken (optional)'],
-    processingTime: 'Same day / Instant',
-    charges: 'Contact for latest charges',
-    notes: 'e-Aadhaar password is first 4 letters of name (capital) + birth year. Documents and process may vary.'
+    name: 'e-Aadhaar Download & Print', icon: 'Download',
+    description: 'Lost your Aadhaar card or need a digital copy urgently? We offer instant e-Aadhaar download and high-quality color printing services in Virar. The e-Aadhaar is a digitally signed and password-protected electronic copy of your Aadhaar which is equally valid as the physical card for all official purposes.',
+    documentsRequired: [
+      'Aadhaar Number OR 14-digit Enrolment ID (EID)',
+      'Registered Mobile Number (Must be active to receive OTP)',
+      'Alternatively: Virtual ID (VID)'
+    ],
+    eligibility: 'Any Aadhaar holder whose mobile number is registered and linked with their Aadhaar.',
+    processSteps: [
+      'Step 1: Visit our CSC center in Virar and provide your Aadhaar Number or Enrolment ID.',
+      'Step 2: An OTP will be sent instantly to your Aadhaar-linked registered mobile number.',
+      'Step 3: Provide the OTP to our executive for secure UIDAI authentication.',
+      'Step 4: We will download the password-protected e-Aadhaar PDF.',
+      'Step 5: Get an instant high-quality color printout or PVC card (optional) of your downloaded Aadhaar.'
+    ],
+    processingTime: 'Instant (Takes just 2 to 5 minutes)',
+    charges: '₹30 for Download & Normal Color Print | Premium PVC printing available on request',
+    notes: 'Important: To open the e-Aadhaar PDF file, the password is a combination of the first 4 letters of your name (in CAPITAL letters) followed by your Year of Birth (e.g., if name is SURESH and born in 1990, password is SURE1990).',
+    keywords: [
+      'e-Aadhaar download Virar',
+      'Download Aadhaar card online',
+      'Print Aadhaar card near me',
+      'Aadhaar PDF password',
+      'Get lost Aadhaar card',
+      'UIDAI e-Aadhaar print',
+      'Aadhaar OTP download'
+    ],
+    faqs: [
+      { q: 'Is the e-Aadhaar printout valid everywhere?', a: 'Yes! As per the Aadhaar Act, e-Aadhaar is digitally signed by UIDAI and is equally valid as the original physical Aadhaar card for all official and non-official purposes.' },
+      { q: 'Can I download my Aadhaar if my mobile number is not linked?', a: 'No, you cannot download e-Aadhaar without a registered mobile number as the UIDAI system requires OTP verification. You must first update your mobile number by visiting an Aadhaar center.' },
+      { q: 'I forgot my Aadhaar number, how can I download it?', a: 'If your mobile number is registered, we can help you retrieve your lost Aadhaar number (UID) or Enrolment ID (EID) by sending an OTP to your phone, after which the card can be downloaded.' },
+      { q: 'What is the password for the downloaded e-Aadhaar PDF?', a: 'The password is 8 characters long: the first 4 letters of your name in CAPITAL letters, followed by your 4-digit Year of Birth (YYYY).' }
+    ]
   },
   {
     id: 4, slug: 'pvc-aadhaar-card', category: 'identity',
