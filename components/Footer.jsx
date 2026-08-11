@@ -11,6 +11,7 @@ export default function Footer() {
     { href: '/contact', label: 'Contact Us' },
     { href: '/sitemap', label: 'Sitemap' },
     { href: '/privacy', label: 'Privacy Policy' },
+    { href: '/terms', label: 'Terms & Conditions' },
   ]
 
   return (
