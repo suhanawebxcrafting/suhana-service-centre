@@ -137,21 +137,27 @@ export default function ContactPage() {
               </div>
 
               {/* Contact Row (Phone & Email) */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                <a href="tel:7709709243" className="group relative bg-white rounded-3xl p-6 border border-gray-100 shadow-sm hover:shadow-[0_20px_40px_rgba(0,0,0,0.04)] hover:border-orange-200 transition-all duration-300 block">
-                  <div className="w-12 h-12 bg-gradient-to-br from-orange-400 to-orange-500 rounded-2xl flex items-center justify-center text-white mb-4 shadow-lg shadow-orange-500/30 group-hover:scale-110 transition-transform">
-                    <LucideIcon name="Phone" size={22} />
+              <div className="space-y-6">
+                <a href="tel:7709709243" className="group relative bg-white rounded-3xl p-6 border border-gray-100 shadow-sm hover:shadow-[0_20px_40px_rgba(0,0,0,0.04)] hover:border-orange-200 transition-all duration-300 flex items-center gap-5 overflow-hidden">
+                  <div className="absolute top-0 right-0 w-32 h-32 bg-orange-50 rounded-bl-full -z-10 group-hover:scale-110 transition-transform duration-500"></div>
+                  <div className="w-14 h-14 bg-gradient-to-br from-orange-400 to-orange-500 rounded-2xl flex items-center justify-center text-white flex-shrink-0 shadow-lg shadow-orange-500/30 group-hover:-translate-y-1 transition-transform">
+                    <LucideIcon name="Phone" size={26} />
                   </div>
-                  <div className="text-gray-400 text-[10px] font-black uppercase tracking-widest mb-1">Call Us</div>
-                  <div className="text-gray-800 font-black text-lg">7709709243</div>
+                  <div>
+                    <div className="text-gray-400 text-xs font-black uppercase tracking-widest mb-1">Call Us</div>
+                    <div className="text-gray-700 font-bold text-lg leading-relaxed">7709709243</div>
+                  </div>
                 </a>
 
-                <a href="mailto:suhanaservicec@gmail.com" className="group relative bg-white rounded-3xl p-6 border border-gray-100 shadow-sm hover:shadow-[0_20px_40px_rgba(0,0,0,0.04)] hover:border-blue-200 transition-all duration-300 block">
-                  <div className="w-12 h-12 bg-gradient-to-br from-blue-400 to-blue-500 rounded-2xl flex items-center justify-center text-white mb-4 shadow-lg shadow-blue-500/30 group-hover:scale-110 transition-transform">
-                    <LucideIcon name="Mail" size={22} />
+                <a href="mailto:suhanaservicec@gmail.com" className="group relative bg-white rounded-3xl p-6 border border-gray-100 shadow-sm hover:shadow-[0_20px_40px_rgba(0,0,0,0.04)] hover:border-blue-200 transition-all duration-300 flex items-center gap-5 overflow-hidden">
+                  <div className="absolute top-0 right-0 w-32 h-32 bg-blue-50 rounded-bl-full -z-10 group-hover:scale-110 transition-transform duration-500"></div>
+                  <div className="w-14 h-14 bg-gradient-to-br from-blue-400 to-blue-500 rounded-2xl flex items-center justify-center text-white flex-shrink-0 shadow-lg shadow-blue-500/30 group-hover:-translate-y-1 transition-transform">
+                    <LucideIcon name="Mail" size={26} />
                   </div>
-                  <div className="text-gray-400 text-[10px] font-black uppercase tracking-widest mb-1">Email Us</div>
-                  <div className="text-gray-800 font-black text-sm break-all">suhanaservicec@<br/>gmail.com</div>
+                  <div>
+                    <div className="text-gray-400 text-xs font-black uppercase tracking-widest mb-1">Email Us</div>
+                    <div className="text-gray-700 font-bold text-lg leading-relaxed">suhanaservicec@gmail.com</div>
+                  </div>
                 </a>
               </div>
 
