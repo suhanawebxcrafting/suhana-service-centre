@@ -156,7 +156,7 @@ export default async function ServiceDetailPage({ params }) {
               {/* Description */}
               <div className="bg-blue-50 rounded-2xl p-6 border border-blue-100">
                 <h2 className="font-bold text-blue-900 text-lg mb-3 flex items-center gap-2">
-                  <span className="w-6 h-6 bg-blue-600 rounded-full flex items-center justify-center text-white font-black text-xs flex-shrink-0">ℹ</span> About This Service
+                  <LucideIcon name="Info" size={20} className="text-blue-600" /> About This Service
                 </h2>
                 <p className="text-gray-900 leading-relaxed text-[15px] font-semibold">{service.description}</p>
               </div>
@@ -165,7 +165,7 @@ export default async function ServiceDetailPage({ params }) {
               {service.eligibility && (
                 <div className="bg-green-50 rounded-2xl p-6 border border-green-100">
                   <h2 className="font-bold text-green-900 text-base mb-3 flex items-center gap-2">
-                    <span className="w-6 h-6 bg-green-600 rounded-full flex items-center justify-center text-white font-black text-xs flex-shrink-0">✓</span> Eligibility
+                    <LucideIcon name="CheckCircle2" size={18} className="text-green-600" /> Eligibility
                   </h2>
                   <p className="text-gray-900 text-[15px] leading-relaxed font-semibold">{service.eligibility}</p>
                 </div>
@@ -174,7 +174,7 @@ export default async function ServiceDetailPage({ params }) {
               {/* Documents Required */}
               <div className="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm">
                 <h2 className="font-bold text-gray-900 text-base mb-4 flex items-center gap-2">
-                  <span className="w-6 h-6 bg-blue-600 rounded-full flex items-center justify-center text-white font-black text-xs flex-shrink-0">📋</span> Documents Required
+                  <LucideIcon name="FolderOpen" size={18} className="text-blue-600" /> Documents Required
                 </h2>
                 <ul className="space-y-2.5">
                   {service.documentsRequired.map((doc, i) => (
@@ -191,7 +191,7 @@ export default async function ServiceDetailPage({ params }) {
               {/* Process Steps */}
               <div className="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm">
                 <h2 className="font-bold text-gray-900 text-base mb-4 flex items-center gap-2">
-                  <span className="w-6 h-6 bg-blue-600 rounded-full flex items-center justify-center text-white font-black text-xs flex-shrink-0">⚡</span> Step-by-Step Process
+                  <LucideIcon name="RefreshCw" size={18} className="text-blue-600" /> Step-by-Step Process
                 </h2>
                 <div className="space-y-4">
                   {service.processSteps.map((step, i) => (
@@ -211,7 +211,7 @@ export default async function ServiceDetailPage({ params }) {
               {/* Notes */}
               <div className="bg-amber-50 rounded-2xl p-6 border border-amber-200">
                 <h2 className="font-bold text-amber-900 text-base mb-3 flex items-center gap-2">
-                  <span className="w-6 h-6 bg-amber-500 rounded-full flex items-center justify-center text-white font-black text-xs flex-shrink-0">!</span> Important Notes
+                  <LucideIcon name="AlertTriangle" size={18} className="text-amber-600" /> Important Notes
                 </h2>
                 <p className="text-amber-900 text-[15px] leading-relaxed font-bold">{service.notes}</p>
               </div>
@@ -244,10 +244,12 @@ export default async function ServiceDetailPage({ params }) {
 
               {/* CTA Card */}
               <div className="bg-white rounded-2xl p-6 border border-gray-100 shadow-card space-y-3">
-                <h3 className="font-bold text-gray-900 text-base mb-4">🚀 Get This Service</h3>
+                <h3 className="font-bold text-gray-900 text-base mb-4 flex items-center gap-2">
+                  <LucideIcon name="Sparkles" size={18} className="text-blue-600" /> Get This Service
+                </h3>
                 <a href="tel:7709709243"
                   className="flex items-center justify-center gap-2 w-full bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-semibold py-3.5 rounded-xl transition-all hover:-translate-y-0.5 text-sm shadow-md">
-                  📞 Call Now: 7709709243
+                  <LucideIcon name="Phone" size={16} /> Call Now: 7709709243
                 </a>
                 <a href="https://wa.me/917709709243?text=Hello%2C%20I%20need%20help%20with%20"
                   target="_blank" rel="noopener noreferrer"
@@ -256,11 +258,11 @@ export default async function ServiceDetailPage({ params }) {
                 </a>
                 <Link href="/contact"
                   className="flex items-center justify-center gap-2 w-full bg-orange-50 hover:bg-orange-100 text-orange-700 font-semibold py-3.5 rounded-xl transition-all text-sm border border-orange-200">
-                  📍 Visit Our Office
+                  <LucideIcon name="MapPin" size={16} /> Visit Our Office
                 </Link>
                 <Link href="/contact"
                   className="flex items-center justify-center gap-2 w-full bg-blue-50 hover:bg-blue-100 text-blue-700 font-semibold py-3.5 rounded-xl transition-all text-sm border border-blue-200">
-                  📩 Contact Us Page
+                  <LucideIcon name="Mail" size={16} /> Contact Us Page
                 </Link>
               </div>
 
