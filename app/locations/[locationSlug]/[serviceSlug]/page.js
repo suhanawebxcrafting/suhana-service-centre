@@ -28,15 +28,16 @@ export async function generateMetadata({ params }) {
     title: `${service.name} in ${location.name}: Best Service Provider | Suhana`,
     description: `Looking for ${service.name} in ${location.name}? Apply fast and securely at Suhana Service Center. Fast, reliable & affordable ${cat?.label || 'services'}.`,
     keywords: [
+      ...(service.keywords || []),
       `${service.name.toLowerCase()} in ${location.name.toLowerCase()}`,
       `${service.name.toLowerCase()} ${location.name.toLowerCase()}`,
-      `${service.name.toLowerCase()} agent ${location.name.toLowerCase()}`,
-      `urgent ${service.name.toLowerCase()} near me ${location.name.toLowerCase()}`,
-      `apply ${service.name.toLowerCase()} ${location.name.toLowerCase()}`,
+      `best ${service.name.toLowerCase()} agent in ${location.name.toLowerCase()}`,
+      `urgent ${service.name.toLowerCase()} ${location.name.toLowerCase()}`,
+      `apply ${service.name.toLowerCase()} online ${location.name.toLowerCase()}`,
       `fast ${service.name.toLowerCase()} service ${location.name.toLowerCase()}`,
       `${service.name.toLowerCase()} consultant ${location.name.toLowerCase()}`,
-      `${cat?.label?.toLowerCase() || 'services'} ${location.name.toLowerCase()}`,
-      `${service.name.toLowerCase()} near me`,
+      `${cat?.label?.toLowerCase() || 'services'} near me ${location.name.toLowerCase()}`,
+      `suhana service center ${location.name.toLowerCase()}`
     ],
     alternates: {
       canonical: `/locations/${params.locationSlug}/${params.serviceSlug}`,
@@ -325,6 +326,17 @@ export default async function LocationServiceDetailPage({ params }) {
             <p className="text-gray-500 text-sm font-medium">Common questions about our {service.name} services in {location.name}.</p>
           </div>
           <div className="space-y-4">
+            {service.faqs && service.faqs.map((faq, i) => (
+              <div key={i} className="bg-white rounded-2xl p-5 border border-blue-100 shadow-sm">
+                <h3 className="font-bold text-blue-900 mb-2 text-sm flex items-start gap-2">
+                  <span className="text-orange-500 font-black">Q:</span> {faq.q}
+                </h3>
+                <p className="text-gray-600 text-sm leading-relaxed flex items-start gap-2">
+                  <span className="text-blue-500 font-black">A:</span> {faq.a}
+                </p>
+              </div>
+            ))}
+            
             <div className="bg-gray-50 rounded-2xl p-5 border border-gray-100">
               <h3 className="font-bold text-gray-900 mb-2 text-sm">Where can I apply for {service.name} in {location.name}?</h3>
               <p className="text-gray-600 text-sm leading-relaxed">Suhana Service Center is your trusted <strong>{service.name.toLowerCase()} agent in {location.name}</strong>. You can visit our office or <strong>apply {service.name.toLowerCase()} online</strong> through us for fast processing.</p>

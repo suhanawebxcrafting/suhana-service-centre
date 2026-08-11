@@ -17,24 +17,39 @@ export const services = [
     name: 'Aadhaar Card New Registration', icon: 'Fingerprint',
     image: 'https://upload.wikimedia.org/wikipedia/en/thumb/c/cf/Aadhaar_Logo.svg/512px-Aadhaar_Logo.svg.png',
     dummyImage: 'https://images.unsplash.com/photo-1633158829585-23ba8f7c8caf?auto=format&fit=crop&q=80&w=400',
-    description: 'Apply for a new Aadhaar card for Indian residents. Aadhaar is a 12-digit unique identity number issued by UIDAI and is mandatory for most government services.',
+    description: 'Looking to apply for a new Aadhaar card in Virar? We provide hassle-free, fast, and secure new Aadhaar registration services. Aadhaar is a mandatory 12-digit unique identity number issued by UIDAI for Indian residents. Visit our Suhana Service Center for expert assistance in documentation and biometric capturing.',
     documentsRequired: [
-      'Proof of Identity (POI): Passport / PAN Card / Ration Card / Voter ID',
-      'Proof of Address (POA): Utility Bill / Bank Statement / Rent Agreement',
-      'Date of Birth Proof: Birth Certificate / SSLC Marksheet / Passport',
-      'Recent Passport-size Photograph'
+      'Proof of Identity (POI): Passport / PAN Card / Voter ID / Ration Card / Driving License',
+      'Proof of Address (POA): Electricity Bill / Water Bill / Bank Passbook / Rent Agreement',
+      'Date of Birth Proof (DOB): Birth Certificate / SSLC Marksheet / Valid Passport',
+      'Head of Family (HoF) based enrolment: If you don\'t have documents, you can apply using HoF\'s Aadhaar.'
     ],
-    eligibility: 'Any resident of India (including infants and children) can apply for an Aadhaar card.',
+    eligibility: 'Every resident of India (including NRIs, senior citizens, and newborn infants) can apply for a new Aadhaar card.',
     processSteps: [
-      'Visit our center with original identity and address proofs',
-      'Fill the Aadhaar Enrolment Form (Form 5 for Adults, Form 6 for Kids)',
-      'Capturing biometric data (fingerprints, iris scan) and facial photograph',
-      'Collection of acknowledgment slip with 14-digit Enrolment ID (EID)',
-      'Verification by UIDAI and delivery by India Post (usually within 60-90 days)'
+      'Step 1: Visit our CSC Aadhaar Center in Virar with your original identity and address proof documents.',
+      'Step 2: Our expert executive will fill out your Aadhaar Enrolment Form (Form 5 for Adults, Form 6 for Kids).',
+      'Step 3: Capturing of Biometric data (fingerprints, iris scan) and a live facial photograph.',
+      'Step 4: Receive your acknowledgment slip containing the 14-digit Enrolment ID (EID) to track status.',
+      'Step 5: Track online; physical Aadhaar will be delivered via India Post (usually within 60-90 days).'
     ],
-    processingTime: '60–90 days (Physical Card) / 10–15 days (e-Aadhaar)',
-    charges: 'FREE (First time enrolment is free as per UIDAI)',
-    notes: 'Biometrics for children under 5 are not taken; they need to provide Biometric updates at age 5 and 15.'
+    processingTime: '60–90 days for Physical Card | 10–15 days for e-Aadhaar download',
+    charges: 'FREE (First-time Aadhaar enrolment is completely free of charge as per UIDAI guidelines)',
+    notes: 'Important Note: Biometrics for children under 5 years are not captured. Parents must provide their Aadhaar for linkage. Mandatory biometric updates are required when the child reaches age 5 and 15.',
+    keywords: [
+      'New Aadhaar Card Virar',
+      'Aadhaar Registration near me',
+      'Aadhaar center Virar East',
+      'Apply new aadhaar online',
+      'UIDAI enrollment Virar',
+      'Aadhaar documentation help',
+      'Child aadhaar card registration'
+    ],
+    faqs: [
+      { q: 'Is it mandatory to link my mobile number during new Aadhaar registration?', a: 'Yes, providing a valid mobile number is highly recommended as it is required for downloading e-Aadhaar, OTP verification, and accessing online UIDAI services.' },
+      { q: 'Can I apply for an Aadhaar card for my newborn baby?', a: 'Yes, you can apply for a Baal Aadhaar for your newborn baby. You only need the child\'s Birth Certificate and one of the parent\'s Aadhaar card.' },
+      { q: 'What if I don\'t have any address proof in my name?', a: 'If you don\'t have address proof, you can still apply using the Head of Family (HoF) based enrolment process or by obtaining a certificate from an MP/MLA/Gazetted Officer.' },
+      { q: 'How long does it take to get the Aadhaar card?', a: 'Usually, the e-Aadhaar is generated within 10 to 15 days, which you can download online. The physical PVC/paper card is delivered by India Post in 60 to 90 days.' }
+    ]
   },
   {
     id: 2, slug: 'aadhaar-update', category: 'identity',

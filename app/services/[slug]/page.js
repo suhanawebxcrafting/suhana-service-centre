@@ -19,6 +19,7 @@ export async function generateMetadata({ params }) {
     title: `${service.name} in Virar: Best Service Provider | Suhana`,
     description: `Looking for ${service.name} in Virar? We offer fast and secure ${service.name.toLowerCase()} services at Suhana Service Center, Virar East. ${service.description.slice(0, 50)}...`,
     keywords: [
+      ...(service.keywords || []),
       `${service.name.toLowerCase()} in virar`,
       `${service.name.toLowerCase()} virar`,
       `best ${service.name.toLowerCase()} agent in virar`,
@@ -301,6 +302,17 @@ export default async function ServiceDetailPage({ params }) {
             <p className="text-gray-500 text-sm font-medium">Common questions about our {service.name} services in Virar.</p>
           </div>
           <div className="space-y-4">
+            {service.faqs && service.faqs.map((faq, i) => (
+              <div key={i} className="bg-white rounded-2xl p-5 border border-blue-100 shadow-sm">
+                <h3 className="font-bold text-blue-900 mb-2 text-sm flex items-start gap-2">
+                  <span className="text-orange-500 font-black">Q:</span> {faq.q}
+                </h3>
+                <p className="text-gray-600 text-sm leading-relaxed flex items-start gap-2">
+                  <span className="text-blue-500 font-black">A:</span> {faq.a}
+                </p>
+              </div>
+            ))}
+            
             <div className="bg-gray-50 rounded-2xl p-5 border border-gray-100">
               <h3 className="font-bold text-gray-900 mb-2 text-sm">Where can I apply for {service.name} in Virar?</h3>
               <p className="text-gray-600 text-sm leading-relaxed">Suhana Service Center is your trusted <strong>{service.name.toLowerCase()} agent in Virar</strong>. You can visit our office in Virar East or <strong>apply {service.name.toLowerCase()} online</strong> through us for fast processing.</p>
