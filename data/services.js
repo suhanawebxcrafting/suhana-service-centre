@@ -359,25 +359,41 @@ export const services = [
   {
     id: 11, slug: 'passport-new', category: 'passport',
     name: 'Passport New Apply', icon: 'Book',
-    description: 'Professional assistance for Fresh/New Passport applications. We handle the entire online process including appointment scheduling and document guidance.',
+    description: 'Planning to travel abroad? Apply for a Fresh Indian Passport with our expert assistance in Virar. We provide end-to-end guidance—from filling the complex online application accurately, booking the earliest PSK appointment, to preparing your document file so you don\'t face any rejections at the passport office.',
     documentsRequired: [
-      'Identity & Address Proof: Aadhaar Card (Preferably linked to mobile)',
-      'Date of Birth Proof: Birth Certificate or Class 10th Marksheet',
-      'Non-ECR Proof: Class 10th or higher education certificate',
-      'Current Address Proof: Utility Bill / Rent Agreement / Bank Passbook'
+      'Aadhaar Card (Must have full Date of Birth and be linked to your mobile)',
+      'PAN Card or Voter ID (As additional identity proof)',
+      'Education Proof: 10th Marksheet / Degree (Required for Non-ECR/ECNR status)',
+      'Address Proof: Electricity Bill, Gas Bill, Registered Rent Agreement, or Bank Passbook',
+      'Birth Certificate (Mandatory for applicants born after 1989 without a 10th marksheet)'
     ],
-    eligibility: 'Any Indian citizen who holds a valid identity and address proof.',
+    eligibility: 'Any Indian citizen. Minors, adults, and senior citizens can apply. To qualify for Non-ECR (Emigration Check Not Required) status, the applicant must have passed at least 10th grade.',
     processSteps: [
-      'Online Registration on the Passport Seva official portal',
-      'Filling the application form and paying the government fee',
-      'Booking the earliest available appointment slot at PSK/POPSK',
-      'Physical visit to PSK for document verification and biometric capture',
-      'Police verification at your local police station',
-      'Passport delivery at home via Speed Post'
+      'Step 1: Visit our CSC center in Virar with your original documents for consultation.',
+      'Step 2: We carefully fill out the Passport application on the official Passport Seva portal.',
+      'Step 3: Payment of Govt fee (₹1500 for Normal, ₹3500 for Tatkaal).',
+      'Step 4: We book the earliest appointment slot at Malad PSK, Borivali POPSK, or Vasai POPSK.',
+      'Step 5: You visit the Passport Office for biometric capture and document verification.',
+      'Step 6: Police Verification is conducted at your local police station.',
+      'Step 7: The Passport is dispatched to your home address via Speed Post.'
     ],
-    processingTime: '15–20 working days (Normal) / 3–5 days (Tatkaal)',
-    charges: 'Government Fee (₹1500) + Service Charges',
-    notes: 'Applicants must carry original documents on the day of appointment at the Passport Seva Kendra.'
+    processingTime: 'Normal: 15 to 30 Days | Tatkaal: 3 to 7 Days',
+    charges: '₹1500 (Govt Fee for Normal 36 Pages) + Premium Consulting/Filing Fee',
+    notes: 'Important: You MUST carry all ORIGINAL documents and 2 sets of self-attested photocopies on the day of your appointment. Fake or laminated documents may be rejected by the passport officer.',
+    keywords: [
+      'New passport apply Virar',
+      'Passport agent near me',
+      'Tatkaal passport application',
+      'Passport appointment booking',
+      'Passport consultant Virar',
+      'Fresh passport online'
+    ],
+    faqs: [
+      { q: 'What is the difference between Normal and Tatkaal Passport?', a: 'Normal passport takes about 15-30 days as Police Verification happens BEFORE the passport is dispatched. Tatkaal passport is dispatched in 3-7 days because Police Verification happens AFTER the passport is issued, but it requires extra fees and strong address proofs.' },
+      { q: 'What does Non-ECR (ECNR) mean?', a: 'Non-ECR stands for Emigration Check Not Required. If you have passed 10th grade or higher, you get Non-ECR status. It means you can travel to certain Middle Eastern countries for employment without requiring special clearance.' },
+      { q: 'Can I apply for a passport with a Rent Agreement?', a: 'Yes, but the Rent Agreement MUST be registered with the sub-registrar (Notarized agreements are NOT accepted by the Passport Office). It must be valid for at least the last 1 year.' },
+      { q: 'Do I need to visit the Passport Office in person?', a: 'Yes, physical presence is mandatory for everyone (including newborn babies) at the Passport Seva Kendra (PSK) for biometric capture (photo and fingerprints) and document verification.' }
+    ]
   },
   {
     id: 12, slug: 'passport-renewal', category: 'passport',
