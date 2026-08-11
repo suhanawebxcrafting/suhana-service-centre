@@ -23,6 +23,8 @@ export function generateMetadata({ params }) {
     keywords: [
       `xerox in ${location.name}`,
       `xerox ${location.name}`,
+      `low price xerox in ${location.name}`,
+      `cheap xerox delivery ${location.name}`,
       `xerox shop near me ${location.name}`,
       `print delivery ${location.name}`,
       `doorstep xerox ${location.name}`,

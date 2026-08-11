@@ -9,6 +9,8 @@ export const metadata = {
   keywords: [
     'xerox in virar',
     'xerox virar',
+    'low price xerox virar',
+    'cheap xerox delivery virar',
     'xerox shop near me virar',
     'document print delivery virar',
     'online xerox delivery',

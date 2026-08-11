@@ -251,7 +251,7 @@ export default function XeroxDeliveryContent({ location }) {
             Fast Print &amp; <span className="text-orange-400">Xerox Delivery</span>
           </h1>
           <p className="text-blue-100 text-lg lg:text-xl font-medium max-w-2xl mx-auto mb-10 animate-fade-up" style={{ animationDelay: '0.2s' }}>
-            Looking for a reliable <strong className="text-white">Xerox in {locName}</strong>? From standard A4 photocopies to Jumbo A0 prints, blackbook printing, and smart cards. High-quality prints delivered right to your home in {locName}.
+            Looking for a reliable <strong className="text-white">Xerox in {locName}</strong>? From standard A4 photocopies to Jumbo A0 prints, blackbook printing, and smart cards. High-quality prints delivered right to your home in {locName} at a <strong className="text-white">low price</strong>.
           </p>
           <div className="flex flex-wrap justify-center gap-4 animate-fade-up" style={{ animationDelay: '0.3s' }}>
             <a href="#upload-section" className="bg-white text-blue-900 font-bold px-8 py-4 rounded-xl hover:bg-blue-50 transition-all flex items-center gap-2 shadow-xl shadow-black/10">
@@ -276,7 +276,7 @@ export default function XeroxDeliveryContent({ location }) {
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl lg:text-4xl font-black text-blue-950 mb-4 tracking-tight">Transparent <span className="text-blue-600">Pricing</span></h2>
-            <p className="text-gray-500 max-w-xl mx-auto font-medium">Best rates in {locName} for high-quality printing. No hidden charges.</p>
+            <p className="text-gray-500 max-w-xl mx-auto font-medium">Low price xerox and high-quality printing in {locName}. No hidden charges.</p>
           </div>
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
             {[
