@@ -541,20 +541,20 @@ export default async function HomePage() {
       </section>
 
       {/* ─── Premium FAQ Section ─── */}
-      <section className="py-20 lg:py-28 relative bg-white overflow-hidden">
+      <section className="py-16 lg:py-20 relative bg-white overflow-hidden">
         {/* Subtle Background Pattern & Gradient */}
         <div className="absolute inset-0 opacity-[0.02]" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, black 1px, transparent 0)', backgroundSize: '32px 32px' }}></div>
         <div className="absolute top-0 left-0 w-full h-[500px] bg-gradient-to-b from-blue-50/80 to-transparent pointer-events-none"></div>
         
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="text-center mb-16 animate-fade-up">
-            <div className="inline-flex items-center gap-2 bg-blue-50 text-blue-700 px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-widest mb-4 border border-blue-100 shadow-sm">
+          <div className="text-center mb-10 animate-fade-up">
+            <div className="inline-flex items-center gap-2 bg-blue-50 text-blue-700 px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-widest mb-3 border border-blue-100 shadow-sm">
               <LucideIcon name="HelpCircle" size={14} /> FAQs
             </div>
-            <h2 className="text-3xl lg:text-5xl font-black text-blue-950 mb-4 tracking-tight">
+            <h2 className="text-3xl lg:text-4xl font-black text-blue-950 mb-3 tracking-tight">
               Frequently Asked <span className="text-blue-600">Questions</span>
             </h2>
-            <p className="text-gray-500 text-lg max-w-2xl mx-auto font-medium">
+            <p className="text-gray-500 text-base max-w-xl mx-auto font-medium">
               Got questions? We've got answers. If you can't find what you're looking for, feel free to contact our support team.
             </p>
           </div>
