@@ -171,7 +171,7 @@ export default function Footer() {
             </p>
             <span className="hidden sm:block w-1 h-1 rounded-full bg-white/20"></span>
             <p className="text-blue-100/50 text-xs font-medium text-center sm:text-left">
-              Crafted by{' '}
+              Developed by{' '}
               <a href="https://webxcrafting.in" target="_blank" rel="noopener noreferrer" className="text-orange-400/80 hover:text-orange-400 transition-colors font-bold tracking-wide">
                 WEBXCRAFTING
               </a>
