@@ -22,8 +22,10 @@ export async function generateMetadata({ params }) {
       `${service.name.toLowerCase()} in virar`,
       `${service.name.toLowerCase()} virar`,
       `best ${service.name.toLowerCase()} agent in virar`,
-      `${service.name.toLowerCase()} office virar east`,
+      `urgent ${service.name.toLowerCase()} virar`,
       `apply ${service.name.toLowerCase()} online virar`,
+      `fast ${service.name.toLowerCase()} service virar`,
+      `${service.name.toLowerCase()} consultant virar`,
       `${cat?.label?.toLowerCase() || 'services'} near me virar`,
       `suhana service center virar`
     ],
@@ -290,6 +292,30 @@ export default async function ServiceDetailPage({ params }) {
           </div>
         </section>
       )}
+
+      {/* Dynamic SEO FAQ Section */}
+      <section className="py-16 bg-white border-t border-gray-100">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-10">
+            <h2 className="text-2xl font-black text-gray-900 mb-3 tracking-tight">Frequently Asked Questions</h2>
+            <p className="text-gray-500 text-sm font-medium">Common questions about our {service.name} services in Virar.</p>
+          </div>
+          <div className="space-y-4">
+            <div className="bg-gray-50 rounded-2xl p-5 border border-gray-100">
+              <h3 className="font-bold text-gray-900 mb-2 text-sm">Where can I apply for {service.name} in Virar?</h3>
+              <p className="text-gray-600 text-sm leading-relaxed">Suhana Service Center is your trusted <strong>{service.name.toLowerCase()} agent in Virar</strong>. You can visit our office in Virar East or <strong>apply {service.name.toLowerCase()} online</strong> through us for fast processing.</p>
+            </div>
+            <div className="bg-gray-50 rounded-2xl p-5 border border-gray-100">
+              <h3 className="font-bold text-gray-900 mb-2 text-sm">Is there an urgent {service.name} service available?</h3>
+              <p className="text-gray-600 text-sm leading-relaxed">Yes, we provide <strong>urgent {service.name.toLowerCase()}</strong> assistance. As an experienced <strong>{service.name.toLowerCase()} consultant in Virar</strong>, we ensure your application is processed with priority.</p>
+            </div>
+            <div className="bg-gray-50 rounded-2xl p-5 border border-gray-100">
+              <h3 className="font-bold text-gray-900 mb-2 text-sm">What is the fastest way to get {service.name} done?</h3>
+              <p className="text-gray-600 text-sm leading-relaxed">The fastest way is to contact us directly. We offer a <strong>fast {service.name.toLowerCase()} service in Virar</strong> with transparent pricing and complete guidance on required documents.</p>
+            </div>
+          </div>
+        </div>
+      </section>
     </>
   )
 }

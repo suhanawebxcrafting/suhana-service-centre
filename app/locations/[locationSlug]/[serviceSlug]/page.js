@@ -31,7 +31,10 @@ export async function generateMetadata({ params }) {
       `${service.name.toLowerCase()} in ${location.name.toLowerCase()}`,
       `${service.name.toLowerCase()} ${location.name.toLowerCase()}`,
       `${service.name.toLowerCase()} agent ${location.name.toLowerCase()}`,
+      `urgent ${service.name.toLowerCase()} near me ${location.name.toLowerCase()}`,
       `apply ${service.name.toLowerCase()} ${location.name.toLowerCase()}`,
+      `fast ${service.name.toLowerCase()} service ${location.name.toLowerCase()}`,
+      `${service.name.toLowerCase()} consultant ${location.name.toLowerCase()}`,
       `${cat?.label?.toLowerCase() || 'services'} ${location.name.toLowerCase()}`,
       `${service.name.toLowerCase()} near me`,
     ],
@@ -313,6 +316,30 @@ export default async function LocationServiceDetailPage({ params }) {
           </div>
         </section>
       )}
+
+      {/* Dynamic SEO FAQ Section */}
+      <section className="py-16 bg-white border-t border-gray-100">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-10">
+            <h2 className="text-2xl font-black text-gray-900 mb-3 tracking-tight">Frequently Asked Questions</h2>
+            <p className="text-gray-500 text-sm font-medium">Common questions about our {service.name} services in {location.name}.</p>
+          </div>
+          <div className="space-y-4">
+            <div className="bg-gray-50 rounded-2xl p-5 border border-gray-100">
+              <h3 className="font-bold text-gray-900 mb-2 text-sm">Where can I apply for {service.name} in {location.name}?</h3>
+              <p className="text-gray-600 text-sm leading-relaxed">Suhana Service Center is your trusted <strong>{service.name.toLowerCase()} agent in {location.name}</strong>. You can visit our office or <strong>apply {service.name.toLowerCase()} online</strong> through us for fast processing.</p>
+            </div>
+            <div className="bg-gray-50 rounded-2xl p-5 border border-gray-100">
+              <h3 className="font-bold text-gray-900 mb-2 text-sm">Is there an urgent {service.name} service available?</h3>
+              <p className="text-gray-600 text-sm leading-relaxed">Yes, we provide <strong>urgent {service.name.toLowerCase()}</strong> assistance. As an experienced <strong>{service.name.toLowerCase()} consultant in {location.name}</strong>, we ensure your application is processed with priority.</p>
+            </div>
+            <div className="bg-gray-50 rounded-2xl p-5 border border-gray-100">
+              <h3 className="font-bold text-gray-900 mb-2 text-sm">What is the fastest way to get {service.name} done?</h3>
+              <p className="text-gray-600 text-sm leading-relaxed">The fastest way is to contact us directly. We offer a <strong>fast {service.name.toLowerCase()} service in {location.name}</strong> with transparent pricing and complete guidance on required documents.</p>
+            </div>
+          </div>
+        </div>
+      </section>
     </>
   )
 }
