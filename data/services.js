@@ -286,13 +286,39 @@ export const services = [
   {
     id: 9, slug: 'voter-id-correction', category: 'identity',
     name: 'Voter ID Correction / Address Change', icon: 'ClipboardEdit',
-    description: 'Correct errors in your Voter ID such as name, date of birth, or update your address due to relocation.',
-    documentsRequired: ['Existing Voter ID', 'Supporting document for correction', 'New Address Proof (if address change)'],
-    eligibility: 'Existing Voter ID holders needing corrections or address update.',
-    processSteps: ['Fill Form 8 (correction) or Form 6 (new address)', 'Attach supporting documents', 'Submit at our center or online', 'Verification done', 'Updated Voter ID issued'],
-    processingTime: '30–45 days',
-    charges: 'Contact for latest charges',
-    notes: 'Documents and process may vary. Please contact or visit our office for confirmation.'
+    description: 'Got married and need to change your surname? Shifted to a new house in Virar? Or maybe there\'s a spelling mistake in your name? We provide fast and reliable Voter ID Correction and Address Change services. We accurately file Form 8 on the NVSP/ECI portal to get your details updated on your EPIC card.',
+    documentsRequired: [
+      'Original Voter ID Card OR EPIC Number',
+      'For Name/DOB/Photo Correction: Aadhaar Card, PAN Card, 10th Marksheet, or Passport',
+      'For Address Change: Latest Electricity Bill, Gas Book, Aadhaar Card, or Registered Rent Agreement',
+      'For Marriage Name Change: Marriage Certificate + Husband\'s ID Proof'
+    ],
+    eligibility: 'Any existing Voter ID (EPIC) holder who needs to rectify errors in their details, update their residential address, or replace an old black-and-white photo with a new color photo.',
+    processSteps: [
+      'Step 1: Bring your existing Voter ID and the correct supporting document to our Virar center.',
+      'Step 2: We will fill out Form 8 (Application for Correction of Particulars) on the official Election portal.',
+      'Step 3: Securely upload your correct documents and submit the application.',
+      'Step 4: You will receive a Reference Number to track the status of your correction.',
+      'Step 5: The BLO may verify the changes (especially for address changes).',
+      'Step 6: The updated Voter ID is dispatched to your registered address via India Post.'
+    ],
+    processingTime: 'Usually takes 20 to 45 Days depending on BLO verification',
+    charges: 'Nominal Consulting & Application Filing Fee',
+    notes: 'Important Note: If you are shifting from one Assembly Constituency to another (e.g., from Nalasopara to Virar), the process is considered "Shifting of Residence" but is also done using Form 8.',
+    keywords: [
+      'Voter ID correction Virar',
+      'Change address in voter card',
+      'Form 8 voter ID',
+      'Name change in election card',
+      'Update photo in voter ID',
+      'EPIC card correction'
+    ],
+    faqs: [
+      { q: 'Which form is used for correcting mistakes in a Voter ID?', a: 'Form 8 is the official form used for correcting particulars like Name, Date of Birth, Age, Gender, Photo, and Address in your existing Voter ID.' },
+      { q: 'I moved to a different city. How can I transfer my Voter ID?', a: 'You need to file Form 8 for "Shifting of Residence" and provide your new address proof. Your EPIC number remains the same, but your polling booth and constituency will be updated to your new area.' },
+      { q: 'Can I change my black-and-white photo to a color photo?', a: 'Yes! You can apply for a photo update using Form 8. You just need to provide a recent passport-size color photograph with a white background.' },
+      { q: 'How can I check if my correction was approved?', a: 'After we submit your Form 8, you will get a Reference ID. You can use this ID on the NVSP/ECI website under "Track Application Status" to see if your correction is approved by the BLO/ERO.' }
+    ]
   },
   {
     id: 10, slug: 'voter-id-download', category: 'identity',
