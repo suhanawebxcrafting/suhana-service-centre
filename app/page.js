@@ -225,39 +225,39 @@ export default async function HomePage() {
       {/* ─── Dedicated Xerox Banner ─── */}
       <section className="py-16 bg-white relative z-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-gradient-to-br from-[#0f172a] via-[#1e293b] to-[#0f172a] rounded-3xl p-8 lg:p-14 relative overflow-hidden shadow-2xl flex flex-col md:flex-row items-center justify-between gap-10 border border-slate-700/50">
+          <div className="bg-gradient-to-br from-blue-700 via-blue-600 to-blue-800 rounded-3xl p-8 lg:p-14 relative overflow-hidden shadow-2xl flex flex-col md:flex-row items-center justify-between gap-10 border border-blue-500/50">
             {/* Subtle Background Pattern */}
             <div className="absolute inset-0 opacity-[0.05]" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)', backgroundSize: '24px 24px' }}></div>
             
             <div className="relative z-20 max-w-2xl text-center md:text-left">
-              <div className="inline-flex items-center gap-2 bg-orange-500/20 text-orange-400 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest mb-5 border border-orange-400/20">
-                <LucideIcon name="Star" size={14} className="text-orange-400 fill-orange-400" /> Popular Service
+              <div className="inline-flex items-center gap-2 bg-white/20 text-white px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest mb-5 border border-white/30 backdrop-blur-sm">
+                <LucideIcon name="Star" size={14} /> Popular Service
               </div>
               <h2 className="text-3xl lg:text-[46px] leading-tight font-black text-white mb-6 tracking-tight">
-                Superfast <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-yellow-400">Print &amp; Xerox</span> Delivery
+                Fast Print &amp; <span className="text-orange-400">Xerox Delivery</span>
               </h2>
               
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-10 text-left max-w-xl mx-auto md:mx-0">
-                <div className="flex items-center gap-4 text-slate-200">
-                  <div className="w-10 h-10 rounded-xl bg-slate-800 flex items-center justify-center flex-shrink-0 border border-slate-700 text-orange-400">
+                <div className="flex items-center gap-4 text-blue-50">
+                  <div className="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center flex-shrink-0 border border-white/20 text-white backdrop-blur-sm">
                     <LucideIcon name="Layers" size={20} />
                   </div>
                   <span className="font-semibold text-sm">Jumbo A0 &amp; Architecture Prints</span>
                 </div>
-                <div className="flex items-center gap-4 text-slate-200">
-                  <div className="w-10 h-10 rounded-xl bg-slate-800 flex items-center justify-center flex-shrink-0 border border-slate-700 text-orange-400">
+                <div className="flex items-center gap-4 text-blue-50">
+                  <div className="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center flex-shrink-0 border border-white/20 text-white backdrop-blur-sm">
                     <LucideIcon name="BookOpen" size={20} />
                   </div>
                   <span className="font-semibold text-sm">Blackbook Printing &amp; Binding</span>
                 </div>
-                <div className="flex items-center gap-4 text-slate-200">
-                  <div className="w-10 h-10 rounded-xl bg-slate-800 flex items-center justify-center flex-shrink-0 border border-slate-700 text-orange-400">
+                <div className="flex items-center gap-4 text-blue-50">
+                  <div className="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center flex-shrink-0 border border-white/20 text-white backdrop-blur-sm">
                     <LucideIcon name="CreditCard" size={20} />
                   </div>
                   <span className="font-semibold text-sm">PVC Aadhaar &amp; Smart Cards</span>
                 </div>
-                <div className="flex items-center gap-4 text-slate-200">
-                  <div className="w-10 h-10 rounded-xl bg-slate-800 flex items-center justify-center flex-shrink-0 border border-slate-700 text-orange-400">
+                <div className="flex items-center gap-4 text-blue-50">
+                  <div className="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center flex-shrink-0 border border-white/20 text-white backdrop-blur-sm">
                     <LucideIcon name="Truck" size={20} />
                   </div>
                   <span className="font-semibold text-sm">Doorstep Delivery (Vasai-Virar)</span>
@@ -265,23 +265,23 @@ export default async function HomePage() {
               </div>
 
               <div className="flex flex-col sm:flex-row items-center justify-center md:justify-start gap-4">
-                <Link href="/xerox-delivery" className="bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-400 hover:to-red-400 text-white font-bold px-8 py-4 rounded-xl transition-all flex items-center justify-center gap-2 shadow-lg shadow-orange-900/40 w-full sm:w-auto">
+                <Link href="/xerox-delivery" className="bg-white text-blue-900 hover:bg-blue-50 font-bold px-8 py-4 rounded-xl transition-all flex items-center justify-center gap-2 shadow-xl shadow-black/10 w-full sm:w-auto">
                   Order Print Online <LucideIcon name="ChevronRight" size={20} />
                 </Link>
-                <div className="flex items-center justify-center gap-2 text-slate-300 text-sm font-semibold bg-slate-800/50 px-6 py-4 rounded-xl border border-slate-700 w-full sm:w-auto">
+                <div className="flex items-center justify-center gap-2 text-blue-100 text-sm font-semibold bg-white/10 px-6 py-4 rounded-xl border border-white/20 backdrop-blur-sm w-full sm:w-auto">
                   <LucideIcon name="ShieldCheck" size={18} className="text-green-400" /> Guaranteed Lowest Price
                 </div>
               </div>
             </div>
             
             <div className="relative z-20 hidden md:flex items-center justify-center">
-               <div className="w-[280px] bg-slate-800/80 backdrop-blur-sm border border-slate-700 rounded-3xl flex flex-col items-center justify-center p-8 shadow-2xl">
-                 <div className="w-24 h-24 bg-orange-500/10 rounded-2xl flex items-center justify-center mb-6 border border-orange-500/20 text-orange-400">
+               <div className="w-[280px] bg-white/10 backdrop-blur-md border border-white/20 rounded-3xl flex flex-col items-center justify-center p-8 shadow-2xl">
+                 <div className="w-24 h-24 bg-white/20 rounded-2xl flex items-center justify-center mb-6 border border-white/30 text-white">
                    <LucideIcon name="Printer" size={48} strokeWidth={1.5} />
                  </div>
                  <h3 className="text-white font-bold text-lg mb-2">Ready to Print?</h3>
-                 <p className="text-slate-400 text-xs text-center mb-6">Upload your PDFs securely and get them delivered to your door.</p>
-                 <Link href="/xerox-delivery" className="w-full bg-gradient-to-r from-orange-500 to-red-500 text-white font-bold text-sm px-6 py-3 rounded-lg text-center hover:scale-105 transition-transform shadow-lg shadow-orange-500/30">
+                 <p className="text-blue-100 text-xs text-center mb-6">Upload your PDFs securely and get them delivered to your door.</p>
+                 <Link href="/xerox-delivery" className="w-full bg-white text-blue-900 font-bold text-sm px-6 py-3 rounded-lg text-center hover:bg-blue-50 transition-colors shadow-lg shadow-black/10">
                    Upload Documents
                  </Link>
                </div>
