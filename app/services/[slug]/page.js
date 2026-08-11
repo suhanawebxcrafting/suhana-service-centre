@@ -16,9 +16,10 @@ export async function generateMetadata({ params }) {
   if (!service) return { title: 'Service Not Found' }
   const cat = getCategoryById(service.category)
   return {
-    title: `Best ${service.name} Services in Virar | Suhana Service Center`,
-    description: `Need ${service.name} in Virar? Apply fast and securely at Suhana Service Center, Virar East. Expert agent for ${service.name}. ${service.description.slice(0, 50)}...`,
+    title: `${service.name} in Virar: Best Service Provider | Suhana`,
+    description: `Looking for ${service.name} in Virar? We offer fast and secure ${service.name.toLowerCase()} services at Suhana Service Center, Virar East. ${service.description.slice(0, 50)}...`,
     keywords: [
+      `${service.name.toLowerCase()} in virar`,
       `${service.name.toLowerCase()} virar`,
       `best ${service.name.toLowerCase()} agent in virar`,
       `${service.name.toLowerCase()} office virar east`,
@@ -131,7 +132,7 @@ export default async function ServiceDetailPage({ params }) {
                 <LucideIcon name={cat?.icon} size={12} /> {cat?.label}
               </span>
               <h1 className="text-2xl lg:text-4xl font-black text-white leading-tight">
-                {service.name}
+                {service.name} <span className="hidden sm:inline">in Virar</span>
               </h1>
             </div>
           </div>
