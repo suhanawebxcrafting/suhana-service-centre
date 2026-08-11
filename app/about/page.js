@@ -132,14 +132,15 @@ export default function AboutPage() {
               const count = services.filter(s => s.category === cat.id).length
               return (
                 <CategoryLink key={cat.id} catId={cat.id}
-                  className="bg-white rounded-2xl p-6 text-center shadow-sm border border-gray-100 card-hover block group hover:shadow-md transition-all">
-                  <div className="flex justify-center mb-4">
-                    <div className="w-16 h-16 rounded-2xl bg-blue-50 border border-blue-100 flex items-center justify-center group-hover:scale-110 group-hover:-rotate-3 transition-transform">
-                      <LucideIcon name={cat.icon} size={36} className="text-blue-600" />
+                  className="bg-white rounded-2xl p-6 text-center shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)] border-2 border-gray-100/80 hover:border-blue-400 block group hover:shadow-[0_10px_30px_-5px_rgba(59,130,246,0.15)] transition-all duration-300 hover:-translate-y-1 relative overflow-hidden">
+                  <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-400 to-blue-600 transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></div>
+                  <div className="flex justify-center mb-5">
+                    <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-50 to-blue-100/50 border border-blue-200/50 flex items-center justify-center group-hover:scale-110 group-hover:-rotate-3 transition-transform shadow-sm group-hover:shadow-md">
+                      <LucideIcon name={cat.icon} size={32} className="text-blue-600 drop-shadow-sm" />
                     </div>
                   </div>
-                  <div className="font-black text-blue-900 text-sm uppercase tracking-tight mb-2">{cat.label}</div>
-                  <div className="inline-block bg-blue-600/5 px-3 py-1 rounded-full text-[10px] font-black text-blue-600 uppercase tracking-widest">
+                  <div className="font-black text-blue-950 text-[15px] uppercase tracking-tight mb-3 group-hover:text-blue-700 transition-colors">{cat.label}</div>
+                  <div className="inline-block bg-blue-600/5 px-3.5 py-1.5 rounded-full text-[10px] font-black text-blue-700 uppercase tracking-widest border border-blue-600/10 group-hover:bg-blue-600 group-hover:text-white group-hover:border-blue-600 transition-all duration-300">
                     {count} services
                   </div>
                 </CategoryLink>
