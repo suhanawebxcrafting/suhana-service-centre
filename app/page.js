@@ -265,8 +265,8 @@ export default async function HomePage() {
               </div>
 
               <div className="flex flex-col sm:flex-row items-center justify-center md:justify-start gap-4">
-                <Link href="/xerox-delivery" className="bg-white text-blue-900 hover:bg-blue-50 font-bold px-8 py-4 rounded-xl transition-all flex items-center justify-center gap-2 shadow-xl shadow-black/10 w-full sm:w-auto">
-                  Order Print Online <LucideIcon name="ChevronRight" size={20} />
+                <Link href="/xerox-delivery" className="bg-white text-blue-900 hover:bg-blue-50 font-bold px-8 py-4 rounded-xl transition-all duration-300 hover:-translate-y-1 hover:scale-105 flex items-center justify-center gap-2 shadow-xl hover:shadow-2xl hover:shadow-blue-900/20 w-full sm:w-auto group">
+                  Order Print Online <LucideIcon name="ChevronRight" size={20} className="group-hover:translate-x-1 transition-transform" />
                 </Link>
                 <div className="flex items-center justify-center gap-2 text-blue-100 text-sm font-semibold bg-white/10 px-6 py-4 rounded-xl border border-white/20 backdrop-blur-sm w-full sm:w-auto">
                   <LucideIcon name="ShieldCheck" size={18} className="text-green-400" /> Guaranteed Lowest Price
@@ -281,7 +281,7 @@ export default async function HomePage() {
                  </div>
                  <h3 className="text-white font-bold text-lg mb-2">Ready to Print?</h3>
                  <p className="text-blue-100 text-xs text-center mb-6">Upload your PDFs securely and get them delivered to your door.</p>
-                 <Link href="/xerox-delivery" className="w-full bg-white text-blue-900 font-bold text-sm px-6 py-3 rounded-lg text-center hover:bg-blue-50 transition-colors shadow-lg shadow-black/10">
+                 <Link href="/xerox-delivery" className="w-full bg-white text-blue-900 font-bold text-sm px-6 py-3 rounded-lg text-center hover:bg-blue-50 transition-all duration-300 hover:-translate-y-1 hover:scale-105 hover:shadow-xl hover:shadow-blue-900/20 shadow-lg shadow-black/10">
                    Upload Documents
                  </Link>
                </div>
