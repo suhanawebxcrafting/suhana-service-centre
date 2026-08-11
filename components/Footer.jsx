@@ -42,7 +42,7 @@ export default function Footer() {
               </div>
             </Link>
             
-            <p className="text-blue-100/70 text-[15px] leading-relaxed mb-6 font-medium max-w-sm">
+            <p className="text-white/90 text-[15px] leading-relaxed mb-6 font-medium max-w-sm">
               Your trusted service center in Virar for all government and digital services. <span className="text-white">Fast, reliable, and affordable.</span>
             </p>
 
@@ -73,7 +73,7 @@ export default function Footer() {
             <ul className="space-y-4">
               {quickLinks.map(link => (
                 <li key={link.href}>
-                  <Link href={link.href} className="group flex items-center text-blue-100/60 hover:text-white text-sm font-medium transition-colors">
+                  <Link href={link.href} className="group flex items-center text-white/90 hover:text-white text-sm font-medium transition-colors">
                     <span className="opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all text-orange-400 mr-2">›</span>
                     <span className="group-hover:translate-x-1 transition-transform">
                       {link.label}
@@ -94,8 +94,8 @@ export default function Footer() {
             <ul className="space-y-4">
               {categories.slice(0, 6).map(cat => (
                 <li key={cat.id}>
-                  <Link href="/services" className="group flex items-center text-blue-100/60 hover:text-white text-sm font-medium transition-colors">
-                    <LucideIcon name={cat.icon} size={16} className="text-blue-400/50 group-hover:text-blue-400 group-hover:scale-110 transition-all mr-3" /> 
+                  <Link href="/services" className="group flex items-center text-white/90 hover:text-white text-sm font-medium transition-colors">
+                    <LucideIcon name={cat.icon} size={16} className="text-blue-400 group-hover:scale-110 transition-all mr-3" /> 
                     <span className="group-hover:translate-x-1 transition-transform">{cat.label}</span>
                   </Link>
                 </li>
@@ -116,7 +116,7 @@ export default function Footer() {
                   <LucideIcon name="MapPin" size={20} />
                 </div>
                 <div>
-                  <p className="text-blue-100/80 text-[13px] leading-relaxed font-medium">
+                  <p className="text-white/90 text-[13px] leading-relaxed font-medium">
                     Office No- 04, Raipada,<br />
                     Nr. Anand Gaushalla, Chandansar Road,<br />
                     Virar (E) - 401305
@@ -129,14 +129,14 @@ export default function Footer() {
                   <div className="w-8 h-8 rounded-lg bg-blue-500/20 flex items-center justify-center flex-shrink-0 text-blue-400 group-hover:bg-blue-500 group-hover:text-white transition-colors">
                     <LucideIcon name="Phone" size={16} />
                   </div>
-                  <span className="text-blue-100/90 font-semibold text-sm group-hover:text-white transition-colors">7709709243</span>
+                  <span className="text-white font-semibold text-sm group-hover:text-white transition-colors">7709709243</span>
                 </a>
 
                 <a href="mailto:suhanaservicec@gmail.com" className="flex items-center gap-3 p-4 rounded-2xl bg-white/5 border border-white/5 hover:bg-white/10 hover:border-orange-500/30 transition-all group">
                   <div className="w-8 h-8 rounded-lg bg-orange-500/20 flex items-center justify-center flex-shrink-0 text-orange-400 group-hover:bg-orange-500 group-hover:text-white transition-colors">
                     <LucideIcon name="Mail" size={16} />
                   </div>
-                  <span className="text-blue-100/90 font-semibold text-sm group-hover:text-white transition-colors truncate">suhanaservicec@gmail.com</span>
+                  <span className="text-white font-semibold text-sm group-hover:text-white transition-colors truncate">suhanaservicec@gmail.com</span>
                 </a>
               </div>
             </div>
