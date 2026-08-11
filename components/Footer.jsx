@@ -163,12 +163,19 @@ export default function Footer() {
 
       {/* Bottom bar */}
       <div className="border-t border-blue-800">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex flex-col sm:flex-row items-center justify-between gap-2">
-          <div className="flex items-center gap-4">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex flex-col sm:flex-row items-center justify-between gap-3">
+          <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-4">
             <p className="text-blue-300 text-xs text-center sm:text-left">
               © {new Date().getFullYear()} Suhana Service center, Virar
               <Link href="/admin/login" className="text-blue-300/50 hover:text-white transition-colors cursor-default">.</Link>
               {' '}All rights reserved
+            </p>
+            <span className="hidden sm:inline text-blue-800">|</span>
+            <p className="text-blue-300 text-xs text-center sm:text-left">
+              Developed by:{' '}
+              <a href="https://webxcrafting.in" target="_blank" rel="noopener noreferrer" className="text-orange-400 hover:text-orange-300 transition-colors font-medium">
+                webxcrafting.in
+              </a>
             </p>
           </div>
           <p className="text-blue-400 text-xs text-center sm:text-right">
