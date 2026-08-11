@@ -54,23 +54,39 @@ export const services = [
   {
     id: 2, slug: 'aadhaar-update', category: 'identity',
     name: 'Aadhaar Card Update (Demographic & Biometric)', icon: 'Fingerprint',
-    description: 'Update your Aadhaar details such as Name, Date of Birth, Address, Gender, Mobile Number, or Email. Also includes mandatory biometric updates for children.',
+    description: 'Need to change your name, address, or mobile number on your Aadhaar? Our Aadhaar update services in Virar provide quick and secure demographic and biometric updates. Whether it\'s fixing a typo, updating your photo, or doing mandatory child biometrics, we ensure a smooth UIDAI process.',
     documentsRequired: [
-      'Original Aadhaar Card',
-      'Supporting Document for the specific update (e.g., Marriage Certificate for name change, Rent Agreement for address)',
-      'Valid Mobile Number (for OTP authentication)'
+      'Original Aadhaar Card (Must)',
+      'For Name/DOB Change: Passport, PAN, Birth Certificate, or SSLC Marksheet',
+      'For Address Change: Utility Bill (last 3 months), Bank Passbook, Rent Agreement, or Voter ID',
+      'For Mobile/Email Update: No documents required, just biometric verification at the center'
     ],
-    eligibility: 'Existing Aadhaar holders who need to correct errors or update outdated information.',
+    eligibility: 'Any existing Aadhaar holder who needs to correct errors, update outdated information, or perform mandatory child biometric updates.',
     processSteps: [
-      'Visit center with Original Aadhaar and supporting documents',
-      'Fill the Aadhaar Correction/Update Form',
-      'Authentication via OTP or Biometric verification at the center',
-      'Payment of UIDAI update fees and receiving acknowledgment (URN)',
-      'Check status online using URN; reflected in 30 days usually'
+      'Step 1: Visit our Virar CSC Center with your Original Aadhaar and required proof for the specific update.',
+      'Step 2: Fill out the Aadhaar Correction/Update Form specifying the exact changes.',
+      'Step 3: Provide biometric verification (fingerprint/iris) at our center to authorize the update.',
+      'Step 4: Pay the standard UIDAI update fee and receive your acknowledgment receipt with an Update Request Number (URN).',
+      'Step 5: Track your update status online. The updated Aadhaar can be downloaded (e-Aadhaar) once approved.'
     ],
-    processingTime: '15–30 days',
-    charges: 'UIDAI standard fees apply',
-    notes: 'Mandatory Biometric Updates for children reaching age 5 and age 15 are essential for keeping Aadhaar active.'
+    processingTime: 'Usually 7–15 days (Max 30 days as per UIDAI norms)',
+    charges: '₹50 for Demographic Update | ₹100 for Biometric Update (UIDAI standard fees)',
+    notes: 'Important: Mobile Number and Email ID updates do not require any documents. Mandatory Biometric Updates for children at age 5 and 15 are free of cost.',
+    keywords: [
+      'Aadhaar update Virar',
+      'Change name in Aadhaar',
+      'Aadhaar address change near me',
+      'Link mobile number to Aadhaar Virar',
+      'Aadhaar biometric update center',
+      'Aadhaar correction online',
+      'Child biometric update'
+    ],
+    faqs: [
+      { q: 'Can I update my mobile number in Aadhaar online?', a: 'No, updating or linking a new mobile number to your Aadhaar card requires biometric authentication. You must visit an authorized Aadhaar center like ours in Virar.' },
+      { q: 'How many times can I change my Name and Date of Birth?', a: 'As per UIDAI guidelines, you can update your Name twice in a lifetime, and your Date of Birth only once.' },
+      { q: 'What is a Mandatory Biometric Update (MBU)?', a: 'Children enrolled before the age of 5 must update their biometrics (fingerprints, iris, photo) when they turn 5 and again at age 15. This is mandatory to keep the Aadhaar active.' },
+      { q: 'Do I need documents for a photo change?', a: 'No documents are required to update your photograph or biometrics on your Aadhaar card. Just bring your original Aadhaar card to the center.' }
+    ]
   },
   {
     id: 3, slug: 'e-aadhaar-download', category: 'identity',
