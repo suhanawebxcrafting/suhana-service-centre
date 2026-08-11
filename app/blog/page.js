@@ -33,13 +33,11 @@ export default async function BlogPage() {
   return (
     <main className="min-h-screen pt-24 lg:pt-32 pb-20">
       {/* Premium Header Section */}
-      <section className="relative pt-32 pb-40 overflow-hidden bg-[#0f172a]">
+      <section className="hero-gradient relative pt-32 pb-40 overflow-hidden">
         {/* Abstract Background Elements */}
-        <div className="absolute inset-0">
-          <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-blue-600/20 rounded-full blur-[120px] -mr-96 -mt-96 opacity-70 animate-pulse"></div>
-          <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-indigo-500/20 rounded-full blur-[100px] -ml-64 -mb-64 opacity-60"></div>
-          <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)', backgroundSize: '40px 40px' }}></div>
-        </div>
+        <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)', backgroundSize: '40px 40px' }}></div>
+        <div className="absolute -top-20 -left-20 w-96 h-96 bg-blue-500 rounded-full blur-[100px] opacity-40 mix-blend-screen pointer-events-none"></div>
+        <div className="absolute bottom-0 right-0 w-80 h-80 bg-orange-500 rounded-full blur-[100px] opacity-30 mix-blend-screen pointer-events-none"></div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
           <nav className="flex justify-center mb-8 animate-fade-up">
