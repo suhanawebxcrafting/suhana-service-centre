@@ -222,8 +222,43 @@ export default async function HomePage() {
       {/* ─── Partner Logos Slider ─── */}
       <LogoSlider />
 
-
-      {/* ─── Featured Services ─── */}
+      {/* ─── Dedicated Xerox Banner ─── */}
+      <section className="py-12 bg-white relative z-10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="bg-gradient-to-br from-blue-950 via-blue-900 to-blue-800 rounded-3xl p-8 lg:p-12 relative overflow-hidden shadow-2xl flex flex-col md:flex-row items-center justify-between gap-8 border border-blue-800/50">
+            <div className="absolute right-0 top-0 w-1/2 h-full opacity-10 pointer-events-none" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)', backgroundSize: '24px 24px' }}></div>
+            <div className="absolute -right-20 -bottom-20 w-80 h-80 bg-blue-500 rounded-full blur-[80px] opacity-30 pointer-events-none"></div>
+            <div className="absolute -left-20 -top-20 w-60 h-60 bg-orange-500 rounded-full blur-[80px] opacity-20 pointer-events-none"></div>
+            
+            <div className="relative z-20 max-w-2xl text-center md:text-left">
+              <div className="inline-flex items-center gap-2 bg-gradient-to-r from-orange-500 to-orange-600 text-white px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-widest mb-5 shadow-lg shadow-orange-500/30 border border-orange-400/50">
+                <LucideIcon name="Printer" size={14} className="animate-pulse" /> Popular Service
+              </div>
+              <h2 className="text-3xl lg:text-4xl lg:text-[42px] leading-tight font-black text-white mb-4 tracking-tight">
+                Fast <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-300 to-orange-500">Xerox &amp; Print</span> Delivery
+              </h2>
+              <p className="text-blue-100 text-[15px] lg:text-[17px] leading-relaxed font-medium mb-8 max-w-xl mx-auto md:mx-0 opacity-90">
+                Get Jumbo A0 prints, blackbooks, PVC smart cards, and standard A4 prints delivered right to your doorstep in Virar, Vasai &amp; Nalasopara at the lowest prices.
+              </p>
+              <div className="flex flex-col sm:flex-row items-center justify-center md:justify-start gap-5">
+                <Link href="/xerox-delivery" className="bg-white text-blue-950 font-black px-8 py-4 rounded-xl hover:bg-blue-50 transition-all flex items-center justify-center gap-2 shadow-[0_8px_30px_rgb(255,255,255,0.12)] hover:shadow-[0_8px_30px_rgb(255,255,255,0.2)] hover:-translate-y-1 w-full sm:w-auto">
+                  <LucideIcon name="UploadCloud" size={20} className="text-blue-600" /> Order Print Online
+                </Link>
+                <div className="flex items-center justify-center gap-2 text-blue-200 text-sm font-semibold bg-white/5 backdrop-blur-sm px-4 py-3 rounded-xl border border-white/10 w-full sm:w-auto">
+                  <LucideIcon name="Truck" size={18} className="text-orange-400" /> Doorstep Delivery
+                </div>
+              </div>
+            </div>
+            
+            <div className="relative z-20 hidden md:flex items-center justify-center">
+               <div className="w-56 h-56 bg-white/10 backdrop-blur-md border border-white/20 rounded-3xl flex flex-col items-center justify-center rotate-3 hover:rotate-6 transition-all duration-500 hover:scale-105 shadow-2xl group">
+                 <LucideIcon name="Printer" size={80} className="text-white drop-shadow-[0_10px_10px_rgba(0,0,0,0.5)] group-hover:-translate-y-2 transition-transform duration-500" />
+                 <div className="mt-4 bg-orange-500 text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full shadow-lg">Low Price</div>
+               </div>
+            </div>
+          </div>
+        </div>
+      </section>      {/* ─── Featured Services ─── */}
       <section id="featured-services" className="py-20 lg:py-28 pattern-bg relative overflow-hidden">
         {/* Decorative background glow */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-blue-100/30 rounded-full blur-[120px] pointer-events-none"></div>
