@@ -245,13 +245,13 @@ export default function XeroxDeliveryContent({ location }) {
         <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)', backgroundSize: '30px 30px' }}></div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="inline-flex items-center gap-2 bg-white/20 text-white px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-widest mb-6 border border-white/30 backdrop-blur-sm animate-fade-up">
-            <LucideIcon name="Printer" size={14} /> Xerox &amp; Printing Solutions in {locName}
+            <LucideIcon name="Printer" size={14} /> Xerox in {locName} &amp; Printing Solutions
           </div>
           <h1 className="text-4xl lg:text-6xl font-black text-white mb-6 tracking-tight animate-fade-up" style={{ animationDelay: '0.1s' }}>
-            Fast Print &amp; <span className="text-orange-400">Doorstep Delivery</span>
+            Fast Print &amp; <span className="text-orange-400">Xerox Delivery</span>
           </h1>
           <p className="text-blue-100 text-lg lg:text-xl font-medium max-w-2xl mx-auto mb-10 animate-fade-up" style={{ animationDelay: '0.2s' }}>
-            From standard A4 photocopies to Jumbo A0 prints, blackbook printing, and smart cards. High-quality prints delivered right to your home in {locName}.
+            Looking for a reliable <strong className="text-white">Xerox in {locName}</strong>? From standard A4 photocopies to Jumbo A0 prints, blackbook printing, and smart cards. High-quality prints delivered right to your home in {locName}.
           </p>
           <div className="flex flex-wrap justify-center gap-4 animate-fade-up" style={{ animationDelay: '0.3s' }}>
             <a href="#upload-section" className="bg-white text-blue-900 font-bold px-8 py-4 rounded-xl hover:bg-blue-50 transition-all flex items-center gap-2 shadow-xl shadow-black/10">
