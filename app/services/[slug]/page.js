@@ -115,28 +115,30 @@ export default async function ServiceDetailPage({ params }) {
         <div className="relative max-w-4xl mx-auto px-4 sm:px-6">
           {/* Breadcrumb */}
           <nav className="breadcrumb flex items-center gap-2 text-sm mb-5">
-            <Link href="/" className="text-blue-200 hover:text-white transition-colors">Home</Link>
+            <Link href="/" className="text-yellow-300 hover:text-white transition-colors font-medium">Home</Link>
             <span className="text-blue-300">›</span>
-            <Link href="/services" className="text-blue-200 hover:text-white transition-colors">Services</Link>
+            <Link href="/services" className="text-yellow-300 hover:text-white transition-colors font-medium">Services</Link>
             <span className="text-blue-300">›</span>
-            <CategoryLink catId={service.category} className="text-blue-200 hover:text-white transition-colors">
+            <CategoryLink catId={service.category} className="text-yellow-300 hover:text-white transition-colors font-medium">
               {cat?.label}
             </CategoryLink>
             <span className="text-blue-300">›</span>
-            <span className="text-white font-medium truncate max-w-xs">{service.name}</span>
+            <span className="text-white font-semibold truncate max-w-xs">{service.name}</span>
           </nav>
 
           <div className="flex items-start gap-4">
-            <div className={`w-14 h-14 lg:w-16 lg:h-16 rounded-2xl ${colors.bg} flex items-center justify-center flex-shrink-0 shadow-lg border border-white/20`}>
-              <LucideIcon name={service.icon} size={32} className={colors.text} />
+            <div className={`w-14 h-14 lg:w-16 lg:h-16 rounded-2xl bg-white/15 backdrop-blur-sm flex items-center justify-center flex-shrink-0 shadow-lg border border-white/25`}>
+              <LucideIcon name={service.icon} size={32} className="text-yellow-300" />
             </div>
             <div>
               <span className={`cat-badge ${colors.badge} text-xs mb-2 flex items-center gap-1.5 w-fit`}>
                 <LucideIcon name={cat?.icon} size={12} /> {cat?.label}
               </span>
-              <h1 className="text-2xl lg:text-4xl font-black text-white leading-tight">
-                {service.name} <span className="hidden sm:inline">in Virar</span>
+              <h1 className="text-2xl lg:text-4xl font-black leading-tight">
+                <span className="text-white">{service.name}</span>{' '}
+                <span className="hidden sm:inline text-orange-400">in Virar</span>
               </h1>
+              <p className="text-blue-100 text-sm mt-2 font-medium max-w-lg">Fast, reliable & affordable — trusted by 10,000+ families in Virar East</p>
             </div>
           </div>
         </div>
