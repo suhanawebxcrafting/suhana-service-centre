@@ -158,7 +158,7 @@ export default async function ServiceDetailPage({ params }) {
                 <h2 className="font-bold text-blue-900 text-lg mb-3 flex items-center gap-2">
                   <LucideIcon name="Info" size={20} className="text-blue-600" /> About This Service
                 </h2>
-                <p className="text-gray-900 leading-relaxed text-[15px] font-semibold">{service.description}</p>
+                <p className="text-gray-900 leading-relaxed text-[15px] font-[550]">{service.description}</p>
               </div>
 
               {/* Eligibility */}
@@ -167,7 +167,7 @@ export default async function ServiceDetailPage({ params }) {
                   <h2 className="font-bold text-green-900 text-base mb-3 flex items-center gap-2">
                     <LucideIcon name="CheckCircle2" size={18} className="text-green-600" /> Eligibility
                   </h2>
-                  <p className="text-gray-900 text-[15px] leading-relaxed font-semibold">{service.eligibility}</p>
+                  <p className="text-gray-900 text-[15px] leading-relaxed font-[550]">{service.eligibility}</p>
                 </div>
               )}
 
@@ -178,7 +178,7 @@ export default async function ServiceDetailPage({ params }) {
                 </h2>
                 <ul className="space-y-2.5">
                   {service.documentsRequired.map((doc, i) => (
-                    <li key={i} className="flex items-start gap-3 text-[15px] text-gray-900 font-semibold">
+                    <li key={i} className="flex items-start gap-3 text-[15px] text-gray-800 font-[550]">
                       <span className="w-5 h-5 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 font-bold text-xs flex-shrink-0 mt-0.5">
                         {i + 1}
                       </span>
@@ -198,7 +198,7 @@ export default async function ServiceDetailPage({ params }) {
                     <div key={i} className="flex items-start gap-4">
                       <div className="step-dot flex-shrink-0">{i + 1}</div>
                       <div className="flex-1 pt-1">
-                        <p className="text-gray-900 text-[15px] leading-relaxed font-semibold">{step}</p>
+                        <p className="text-gray-800 text-[15px] leading-relaxed font-[550]">{step}</p>
                         {i < service.processSteps.length - 1 && (
                           <div className="ml-4 mt-2 h-4 w-px bg-blue-200"></div>
                         )}
@@ -213,7 +213,7 @@ export default async function ServiceDetailPage({ params }) {
                 <h2 className="font-bold text-amber-900 text-base mb-3 flex items-center gap-2">
                   <LucideIcon name="AlertTriangle" size={18} className="text-amber-600" /> Important Notes
                 </h2>
-                <p className="text-amber-900 text-[15px] leading-relaxed font-bold">{service.notes}</p>
+                <p className="text-amber-900 text-[15px] leading-relaxed font-[550]">{service.notes}</p>
               </div>
             </div>
 
@@ -337,7 +337,7 @@ export default async function ServiceDetailPage({ params }) {
                     <LucideIcon name="ChevronDown" size={16} />
                   </span>
                 </summary>
-                <div className="px-4 pb-4 pl-[64px] text-gray-900 text-[15px] leading-relaxed font-semibold animate-fade-in">
+                <div className="px-4 pb-4 pl-[64px] text-gray-700 text-[15px] leading-relaxed font-[550] animate-fade-in">
                   <div className="w-full h-px bg-slate-100 mb-3"></div>
                   {faq.a}
                 </div>
