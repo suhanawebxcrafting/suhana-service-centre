@@ -34,6 +34,7 @@ export default function XeroxDeliveryContent({ location }) {
 
   const [formData, setFormData] = useState({
     name: '',
+    email: '',
     phone: '',
     address: '',
     distance: 0,
@@ -80,6 +81,7 @@ export default function XeroxDeliveryContent({ location }) {
       const submitData = new FormData()
       submitData.append('file', file)
       submitData.append('name', formData.name)
+      submitData.append('email', formData.email)
       submitData.append('phone', formData.phone)
       submitData.append('address', formData.address)
       submitData.append('distance', formData.distance)
@@ -157,6 +159,17 @@ export default function XeroxDeliveryContent({ location }) {
             placeholder="99999 99999"
             value={formData.phone}
             onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+          />
+        </div>
+        <div className="md:col-span-2">
+          <label className="block text-sm font-bold text-gray-700 mb-2">Email Address (for order confirmation)</label>
+          <input
+            required
+            type="email"
+            className="w-full px-4 py-3 rounded-xl bg-gray-50 border border-gray-200 focus:bg-white focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all outline-none"
+            placeholder="john@example.com"
+            value={formData.email}
+            onChange={(e) => setFormData({ ...formData, email: e.target.value })}
           />
         </div>
       </div>
