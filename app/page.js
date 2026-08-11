@@ -230,34 +230,34 @@ export default async function HomePage() {
             <div className="absolute inset-0 opacity-[0.05]" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)', backgroundSize: '24px 24px' }}></div>
             
             <div className="relative z-20 max-w-2xl text-center md:text-left">
-              <div className="inline-flex items-center gap-2 bg-blue-500/20 text-blue-300 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest mb-5 border border-blue-400/20">
-                <LucideIcon name="Star" size={14} className="text-blue-400 fill-blue-400" /> Popular Service
+              <div className="inline-flex items-center gap-2 bg-orange-500/20 text-orange-400 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest mb-5 border border-orange-400/20">
+                <LucideIcon name="Star" size={14} className="text-orange-400 fill-orange-400" /> Popular Service
               </div>
               <h2 className="text-3xl lg:text-[46px] leading-tight font-black text-white mb-6 tracking-tight">
-                Superfast Print &amp; Xerox Delivery
+                Superfast <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-yellow-400">Print &amp; Xerox</span> Delivery
               </h2>
               
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-10 text-left max-w-xl mx-auto md:mx-0">
                 <div className="flex items-center gap-4 text-slate-200">
-                  <div className="w-10 h-10 rounded-xl bg-slate-800 flex items-center justify-center flex-shrink-0 border border-slate-700 text-blue-400">
+                  <div className="w-10 h-10 rounded-xl bg-slate-800 flex items-center justify-center flex-shrink-0 border border-slate-700 text-orange-400">
                     <LucideIcon name="Layers" size={20} />
                   </div>
                   <span className="font-semibold text-sm">Jumbo A0 &amp; Architecture Prints</span>
                 </div>
                 <div className="flex items-center gap-4 text-slate-200">
-                  <div className="w-10 h-10 rounded-xl bg-slate-800 flex items-center justify-center flex-shrink-0 border border-slate-700 text-blue-400">
+                  <div className="w-10 h-10 rounded-xl bg-slate-800 flex items-center justify-center flex-shrink-0 border border-slate-700 text-orange-400">
                     <LucideIcon name="BookOpen" size={20} />
                   </div>
                   <span className="font-semibold text-sm">Blackbook Printing &amp; Binding</span>
                 </div>
                 <div className="flex items-center gap-4 text-slate-200">
-                  <div className="w-10 h-10 rounded-xl bg-slate-800 flex items-center justify-center flex-shrink-0 border border-slate-700 text-blue-400">
+                  <div className="w-10 h-10 rounded-xl bg-slate-800 flex items-center justify-center flex-shrink-0 border border-slate-700 text-orange-400">
                     <LucideIcon name="CreditCard" size={20} />
                   </div>
                   <span className="font-semibold text-sm">PVC Aadhaar &amp; Smart Cards</span>
                 </div>
                 <div className="flex items-center gap-4 text-slate-200">
-                  <div className="w-10 h-10 rounded-xl bg-slate-800 flex items-center justify-center flex-shrink-0 border border-slate-700 text-blue-400">
+                  <div className="w-10 h-10 rounded-xl bg-slate-800 flex items-center justify-center flex-shrink-0 border border-slate-700 text-orange-400">
                     <LucideIcon name="Truck" size={20} />
                   </div>
                   <span className="font-semibold text-sm">Doorstep Delivery (Vasai-Virar)</span>
@@ -265,7 +265,7 @@ export default async function HomePage() {
               </div>
 
               <div className="flex flex-col sm:flex-row items-center justify-center md:justify-start gap-4">
-                <Link href="/xerox-delivery" className="bg-blue-600 hover:bg-blue-500 text-white font-bold px-8 py-4 rounded-xl transition-all flex items-center justify-center gap-2 shadow-lg shadow-blue-900/50 w-full sm:w-auto">
+                <Link href="/xerox-delivery" className="bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-400 hover:to-red-400 text-white font-bold px-8 py-4 rounded-xl transition-all flex items-center justify-center gap-2 shadow-lg shadow-orange-900/40 w-full sm:w-auto">
                   Order Print Online <LucideIcon name="ChevronRight" size={20} />
                 </Link>
                 <div className="flex items-center justify-center gap-2 text-slate-300 text-sm font-semibold bg-slate-800/50 px-6 py-4 rounded-xl border border-slate-700 w-full sm:w-auto">
@@ -276,12 +276,12 @@ export default async function HomePage() {
             
             <div className="relative z-20 hidden md:flex items-center justify-center">
                <div className="w-[280px] bg-slate-800/80 backdrop-blur-sm border border-slate-700 rounded-3xl flex flex-col items-center justify-center p-8 shadow-2xl">
-                 <div className="w-24 h-24 bg-blue-500/20 rounded-2xl flex items-center justify-center mb-6 border border-blue-500/30 text-blue-400">
+                 <div className="w-24 h-24 bg-orange-500/10 rounded-2xl flex items-center justify-center mb-6 border border-orange-500/20 text-orange-400">
                    <LucideIcon name="Printer" size={48} strokeWidth={1.5} />
                  </div>
                  <h3 className="text-white font-bold text-lg mb-2">Ready to Print?</h3>
                  <p className="text-slate-400 text-xs text-center mb-6">Upload your PDFs securely and get them delivered to your door.</p>
-                 <Link href="/xerox-delivery" className="w-full bg-white text-slate-900 font-bold text-sm px-6 py-3 rounded-lg text-center hover:bg-slate-100 transition-colors">
+                 <Link href="/xerox-delivery" className="w-full bg-gradient-to-r from-orange-500 to-red-500 text-white font-bold text-sm px-6 py-3 rounded-lg text-center hover:scale-105 transition-transform shadow-lg shadow-orange-500/30">
                    Upload Documents
                  </Link>
                </div>
