@@ -214,13 +214,37 @@ export const services = [
     name: 'Instant e-PAN Apply', icon: 'Zap',
     image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Emblem_of_India.svg/512px-Emblem_of_India.svg.png',
     dummyImage: 'https://images.unsplash.com/photo-1544144433-d50aff500b91?auto=format&fit=crop&q=80&w=400',
-    description: 'Get an instant e-PAN (electronic PAN) using your Aadhaar number. This is a free, paperless process for individuals who do not have a PAN.',
-    documentsRequired: ['Aadhaar Card', 'Registered Mobile Number (for OTP)'],
-    eligibility: 'Indian residents who have an Aadhaar card and registered mobile number and do not already have a PAN.',
-    processSteps: ['Provide Aadhaar number at our center', 'OTP verification', 'Details auto-fetched from Aadhaar', 'e-PAN issued instantly via Income Tax portal', 'Print or download e-PAN PDF'],
-    processingTime: 'Instant (same day)',
-    charges: 'Contact for latest charges',
-    notes: 'Instant e-PAN is free but physical PAN card may have charges. Documents and process may vary.'
+    description: 'Need a PAN card urgently for a bank account or financial transaction? Apply for an Instant e-PAN through our fast-track e-KYC service in Virar. This paperless process uses your Aadhaar details to generate a fully valid digital PAN card in just 10 minutes!',
+    documentsRequired: [
+      'Aadhaar Number (Your Aadhaar must have your full date of birth - DD/MM/YYYY)',
+      'Registered Mobile Number (Must be active for Aadhaar OTP verification)',
+      'No physical documents, photos, or signatures required!'
+    ],
+    eligibility: 'Any individual Indian citizen who is 18 years or older, holds a valid Aadhaar card with a linked mobile number, and has NEVER been allotted a PAN card before.',
+    processSteps: [
+      'Step 1: Visit our CSC center in Virar with your Aadhaar number and registered mobile.',
+      'Step 2: We will enter your Aadhaar details on the Income Tax e-Filing portal.',
+      'Step 3: Verification is done securely via an Aadhaar OTP sent to your phone.',
+      'Step 4: Your demographic details and photo are auto-fetched directly from the UIDAI database.',
+      'Step 5: Within 10 to 15 minutes, your e-PAN PDF will be generated and ready for download & printing.'
+    ],
+    processingTime: 'Instant (Generated within 10-15 minutes)',
+    charges: '₹50 (Service & Color Printout Charges)',
+    notes: 'Important: The Instant e-PAN is completely paperless and uses the photo printed on your Aadhaar card. It does not have a scanned signature (it comes with a blank space for you to sign with a pen). A physical PVC PAN card is NOT automatically sent in this free process; it must be ordered separately later if needed.',
+    keywords: [
+      'Instant e-PAN apply Virar',
+      '10 minute PAN card',
+      'Free e-PAN card download',
+      'Urgent PAN card apply',
+      'Aadhaar OTP PAN card',
+      'Paperless PAN card near me'
+    ],
+    faqs: [
+      { q: 'Is the Instant e-PAN equally valid as a physical PAN card?', a: 'Yes! The Instant e-PAN is digitally signed by the Income Tax Department and holds the exact same legal value as a physical PAN card for all purposes (banking, ITR, etc.).' },
+      { q: 'Will I get a physical PVC PAN card at my home address?', a: 'No, the Instant e-PAN process only generates a digital PDF file. If you want a physical PVC card, you have to place a separate "Reprint PAN Card" order on the NSDL/UTI portal later by paying ₹50.' },
+      { q: 'Can minors apply for an Instant e-PAN?', a: 'No. The Instant e-PAN facility is only available for adult individuals (18 years and above). Minors must apply through the regular Form 49A process with parental signature.' },
+      { q: 'Why does my e-PAN not have my signature on it?', a: 'Because the Instant e-PAN is purely Aadhaar-based and paperless, it fetches your photo from Aadhaar but leaves the signature box blank. You can simply sign the printed copy with a black/blue pen, or update the PAN later to add a digital signature.' }
+    ]
   },
   {
     id: 8, slug: 'voter-id-new', category: 'identity',
