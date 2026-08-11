@@ -18,9 +18,11 @@ export function generateMetadata({ params }) {
   }
 
   return {
-    title: `Best Xerox & Print Delivery in ${location.name} | Suhana Service Center`,
-    description: `Looking for a xerox shop near me in ${location.name}? We offer fast print and doorstep delivery for A4, A3, Jumbo A0, blackbook, and smart cards in ${location.name}. Transparent pricing with ₹1.5 per page for B&W.`,
+    title: `Xerox in ${location.name}: Best Print Delivery Service | Suhana`,
+    description: `Looking for a xerox in ${location.name}? We offer fast print and doorstep delivery for A4, A3, Jumbo A0, blackbook, and smart cards across ${location.name}.`,
     keywords: [
+      `xerox in ${location.name}`,
+      `xerox ${location.name}`,
       `xerox shop near me ${location.name}`,
       `print delivery ${location.name}`,
       `doorstep xerox ${location.name}`,
