@@ -223,37 +223,56 @@ export default async function HomePage() {
       <LogoSlider />
 
       {/* ─── Dedicated Xerox Banner ─── */}
-      <section className="py-12 bg-white relative z-10">
+      <section className="py-16 bg-white relative z-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-gradient-to-br from-blue-950 via-blue-900 to-blue-800 rounded-3xl p-8 lg:p-12 relative overflow-hidden shadow-2xl flex flex-col md:flex-row items-center justify-between gap-8 border border-blue-800/50">
-            <div className="absolute right-0 top-0 w-1/2 h-full opacity-10 pointer-events-none" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)', backgroundSize: '24px 24px' }}></div>
-            <div className="absolute -right-20 -bottom-20 w-80 h-80 bg-blue-500 rounded-full blur-[80px] opacity-30 pointer-events-none"></div>
-            <div className="absolute -left-20 -top-20 w-60 h-60 bg-orange-500 rounded-full blur-[80px] opacity-20 pointer-events-none"></div>
+          <div className="bg-[conic-gradient(at_top_right,_var(--tw-gradient-stops))] from-blue-900 via-blue-950 to-indigo-950 rounded-[2.5rem] p-8 lg:p-14 relative overflow-hidden shadow-[0_20px_50px_rgba(30,58,138,0.2)] flex flex-col md:flex-row items-center justify-between gap-10 border border-blue-800/50">
+            {/* Dynamic Background Effects */}
+            <div className="absolute right-0 top-0 w-2/3 h-full opacity-15 pointer-events-none" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)', backgroundSize: '32px 32px' }}></div>
+            <div className="absolute -right-20 -top-20 w-96 h-96 bg-blue-500 rounded-full blur-[100px] opacity-40 pointer-events-none mix-blend-screen"></div>
+            <div className="absolute -left-20 -bottom-20 w-80 h-80 bg-orange-500 rounded-full blur-[100px] opacity-30 pointer-events-none mix-blend-screen"></div>
             
             <div className="relative z-20 max-w-2xl text-center md:text-left">
-              <div className="inline-flex items-center gap-2 bg-gradient-to-r from-orange-500 to-orange-600 text-white px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-widest mb-5 shadow-lg shadow-orange-500/30 border border-orange-400/50">
-                <LucideIcon name="Printer" size={14} className="animate-pulse" /> Popular Service
+              <div className="inline-flex items-center gap-2 bg-gradient-to-r from-orange-500 to-red-500 text-white px-4 py-2 rounded-full text-xs font-black uppercase tracking-widest mb-6 shadow-lg shadow-orange-500/40 border border-orange-400/50 animate-bounce">
+                🔥 Hot Selling Service
               </div>
-              <h2 className="text-3xl lg:text-4xl lg:text-[42px] leading-tight font-black text-white mb-4 tracking-tight">
-                Fast <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-300 to-orange-500">Xerox &amp; Print</span> Delivery
+              <h2 className="text-4xl lg:text-5xl lg:text-[54px] leading-tight font-black text-white mb-6 tracking-tight drop-shadow-lg">
+                Superfast <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-yellow-400 drop-shadow-sm">Print &amp; Xerox</span> Delivery 🚀
               </h2>
-              <p className="text-blue-100 text-[15px] lg:text-[17px] leading-relaxed font-medium mb-8 max-w-xl mx-auto md:mx-0 opacity-90">
-                Get Jumbo A0 prints, blackbooks, PVC smart cards, and standard A4 prints delivered right to your doorstep in Virar, Vasai &amp; Nalasopara at the lowest prices.
-              </p>
+              
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8 text-left max-w-xl mx-auto md:mx-0">
+                <div className="flex items-center gap-3 text-blue-50">
+                  <div className="w-9 h-9 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center flex-shrink-0 text-xl shadow-sm border border-white/20">✨</div>
+                  <span className="font-medium text-[15px]">Jumbo A0 &amp; Architecture Prints</span>
+                </div>
+                <div className="flex items-center gap-3 text-blue-50">
+                  <div className="w-9 h-9 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center flex-shrink-0 text-xl shadow-sm border border-white/20">📚</div>
+                  <span className="font-medium text-[15px]">Blackbook Printing &amp; Binding</span>
+                </div>
+                <div className="flex items-center gap-3 text-blue-50">
+                  <div className="w-9 h-9 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center flex-shrink-0 text-xl shadow-sm border border-white/20">💳</div>
+                  <span className="font-medium text-[15px]">PVC Aadhaar &amp; Smart Cards</span>
+                </div>
+                <div className="flex items-center gap-3 text-blue-50">
+                  <div className="w-9 h-9 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center flex-shrink-0 text-xl shadow-sm border border-white/20">🛵</div>
+                  <span className="font-medium text-[15px]">Doorstep Delivery (Vasai-Virar)</span>
+                </div>
+              </div>
+
               <div className="flex flex-col sm:flex-row items-center justify-center md:justify-start gap-5">
-                <Link href="/xerox-delivery" className="bg-white text-blue-950 font-black px-8 py-4 rounded-xl hover:bg-blue-50 transition-all flex items-center justify-center gap-2 shadow-[0_8px_30px_rgb(255,255,255,0.12)] hover:shadow-[0_8px_30px_rgb(255,255,255,0.2)] hover:-translate-y-1 w-full sm:w-auto">
-                  <LucideIcon name="UploadCloud" size={20} className="text-blue-600" /> Order Print Online
+                <Link href="/xerox-delivery" className="group bg-gradient-to-r from-white to-blue-50 text-blue-950 font-black px-10 py-4 rounded-2xl transition-all flex items-center justify-center gap-3 shadow-[0_0_40px_rgba(255,255,255,0.3)] hover:shadow-[0_0_60px_rgba(255,255,255,0.5)] hover:-translate-y-1 hover:scale-105 w-full sm:w-auto">
+                  <span className="text-[16px]">Order Print Now</span> <span className="text-xl group-hover:translate-x-1 transition-transform">👉</span>
                 </Link>
-                <div className="flex items-center justify-center gap-2 text-blue-200 text-sm font-semibold bg-white/5 backdrop-blur-sm px-4 py-3 rounded-xl border border-white/10 w-full sm:w-auto">
-                  <LucideIcon name="Truck" size={18} className="text-orange-400" /> Doorstep Delivery
+                <div className="flex items-center justify-center gap-3 text-blue-100 text-sm font-semibold bg-white/10 backdrop-blur-md px-6 py-4 rounded-2xl border border-white/20 shadow-inner w-full sm:w-auto">
+                  <span className="text-xl">💰</span> Guaranteed Lowest Price
                 </div>
               </div>
             </div>
             
             <div className="relative z-20 hidden md:flex items-center justify-center">
-               <div className="w-56 h-56 bg-white/10 backdrop-blur-md border border-white/20 rounded-3xl flex flex-col items-center justify-center rotate-3 hover:rotate-6 transition-all duration-500 hover:scale-105 shadow-2xl group">
-                 <LucideIcon name="Printer" size={80} className="text-white drop-shadow-[0_10px_10px_rgba(0,0,0,0.5)] group-hover:-translate-y-2 transition-transform duration-500" />
-                 <div className="mt-4 bg-orange-500 text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full shadow-lg">Low Price</div>
+               <div className="relative w-[280px] h-[280px] bg-gradient-to-br from-white/20 to-white/5 backdrop-blur-xl border border-white/30 rounded-[2.5rem] flex flex-col items-center justify-center rotate-3 hover:rotate-6 transition-all duration-500 hover:scale-110 shadow-[0_20px_50px_rgba(0,0,0,0.3)] group cursor-pointer overflow-hidden">
+                 <div className="absolute inset-0 bg-gradient-to-t from-blue-900/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                 <LucideIcon name="Printer" size={100} className="text-white drop-shadow-[0_10px_15px_rgba(0,0,0,0.5)] group-hover:-translate-y-3 transition-transform duration-500" />
+                 <div className="mt-6 bg-gradient-to-r from-orange-500 to-red-500 text-white text-[12px] font-black uppercase tracking-widest px-6 py-2 rounded-full shadow-[0_5px_15px_rgba(249,115,22,0.5)] group-hover:scale-110 transition-transform duration-500">Upload PDF &amp; Print ⚡</div>
                </div>
             </div>
           </div>
