@@ -225,15 +225,34 @@ export default function AdminDashboard() {
                           </span>
                         </td>
                         <td className="px-4 py-4">
-                          <div className="flex gap-2">
-                            <a href={order.documentUrl} target="_blank"
-                              className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-blue-50 text-blue-700 rounded-lg text-[10px] font-black uppercase tracking-widest hover:bg-blue-100 transition-all">
-                              <ExternalLink size={11} /> View
-                            </a>
-                            <a href={order.documentUrl} download
-                              className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-green-50 text-green-700 rounded-lg text-[10px] font-black uppercase tracking-widest hover:bg-green-100 transition-all">
-                              <Download size={11} /> Download
-                            </a>
+                          <div className="flex flex-col gap-2">
+                            {(order.documentUrls && order.documentUrls.length > 0) ? (
+                              order.documentUrls.map((url, index) => (
+                                <div key={index} className="flex gap-2">
+                                  <a href={url} target="_blank"
+                                    className="inline-flex items-center gap-1.5 px-3 py-1 bg-blue-50 text-blue-700 rounded-lg text-[10px] font-black uppercase tracking-widest hover:bg-blue-100 transition-all">
+                                    <ExternalLink size={11} /> Doc {index + 1}
+                                  </a>
+                                  <a href={url} download
+                                    className="inline-flex items-center gap-1.5 px-3 py-1 bg-green-50 text-green-700 rounded-lg text-[10px] font-black uppercase tracking-widest hover:bg-green-100 transition-all">
+                                    <Download size={11} />
+                                  </a>
+                                </div>
+                              ))
+                            ) : order.documentUrl ? (
+                              <div className="flex gap-2">
+                                <a href={order.documentUrl} target="_blank"
+                                  className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-blue-50 text-blue-700 rounded-lg text-[10px] font-black uppercase tracking-widest hover:bg-blue-100 transition-all">
+                                  <ExternalLink size={11} /> View
+                                </a>
+                                <a href={order.documentUrl} download
+                                  className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-green-50 text-green-700 rounded-lg text-[10px] font-black uppercase tracking-widest hover:bg-green-100 transition-all">
+                                  <Download size={11} /> Download
+                                </a>
+                              </div>
+                            ) : (
+                              <span className="text-gray-400 text-xs font-medium">No Doc</span>
+                            )}
                           </div>
                         </td>
                         <td className="px-4 py-4">

@@ -14,7 +14,8 @@ model XeroxOrder {
   address         String
   distance        Float
   deliveryCharge  Float
-  documentUrl     String
+  documentUrl     String?
+  documentUrls    String[] @default([]) // For multiple files
   serviceRequested String?  // Added for tracking which service/dropdown they selected
   email           String?  // Added for email notifications
   status          OrderStatus @default(PENDING)

@@ -40,7 +40,7 @@ export default function XeroxDeliveryContent({ location }) {
     distance: 0,
     serviceNeeded: 'General Print & Copy',
   })
-  const [file, setFile] = useState(null)
+  const [files, setFiles] = useState([])
   const [loading, setLoading] = useState(false)
   const [success, setSuccess] = useState(false)
   const [error, setError] = useState('')
@@ -59,15 +59,20 @@ export default function XeroxDeliveryContent({ location }) {
   const deliveryCharge = formData.distance > 4 ? 50 : 0
 
   const handleFileUpload = (e) => {
-    const selectedFile = e.target.files[0]
-    if (selectedFile) {
-      if (selectedFile.size > 10 * 1024 * 1024) {
-        setError('File size should be less than 10MB')
-        return
+    const selectedFiles = Array.from(e.target.files)
+    if (selectedFiles.length > 0) {
+      const validFiles = selectedFiles.filter(f => f.size <= 10 * 1024 * 1024)
+      if (validFiles.length !== selectedFiles.length) {
+        setError('Some files were ignored because they exceed 10MB limit')
+      } else {
+        setError('')
       }
-      setFile(selectedFile)
-      setError('')
+      setFiles(prev => [...prev, ...validFiles])
     }
+  }
+
+  const removeFile = (indexToRemove) => {
+    setFiles(prev => prev.filter((_, index) => index !== indexToRemove))
   }
 
   const handleSubmit = async (e) => {
@@ -76,10 +81,10 @@ export default function XeroxDeliveryContent({ location }) {
     setError('')
 
     try {
-      if (!file) throw new Error('Please upload a document')
+      if (files.length === 0) throw new Error('Please upload at least one document')
 
       const submitData = new FormData()
-      submitData.append('file', file)
+      files.forEach(f => submitData.append('files', f))
       submitData.append('name', formData.name)
       submitData.append('email', formData.email)
       submitData.append('phone', formData.phone)
@@ -122,7 +127,7 @@ export default function XeroxDeliveryContent({ location }) {
             Your {formData.serviceNeeded} request has been received. Our team will contact you shortly for confirmation.
           </p>
           <button
-            onClick={() => { setSuccess(false); setFile(null); }}
+            onClick={() => { setSuccess(false); setFiles([]); }}
             className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 rounded-xl transition-all"
           >
             Submit Another Request
@@ -230,13 +235,30 @@ export default function XeroxDeliveryContent({ location }) {
           <FileText size={16} className="text-blue-600" /> Upload Documents
         </label>
         <div className="relative group">
-          <input type="file" className="hidden" id={`file-upload-${isModal ? 'modal' : 'main'}`} accept=".pdf,.jpg,.jpeg,.png" onChange={handleFileUpload} />
-          <label htmlFor={`file-upload-${isModal ? 'modal' : 'main'}`} className={`flex flex-col items-center justify-center border-2 border-dashed rounded-2xl p-6 transition-all cursor-pointer ${file ? 'border-green-400 bg-green-50' : 'border-gray-300 bg-gray-50 group-hover:bg-gray-100 group-hover:border-blue-400'}`}>
-            <Upload size={24} className={`mb-2 ${file ? 'text-green-500' : 'text-gray-400 group-hover:text-blue-500 transition-colors'}`} />
-            <span className="font-bold text-gray-700 text-sm text-center">{file ? file.name : 'Click to upload or drag and drop'}</span>
+          <input type="file" multiple className="hidden" id={`file-upload-${isModal ? 'modal' : 'main'}`} accept=".pdf,.jpg,.jpeg,.png" onChange={handleFileUpload} />
+          <label htmlFor={`file-upload-${isModal ? 'modal' : 'main'}`} className={`flex flex-col items-center justify-center border-2 border-dashed rounded-2xl p-6 transition-all cursor-pointer ${files.length > 0 ? 'border-blue-400 bg-blue-50' : 'border-gray-300 bg-gray-50 group-hover:bg-gray-100 group-hover:border-blue-400'}`}>
+            <Upload size={24} className={`mb-2 ${files.length > 0 ? 'text-blue-500' : 'text-gray-400 group-hover:text-blue-500 transition-colors'}`} />
+            <span className="font-bold text-gray-700 text-sm text-center">Click to add files or drag and drop</span>
             <span className="text-xs text-gray-500 mt-1">PDF, JPG, PNG up to 10MB</span>
           </label>
         </div>
+        {files.length > 0 && (
+          <div className="mt-4 space-y-2">
+            {files.map((f, i) => (
+              <div key={i} className="flex items-center justify-between bg-white border border-gray-100 shadow-sm p-3 rounded-xl">
+                <div className="flex items-center gap-3 overflow-hidden">
+                  <div className="w-8 h-8 bg-blue-50 text-blue-600 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <FileText size={14} />
+                  </div>
+                  <span className="text-sm font-bold text-gray-700 truncate">{f.name}</span>
+                </div>
+                <button type="button" onClick={() => removeFile(i)} className="p-2 hover:bg-red-50 text-red-500 rounded-lg transition-colors flex-shrink-0">
+                  <X size={16} />
+                </button>
+              </div>
+            ))}
+          </div>
+        )}
       </div>
 
       {error && (
