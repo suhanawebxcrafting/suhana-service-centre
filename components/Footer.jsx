@@ -48,17 +48,17 @@ export default function Footer() {
 
             <div className="flex gap-4">
               <a href="https://wa.me/917709709243" target="_blank" rel="noopener noreferrer"
-                className="w-12 h-12 rounded-xl bg-white/10 border border-white/20 backdrop-blur-md hover:bg-[#25D366] hover:border-[#25D366] flex items-center justify-center transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_10px_20px_rgba(37,211,102,0.3)] text-gray-300 hover:text-white shadow-sm" title="WhatsApp">
+                className="w-12 h-12 rounded-xl bg-white hover:bg-[#25D366] border border-white flex items-center justify-center transition-all duration-300 hover:-translate-y-1 shadow-lg hover:shadow-[0_10px_20px_rgba(37,211,102,0.4)] text-blue-600 hover:text-white hover:border-[#25D366]" title="WhatsApp">
                 <svg width="22" height="22" viewBox="0 0 32 32" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                   <path d="M16.002 3C9.373 3 4 8.373 4 15.002c0 2.124.558 4.118 1.535 5.848L4 29l8.374-2.194A11.95 11.95 0 0016.002 27C22.631 27 28 21.631 28 15.002 28 8.373 22.631 3 16.002 3zm0 21.846c-1.894 0-3.662-.503-5.19-1.38l-.372-.22-3.86 1.012 1.03-3.756-.24-.386A9.844 9.844 0 016.154 15c0-5.43 4.418-9.846 9.848-9.846S25.846 9.57 25.846 15c0 5.432-4.416 9.846-9.844 9.846zm5.404-7.37c-.297-.148-1.754-.866-2.026-.965-.272-.099-.47-.148-.668.149-.198.297-.766.965-.939 1.162-.173.198-.347.223-.644.075-.297-.149-1.254-.462-2.388-1.473-.883-.786-1.479-1.756-1.652-2.053-.173-.297-.018-.457.13-.605.133-.133.297-.347.445-.52.148-.174.198-.298.297-.496.099-.198.05-.372-.025-.52-.074-.149-.668-1.61-.915-2.203-.241-.579-.487-.5-.668-.51-.173-.007-.372-.01-.57-.01-.198 0-.52.074-.793.372-.272.297-1.04 1.015-1.04 2.476 0 1.46 1.065 2.872 1.213 3.07.148.198 2.095 3.2 5.077 4.487.71.306 1.263.488 1.695.624.712.227 1.36.195 1.872.118.571-.085 1.757-.719 2.006-1.413.248-.693.248-1.287.173-1.412-.074-.124-.272-.198-.57-.347z" />
                 </svg>
               </a>
               <a href="tel:7709709243"
-                className="w-12 h-12 rounded-xl bg-white/10 border border-white/20 backdrop-blur-md hover:bg-blue-500 hover:border-blue-500 flex items-center justify-center transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_10px_20px_rgba(59,130,246,0.3)] text-gray-300 hover:text-white shadow-sm" title="Call Us">
+                className="w-12 h-12 rounded-xl bg-white hover:bg-blue-600 border border-white flex items-center justify-center transition-all duration-300 hover:-translate-y-1 shadow-lg hover:shadow-[0_10px_20px_rgba(37,130,246,0.4)] text-blue-600 hover:text-white hover:border-blue-600" title="Call Us">
                 <LucideIcon name="Phone" size={20} />
               </a>
               <a href="mailto:suhanaservicec@gmail.com"
-                className="w-12 h-12 rounded-xl bg-white/10 border border-white/20 backdrop-blur-md hover:bg-red-500 hover:border-red-500 flex items-center justify-center transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_10px_20px_rgba(239,68,68,0.3)] text-gray-300 hover:text-white shadow-sm" title="Email Us">
+                className="w-12 h-12 rounded-xl bg-white hover:bg-red-500 border border-white flex items-center justify-center transition-all duration-300 hover:-translate-y-1 shadow-lg hover:shadow-[0_10px_20px_rgba(239,68,68,0.4)] text-blue-600 hover:text-white hover:border-red-500" title="Email Us">
                 <LucideIcon name="Mail" size={20} />
               </a>
             </div>
@@ -111,12 +111,12 @@ export default function Footer() {
             </h3>
             
             <div className="space-y-4 mb-6">
-              <div className="flex items-start gap-4 p-4 rounded-2xl bg-white/10 border border-white/20 backdrop-blur-md shadow-sm hover:shadow-md hover:bg-white/15 transition-all group cursor-default">
-                <div className="w-10 h-10 rounded-xl bg-orange-500/20 flex items-center justify-center flex-shrink-0 text-orange-400 group-hover:scale-110 group-hover:bg-orange-500 group-hover:text-white transition-all">
+              <div className="flex items-start gap-4 p-5 rounded-2xl bg-white shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all group cursor-default">
+                <div className="w-10 h-10 rounded-xl bg-orange-50 flex items-center justify-center flex-shrink-0 text-orange-500 group-hover:scale-110 group-hover:bg-orange-500 group-hover:text-white transition-all">
                   <LucideIcon name="MapPin" size={20} />
                 </div>
                 <div>
-                  <p className="text-white/90 text-[13px] leading-relaxed font-medium">
+                  <p className="text-gray-700 text-[13px] leading-relaxed font-semibold">
                     Office No- 04, Raipada,<br />
                     Nr. Anand Gaushalla, Chandansar Road,<br />
                     Virar (E) - 401305
@@ -125,18 +125,18 @@ export default function Footer() {
               </div>
               
               <div className="flex flex-col gap-3">
-                <a href="tel:7709709243" className="flex items-center gap-3 p-4 rounded-2xl bg-white/10 border border-white/20 backdrop-blur-md shadow-sm hover:shadow-md hover:bg-white/15 hover:border-blue-400/50 transition-all group">
-                  <div className="w-8 h-8 rounded-lg bg-blue-500/20 flex items-center justify-center flex-shrink-0 text-blue-400 group-hover:bg-blue-500 group-hover:text-white transition-colors">
+                <a href="tel:7709709243" className="flex items-center gap-4 p-4 rounded-2xl bg-white shadow-lg hover:shadow-xl hover:-translate-y-1 border border-transparent hover:border-blue-200 transition-all group">
+                  <div className="w-8 h-8 rounded-lg bg-blue-50 flex items-center justify-center flex-shrink-0 text-blue-600 group-hover:bg-blue-600 group-hover:text-white transition-colors">
                     <LucideIcon name="Phone" size={16} />
                   </div>
-                  <span className="text-white font-semibold text-sm group-hover:text-white transition-colors">7709709243</span>
+                  <span className="text-gray-800 font-bold text-sm group-hover:text-blue-700 transition-colors">7709709243</span>
                 </a>
 
-                <a href="mailto:suhanaservicec@gmail.com" className="flex items-center gap-3 p-4 rounded-2xl bg-white/10 border border-white/20 backdrop-blur-md shadow-sm hover:shadow-md hover:bg-white/15 hover:border-orange-400/50 transition-all group">
-                  <div className="w-8 h-8 rounded-lg bg-orange-500/20 flex items-center justify-center flex-shrink-0 text-orange-400 group-hover:bg-orange-500 group-hover:text-white transition-colors">
+                <a href="mailto:suhanaservicec@gmail.com" className="flex items-center gap-4 p-4 rounded-2xl bg-white shadow-lg hover:shadow-xl hover:-translate-y-1 border border-transparent hover:border-orange-200 transition-all group">
+                  <div className="w-8 h-8 rounded-lg bg-orange-50 flex items-center justify-center flex-shrink-0 text-orange-500 group-hover:bg-orange-500 group-hover:text-white transition-colors">
                     <LucideIcon name="Mail" size={16} />
                   </div>
-                  <span className="text-white font-semibold text-sm group-hover:text-white transition-colors truncate">suhanaservicec@gmail.com</span>
+                  <span className="text-gray-800 font-bold text-sm group-hover:text-orange-600 transition-colors truncate">suhanaservicec@gmail.com</span>
                 </a>
               </div>
             </div>
