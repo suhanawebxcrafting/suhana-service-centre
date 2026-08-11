@@ -2,6 +2,7 @@ import { NextResponse } from 'next/server'
 import { prisma } from '@/lib/prisma'
 import cloudinary from '@/lib/cloudinary'
 import { sendAdminNotification, sendCustomerReply } from '@/lib/email'
+import { getXeroxAdminTemplate, getXeroxCustomerTemplate } from '@/lib/email-templates'
 
 export async function POST(req) {
   try {
@@ -59,33 +60,14 @@ export async function POST(req) {
 
     // Send email to Admin
     const adminSubject = `New Xerox Order: ${serviceRequested} by ${name}`;
-    const adminHtml = `
-      <h2>New Xerox Delivery Order Received</h2>
-      <p><strong>Customer Name:</strong> ${name}</p>
-      <p><strong>Email:</strong> ${email || 'N/A'}</p>
-      <p><strong>Phone:</strong> ${phone}</p>
-      <p><strong>Address:</strong> ${address}</p>
-      <p><strong>Service Requested:</strong> ${serviceRequested}</p>
-      <p><strong>Document Link:</strong> <a href="${uploadRes.secure_url}">View Document</a></p>
-    `;
+    const adminData = { name, email, phone, address, distance, deliveryCharge, serviceRequested, documentUrl: uploadRes.secure_url };
+    const adminHtml = getXeroxAdminTemplate(adminData);
     await sendAdminNotification(adminSubject, adminHtml);
 
     // Send Auto-Reply to Customer
     if (email) {
       const customerSubject = `Order Received: ${serviceRequested} - Suhana Service Centre`;
-      const customerHtml = `
-        <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; color: #333;">
-          <h2 style="color: #2563eb;">Hello ${name},</h2>
-          <p>Thank you for choosing <strong>Suhana Service Centre</strong>.</p>
-          <p>We have successfully received your order for "<strong>${serviceRequested}</strong>".</p>
-          <br/>
-          <p>Our team is currently reviewing your document. We will contact you shortly at <strong>${phone}</strong> to confirm the exact pricing and delivery time.</p>
-          <br/>
-          <p>If you have any urgent changes or questions, please WhatsApp us at <strong>+91 77097 09243</strong>.</p>
-          <br/>
-          <p>Best regards,<br/><strong>Suhana Service Centre Team</strong><br/>Virar East</p>
-        </div>
-      `;
+      const customerHtml = getXeroxCustomerTemplate(adminData);
       await sendCustomerReply(email, customerSubject, customerHtml);
     }
 
