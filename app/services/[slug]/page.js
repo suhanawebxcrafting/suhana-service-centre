@@ -222,7 +222,7 @@ export default async function ServiceDetailPage({ params }) {
               {/* Quick Info Card */}
               <div className="bg-gradient-to-br from-blue-900 to-blue-800 rounded-2xl p-6 text-white shadow-xl">
                 <h3 className="font-bold text-base mb-4 flex items-center gap-2">
-                  <LucideIcon name="BarChart4" size={18} className="text-orange-400" /> Quick Info
+                  <span className="w-6 h-6 bg-orange-400 rounded-full flex items-center justify-center text-white font-black text-xs flex-shrink-0">i</span> Quick Info
                 </h3>
                 <div className="space-y-3">
                   <div className="flex items-center justify-between py-2 border-b border-blue-700">
