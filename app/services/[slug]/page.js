@@ -301,30 +301,40 @@ export default async function ServiceDetailPage({ params }) {
             <h2 className="text-2xl font-black text-gray-900 mb-3 tracking-tight">Frequently Asked Questions</h2>
             <p className="text-gray-500 text-sm font-medium">Common questions about our {service.name} services in Virar.</p>
           </div>
-          <div className="space-y-4">
-            {service.faqs && service.faqs.map((faq, i) => (
-              <div key={i} className="bg-white rounded-2xl p-5 border border-blue-100 shadow-sm">
-                <h3 className="font-bold text-blue-900 mb-2 text-sm flex items-start gap-2">
-                  <span className="text-orange-500 font-black">Q:</span> {faq.q}
-                </h3>
-                <p className="text-gray-600 text-sm leading-relaxed flex items-start gap-2">
-                  <span className="text-blue-500 font-black">A:</span> {faq.a}
-                </p>
-              </div>
+          <div className="space-y-3">
+            {[
+              ...(service.faqs || []),
+              {
+                q: `Where can I apply for ${service.name} in Virar?`,
+                a: `Suhana Service Center is your trusted ${service.name.toLowerCase()} agent in Virar. You can visit our office in Virar East or apply online through us for fast processing.`
+              },
+              {
+                q: `Is there an urgent ${service.name} service available?`,
+                a: `Yes, we provide urgent ${service.name.toLowerCase()} assistance. As an experienced consultant in Virar, we ensure your application is processed with priority.`
+              },
+              {
+                q: `What is the fastest way to get ${service.name} done?`,
+                a: `The fastest way is to contact us directly. We offer a fast ${service.name.toLowerCase()} service in Virar with transparent pricing and complete guidance on required documents.`
+              }
+            ].map((faq, i) => (
+              <details key={i} className="group bg-white rounded-xl shadow-sm border border-gray-100 hover:shadow-md hover:shadow-blue-900/5 hover:border-blue-200 transition-all duration-300 overflow-hidden [&_summary::-webkit-details-marker]:hidden">
+                <summary className="flex items-center justify-between p-4 cursor-pointer list-none select-none">
+                  <div className="flex items-center gap-3">
+                    <div className="w-9 h-9 bg-slate-50 rounded-lg flex items-center justify-center text-blue-600 flex-shrink-0 group-hover:scale-110 group-hover:bg-blue-600 group-hover:text-white transition-all duration-300 shadow-sm border border-slate-100 group-hover:border-blue-600">
+                      <LucideIcon name="MessageCircle" size={18} />
+                    </div>
+                    <span className="font-bold text-gray-800 text-[15px] pr-4 group-hover:text-blue-600 transition-colors">{faq.q}</span>
+                  </div>
+                  <span className="w-7 h-7 rounded-full bg-slate-50 flex items-center justify-center text-gray-400 flex-shrink-0 transition-transform duration-500 group-open:rotate-180 group-open:bg-blue-50 group-open:text-blue-600 border border-slate-100">
+                    <LucideIcon name="ChevronDown" size={16} />
+                  </span>
+                </summary>
+                <div className="px-4 pb-4 pl-[64px] text-gray-600 text-[14px] leading-relaxed animate-fade-in">
+                  <div className="w-full h-px bg-slate-100 mb-3"></div>
+                  {faq.a}
+                </div>
+              </details>
             ))}
-            
-            <div className="bg-gray-50 rounded-2xl p-5 border border-gray-100">
-              <h3 className="font-bold text-gray-900 mb-2 text-sm">Where can I apply for {service.name} in Virar?</h3>
-              <p className="text-gray-600 text-sm leading-relaxed">Suhana Service Center is your trusted <strong>{service.name.toLowerCase()} agent in Virar</strong>. You can visit our office in Virar East or <strong>apply {service.name.toLowerCase()} online</strong> through us for fast processing.</p>
-            </div>
-            <div className="bg-gray-50 rounded-2xl p-5 border border-gray-100">
-              <h3 className="font-bold text-gray-900 mb-2 text-sm">Is there an urgent {service.name} service available?</h3>
-              <p className="text-gray-600 text-sm leading-relaxed">Yes, we provide <strong>urgent {service.name.toLowerCase()}</strong> assistance. As an experienced <strong>{service.name.toLowerCase()} consultant in Virar</strong>, we ensure your application is processed with priority.</p>
-            </div>
-            <div className="bg-gray-50 rounded-2xl p-5 border border-gray-100">
-              <h3 className="font-bold text-gray-900 mb-2 text-sm">What is the fastest way to get {service.name} done?</h3>
-              <p className="text-gray-600 text-sm leading-relaxed">The fastest way is to contact us directly. We offer a <strong>fast {service.name.toLowerCase()} service in Virar</strong> with transparent pricing and complete guidance on required documents.</p>
-            </div>
           </div>
         </div>
       </section>
