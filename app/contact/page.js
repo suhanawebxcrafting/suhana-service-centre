@@ -161,7 +161,9 @@ export default function ContactPage() {
                 <div className="absolute -right-6 -top-6 w-32 h-32 bg-white/20 rounded-full blur-2xl"></div>
                 <div className="flex items-center gap-4 relative z-10">
                   <div className="w-14 h-14 bg-white/20 backdrop-blur-md rounded-2xl flex items-center justify-center text-white border border-white/30 group-hover:scale-110 transition-transform">
-                    <LucideIcon name="MessageCircle" size={28} />
+                    <svg width="28" height="28" viewBox="0 0 32 32" fill="white" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M16.002 3C9.373 3 4 8.373 4 15.002c0 2.124.558 4.118 1.535 5.848L4 29l8.374-2.194A11.95 11.95 0 0016.002 27C22.631 27 28 21.631 28 15.002 28 8.373 22.631 3 16.002 3zm0 21.846c-1.894 0-3.662-.503-5.19-1.38l-.372-.22-3.86 1.012 1.03-3.756-.24-.386A9.844 9.844 0 016.154 15c0-5.43 4.418-9.846 9.848-9.846S25.846 9.57 25.846 15c0 5.432-4.416 9.846-9.844 9.846zm5.404-7.37c-.297-.148-1.754-.866-2.026-.965-.272-.099-.47-.148-.668.149-.198.297-.766.965-.939 1.162-.173.198-.347.223-.644.075-.297-.149-1.254-.462-2.388-1.473-.883-.786-1.479-1.756-1.652-2.053-.173-.297-.018-.457.13-.605.133-.133.297-.347.445-.52.148-.174.198-.298.297-.496.099-.198.05-.372-.025-.52-.074-.149-.668-1.61-.915-2.203-.241-.579-.487-.5-.668-.51-.173-.007-.372-.01-.57-.01-.198 0-.52.074-.793.372-.272.297-1.04 1.015-1.04 2.476 0 1.46 1.065 2.872 1.213 3.07.148.198 2.095 3.2 5.077 4.487.71.306 1.263.488 1.695.624.712.227 1.36.195 1.872.118.571-.085 1.757-.719 2.006-1.413.248-.693.248-1.287.173-1.412-.074-.124-.272-.198-.57-.347z" />
+                    </svg>
                   </div>
                   <div>
                     <div className="text-white/80 text-[10px] font-black uppercase tracking-widest mb-1">Instant Reply</div>
@@ -232,7 +234,7 @@ export default function ContactPage() {
                   </Field>
 
                   <button type="submit" disabled={submitting}
-                    className="w-full group bg-blue-950 hover:bg-blue-900 text-white font-black py-4.5 rounded-xl flex items-center justify-center gap-3 transition-all shadow-[0_10px_20px_rgba(23,37,84,0.15)] hover:shadow-[0_15px_30px_rgba(23,37,84,0.25)] hover:-translate-y-1 disabled:opacity-70 disabled:hover:translate-y-0 disabled:cursor-not-allowed mt-4">
+                    className="w-full group bg-blue-950 hover:bg-blue-900 text-white font-black py-4 rounded-xl flex items-center justify-center gap-3 transition-all shadow-[0_10px_20px_rgba(23,37,84,0.15)] hover:shadow-[0_15px_30px_rgba(23,37,84,0.25)] hover:-translate-y-1 disabled:opacity-70 disabled:hover:translate-y-0 disabled:cursor-not-allowed mt-4">
                     {submitting ? (
                       <><LucideIcon name="Loader2" size={22} className="animate-spin" /> Sending...</>
                     ) : (
