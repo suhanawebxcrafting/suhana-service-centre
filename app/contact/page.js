@@ -255,7 +255,7 @@ export default function ContactPage() {
       </section>
 
       {/* Premium Full-width Map Section */}
-      <section className="relative h-[500px] w-full bg-gray-200">
+      <section className="relative h-[350px] lg:h-[400px] w-full bg-gray-200">
         <iframe
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3761.6891620490587!2d72.8584376!3d19.4689641!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7a91c7e33401b%3A0xe87dadf916305583!2sCSC%20AAPLE%20SARKAR%20centre!5e0!3m2!1sen!2sin!4v1776927631048!5m2!1sen!2sin"
           className="absolute inset-0 w-full h-full border-0 grayscale hover:grayscale-0 transition-all duration-700"
