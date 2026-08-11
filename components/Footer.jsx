@@ -16,11 +16,11 @@ export default function Footer() {
   ]
 
   return (
-    <footer className="relative bg-[#0b1121] text-white overflow-hidden border-t border-white/5">
+    <footer className="hero-gradient relative text-white overflow-hidden border-t border-white/5">
       {/* Decorative Background Elements */}
-      <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)', backgroundSize: '40px 40px' }}></div>
-      <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-600 rounded-full blur-[120px] opacity-20 pointer-events-none mix-blend-screen"></div>
-      <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-orange-600 rounded-full blur-[120px] opacity-10 pointer-events-none mix-blend-screen"></div>
+      <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)', backgroundSize: '40px 40px' }}></div>
+      <div className="absolute top-0 left-1/4 w-96 h-96 bg-white/10 rounded-full blur-[120px] pointer-events-none mix-blend-overlay"></div>
+      <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-orange-500/10 rounded-full blur-[120px] pointer-events-none mix-blend-overlay"></div>
 
       {/* Main footer content */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-16">
@@ -124,12 +124,19 @@ export default function Footer() {
                 </div>
               </div>
               
-              <div className="flex items-center gap-4">
-                <a href="tel:7709709243" className="flex-1 flex items-center gap-3 p-4 rounded-2xl bg-white/5 border border-white/5 hover:bg-white/10 hover:border-blue-500/30 transition-all group">
+              <div className="flex flex-col gap-3">
+                <a href="tel:7709709243" className="flex items-center gap-3 p-4 rounded-2xl bg-white/5 border border-white/5 hover:bg-white/10 hover:border-blue-500/30 transition-all group">
                   <div className="w-8 h-8 rounded-lg bg-blue-500/20 flex items-center justify-center flex-shrink-0 text-blue-400 group-hover:bg-blue-500 group-hover:text-white transition-colors">
-                    <LucideIcon name="PhoneCall" size={16} />
+                    <LucideIcon name="Phone" size={16} />
                   </div>
                   <span className="text-blue-100/90 font-semibold text-sm group-hover:text-white transition-colors">7709709243</span>
+                </a>
+
+                <a href="mailto:suhanaservicec@gmail.com" className="flex items-center gap-3 p-4 rounded-2xl bg-white/5 border border-white/5 hover:bg-white/10 hover:border-orange-500/30 transition-all group">
+                  <div className="w-8 h-8 rounded-lg bg-orange-500/20 flex items-center justify-center flex-shrink-0 text-orange-400 group-hover:bg-orange-500 group-hover:text-white transition-colors">
+                    <LucideIcon name="Mail" size={16} />
+                  </div>
+                  <span className="text-blue-100/90 font-semibold text-sm group-hover:text-white transition-colors truncate">suhanaservicec@gmail.com</span>
                 </a>
               </div>
             </div>
