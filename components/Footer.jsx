@@ -8,6 +8,7 @@ export default function Footer() {
     { href: '/', label: 'Home' },
     { href: '/about', label: 'About Us' },
     { href: '/services', label: 'All Services' },
+    { href: '/xerox-delivery', label: 'Xerox Delivery' },
     { href: '/contact', label: 'Contact Us' },
     { href: '/sitemap', label: 'Sitemap' },
     { href: '/privacy', label: 'Privacy Policy' },
