@@ -89,7 +89,7 @@ export default function ContactPage() {
         
         <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 text-center animate-fade-up">
           <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md text-white px-5 py-2 rounded-full text-xs font-black uppercase tracking-widest mb-6 border border-white/20 shadow-[0_0_20px_rgba(255,255,255,0.1)]">
-            <LucideIcon name="Headphones" size={16} className="text-orange-400" /> We are Online
+            <LucideIcon name="Headset" size={16} className="text-orange-400" /> We are Online
           </div>
           <h1 className="text-4xl sm:text-5xl lg:text-7xl font-black text-white mb-6 tracking-tight drop-shadow-xl">
             Let's <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-yellow-400">Talk</span>
