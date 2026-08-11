@@ -1032,126 +1032,384 @@ export const services = [
   // ─── E. Online Services ───
   {
     id: 30, slug: 'online-form-filling', category: 'online',
-    name: 'Online Form Filling (All Govt Exams & Schemes)', icon: 'ClipboardList',
-    description: 'We fill and submit online forms for all government competitive exams, recruitment boards, and welfare scheme applications.',
-    documentsRequired: ['Aadhaar Card', 'PAN Card / ID Proof', 'Education Certificates', 'Passport-size Photograph', 'Category Certificate (if applicable)'],
-    eligibility: 'Varies by exam or scheme being applied for.',
-    processSteps: ['Bring all required documents', 'We access official portal', 'Fill form accurately', 'Upload documents and photograph', 'Submit and provide acknowledgment'],
-    processingTime: 'Same day',
-    charges: 'Contact for latest charges',
-    notes: 'Documents and process may vary by exam/scheme. Please contact or visit our office for confirmation.'
+    name: 'Govt Exams & Online Form Filling', icon: 'ClipboardList',
+    description: 'Struggling with complex government forms or slow websites? We provide expert assistance in filling and submitting all types of online forms accurately, including competitive exams (UPSC, MPSC, SSC, Railway), entrance exams (NEET, JEE), and state welfare schemes.',
+    documentsRequired: [
+      'Aadhaar Card and PAN Card / Valid ID Proof',
+      'Recent Passport-size Photograph (Soft Copy & Hard Copy)',
+      'Scanned Signature',
+      'All relevant Educational Marksheets (10th, 12th, Degree)',
+      'Category/Caste Certificate (if claiming reservation)'
+    ],
+    eligibility: 'Any student or citizen applying for government exams, jobs, or welfare schemes as per the official notification.',
+    processSteps: [
+      'Step 1: Bring the official notification/advertisement and required documents.',
+      'Step 2: We scan and resize your photo, signature, and documents to exact specifications.',
+      'Step 3: We fill the form carefully to ensure zero spelling or data entry mistakes.',
+      'Step 4: Pay the application fee online through our secure portal.',
+      'Step 5: Receive the final printed acknowledgment/application copy.'
+    ],
+    processingTime: 'Instant (15 to 30 Minutes)',
+    charges: 'Exam Fee (Actual) + Form Filling / Internet Charges',
+    notes: 'Important: Always double-check your name, DOB, and category before final submission. Modifications are usually not allowed once the fee is paid.',
+    keywords: [
+      'Online form filling Virar',
+      'MPSC form apply online',
+      'UPSC form filling agent',
+      'NEET JEE application center',
+      'Govt job form filling',
+      'Cyber cafe near me'
+    ],
+    faqs: [
+      { q: 'Do you help with photo and signature resizing?', a: 'Yes! Government portals are very strict about image sizes (e.g., exactly 20kb-50kb). We handle the scanning, cropping, and resizing to ensure your form is not rejected.' },
+      { q: 'Can you pay the exam fee on my behalf?', a: 'Yes, if you do not have online payment methods, you can pay us in cash, and we will pay your exam fee securely using our cards/UPI.' },
+      { q: 'Do you fill forms for foreign university exams like IELTS/TOEFL?', a: 'We primarily focus on Indian Government Exams, State Board Exams, and domestic entrance tests. Please inquire at our desk for specific international exams.' }
+    ]
   },
   {
     id: 31, slug: 'scholarship-form', category: 'online',
-    name: 'Scholarship Form', icon: 'GraduationCap',
-    description: 'Assistance with filling scholarship forms for state and central government scholarship schemes like MahaDBT, NSP, etc.',
-    documentsRequired: ['Aadhaar Card', 'Income Certificate', 'Caste Certificate', 'Marksheets', 'Bank Passbook', 'Bonafide Certificate'],
-    eligibility: 'Students meeting eligibility criteria of the respective scholarship.',
-    processSteps: ['Check eligibility for scholarship', 'Gather required documents', 'Register on scholarship portal', 'Fill and submit application', 'Submit acknowledgment'],
-    processingTime: 'Same day',
-    charges: 'Contact for latest charges',
-    notes: 'Documents and process may vary by scholarship. Please contact or visit our office for confirmation.'
+    name: 'Scholarship Form (MahaDBT / NSP)', icon: 'GraduationCap',
+    description: 'Don\'t miss out on your educational funds! We assist students in applying for State and Central Government scholarships on portals like MahaDBT (Maharashtra) and the National Scholarship Portal (NSP) for EBC, OBC, SC, ST, and minority students.',
+    documentsRequired: [
+      'Aadhaar Card (Must be linked to Bank and Mobile)',
+      'Tehsildar Income Certificate',
+      'Caste Certificate & Validity (if applicable)',
+      'Previous Year Marksheets & Current Year Fee Receipt',
+      'Bank Passbook & Bonafide Certificate'
+    ],
+    eligibility: 'Students pursuing higher education who meet the income and category criteria set by the respective scholarship scheme.',
+    processSteps: [
+      'Step 1: Check your eligibility (Income bracket, Category, Course type).',
+      'Step 2: Ensure your Aadhaar is seeded with your bank account (NPCI mapping).',
+      'Step 3: We register your profile on the MahaDBT or NSP portal.',
+      'Step 4: Upload all scanned documents and submit the application.',
+      'Step 5: Take the printout and submit it to your college for approval.'
+    ],
+    processingTime: 'Instant (30 Minutes)',
+    charges: 'Application Filling Charges (As applicable)',
+    notes: 'Aadhaar-Bank Seeding is STRICTLY mandatory for scholarships. If your bank account is not mapped to NPCI for DBT, your scholarship money will fail to credit.',
+    keywords: [
+      'MahaDBT form filling',
+      'Scholarship apply online Virar',
+      'NSP portal application',
+      'EBC scholarship documents',
+      'OBC scholarship form',
+      'Aadhaar bank link for DBT'
+    ],
+    faqs: [
+      { q: 'Why is my Aadhaar-Bank link status showing inactive on MahaDBT?', a: 'You need to visit your bank and submit an "Aadhaar Seeding / NPCI Mapping" form for Direct Benefit Transfer (DBT). Just linking Aadhaar to the account is not enough.' },
+      { q: 'Can I apply for two scholarships at the same time?', a: 'No, as per government rules, a student can only avail the benefits of one government scholarship or freeship at a time.' },
+      { q: 'Do I have to renew my application every year?', a: 'Yes, scholarships are awarded per academic year. You must submit a "Renewal Application" every year with your latest marksheets and fee receipts.' }
+    ]
   },
   {
     id: 32, slug: 'job-application-form', category: 'online',
-    name: 'Job Application Form', icon: 'Briefcase',
-    description: 'Assistance in filling job applications for government and private sector recruitment including state boards, railways, banking, and more.',
-    documentsRequired: ['Aadhaar Card', 'Education Certificates', 'Experience Certificate (if any)', 'Passport-size Photograph', 'Signature'],
-    eligibility: 'Any job seeker who meets the job advertisement requirements.',
-    processSteps: ['Bring all documents and job advertisement', 'We access recruitment portal', 'Fill application accurately', 'Upload documents', 'Submit and provide copy'],
-    processingTime: 'Same day',
-    charges: 'Contact for latest charges',
-    notes: 'Documents and process may vary. Please contact or visit our office for confirmation.'
+    name: 'Job Application / Resume Building', icon: 'Briefcase',
+    description: 'Take the first step toward your career! We assist in filling out complex online job applications for State Boards, Railways, Banking (IBPS), Police Bharti, and Army Recruitment. We also offer basic resume/CV typing services.',
+    documentsRequired: [
+      'Aadhaar Card & PAN Card',
+      'Educational Certificates (10th, 12th, Graduation)',
+      'Experience Certificates (if applicable)',
+      'Passport-size Photograph & Signature',
+      'Valid Email ID and Mobile Number'
+    ],
+    eligibility: 'Any job seeker who meets the specific requirements (age, qualification, physical standards) of the job advertisement.',
+    processSteps: [
+      'Step 1: Bring the job advertisement and your documents to our center.',
+      'Step 2: We create your profile on the recruitment portal (e.g., SSC, IBPS, Mahapariksha).',
+      'Step 3: Carefully enter your educational and personal details.',
+      'Step 4: Upload properly formatted photos and signatures.',
+      'Step 5: Pay the application fee and print the final receipt.'
+    ],
+    processingTime: 'Instant (20 to 30 Minutes)',
+    charges: 'Govt Job Application Fee + Form Filling Charges',
+    notes: 'Always ensure your mobile number and email ID are active, as the recruitment board will send your exam center details and admit card via email/SMS.',
+    keywords: [
+      'Police bharti form fill',
+      'Railway recruitment form',
+      'IBPS bank exam apply',
+      'SSC job application',
+      'Resume typing near me',
+      'Govt job form filling Virar'
+    ],
+    faqs: [
+      { q: 'Do you provide job placement services?', a: 'No, we do not provide job placements. We only assist candidates in applying for jobs and filling out the online application forms correctly.' },
+      { q: 'Can you type my resume/CV?', a: 'Yes, we provide basic resume and CV typing and formatting services. You just need to provide us with your details in a rough draft.' },
+      { q: 'What happens if I make a mistake in the application?', a: 'Most government job portals have a specific "Correction Window" for 2-3 days after the application closes. A correction fee is usually charged by the board.' }
+    ]
   },
   {
     id: 33, slug: 'ticket-booking', category: 'online',
-    name: 'Railway / Bus / Flight Ticket Booking', icon: 'Ticket',
-    description: 'Book railway, bus, or flight tickets online for travel within India.',
-    documentsRequired: ['Valid ID Proof (Aadhaar / PAN)', 'Passenger details (name, age, contact)'],
-    eligibility: 'Any individual needing to book travel tickets.',
-    processSteps: ['Provide journey details (date, destination, class)', 'We check availability', 'Select preferred seats/class', 'Make payment', 'Receive ticket / e-ticket'],
-    processingTime: 'Same day',
-    charges: 'Contact for latest charges',
-    notes: 'Documents and process may vary. Service charge applicable. Please contact us for confirmation.'
+    name: 'Railway / Flight / Bus Tickets', icon: 'Ticket',
+    description: 'Planning a trip? We offer fast and reliable booking services for Train (IRCTC), Flight (Domestic & International), and Bus tickets. Avoid the hassle of confusing portals and let us find the best routes and prices for you.',
+    documentsRequired: [
+      'Passenger Names and exact Ages',
+      'Valid ID Proof (Aadhaar / PAN / Passport for flights)',
+      'Travel Dates and Preferred Destination',
+      'Mobile Number (For PNR status SMS)'
+    ],
+    eligibility: 'Any individual wishing to travel.',
+    processSteps: [
+      'Step 1: Tell us your destination, travel date, and preferred mode of transport.',
+      'Step 2: We search for the best availability, routes, and prices.',
+      'Step 3: Select your preferred class (Sleeper, AC, Economy, etc.).',
+      'Step 4: Make the payment (Cash/UPI/Card).',
+      'Step 5: Receive your confirmed e-ticket printout instantly.'
+    ],
+    processingTime: 'Instant booking (Subject to seat availability)',
+    charges: 'Ticket Fare + Standard Booking/Agent Commission',
+    notes: 'Tatkal Train tickets open at 10:00 AM (AC classes) and 11:00 AM (Non-AC classes) one day prior to the journey. Please visit early as servers get extremely busy.',
+    keywords: [
+      'Train ticket booking Virar',
+      'IRCTC agent near me',
+      'Flight ticket booking',
+      'Tatkal ticket booking',
+      'Bus ticket travel agent',
+      'Book train ticket online'
+    ],
+    faqs: [
+      { q: 'Do you guarantee confirmed Tatkal tickets?', a: 'Tatkal tickets depend entirely on IRCTC server speed and seat availability at the exact moment of booking. While we try our best using official agent logins, confirmation is never 100% guaranteed.' },
+      { q: 'Can I cancel my ticket and get a refund?', a: 'Yes, tickets can be cancelled. The refund amount depends on the cancellation rules of the airline, bus operator, or Indian Railways. Agent booking charges are non-refundable.' },
+      { q: 'Do I need to carry a printed ticket while travelling?', a: 'For trains and buses, an SMS with PNR or a PDF on your phone along with an Original ID (Aadhaar/PAN) is completely valid. For flights, it is recommended to carry a printout.' }
+    ]
   },
   {
     id: 34, slug: 'electricity-bill-payment', category: 'online',
-    name: 'Electricity Bill Payment', icon: 'Zap',
-    description: 'Pay your electricity bill online for MSEDCL and other electricity providers.',
-    documentsRequired: ['Consumer Number / Account Number from bill'],
-    eligibility: 'Any electricity consumer.',
-    processSteps: ['Provide consumer number', 'Check bill amount online', 'Confirm payment', 'Receipt generated instantly'],
-    processingTime: 'Instant',
-    charges: 'Contact for latest charges',
-    notes: 'Documents and process may vary. Please contact or visit our office for confirmation.'
+    name: 'Electricity / Water Bill Payment', icon: 'Zap',
+    description: 'Avoid long queues and late fees! Pay your MSEB (Mahavitaran) electricity bills, municipal water bills, and property taxes instantly at our center. We provide an instant stamped receipt for your records.',
+    documentsRequired: [
+      'Old Bill Copy / Consumer Number (For Electricity)',
+      'Connection Number (For Water Bill)',
+      'Property Tax Number / Assessment Number'
+    ],
+    eligibility: 'Any consumer wanting to pay their utility bills securely.',
+    processSteps: [
+      'Step 1: Bring your old bill or consumer number to our center.',
+      'Step 2: We fetch your live pending bill amount from the official portal.',
+      'Step 3: You pay the amount via Cash, UPI, or Card.',
+      'Step 4: The bill is paid instantly on the BBPS/Mahavitaran network.',
+      'Step 5: You receive a printed/digital transaction receipt immediately.'
+    ],
+    processingTime: 'Instant (2 Minutes)',
+    charges: 'Bill Amount + Nominal Service Charge',
+    notes: 'If your bill is overdue (past the due date), late payment charges as levied by the billing board will automatically be added to your total payable amount.',
+    keywords: [
+      'Pay MSEB bill Virar',
+      'Electricity bill payment near me',
+      'Mahavitaran bill pay online',
+      'Water bill payment VVCMC',
+      'Pay property tax Virar',
+      'Light bill payment center'
+    ],
+    faqs: [
+      { q: 'Will I get a receipt for the payment?', a: 'Yes, we provide a printed, official confirmation receipt with a transaction ID the moment your bill is paid.' },
+      { q: 'Can I pay a disconnected or very old pending bill?', a: 'Yes, as long as the bill is showing active on the Mahavitaran portal, we can process the payment.' },
+      { q: 'How long does it take for the payment to reflect in MSEB?', a: 'Since we use the official BBPS network, your payment is updated instantly on the electricity board\'s servers.' }
+    ]
   },
   {
     id: 35, slug: 'mobile-dth-recharge', category: 'online',
-    name: 'Mobile / DTH Recharge', icon: 'Smartphone',
-    description: 'Recharge any mobile number (all operators) or DTH service instantly.',
-    documentsRequired: ['Mobile number / DTH subscriber ID'],
-    eligibility: 'Any individual.',
-    processSteps: ['Provide mobile/DTH number and recharge amount', 'Select plan (if needed)', 'Payment processed', 'Recharge confirmed instantly'],
-    processingTime: 'Instant',
-    charges: 'Contact for latest charges',
-    notes: 'Documents and process may vary. Please contact or visit our office for confirmation.'
+    name: 'Mobile / DTH / OTT Recharge', icon: 'Smartphone',
+    description: 'Instant prepaid recharges for all major telecom operators (Jio, Airtel, Vi, BSNL) and DTH providers (Tata Play, Airtel Digital, Dish TV, Videocon). We also assist in buying popular OTT subscriptions.',
+    documentsRequired: [
+      'Mobile Number or DTH Subscriber ID / VC Number'
+    ],
+    eligibility: 'Anyone requiring a mobile or TV recharge.',
+    processSteps: [
+      'Step 1: Provide your mobile number or DTH subscriber ID.',
+      'Step 2: Tell us your desired plan or let us check the latest offers for you.',
+      'Step 3: Pay via cash or UPI.',
+      'Step 4: The recharge is processed instantly.',
+      'Step 5: You receive the confirmation SMS on your device.'
+    ],
+    processingTime: 'Instant (1 Minute)',
+    charges: 'Exact Plan Amount (No extra service charge for standard recharges)',
+    notes: 'Please double-check your mobile number or DTH ID before confirming. Recharges done on wrong numbers cannot be reversed or refunded by the operator.',
+    keywords: [
+      'Mobile recharge shop near me',
+      'DTH recharge Virar',
+      'Tata play recharge center',
+      'Airtel Jio Vi recharge',
+      'OTT subscription buy',
+      'Prepaid recharge agent'
+    ],
+    faqs: [
+      { q: 'Do you charge extra for mobile recharges?', a: 'No, we do not charge any extra fees for standard mobile recharges. You only pay the exact MRP of the plan.' },
+      { q: 'What if my DTH is showing an error even after recharge?', a: 'For DTH recharges, please ensure your Set-Top Box is turned ON while we process the recharge. If the error persists, we can help you refresh the account by sending an SMS to the operator.' },
+      { q: 'Can you recharge postpaid mobile bills?', a: 'Yes, we accept bill payments for all major postpaid mobile connections as well.' }
+    ]
   },
   {
     id: 36, slug: 'fastag-recharge', category: 'online',
-    name: 'FASTag Recharge', icon: 'Car',
-    description: 'Recharge your FASTag (RFID tag for toll payments) for seamless toll payment on national highways.',
-    documentsRequired: ['FASTag Account Number / Vehicle Registration Number'],
-    eligibility: 'Any FASTag holder.',
-    processSteps: ['Provide FASTag account/vehicle number', 'Confirm recharge amount', 'Payment processed', 'Balance updated instantly'],
-    processingTime: 'Instant',
-    charges: 'Contact for latest charges',
-    notes: 'Documents and process may vary. Please contact or visit our office for confirmation.'
+    name: 'FASTag Issue & Recharge', icon: 'Car',
+    description: 'Never get stuck at a toll plaza again! We issue new FASTags for your cars and commercial vehicles instantly. We also provide quick FASTag top-up services for all major banks (Paytm, HDFC, ICICI, IDFC, etc.).',
+    documentsRequired: [
+      'For New FASTag: Vehicle RC Book & Owner\'s Aadhaar/PAN',
+      'For Recharge: Vehicle Number (Registration No.) or FASTag Wallet ID'
+    ],
+    eligibility: 'Owners/Drivers of any four-wheeler or commercial vehicle.',
+    processSteps: [
+      'Step 1: Provide your vehicle number to our executive.',
+      'Step 2: We verify the linked bank and check current balance (if requested).',
+      'Step 3: Pay the top-up amount via cash/UPI.',
+      'Step 4: Recharge is processed on the NETC/BBPS network.',
+      'Step 5: The FASTag wallet is credited instantly for seamless toll plaza crossing.'
+    ],
+    processingTime: 'Instant (1 Minute)',
+    charges: 'Recharge Amount + Nominal Agent Convenience Fee',
+    notes: 'If your FASTag is blacklisted due to low balance, it may take 15-30 minutes for the toll plaza servers to sync and remove the blacklist status after recharge.',
+    keywords: [
+      'FASTag recharge Virar',
+      'Buy new FASTag near me',
+      'Toll plaza tag top up',
+      'Paytm HDFC FASTag recharge',
+      'Car FASTag agent',
+      'Blacklisted FASTag recharge'
+    ],
+    faqs: [
+      { q: 'How do I know which bank my FASTag belongs to?', a: 'You don\'t need to worry. As long as you provide your correct Vehicle Registration Number (e.g., MH-48-AB-1234), our system automatically fetches the linked FASTag bank and recharges it.' },
+      { q: 'Can I get a new FASTag immediately?', a: 'Yes, if you bring your vehicle\'s RC book and your KYC, we can issue and activate a new FASTag on the spot.' },
+      { q: 'Why is my FASTag blacklisted?', a: 'FASTags are usually blacklisted when the wallet balance goes in the negative. Recharging it with a sufficient amount clears the negative balance and activates the tag again.' }
+    ]
   },
 
   // ─── F. Education Services ───
   {
     id: 37, slug: 'school-college-admission', category: 'education',
     name: 'School / College Admission Form', icon: 'School',
-    description: 'Assistance in filling school or college admission forms for new admissions, including government and private institutions.',
-    documentsRequired: ['Aadhaar Card', 'Previous Marksheets', 'Transfer/School Leaving Certificate', 'Caste Certificate (if applicable)', 'Passport-size Photographs'],
-    eligibility: 'Students seeking admissions.',
-    processSteps: ['Bring all documents', 'We access admission portal', 'Fill form accurately', 'Upload documents', 'Submit and provide acknowledgment'],
-    processingTime: 'Same day',
-    charges: 'Contact for latest charges',
-    notes: 'Documents and process may vary by institution. Please contact or visit our office for confirmation.'
+    description: 'Ensure a smooth admission process for your child! We assist in filling out complicated online admission forms for schools (RTE Admissions, Kendriya Vidyalaya), junior colleges (FYJC 11th Online Admissions), and degree colleges (Mumbai University pre-enrollment).',
+    documentsRequired: [
+      'Student\'s Aadhaar Card & Previous Marksheets',
+      'School Leaving Certificate (LC) / Transfer Certificate',
+      'Caste Certificate & Income Certificate (If claiming reservation)',
+      'Passport-size Photograph & Signature'
+    ],
+    eligibility: 'Any student seeking fresh admission or changing schools/colleges.',
+    processSteps: [
+      'Step 1: Bring your documents and the list of preferred colleges/schools.',
+      'Step 2: We register the student on the official admission portal (e.g., 11th Admission portal).',
+      'Step 3: Carefully upload documents and fill the option form (college preferences).',
+      'Step 4: Lock the form and pay the registration fee.',
+      'Step 5: Provide the final printed application for school/college submission.'
+    ],
+    processingTime: 'Instant (15 to 30 Minutes)',
+    charges: 'Govt Registration Fee + Application Filing Charges',
+    notes: 'For 11th Online Admissions in Maharashtra, the form is filled in two parts: Part 1 (Personal Details) and Part 2 (College Preferences/Option Form).',
+    keywords: [
+      'FYJC 11th admission online',
+      'Mumbai university pre enrollment',
+      'RTE admission form filling',
+      'College admission cyber cafe',
+      'School form fill Virar',
+      'Part 2 option form'
+    ],
+    faqs: [
+      { q: 'Can you help with RTE (Right to Education) admission forms?', a: 'Yes, we help parents fill the RTE 25% quota free admission forms for their children. You will need a valid Income Certificate or Caste Certificate to apply.' },
+      { q: 'What is Mumbai University Pre-Enrollment?', a: 'Before taking admission in any degree college (B.Com, B.Sc, B.A.) affiliated with Mumbai University, it is mandatory to fill a pre-enrollment form on the MU portal. We do this at our center.' },
+      { q: 'Can I change my college preferences after locking the form?', a: 'In the FYJC 11th admission process, you can unlock and change your college preferences only before the deadline of the respective merit list round.' }
+    ]
   },
   {
     id: 38, slug: 'exam-form-filling', category: 'education',
-    name: 'Exam Form Filling', icon: 'Edit3',
-    description: 'Assistance in filling examination forms for SSC, HSC, University exams, competitive exams, and board exams.',
-    documentsRequired: ['Aadhaar Card', 'Previous Marksheet', 'School/College ID', 'Passport-size Photograph'],
-    eligibility: 'Students registered with respective boards/universities.',
-    processSteps: ['Bring all documents', 'Access exam portal', 'Fill form accurately', 'Upload documents and pay fees', 'Provide acknowledgment slip'],
-    processingTime: 'Same day',
-    charges: 'Contact for latest charges',
-    notes: 'Documents and process may vary by exam board. Please contact or visit our office for confirmation.'
+    name: 'Board & University Exam Forms', icon: 'Edit3',
+    description: 'Missed your college deadline? We help regular, private (Form No. 17), and ATKT/Repeater students fill their SSC, HSC, and University examination forms securely before the late fee deadlines.',
+    documentsRequired: [
+      'Aadhaar Card',
+      'Previous Semester/Year Marksheets (For ATKT students)',
+      'College ID Card or Registration Number',
+      'Passport-size Photograph & Signature'
+    ],
+    eligibility: 'Students registered with the Maharashtra State Board, Mumbai University, or IGNOU appearing for exams.',
+    processSteps: [
+      'Step 1: Bring your previous marksheets and exam notification.',
+      'Step 2: We access the university or board exam portal.',
+      'Step 3: Select the correct subjects and apply for the exam.',
+      'Step 4: Pay the exam fee online.',
+      'Step 5: Provide the acknowledgment slip to submit to the college.'
+    ],
+    processingTime: 'Instant (15 Minutes)',
+    charges: 'Exam Fee + Form Filling Charges',
+    notes: 'For SSC/HSC Private Candidates (Form No. 17), you must submit the physical copy of the filled form along with original documents to the designated contact center school.',
+    keywords: [
+      'Mumbai university exam form',
+      'Form 17 private student SSC',
+      'HSC repeater form fill',
+      'ATKT exam form Virar',
+      'IGNOU exam form online',
+      'College exam fee payment'
+    ],
+    faqs: [
+      { q: 'What is Form No. 17?', a: 'Form 17 is for students who want to appear for the Maharashtra Board SSC (10th) or HSC (12th) exams privately, without attending a regular school or college.' },
+      { q: 'Do you fill ATKT forms?', a: 'Yes, we assist university students in filling their ATKT (Allowed To Keep Term) or repeater exam forms for pending subjects.' },
+      { q: 'Can you pay the university late fees?', a: 'Yes, if you missed the regular deadline, the portal automatically adds the late fee. We can process the total payment online.' }
+    ]
   },
   {
     id: 39, slug: 'result-download', category: 'education',
-    name: 'Result Download', icon: 'BarChart',
-    description: 'Download examination results for SSC, HSC, university, and competitive exams.',
-    documentsRequired: ['Roll Number / Application Number', 'Date of Birth (if required)'],
-    eligibility: 'Any student who appeared for examinations.',
-    processSteps: ['Provide roll number and exam details', 'Access official result website', 'Download result', 'Print result'],
-    processingTime: 'Same day',
-    charges: 'Contact for latest charges',
-    notes: 'Documents and process may vary. Please contact or visit our office for confirmation.'
+    name: 'Exam Result Download & Print', icon: 'BarChart',
+    description: 'Server down on result day? Don\'t panic. Visit our center to quickly check, download, and print your SSC, HSC, University, or Competitive Exam (NEET, JEE, CET) results on high-quality paper.',
+    documentsRequired: [
+      'Hall Ticket / Admit Card',
+      'Seat Number / Roll Number',
+      'Mother\'s Name (Required for Maharashtra Board results)'
+    ],
+    eligibility: 'Any student expecting an exam result.',
+    processSteps: [
+      'Step 1: Provide your Seat Number and Mother\'s Name (or DOB).',
+      'Step 2: We access the official result portal (even during heavy traffic).',
+      'Step 3: Download the digital scorecard/result sheet.',
+      'Step 4: Provide a crisp color or black & white printout.'
+    ],
+    processingTime: 'Instant (5 Minutes)',
+    charges: 'Only Printing & Browsing Charges (Nominal)',
+    notes: 'The online printout is only for immediate information. The original hard copy of the marksheet must be collected from your respective school or college.',
+    keywords: [
+      'Check SSC HSC result Virar',
+      'Print exam result near me',
+      'Mumbai university result check',
+      'NEET JEE CET scorecard',
+      'Download marksheet online',
+      'Fast result checking cafe'
+    ],
+    faqs: [
+      { q: 'Can I use the printed online result for college admission?', a: 'Yes, most colleges accept the printed online result for provisional admission. However, you will have to submit the original marksheet once issued by the board.' },
+      { q: 'The website is crashing on result day. Can you still check it?', a: 'Result websites often crash due to heavy traffic. Our center uses high-speed broadband and alternative official server links to check your result faster.' },
+      { q: 'Can you laminate my result printout?', a: 'Yes, we provide lamination services to protect your result printout until the original marksheet arrives.' }
+    ]
   },
   {
     id: 40, slug: 'marksheet-download', category: 'education',
-    name: 'Marksheet / Certificate Download', icon: 'Award',
-    description: 'Download digital marksheets and certificates from DigiLocker or official board websites.',
-    documentsRequired: ['Roll Number / Registration Number', 'Aadhaar Number (for DigiLocker)'],
-    eligibility: 'Students and graduates with valid roll/registration numbers.',
-    processSteps: ['Provide roll number and board details', 'Access DigiLocker or board website', 'Download digital marksheet/certificate', 'Print if required'],
-    processingTime: 'Same day',
-    charges: 'Contact for latest charges',
-    notes: 'Documents and process may vary. Please contact or visit our office for confirmation.'
+    name: 'DigiLocker Marksheet Download', icon: 'Award',
+    description: 'Lost your original marksheet? We help you instantly download legally valid digital marksheets, passing certificates, and migration certificates directly from DigiLocker or the official board archives.',
+    documentsRequired: [
+      'Aadhaar Card (Linked to active mobile number for OTP)',
+      'Roll Number / Seat Number',
+      'Year of Passing and Exam Session (March/October)'
+    ],
+    eligibility: 'Students whose boards/universities have uploaded their records to DigiLocker (e.g., CBSE, Maharashtra State Board).',
+    processSteps: [
+      'Step 1: We log in to your DigiLocker account via Aadhaar OTP.',
+      'Step 2: Navigate to the specific Education Board section.',
+      'Step 3: Enter your passing year and roll number to fetch the document.',
+      'Step 4: Download the digitally signed PDF.',
+      'Step 5: Print the document (Color print recommended).'
+    ],
+    processingTime: 'Instant (10 Minutes)',
+    charges: 'Browsing + Printing Charges',
+    notes: 'Documents downloaded from DigiLocker are digitally signed and are legally equivalent to original documents as per the IT Act, 2000.',
+    keywords: [
+      'Digilocker marksheet print Virar',
+      'Download lost marksheet',
+      'CBSE passing certificate online',
+      'Maharashtra board duplicate marksheet',
+      'Print digital certificate',
+      'Digilocker agent near me'
+    ],
+    faqs: [
+      { q: 'Is the DigiLocker marksheet accepted in colleges and jobs?', a: 'Absolutely. According to Govt of India rules, a digitally signed document from DigiLocker is completely valid for all educational and employment verification purposes.' },
+      { q: 'What if my mobile number is not linked to Aadhaar?', a: 'To access DigiLocker, an Aadhaar-linked mobile number is mandatory to receive the OTP. You must update your mobile number at an Aadhaar center first.' },
+      { q: 'Can I get my 10-year-old marksheet from DigiLocker?', a: 'It depends on the board. For example, the Maharashtra State Board has digitized SSC and HSC records from 1990 onwards, so older marksheets can usually be fetched.' }
+    ]
   },
 
   // ─── G. Printing & Digital ───
