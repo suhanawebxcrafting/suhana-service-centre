@@ -508,80 +508,245 @@ export const services = [
   // ─── C. Banking & Financial ───
   {
     id: 15, slug: 'bank-account-opening', category: 'banking',
-    name: 'Bank Account Opening', icon: 'Landmark',
-    description: 'Assistance with opening a new savings or current bank account at various nationalized and private banks.',
-    documentsRequired: ['Aadhaar Card', 'PAN Card', 'Passport-size Photograph', 'Mobile Number'],
-    eligibility: 'Any Indian resident aged 18 or above (minor accounts also available).',
-    processSteps: ['Choose bank and account type', 'Fill account opening form', 'Attach KYC documents', 'Submit to bank', 'Account activated within 1–3 days'],
-    processingTime: '1–3 working days',
-    charges: 'Contact for latest charges',
-    notes: 'Documents and process may vary depending on bank. Please contact or visit our office for confirmation.'
+    name: 'Zero Balance Bank Account', icon: 'Landmark',
+    description: 'Open a Zero Balance Savings Account instantly with a virtual debit card! We offer fast digital account opening for top banks like Kotak Mahindra (811), HDFC, ICICI, and State Bank of India (SBI). Forget long queues at the bank branch.',
+    documentsRequired: [
+      'Original Aadhaar Card (Must be linked with your active mobile number)',
+      'Original PAN Card (Mandatory for video KYC)',
+      'Smartphone with an active internet connection for Video KYC'
+    ],
+    eligibility: 'Must be an Indian resident, aged 18 or above, possessing a valid PAN and Aadhaar card.',
+    processSteps: [
+      'Step 1: Visit our CSC center in Virar with your smartphone, Aadhaar, and PAN.',
+      'Step 2: We initiate the digital account opening process via the bank\'s portal.',
+      'Step 3: Aadhaar OTP is verified and your details are fetched.',
+      'Step 4: A quick Video KYC is conducted with the bank executive.',
+      'Step 5: Account number, IFSC, and Virtual Debit Card are generated instantly!'
+    ],
+    processingTime: 'Instant (Account activates within 15-30 minutes)',
+    charges: 'Nominal Service/Consulting Fee (The bank account itself requires Zero Balance)',
+    notes: 'Important: The lighting must be clear and the background must be plain white during the Video KYC. You must hold your original PAN card during the video call.',
+    keywords: [
+      'Zero balance account opening Virar',
+      'Kotak 811 account open',
+      'Instant bank account near me',
+      'Digital savings account online',
+      'Open SBI account online',
+      'Video KYC bank account'
+    ],
+    faqs: [
+      { q: 'What does "Zero Balance" mean?', a: 'A Zero Balance account means there is no penalty or charge if your account balance falls to ₹0. You are not required to maintain a minimum average balance.' },
+      { q: 'Will I get a physical ATM/Debit card?', a: 'Yes! Initially, you get a virtual debit card on the bank app. You can request a physical debit card through the app, which is delivered to your home by the bank (standard bank charges apply).' },
+      { q: 'Can I use this account for Google Pay or PhonePe?', a: 'Absolutely! As soon as your account is active and you have the virtual debit card, you can immediately set up Google Pay, PhonePe, or Paytm.' },
+      { q: 'Is it safe to do Video KYC at your center?', a: 'Yes, it is completely secure. You will be speaking directly to an official bank executive through the bank\'s encrypted platform.' }
+    ]
   },
   {
     id: 16, slug: 'mini-statement', category: 'banking',
-    name: 'Mini Statement / Balance Check', icon: 'FileText',
-    description: 'Check your bank account balance and get a mini statement of recent transactions using AEPS or other banking services.',
-    documentsRequired: ['Aadhaar Card', 'Bank account linked with Aadhaar'],
-    eligibility: 'Any bank account holder with Aadhaar-linked account.',
-    processSteps: ['Provide Aadhaar number and bank name', 'Biometric (fingerprint) authentication', 'Balance or mini statement displayed instantly'],
-    processingTime: 'Instant',
-    charges: 'Contact for latest charges',
-    notes: 'Documents and process may vary. Please contact or visit our office for confirmation.'
+    name: 'Balance Check & Mini Statement', icon: 'FileText',
+    description: 'Check your bank account balance instantly or generate a mini statement of your last 5 to 10 transactions without visiting the ATM or standing in bank queues. We use the secure Aadhaar Enabled Payment System (AePS).',
+    documentsRequired: [
+      'Aadhaar Number (Your Aadhaar must be linked to your bank account)',
+      'Name of your Bank',
+      'Your physical presence (for Biometric Fingerprint authentication)'
+    ],
+    eligibility: 'Anyone who holds a bank account in India that is successfully linked to their Aadhaar card.',
+    processSteps: [
+      'Step 1: Tell us your Aadhaar number and the name of your bank.',
+      'Step 2: Place your finger on our secure biometric scanner.',
+      'Step 3: The system securely connects with your bank\'s server via NPCI.',
+      'Step 4: Your current balance or mini statement is instantly displayed and printed.'
+    ],
+    processingTime: 'Instant (Within 1 minute)',
+    charges: 'Minimal Service Fee (Typically ₹10 to ₹20)',
+    notes: 'Note: We can check balances for almost all banks (SBI, Bank of Baroda, HDFC, Union Bank, etc.) as long as your Aadhaar is linked to the account.',
+    keywords: [
+      'Check bank balance Virar',
+      'Aadhaar mini statement near me',
+      'AePS balance enquiry',
+      'Bank of Baroda balance check',
+      'SBI mini statement fingerprint',
+      'Check account balance Aadhaar'
+    ],
+    faqs: [
+      { q: 'Do I need my ATM card to check my balance?', a: 'No, you do not need an ATM card, passbook, or PIN. Just your Aadhaar number and your fingerprint are enough.' },
+      { q: 'Is my fingerprint data stored by your center?', a: 'No, the biometric data is heavily encrypted and sent directly to the bank via NPCI/UIDAI servers. We cannot store or reuse your fingerprint.' },
+      { q: 'Why is my balance check failing?', a: 'This usually happens if your bank server is temporarily down, or if your Aadhaar is not linked to your bank account (Aadhaar seeding is missing).' }
+    ]
   },
   {
     id: 17, slug: 'money-transfer', category: 'banking',
-    name: 'Money Transfer (Domestic)', icon: 'ArrowLeftRight',
-    description: 'Send money domestically to any bank account across India quickly and securely.',
-    documentsRequired: ['Sender\'s valid ID proof', 'Recipient bank account details (Account No. + IFSC)'],
-    eligibility: 'Any individual needing to transfer money domestically.',
-    processSteps: ['Provide sender and recipient details', 'Verify amount', 'Complete KYC verification', 'Transfer processed', 'Confirmation receipt provided'],
-    processingTime: 'Instant to 24 hours',
-    charges: 'Contact for latest charges',
-    notes: 'Transfer limits apply. Documents and process may vary.'
+    name: 'Money Transfer (DMT)', icon: 'ArrowLeftRight',
+    description: 'Send money instantly to any bank account in India. Whether you want to send money to your family in a village or pay a supplier, our Domestic Money Transfer (DMT) service is fast, highly secure, and works 24x7 (even on bank holidays).',
+    documentsRequired: [
+      'Sender\'s active Mobile Number (for OTP and transaction alerts)',
+      'Recipient\'s Exact Bank Account Number',
+      'Recipient\'s Bank IFSC Code'
+    ],
+    eligibility: 'Anyone who has cash and wants to deposit/transfer it directly into any bank account across India.',
+    processSteps: [
+      'Step 1: Provide the cash you want to transfer along with our service charge.',
+      'Step 2: Give us the recipient\'s Account Number, IFSC code, and Name.',
+      'Step 3: We perform an account verification (optional) to ensure the name matches.',
+      'Step 4: The money is instantly transferred to the recipient via IMPS or NEFT.',
+      'Step 5: You receive a confirmed printed receipt and an SMS alert.'
+    ],
+    processingTime: 'Instant (Via IMPS)',
+    charges: 'Standard RBI-mandated DMT Fees (Based on transfer amount)',
+    notes: 'Important: Always double-check the account number before confirming the transfer. Once money is transferred via IMPS, it cannot be reversed.',
+    keywords: [
+      'Money transfer agent Virar',
+      'Send cash to bank account',
+      'Domestic money transfer DMT',
+      'Instant cash deposit Virar',
+      'Transfer money on holiday',
+      'IMPS money transfer near me'
+    ],
+    faqs: [
+      { q: 'How long does it take for the money to reach the account?', a: 'Since we use IMPS (Immediate Payment Service), the money is credited to the recipient\'s bank account instantly within seconds.' },
+      { q: 'Can I transfer money on a Sunday or a Bank Holiday?', a: 'Yes! Our Domestic Money Transfer service works 24x7, 365 days a year, including Sundays and all national bank holidays.' },
+      { q: 'What if I give the wrong account number?', a: 'To prevent this, we usually recommend a "Penny Drop Verification". We send ₹1 to the account first to fetch the account holder\'s registered name. You can verify the name before we transfer the full amount.' },
+      { q: 'Is there a limit on how much money I can transfer?', a: 'Yes, per the RBI guidelines for DMT, a single sender mobile number can typically transfer up to ₹25,000 per month without full KYC. For higher amounts, sender KYC (PAN card) is required.' }
+    ]
   },
   {
     id: 18, slug: 'aeps', category: 'banking',
-    name: 'AEPS (Aadhaar Enabled Payment System)', icon: 'Fingerprint',
-    description: 'AEPS enables banking transactions using your Aadhaar number and biometric (fingerprint) authentication — no ATM card or PIN needed.',
-    documentsRequired: ['Aadhaar Card', 'Aadhaar-linked bank account'],
-    eligibility: 'Any individual with Aadhaar-linked bank account.',
-    processSteps: ['Provide Aadhaar number and select bank', 'Fingerprint authentication', 'Select service (Cash Withdrawal / Balance / Mini Statement / Fund Transfer)', 'Transaction completed instantly'],
+    name: 'Cash Withdrawal (AePS)', icon: 'Fingerprint',
+    description: 'Need cash but don\'t have an ATM card? Or is the ATM out of cash? Withdraw money securely from your bank account using just your Aadhaar number and fingerprint. Our AePS (Aadhaar Enabled Payment System) service acts as a Micro-ATM in Virar.',
+    documentsRequired: [
+      'Aadhaar Number (Linked to your bank account)',
+      'Bank Name',
+      'Your physical presence (for Biometric Fingerprint authentication)'
+    ],
+    eligibility: 'Anyone holding an Aadhaar-seeded bank account in India.',
+    processSteps: [
+      'Step 1: Tell us the amount you wish to withdraw and your bank name.',
+      'Step 2: Provide your Aadhaar number.',
+      'Step 3: Authenticate the transaction securely by placing your finger on the biometric scanner.',
+      'Step 4: Upon successful transaction, we hand over the cash to you.',
+      'Step 5: You receive a printed receipt with your remaining account balance.'
+    ],
     processingTime: 'Instant',
-    charges: 'Contact for latest charges',
-    notes: 'Daily transaction limits apply. Documents and process may vary.'
+    charges: 'No extra charges for cash withdrawal (Subject to RBI guidelines)',
+    notes: 'Withdrawal limits depend on your bank\'s daily AePS limit (typically ₹10,000 per day). We cannot override your bank\'s specific limits.',
+    keywords: [
+      'Aadhaar cash withdrawal Virar',
+      'AePS micro ATM near me',
+      'Withdraw money without ATM card',
+      'Fingerprint cash withdrawal',
+      'Aadhaar ATM Virar',
+      'Get cash from bank account'
+    ],
+    faqs: [
+      { q: 'Do I need to carry my physical Aadhaar card?', a: 'No, you just need to remember your 12-digit Aadhaar number. The physical card is not required for withdrawal.' },
+      { q: 'How much money can I withdraw in a day?', a: 'The maximum limit for AePS withdrawal is set by your bank. For most banks like SBI, HDFC, or Bank of Baroda, the limit is ₹10,000 per day.' },
+      { q: 'Is it safe to use my fingerprint for withdrawal?', a: 'Yes, absolutely safe. The fingerprint is not saved; it acts as a digital key that is sent directly to the UIDAI and your bank to authorize a single transaction.' },
+      { q: 'My transaction failed but money was deducted. What should I do?', a: 'In rare cases of bank server timeouts, the amount may be deducted but not reach us. As per RBI rules, the deducted amount will automatically be refunded to your bank account within 3 to 7 working days.' }
+    ]
   },
   {
     id: 19, slug: 'pan-aadhaar-linking', category: 'banking',
-    name: 'PAN–Aadhaar Linking', icon: 'Link',
-    description: 'Link your PAN card with Aadhaar card as mandated by the Income Tax Department of India. Unlinked PANs become inoperative.',
-    documentsRequired: ['PAN Card', 'Aadhaar Card', 'Registered Mobile Number'],
-    eligibility: 'All PAN card holders (mandatory for most taxpayers).',
-    processSteps: ['Provide PAN and Aadhaar details', 'Online linking via IT Portal or NSDL', 'Pay applicable fee if applicable', 'OTP verification', 'Linking confirmed within 5–7 days'],
-    processingTime: '5–7 working days',
-    charges: 'Contact for latest charges',
-    notes: 'Late linking fee applicable. Documents and process may vary.'
+    name: 'PAN-Aadhaar Linking', icon: 'Link',
+    description: 'Is your PAN card linked to your Aadhaar? If not, your PAN is considered inoperative by the Income Tax Department! This means you cannot file ITR, open bank accounts, or invest in mutual funds. We provide quick and secure PAN-Aadhaar linking services.',
+    documentsRequired: [
+      'PAN Card Number',
+      'Aadhaar Card Number',
+      'Registered Mobile Number (For OTP)'
+    ],
+    eligibility: 'Every person who has been allotted a PAN as on 1st July 2017 and is eligible to obtain an Aadhaar number must link them.',
+    processSteps: [
+      'Step 1: We first check your current PAN-Aadhaar link status for free.',
+      'Step 2: If unlinked, we generate the ₹1000 challan on the Income Tax e-Filing portal.',
+      'Step 3: You pay the ₹1000 penalty fee officially mandated by the Govt.',
+      'Step 4: After payment processing (takes 2-4 days), we submit the final linking request.',
+      'Step 5: OTP is verified, and your PAN is successfully linked and made operative again.'
+    ],
+    processingTime: 'Usually takes 4 to 5 Days (Due to Income Tax portal payment clearance)',
+    charges: '₹1000 (Official IT Dept Penalty Fee) + Nominal Service Charge',
+    notes: 'Important: Ensure that your Name, Date of Birth, and Gender match EXACTLY on both your PAN and Aadhaar. If there is a mismatch, the linking will fail and you must correct the details first.',
+    keywords: [
+      'PAN Aadhaar link Virar',
+      'Link PAN card',
+      'PAN Aadhaar link status',
+      'Pay 1000 penalty PAN',
+      'Make PAN card active',
+      'Income tax PAN link'
+    ],
+    faqs: [
+      { q: 'Why do I have to pay ₹1000 to link my PAN and Aadhaar?', a: 'The deadline for free linking was 30th June 2022. Since then, the Income Tax Department has mandated a late fee/penalty of ₹1000 for anyone who wishes to link their PAN and Aadhaar.' },
+      { q: 'What happens if I don\'t link them?', a: 'Your PAN card becomes "Inoperative". You will not be able to file tax returns, pending refunds will not be processed, higher TDS will be deducted, and you cannot do major banking transactions.' },
+      { q: 'My name is different on PAN and Aadhaar. Can I still link them?', a: 'No, demographic mismatch (name or DOB) will cause the linking to fail. You must first apply for a PAN correction or Aadhaar update to ensure both documents have the exact same details.' }
+    ]
   },
   {
     id: 20, slug: 'insurance-services', category: 'banking',
-    name: 'Insurance Services', icon: 'Shield',
-    description: 'Assistance with various insurance products including life insurance, health insurance, and government insurance schemes like PMJJBY and PMSBY.',
-    documentsRequired: ['Aadhaar Card', 'PAN Card', 'Bank Passbook', 'Passport-size Photograph'],
-    eligibility: 'Varies by insurance product and scheme.',
-    processSteps: ['Discuss insurance needs', 'Choose appropriate scheme/plan', 'Fill application form', 'Submit documents', 'Policy issued'],
-    processingTime: '1–7 days',
-    charges: 'Contact for latest charges',
-    notes: 'Documents and process may vary depending on insurance type. Please contact or visit our office.'
+    name: 'Insurance (Health & Life)', icon: 'Shield',
+    description: 'Protect your family and your future! We offer hassle-free enrollment in Life Insurance (LIC, Term Plans), Health Insurance (Mediclaim), and affordable Government Insurance schemes like PMJJBY (Pradhan Mantri Jeevan Jyoti Bima Yojana) and PMSBY.',
+    documentsRequired: [
+      'Aadhaar Card',
+      'PAN Card',
+      'Bank Passbook / Cancelled Cheque',
+      'Nominee Details (Name, Age, Relation)'
+    ],
+    eligibility: 'Anyone looking to secure themselves financially against medical emergencies, accidents, or life risks.',
+    processSteps: [
+      'Step 1: Visit our center to discuss your insurance needs (Health vs Life).',
+      'Step 2: We compare and suggest the best policies based on your budget.',
+      'Step 3: Provide your KYC documents and nominee details.',
+      'Step 4: We fill the proposal form and process the premium payment securely.',
+      'Step 5: The Policy Document/Bond is instantly issued and handed over to you.'
+    ],
+    processingTime: 'Instant to 2 Days',
+    charges: 'As per actual policy premium (Zero extra consulting fee for Govt schemes)',
+    notes: 'Government Schemes: PMSBY (Accidental Cover of ₹2 Lakhs) costs only ₹20/year. PMJJBY (Life Cover of ₹2 Lakhs) costs only ₹436/year.',
+    keywords: [
+      'Health insurance agent Virar',
+      'Life insurance LIC near me',
+      'Buy Mediclaim policy',
+      'PMJJBY apply online',
+      'PMSBY accident insurance',
+      'Best insurance policy'
+    ],
+    faqs: [
+      { q: 'What is the cheapest life insurance available?', a: 'The Pradhan Mantri Jeevan Jyoti Bima Yojana (PMJJBY) offers a life cover of ₹2 Lakhs at an annual premium of just ₹436.' },
+      { q: 'Is Health Insurance (Mediclaim) necessary if I am young?', a: 'Yes! Medical emergencies come unannounced. Getting health insurance when you are young and healthy means your premium will be very low, and you easily pass the waiting periods.' },
+      { q: 'Do you help with insurance claims?', a: 'Yes, we assist our policyholders with the claim settlement process, guiding them on the required hospital documents and claim forms.' }
+    ]
   },
   {
     id: 21, slug: 'pension-services', category: 'banking',
-    name: 'Pension Services', icon: 'UserPlus',
-    description: 'Assistance with pension enrollment and management for government schemes like Atal Pension Yojana (APY), PM Vaya Vandana Yojana, etc.',
-    documentsRequired: ['Aadhaar Card', 'Bank Account Details', 'PAN Card', 'Mobile Number'],
-    eligibility: 'Varies by pension scheme (typically 18–40 years for APY).',
-    processSteps: ['Select appropriate pension scheme', 'Fill application form', 'Attach KYC documents', 'Submit at bank or our center', 'PRAN (Permanent Retirement Account Number) issued'],
-    processingTime: '3–7 days',
-    charges: 'Contact for latest charges',
-    notes: 'Documents and process may vary depending on scheme. Please contact or visit our office.'
+    name: 'Atal Pension Yojana (APY)', icon: 'UserPlus',
+    description: 'Secure your retirement with the Government of India\'s Atal Pension Yojana (APY). Under this scheme, you get a guaranteed minimum monthly pension of ₹1,000 to ₹5,000 after the age of 60, depending on your contribution.',
+    documentsRequired: [
+      'Aadhaar Card',
+      'Active Savings Bank Account Passbook',
+      'Mobile Number (Linked to bank account)',
+      'Nominee Details (Aadhaar or Name/DOB)'
+    ],
+    eligibility: 'Any Indian citizen between the age of 18 to 40 years holding a savings bank account. The applicant should not be an income taxpayer.',
+    processSteps: [
+      'Step 1: Determine the pension amount you want after 60 (₹1000 to ₹5000).',
+      'Step 2: Provide your Aadhaar and Bank details at our CSC center.',
+      'Step 3: We register you for APY via the secure banking portal.',
+      'Step 4: Your PRAN (Permanent Retirement Account Number) is generated.',
+      'Step 5: Your first premium is automatically deducted from your bank account.'
+    ],
+    processingTime: 'Instant Registration',
+    charges: 'Premium depends on age and chosen pension amount + Nominal Registration Fee',
+    notes: 'Monthly premiums are auto-debited from your bank account. Ensure you maintain sufficient balance in your account to avoid penalty charges by the bank.',
+    keywords: [
+      'Atal pension yojana apply',
+      'APY registration Virar',
+      'Government pension scheme',
+      'Open PRAN account',
+      'Retirement plan for unorganized sector',
+      'Pension agent near me'
+    ],
+    faqs: [
+      { q: 'How much premium do I have to pay?', a: 'The premium depends on your entry age and the pension amount you want. For example, if you join at 18 years for a ₹5000 pension, you only pay ₹210 per month.' },
+      { q: 'What happens to the pension if the subscriber dies?', a: 'If the subscriber dies before or after 60, the spouse will receive the same pension amount. If both die, the accumulated corpus is handed over to the nominee.' },
+      { q: 'Can I exit the Atal Pension Yojana before 60 years?', a: 'Voluntary exit before 60 is permitted only in exceptional circumstances like terminal illness. Otherwise, only the subscriber\'s contribution (without govt co-contribution) will be refunded.' }
+    ]
   },
 
   // ─── D. Certificates & Documents ───
