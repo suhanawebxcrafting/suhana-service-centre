@@ -255,19 +255,22 @@ export default function ContactPage() {
       </section>
 
       {/* Premium Full-width Map Section */}
-      <section className="relative h-[350px] lg:h-[400px] w-full bg-gray-200">
-        <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3761.6891620490587!2d72.8584376!3d19.4689641!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7a91c7e33401b%3A0xe87dadf916305583!2sCSC%20AAPLE%20SARKAR%20centre!5e0!3m2!1sen!2sin!4v1776927631048!5m2!1sen!2sin"
-          className="absolute inset-0 w-full h-full border-0"
-          allowFullScreen=""
-          loading="lazy"
-          referrerPolicy="no-referrer-when-downgrade"
-          title="Suhana Service Center Location"
-        ></iframe>
+      <section className="relative flex flex-col lg:block w-full">
+        {/* Map Container */}
+        <div className="relative h-[300px] sm:h-[350px] lg:h-[450px] w-full bg-gray-200 order-1 lg:order-none">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3761.6891620490587!2d72.8584376!3d19.4689641!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7a91c7e33401b%3A0xe87dadf916305583!2sCSC%20AAPLE%20SARKAR%20centre!5e0!3m2!1sen!2sin!4v1776927631048!5m2!1sen!2sin"
+            className="absolute inset-0 w-full h-full border-0"
+            allowFullScreen=""
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+            title="Suhana Service Center Location"
+          ></iframe>
+        </div>
         
-        {/* Floating Map Card */}
-        <div className="absolute inset-0 pointer-events-none flex items-center justify-center lg:justify-start max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-           <div className="bg-white/90 backdrop-blur-xl p-8 rounded-3xl shadow-[0_30px_60px_rgba(0,0,0,0.12)] border border-white max-w-sm pointer-events-auto hover:-translate-y-2 transition-transform duration-500">
+        {/* Map Card */}
+        <div className="lg:absolute lg:inset-0 pointer-events-none flex items-center justify-center lg:justify-start max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 lg:py-0 order-2 lg:order-none bg-gray-50 lg:bg-transparent">
+           <div className="bg-white lg:bg-white/90 lg:backdrop-blur-xl p-8 rounded-3xl shadow-sm lg:shadow-[0_30px_60px_rgba(0,0,0,0.12)] border border-gray-100 lg:border-white w-full max-w-sm pointer-events-auto lg:hover:-translate-y-2 transition-transform duration-500">
              <div className="w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center text-orange-600 mb-5">
                <LucideIcon name="MapPin" size={24} />
              </div>
@@ -275,8 +278,8 @@ export default function ContactPage() {
              <p className="text-gray-600 text-sm font-medium leading-relaxed mb-6">
                Office No- 04, Raipada, Nr. Anand Gaushalla, Chandansar Road, Virar (E) - 401305
              </p>
-             <a href="https://maps.app.goo.gl/Tix69F2kF7B8L6nS8" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 rounded-xl transition-colors text-sm shadow-lg shadow-blue-600/20">
-                <LucideIcon name="Navigation" size={16} /> Get Directions
+             <a href="https://maps.app.goo.gl/Tix69F2kF7B8L6nS8" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 rounded-xl transition-colors text-sm shadow-lg shadow-blue-600/20 group">
+                <LucideIcon name="Navigation" size={16} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" /> Get Directions
              </a>
            </div>
         </div>
