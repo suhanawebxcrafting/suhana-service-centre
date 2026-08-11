@@ -753,102 +753,280 @@ export const services = [
   {
     id: 22, slug: 'birth-certificate', category: 'certificates',
     name: 'Birth Certificate Apply', icon: 'Baby',
-    description: 'Apply for an official birth certificate from the Municipal Corporation or Gram Panchayat.',
-    documentsRequired: ['Hospital Birth Proof / Discharge Summary', 'Parents\' Aadhaar Cards', 'Parents\' Marriage Certificate', 'Proof of Address'],
-    eligibility: 'Parents of newborns or individuals who do not have a birth certificate.',
-    processSteps: ['Gather documents', 'Fill application form', 'Submit at Municipal Office / our center', 'Verification by registrar', 'Certificate issued'],
-    processingTime: '7–15 working days',
-    charges: 'Contact for latest charges',
-    notes: 'Late registration (after 1 year) requires court order. Documents and process may vary.'
+    description: 'A Birth Certificate is the most important legal document establishing a person\'s age and identity. We assist in applying for new birth certificates, duplicate copies, or correcting existing certificates from the Vasai-Virar City Municipal Corporation (VVCMC) or local Gram Panchayats.',
+    documentsRequired: [
+      'Hospital Discharge Summary or Birth Proof from the Hospital',
+      'Parents\' Aadhaar Cards (Both Mother and Father)',
+      'Parents\' Marriage Certificate (If available)',
+      'Proof of Address at the time of birth'
+    ],
+    eligibility: 'Parents applying for their newborn child, or individuals whose birth was registered but they lost the physical certificate.',
+    processSteps: [
+      'Step 1: Provide the hospital discharge papers and parents\' KYC at our center.',
+      'Step 2: We file the official registration form with the local municipal body.',
+      'Step 3: Verification is done by the local registrar/health department.',
+      'Step 4: Once approved, the Birth Certificate is printed and handed over to you.'
+    ],
+    processingTime: 'Usually 7 to 15 Working Days',
+    charges: 'Govt Fees + Consulting & Filing Charges',
+    notes: 'Important: By law, a birth should be registered within 21 days. Late registration (after 1 year) is a complex process that requires a formal court order (Affidavit from First Class Magistrate).',
+    keywords: [
+      'Birth certificate Virar',
+      'VVCMC birth certificate',
+      'Apply birth certificate online',
+      'Duplicate birth certificate',
+      'Newborn registration',
+      'Late birth registration'
+    ],
+    faqs: [
+      { q: 'Is it mandatory to register a birth?', a: 'Yes, as per the Registration of Births and Deaths Act, 1969, it is mandatory to register every birth in India with the local government body within 21 days.' },
+      { q: 'What if I am applying for a birth certificate after 1 year?', a: 'If the birth is not registered within 1 year, you must first get an order from the local Sub-Divisional Magistrate (SDM) or a First Class Magistrate after police verification, before the municipality will issue the certificate.' },
+      { q: 'Can I add my child\'s name to the birth certificate later?', a: 'Yes, often the birth is registered without a name. You can apply for "Name Addition in Birth Certificate" within a specified time frame (usually up to 15 years from birth) by providing an affidavit.' }
+    ]
   },
   {
     id: 23, slug: 'death-certificate', category: 'certificates',
     name: 'Death Certificate Apply', icon: 'FileX',
-    description: 'Apply for an official death certificate from the Municipal Corporation or Gram Panchayat.',
-    documentsRequired: ['Hospital Death Certificate / Doctor\'s Certificate', 'Deceased\'s Aadhaar Card', 'Applicant\'s ID Proof and Aadhaar', 'Proof of Address'],
-    eligibility: 'Family members or legal representatives of the deceased.',
-    processSteps: ['Gather documents', 'Fill application form', 'Submit at Municipal Office / our center', 'Verification', 'Certificate issued'],
-    processingTime: '7–15 working days',
-    charges: 'Contact for latest charges',
-    notes: 'Documents and process may vary. Please contact or visit our office for confirmation.'
+    description: 'A Death Certificate is a mandatory legal document required to settle inheritance, claim insurance, or close bank accounts. We provide compassionate and fast assistance in obtaining death certificates from the municipal corporation (VVCMC) or local authorities.',
+    documentsRequired: [
+      'Hospital Death Certificate / Doctor\'s Cause of Death Certificate',
+      'Cremation/Burial Ground Receipt',
+      'Deceased Person\'s Aadhaar Card',
+      'Applicant\'s (Relative\'s) Aadhaar Card & Address Proof'
+    ],
+    eligibility: 'Immediate family members (Spouse, Children, Parents) or legal heirs of the deceased.',
+    processSteps: [
+      'Step 1: Bring the hospital and cremation ground receipts to our center.',
+      'Step 2: We carefully file the death registration form with the local municipality.',
+      'Step 3: The local registrar verifies the details against the hospital/cremation records.',
+      'Step 4: The official Death Certificate is generated and printed for you.'
+    ],
+    processingTime: 'Usually 7 to 15 Working Days',
+    charges: 'Govt Fees + Consulting & Filing Charges',
+    notes: 'Like birth certificates, a death must be registered within 21 days. Late registrations involve penalties and, if delayed beyond 1 year, require a Magistrate\'s order.',
+    keywords: [
+      'Death certificate Virar',
+      'VVCMC death certificate',
+      'Apply death certificate',
+      'Duplicate death certificate',
+      'Register death online',
+      'Municipal corporation death certificate'
+    ],
+    faqs: [
+      { q: 'Why is a Death Certificate important?', a: 'It is legally required to prove the fact of death. Without it, the family cannot claim life insurance, transfer property, close bank accounts, or transfer pensions.' },
+      { q: 'Who issues the Death Certificate in Virar?', a: 'In Virar, the Vasai-Virar City Municipal Corporation (VVCMC) is the authorized body to issue birth and death certificates.' },
+      { q: 'How many copies of the certificate should I get?', a: 'It is highly recommended to get at least 5 to 10 original printed copies, as you will need to submit original copies to banks, insurance companies, and property registrars.' }
+    ]
   },
   {
     id: 24, slug: 'marriage-certificate', category: 'certificates',
     name: 'Marriage Certificate Apply', icon: 'Ring',
-    description: 'Legal registration of marriage under the Hindu Marriage Act or Special Marriage Act for couples.',
+    description: 'A Marriage Certificate is the official legal proof of marriage. It is essential for passport applications, changing a maiden name, or applying for joint visas. We assist couples in registering their marriage seamlessly under the Hindu Marriage Act or the Special Marriage Act.',
     documentsRequired: [
-      'Wedding Invitation Card & Marriage Hall Receipt',
-      'Marriage Photographs (Ceremony + Couple)',
+      'Wedding Invitation Card (Original)',
+      'Marriage Photographs (Ceremony rituals and couple together)',
       'Identity & Address Proof of both Bride and Groom (Aadhaar & PAN)',
-      'Date of Birth Proof (Birth Certificate / School LC)',
-      'Witnesses: Two witnesses with their ID Proof'
+      'Date of Birth Proof (School LC or Birth Certificate)',
+      'Two/Three Witnesses along with their ID proofs'
     ],
-    eligibility: 'Groom must be 21+ and Bride 18+ years of age at the time of marriage.',
+    eligibility: 'The groom must be at least 21 years old and the bride must be at least 18 years old at the time of marriage.',
     processSteps: [
-      'Fill up the Marriage Registration Application form',
-      'Submission of joint affidavit and wedding proofs',
-      'Scheduling an appointment with the Sub-Registrar',
-      'Physical presence of both spouses and witnesses at the office',
-      'Issuance of official Marriage Certificate'
+      'Step 1: We draft the joint affidavit and prepare the marriage registration file.',
+      'Step 2: We book an appointment date at the local Sub-Registrar / Marriage Officer.',
+      'Step 3: Both husband, wife, and the witnesses must visit the office on the appointed day.',
+      'Step 4: Signatures and biometrics are captured by the officer.',
+      'Step 5: The Marriage Certificate is officially issued.'
     ],
-    processingTime: '15–30 days',
-    charges: 'Contact for latest charges',
-    notes: 'The presence of both husband and wife along with witnesses is mandatory for registration.'
+    processingTime: 'Registration is usually completed in 1 day (Appointment depends on slot availability)',
+    charges: 'Govt Fees + Legal Drafting & Consulting Charges',
+    notes: 'Physical presence of the husband, wife, and all witnesses is strictly mandatory at the registrar\'s office. Proxy registration is not allowed under Indian law.',
+    keywords: [
+      'Marriage certificate Virar',
+      'Register marriage online',
+      'Court marriage agent near me',
+      'Marriage registrar Virar',
+      'Hindu marriage act certificate',
+      'Apply for marriage certificate'
+    ],
+    faqs: [
+      { q: 'Is it necessary for witnesses to be blood relatives?', a: 'No, witnesses can be friends, colleagues, or relatives. They just need to be above 18 years of age and hold a valid Aadhaar/PAN card.' },
+      { q: 'Can we register a marriage that happened years ago?', a: 'Yes! Even if you got married 10 or 20 years ago, you can still register your marriage now by providing the required wedding proofs (like old photos and invitation card).' },
+      { q: 'Do we need a Marriage Certificate to change the wife\'s surname?', a: 'Yes, a registered Marriage Certificate is the primary legal document accepted by Passport offices, Banks, and Aadhaar centers to update a woman\'s surname post-marriage.' }
+    ]
   },
   {
     id: 25, slug: 'income-certificate', category: 'certificates',
     name: 'Income Certificate', icon: 'Wallet',
-    description: 'Obtain an income certificate issued by the Tehsildar/Revenue Department to prove annual family income for government schemes, admissions, etc.',
-    documentsRequired: ['Aadhaar Card', 'Ration Card / Residence Proof', 'Proof of Income (salary slip / affidavit)', 'Passport-size Photograph'],
-    eligibility: 'Any Indian resident needing to certify their income.',
-    processSteps: ['Fill application form', 'Attach documents', 'Submit at Tehsil office / our center', 'Verification by revenue officer', 'Certificate issued'],
-    processingTime: '7–21 days',
-    charges: 'Contact for latest charges',
-    notes: 'Documents and process may vary. Please contact or visit our office for confirmation.'
+    description: 'An Income Certificate is an official document issued by the state government (Tehsildar) that certifies the annual income of a family. It is crucial for students applying for EBC scholarships, school admissions (RTE), or citizens applying for government subsidies.',
+    documentsRequired: [
+      'Applicant\'s Aadhaar Card',
+      'Ration Card / Light Bill (As Proof of Residence)',
+      'Income Proof (Salary slips, Form 16, or Income Tax Return)',
+      'Self-Declaration / Affidavit of Income'
+    ],
+    eligibility: 'Any resident of Maharashtra who needs to prove their family\'s annual income for official purposes.',
+    processSteps: [
+      'Step 1: Bring your KYC and income proof documents to our center.',
+      'Step 2: We prepare the required self-declaration/affidavit.',
+      'Step 3: Application is submitted online on the Aaple Sarkar / Maha Seva portal.',
+      'Step 4: The application is verified by the Circle Officer and Tehsildar.',
+      'Step 5: The digitally signed Income Certificate is generated.'
+    ],
+    processingTime: 'Usually 7 to 15 Working Days',
+    charges: 'Govt Fees + Application Filing Charges',
+    notes: 'The Income Certificate is generally valid for the financial year in which it is issued. You will need to apply for a fresh one every year if required for scholarships.',
+    keywords: [
+      'Income certificate Virar',
+      'Tehsildar income certificate',
+      'Apply income certificate online',
+      'Income certificate for scholarship',
+      'Aaple sarkar income certificate',
+      'EBC scholarship document'
+    ],
+    faqs: [
+      { q: 'What if I don\'t have a salary slip or ITR?', a: 'If you work in the unorganized sector or run a small shop, you can submit an affidavit declaring your estimated annual income, verified by the local Talathi.' },
+      { q: 'How long is the Income Certificate valid?', a: 'In Maharashtra, a standard Income Certificate is usually valid for 1 Financial Year (ends on 31st March) from the date of issue.' },
+      { q: 'Is this certificate accepted for college admissions?', a: 'Yes, the Tehsildar-issued Income Certificate is the only document accepted by colleges and the MahaDBT portal for fee concessions and scholarships (EBC, OBC, SC/ST).' }
+    ]
   },
   {
     id: 26, slug: 'caste-certificate', category: 'certificates',
     name: 'Caste Certificate', icon: 'BadgeCheck',
-    description: 'Obtain a caste certificate (SC/ST/OBC) issued by competent authority for reservations and government benefits.',
-    documentsRequired: ['Aadhaar Card', 'Ration Card', 'Father\'s Caste Certificate (if available)', 'School Leaving Certificate', 'Proof of Address'],
-    eligibility: 'Individuals belonging to SC, ST, or OBC categories.',
-    processSteps: ['Fill caste certificate application', 'Attach documents', 'Submit at SDM / Tehsil office', 'Verification and inquiry by officer', 'Certificate issued'],
-    processingTime: '15–30 days',
-    charges: 'Contact for latest charges',
-    notes: 'Documents and process may vary. Please contact or visit our office for confirmation.'
+    description: 'A Caste Certificate is essential for claiming reservations in education, government jobs, and various state subsidies. We provide expert assistance in obtaining SC, ST, OBC, VJNT, or SBC caste certificates in Maharashtra, ensuring your file is prepared flawlessly to avoid rejections.',
+    documentsRequired: [
+      'Applicant\'s Aadhaar Card, School LC (Leaving Certificate), and Ration Card',
+      'Father\'s/Grandfather\'s School LC or Old Property Documents showing caste',
+      'Blood Relative\'s Caste Certificate (Father, Uncle, or Aunt) if available',
+      'Proof of Residence in Maharashtra prior to the cutoff date (1950 for SC, 1967 for OBC/VJNT)'
+    ],
+    eligibility: 'Any individual residing in Maharashtra who belongs to the recognized Schedule Caste (SC), Schedule Tribe (ST), or Other Backward Classes (OBC/VJNT/SBC) categories.',
+    processSteps: [
+      'Step 1: Consultation to verify if you have the required old proofs.',
+      'Step 2: We compile the documents and prepare the necessary affidavits/genealogy (Vanshavali).',
+      'Step 3: Submit the file online via Maha Seva / Aaple Sarkar portal.',
+      'Step 4: Physical file verification at the local SDM (Sub-Divisional Magistrate) or Tehsildar office.',
+      'Step 5: The digitally signed Caste Certificate is generated and issued.'
+    ],
+    processingTime: 'Usually 30 to 45 Days (Requires deep verification by the SDM office)',
+    charges: 'Govt Fees + Expert Consulting & Filing Charges',
+    notes: 'Warning: Obtaining a caste certificate requires strict historical proofs. Without old documents (pre-1950 or pre-1967) or a blood relative\'s valid certificate, the application will be rejected.',
+    keywords: [
+      'Caste certificate Virar',
+      'Apply OBC certificate online',
+      'SC ST certificate Maharashtra',
+      'Caste validity agent near me',
+      'Tehsildar caste certificate',
+      'Aaple sarkar caste application'
+    ],
+    faqs: [
+      { q: 'What is the "Cut-off Date" proof for a Caste Certificate?', a: 'To prove you belong to a caste in Maharashtra, you must show proof that your ancestors lived in Maharashtra before a specific date: 1950 for SC/ST, 1967 for OBC/VJNT, and 1961 for Nomadic Tribes.' },
+      { q: 'Can I get a Caste Certificate if my father does not have one?', a: 'Yes, if your father doesn\'t have one, you can use the school leaving certificate or birth record of your grandfather, great-grandfather, or paternal uncle that explicitly mentions the caste.' },
+      { q: 'Do you also provide Caste Validity certificates?', a: 'The Caste Certificate is issued first by the SDM. Caste Validity is a separate, more rigorous process done by the Scrutiny Committee, usually required for professional college admissions and government jobs.' }
+    ]
   },
   {
     id: 27, slug: 'domicile-certificate', category: 'certificates',
-    name: 'Domicile Certificate', icon: 'Home',
-    description: 'Obtain a domicile certificate as proof of residence/domicile in Maharashtra for education, jobs, and government benefits.',
-    documentsRequired: ['Aadhaar Card', 'Birth Certificate or School Leaving Certificate', 'Address Proof (15+ years residency proof)', 'Ration Card', 'Passport-size Photograph'],
-    eligibility: 'Individuals residing in Maharashtra for 15 or more years.',
-    processSteps: ['Fill domicile application form', 'Attach documents', 'Submit at Tehsil/SDM office', 'Verification', 'Certificate issued'],
-    processingTime: '15–30 days',
-    charges: 'Contact for latest charges',
-    notes: 'Documents and process may vary. Please contact or visit our office for confirmation.'
+    name: 'Domicile / Nationality Certificate', icon: 'Home',
+    description: 'A Domicile and Nationality Certificate proves that you are a resident of Maharashtra and an Indian citizen. It is mandatory for state government jobs, engineering/medical college admissions, and local schemes. We help you get this certificate smoothly from the Tehsildar office.',
+    documentsRequired: [
+      'Applicant\'s Aadhaar Card & School Leaving Certificate (LC)',
+      'Birth Certificate (If LC is not available)',
+      'Residence Proofs covering the last 15 continuous years (e.g., Light Bills, Tax Receipts, Ration Card)',
+      'Self-Declaration / Affidavit of Residency'
+    ],
+    eligibility: 'Any person who has been continuously residing in the State of Maharashtra for the last 15 years or more.',
+    processSteps: [
+      'Step 1: Bring your KYC and 15-year residence proofs to our center.',
+      'Step 2: We prepare the residential affidavit and compile the file.',
+      'Step 3: Online application submission on the Aaple Sarkar portal.',
+      'Step 4: Verification by the Circle Officer and Talathi.',
+      'Step 5: The digitally signed Domicile Certificate is issued.'
+    ],
+    processingTime: 'Usually 15 to 21 Working Days',
+    charges: 'Govt Fees + Application Filing Charges',
+    notes: 'If the applicant is a minor (below 18), the father\'s domicile certificate or the father\'s 15-year residence proofs must be submitted.',
+    keywords: [
+      'Domicile certificate Virar',
+      'Nationality certificate online',
+      'Apply domicile Maharashtra',
+      'Residence certificate agent',
+      '15 years residence proof',
+      'Aaple sarkar domicile'
+    ],
+    faqs: [
+      { q: 'Why do I need a Domicile Certificate?', a: 'It is strictly required if you want to claim state quota seats in engineering/medical colleges in Maharashtra, or apply for Maharashtra State Government jobs.' },
+      { q: 'I moved to Maharashtra 5 years ago. Can I get a Domicile Certificate?', a: 'No. To obtain a Domicile Certificate in Maharashtra, you must prove continuous residence in the state for at least the last 15 years.' },
+      { q: 'Is the Domicile Certificate valid for a lifetime?', a: 'Yes, once a Domicile and Nationality Certificate is issued in Maharashtra, it is generally valid for a lifetime and does not need to be renewed.' }
+    ]
   },
   {
     id: 28, slug: 'gazette-name-change', category: 'certificates',
-    name: 'Gazette Name Change Assistance', icon: 'Newspaper',
-    description: 'Assistance in getting your name change published in the Official Gazette of India — required for legal name changes in all documents.',
-    documentsRequired: ['Aadhaar Card', 'PAN Card', 'Affidavit of name change on stamp paper', 'Supporting documents (if applicable)', 'Passport-size Photograph'],
-    eligibility: 'Any Indian citizen requiring a legal name change.',
-    processSteps: ['Prepare affidavit on stamp paper', 'Submit application to Department of Publication', 'Publication in Official Gazette', 'Receive Gazette notification copy', 'Update other documents with Gazette proof'],
-    processingTime: '30–60 days',
-    charges: 'Contact for latest charges',
-    notes: 'Documents and process may vary. Please contact or visit our office for confirmation.'
+    name: 'Gazette Name Change (Maharashtra)', icon: 'Newspaper',
+    description: 'Changed your name after marriage? Spelling mistake in your School LC? Or adopting a completely new name? A Govt. Gazette Notification is the ultimate legal proof required to update your name on PAN, Aadhaar, Passport, and bank accounts. We provide complete end-to-end Gazette services.',
+    documentsRequired: [
+      'Aadhaar Card and PAN Card (Old Name)',
+      'Passport-size Photograph',
+      'For Spelling Correction: School LC or Birth Certificate',
+      'For Marriage Name Change: Marriage Certificate',
+      'Notarized Name Change Affidavit (We will prepare this)'
+    ],
+    eligibility: 'Any Indian citizen aged 18+ (or a minor applied through parents) who wishes to legally change or correct their name.',
+    processSteps: [
+      'Step 1: We draft and print the Name Change Affidavit on a ₹100 Stamp Paper and get it notarized.',
+      'Step 2: We fill the online application on the DGIPR Maharashtra Gazette portal.',
+      'Step 3: Govt fee is paid online (Usually ₹523).',
+      'Step 4: The application is scrutinized by the Gazette department in Mumbai.',
+      'Step 5: Your name change is published in the e-Gazette, which you can download.'
+    ],
+    processingTime: 'Usually 30 to 45 Days (Depends on Govt Publication Schedule)',
+    charges: '₹523 (Govt Fee) + Affidavit & Legal Consulting Charges',
+    notes: 'Important: The e-Gazette is digitally signed and valid across India. Once published, you must preserve the PDF file and a printed copy for all future document updates.',
+    keywords: [
+      'Gazette name change Virar',
+      'Change name in Gazette',
+      'Maharashtra gazette online',
+      'Name change affidavit',
+      'Spelling mistake in LC',
+      'Official name change agent'
+    ],
+    faqs: [
+      { q: 'Is a Newspaper Ad required for Name Change in Maharashtra?', a: 'For the Maharashtra State e-Gazette, a newspaper advertisement is usually NOT required. The notarized affidavit is sufficient for online submission.' },
+      { q: 'Will my old School/College certificates be updated after Gazette?', a: 'No, educational boards (like SSC/HSC or Universities) usually do not reprint old marksheets. You simply attach a copy of your Gazette along with your old marksheets wherever required as legal proof.' },
+      { q: 'Can I change my religion in the Gazette?', a: 'Yes, "Change of Religion" can also be published in the Gazette, but it requires specific documents like a Conversion Certificate from an authorized religious institution.' }
+    ]
   },
   {
     id: 29, slug: 'affidavit', category: 'certificates',
-    name: 'Affidavit (₹100 Stamp Paper etc.)', icon: 'FileSignature',
-    description: 'Assistance in preparing and notarizing affidavits on stamp paper for various legal and government purposes.',
-    documentsRequired: ['Aadhaar Card', 'Relevant supporting documents as per affidavit type'],
-    eligibility: 'Any individual requiring a legal affidavit.',
-    processSteps: ['Discuss affidavit purpose', 'Draft affidavit content', 'Print on appropriate stamp paper', 'Get notarized by Notary Public', 'Receive signed and stamped affidavit'],
-    processingTime: 'Same day to 2 days',
-    charges: 'Contact for latest charges',
-    notes: 'Stamp paper value varies by purpose. Documents and process may vary.'
+    name: 'Notarized Affidavits & Agreements', icon: 'FileSignature',
+    description: 'Need a legal affidavit urgently? We draft, print, and notarize all types of affidavits and agreements on valid Govt Stamp Papers (₹100, ₹500, etc.). We ensure correct legal formatting so your documents are accepted by Govt offices, banks, and courts.',
+    documentsRequired: [
+      'Applicant\'s Aadhaar Card',
+      'Supporting documents based on the type of affidavit (e.g., Old LC for DOB affidavit, Bank passbook for Income affidavit)'
+    ],
+    eligibility: 'Anyone requiring a sworn statement or legal agreement for official purposes.',
+    processSteps: [
+      'Step 1: Tell us the purpose of your affidavit (Name Change, Gap Certificate, Address Proof, etc.).',
+      'Step 2: We draft the legal content accurately.',
+      'Step 3: The draft is printed on the appropriate e-Stamp paper or franked paper.',
+      'Step 4: We arrange for the Notary Public to attest and stamp the document.',
+      'Step 5: Handover of the finalized legal document.'
+    ],
+    processingTime: 'Same Day (Usually within 1 to 2 hours)',
+    charges: 'Stamp Paper Value + Notary Fee + Drafting Charges',
+    notes: 'Common Affidavits: Gap Certificate (for students), Name Change, Income Declaration, Address Proof, Anti-Ragging, and Joint Marriage Affidavits.',
+    keywords: [
+      'Notary services Virar',
+      'Stamp paper agent',
+      'Gap certificate affidavit',
+      'Name change affidavit',
+      'Rent agreement notary',
+      '100 rs stamp paper near me'
+    ],
+    faqs: [
+      { q: 'What is an Affidavit?', a: 'An affidavit is a written statement confirmed by oath or affirmation, used as evidence in court or by government bodies to verify facts (like your income, name, or address).' },
+      { q: 'What is a Gap Certificate?', a: 'A Gap Certificate is a specific affidavit required by students who took a drop year or break in their education. It states the reason for the gap (e.g., medical reasons, exam preparation) and confirms they were not involved in illegal activities.' },
+      { q: 'Can you draft a Rent Agreement?', a: 'Yes, we draft standard 11-month Leave and License (Rent) Agreements on ₹100 or ₹500 stamp papers and get them notarized. (Note: Registered rent agreements are a different process).' }
+    ]
   },
 
   // ─── E. Online Services ───
