@@ -45,9 +45,8 @@ export default function BlogContent({ content }) {
     for (let i = 0; i < lines.length; i++) {
       const line = lines[i].trim()
 
-      // Skip empty lines but flush lists
+      // Skip empty lines (don't flush lists so they can span across empty lines)
       if (!line) {
-        flushList()
         continue
       }
 
@@ -150,10 +149,7 @@ export default function BlogContent({ content }) {
 function renderInline(text) {
   if (!text) return text
 
-  // Clean up stray markdown artifacts like leading/trailing stars
   let cleaned = text
-    .replace(/^\*{1,2}\s*/, '')  // Remove leading stars
-    .replace(/\s*\*{1,2}$/, '')  // Remove trailing stars
 
   const parts = []
   let remaining = cleaned
