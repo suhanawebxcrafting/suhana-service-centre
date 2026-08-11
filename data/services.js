@@ -397,36 +397,112 @@ export const services = [
   },
   {
     id: 12, slug: 'passport-renewal', category: 'passport',
-    name: 'Passport Renewal', icon: 'RefreshCw',
-    description: 'Renew your expired or soon-to-expire Indian passport.',
-    documentsRequired: ['Existing Passport (original)', 'Aadhaar Card', 'Address Proof', 'Passport-size Photographs'],
-    eligibility: 'Holders of expired or expiring Indian passports.',
-    processSteps: ['Register on Passport Seva Portal', 'Fill Re-issue application form', 'Schedule appointment', 'Visit PSK with documents', 'Submit old passport', 'New passport delivered'],
-    processingTime: '15–30 working days',
-    charges: 'Contact for latest charges',
-    notes: 'Documents and process may vary. Please contact or visit our office for confirmation.'
+    name: 'Passport Renewal (Re-issue)', icon: 'RefreshCw',
+    description: 'Is your passport expiring soon or already expired? We provide fast Passport Renewal (Re-issue) services in Virar. Avoid last-minute travel stress by renewing your passport on time. We handle the online form filling, document arrangement, and PSK appointment booking.',
+    documentsRequired: [
+      'Original Old Passport (First and last two pages photocopy required)',
+      'Aadhaar Card (Linked with mobile number)',
+      'Present Address Proof (If address has changed from the old passport)',
+      'Marriage Certificate (If adding spouse name)'
+    ],
+    eligibility: 'Anyone whose passport is expiring within the next 1 year, or whose passport has already expired. Also applicable if passport pages are exhausted.',
+    processSteps: [
+      'Step 1: Bring your Old Passport and Aadhaar to our CSC center in Virar.',
+      'Step 2: We process your "Re-issue of Passport" application online.',
+      'Step 3: Pay the Government fee (₹1500 for Normal / ₹3500 for Tatkaal).',
+      'Step 4: We schedule your appointment at the nearest PSK/POPSK.',
+      'Step 5: Visit the PSK for document verification. Your old passport will be cancelled & returned.',
+      'Step 6: New Passport is delivered to your address via Speed Post.'
+    ],
+    processingTime: 'Normal: 15 to 30 Days | Tatkaal: 3 to 7 Days',
+    charges: '₹1500 (Govt Fee for 36 Pages) + Consulting/Filing Fee',
+    notes: 'Important: If your address has not changed, police verification is usually NOT required for renewal, making the process much faster.',
+    keywords: [
+      'Passport renewal Virar',
+      'Reissue passport online',
+      'Passport expiry renewal',
+      'Tatkaal passport renewal',
+      'Passport agent near me',
+      'Renew Indian passport'
+    ],
+    faqs: [
+      { q: 'When should I apply for passport renewal?', a: 'You can apply for renewal (re-issue) up to 1 year before the expiry date of your current passport, or anytime after it has expired.' },
+      { q: 'Will my old passport be taken away?', a: 'No, your old passport will be verified and physically cancelled (by stamping "CANCELLED" or punching holes) at the PSK, and handed back to you immediately.' },
+      { q: 'Do I need Police Verification for passport renewal?', a: 'Usually, if there is no change in your personal details (like address or name) and your old passport had clear police verification, Police Verification is skipped (Pre-police verification not required).' },
+      { q: 'Can I renew my passport in Tatkaal?', a: 'Yes! Passport renewal can be done under the Tatkaal scheme for faster processing (3-7 days), provided your address is the same and you meet the Tatkaal criteria.' }
+    ]
   },
   {
     id: 13, slug: 'passport-correction', category: 'passport',
-    name: 'Passport Correction', icon: 'FileEdit',
-    description: 'Correct errors in your passport such as name spelling, date of birth, or other personal details.',
-    documentsRequired: ['Existing Passport', 'Proof for correction (Aadhaar / Birth Certificate)', 'Passport-size Photographs'],
-    eligibility: 'Passport holders who have errors in their passport details.',
-    processSteps: ['Register on Passport Seva Portal', 'Fill Re-issue application with correction', 'Attach supporting documents', 'Visit PSK for appointment', 'Updated passport delivered'],
-    processingTime: '15–30 working days',
-    charges: 'Contact for latest charges',
-    notes: 'Documents and process may vary. Please contact or visit our office for confirmation.'
+    name: 'Passport Correction & Update', icon: 'FileEdit',
+    description: 'Got married and need to add your spouse\'s name? Need to change your address or correct a spelling mistake? We help you apply for Passport Correction (Re-issue for change in personal particulars). We ensure your application is filed with the exact supporting documents required by the Regional Passport Office.',
+    documentsRequired: [
+      'Original Old Passport',
+      'For Address Change: Aadhaar, Light Bill, or Registered Rent Agreement',
+      'For Name Change (Marriage): Marriage Certificate + Spouse Passport/Aadhaar',
+      'For DOB Correction: Birth Certificate + 10th Marksheet (Subject to RPO approval)'
+    ],
+    eligibility: 'Any existing Indian passport holder who needs to update or correct their printed personal details (Name, DOB, Address, ECR status, Spouse Name, etc.).',
+    processSteps: [
+      'Step 1: Visit our center in Virar with your old passport and the correct proof document.',
+      'Step 2: We select "Change in Existing Personal Particulars" in the application.',
+      'Step 3: Online fee payment and PSK appointment booking.',
+      'Step 4: Visit the PSK with original documents for verification.',
+      'Step 5: Police Verification (Mandatory for address change or name change).',
+      'Step 6: A fresh updated passport is printed and dispatched to your home.'
+    ],
+    processingTime: 'Usually 20 to 30 Days (Police verification is mostly required)',
+    charges: '₹1500 (Govt Fee for Re-issue) + Consulting/Filing Fee',
+    notes: 'Caution: Date of Birth (DOB) corrections are highly restricted by the Passport Office and require strong original proofs like a Birth Certificate and sometimes a court order.',
+    keywords: [
+      'Passport correction Virar',
+      'Change address in passport',
+      'Add spouse name passport',
+      'Name change passport',
+      'Update passport details',
+      'DOB correction passport'
+    ],
+    faqs: [
+      { q: 'Is it possible to change the address in my passport?', a: 'Yes. You have to apply for a "Re-issue of Passport" under the "Change in Existing Personal Particulars" category. You must provide a valid new address proof (like Aadhaar, Light Bill, or Registered Rent Agreement).' },
+      { q: 'Will I get a new passport booklet or a sticker on the old one?', a: 'You will get a completely new, freshly printed passport booklet with your updated details. The old passport will be cancelled and returned to you.' },
+      { q: 'Is Police Verification required for address change?', a: 'Yes. Whenever you change your address on the passport, a fresh Police Verification will be conducted at your new address before or after the new passport is issued.' },
+      { q: 'How can I remove ECR (Emigration Check Required) status?', a: 'If you have now passed your 10th standard, you can apply for a passport re-issue to change ECR to Non-ECR (ECNR) by submitting your 10th passing certificate/marksheet.' }
+    ]
   },
   {
     id: 14, slug: 'police-verification', category: 'passport',
-    name: 'Police Verification Support', icon: 'ShieldCheck',
-    description: 'Assistance and guidance for police verification process required for passport issuance.',
-    documentsRequired: ['Passport Application Acknowledgment', 'Aadhaar Card', 'Address Proof', 'Additional documents as requested by police'],
-    eligibility: 'Passport applicants who have been flagged for police verification.',
-    processSteps: ['Receive police verification notice', 'Prepare required documents', 'We assist you in submitting correct documents', 'Follow up with police station', 'Verification completion'],
-    processingTime: '7–15 days',
-    charges: 'Contact for latest charges',
-    notes: 'Documents and process may vary. We guide and support through the entire process.'
+    name: 'Police Clearance Certificate (PCC)', icon: 'ShieldCheck',
+    description: 'Planning to work abroad, immigrate, or apply for a long-term visa? Many foreign governments require a Police Clearance Certificate (PCC) from the Indian Passport Office. We assist you in filing the PCC application, booking the PSK appointment, and guiding you on the exact documents needed.',
+    documentsRequired: [
+      'Original Valid Indian Passport',
+      'Current Address Proof (Aadhaar Card, Light Bill, etc.)',
+      'Employment Contract / Visa Copy / Immigration Letter (as demanded by the foreign country)'
+    ],
+    eligibility: 'Any Indian citizen holding a valid Indian passport who has been asked to submit a PCC by a foreign country for employment, long-term visa, or immigration.',
+    processSteps: [
+      'Step 1: We file your PCC application online on the Passport Seva portal.',
+      'Step 2: Pay the Govt fee (₹500) and book an appointment at the nearest PSK.',
+      'Step 3: Visit the PSK for biometric verification.',
+      'Step 4: Your file is sent to your local police station for verification.',
+      'Step 5: Once the police clear your record, the PCC is printed and dispatched to your home.'
+    ],
+    processingTime: 'Usually 15 to 30 Days (Depends heavily on local police station clearance)',
+    charges: '₹500 (Official Govt Fee) + Consulting/Filing Fee',
+    notes: 'Important: PCC cannot be issued in Tatkaal. It strictly requires a clear report from your local police station before the Passport Office issues the certificate.',
+    keywords: [
+      'Apply PCC online Virar',
+      'Police clearance certificate',
+      'Passport PCC agent',
+      'PCC for visa',
+      'PCC appointment booking',
+      'PCC services Virar'
+    ],
+    faqs: [
+      { q: 'What is a Police Clearance Certificate (PCC)?', a: 'A PCC is an official document issued by the Passport Office/Police verifying that the applicant has no criminal record. It is usually required by foreign countries for employment, residential status, or long-term visas.' },
+      { q: 'Can I get a PCC urgently?', a: 'No, there is no Tatkaal quota for PCC. It requires a mandatory physical police verification at your local station, which takes its own standard time.' },
+      { q: 'Do I need to visit the Passport Office (PSK) for PCC?', a: 'Yes, just like a passport application, you must visit the PSK to submit your fingerprints, photo, and original documents.' },
+      { q: 'Will the PCC be stamped on my passport?', a: 'No, the PCC is issued as a separate official printed certificate on secure government paper. It is not stamped in your passport booklet.' }
+    ]
   },
 
   // ─── C. Banking & Financial ───
