@@ -249,13 +249,39 @@ export const services = [
   {
     id: 8, slug: 'voter-id-new', category: 'identity',
     name: 'Voter ID New Registration', icon: 'Vote',
-    description: 'Register for a new Voter ID (Electoral Photo Identity Card - EPIC) to exercise your right to vote in elections.',
-    documentsRequired: ['Age Proof (Birth Certificate / Marksheet / Aadhaar)', 'Address Proof (Aadhaar / Utility Bill / Ration Card)', 'Passport-size Photograph'],
-    eligibility: 'Indian citizens who are 18 years of age or older as of the qualifying date.',
-    processSteps: ['Fill Form 6 at our center', 'Attach required documents', 'Submit to Electoral Registration Officer', 'Field verification done by BLO', 'Voter ID issued within 30–45 days'],
-    processingTime: '30–45 days',
-    charges: 'Contact for latest charges',
-    notes: 'Documents and process may vary. Please contact or visit our office for confirmation.'
+    description: 'Turned 18 and want to exercise your right to vote? Apply for a new Voter ID card (EPIC) easily with our assistance in Virar. A Voter ID is not just for elections; it is one of the most powerful and universally accepted Proof of Identity and Address in India. We help you fill Form 6 accurately and submit it online.',
+    documentsRequired: [
+      'Age Proof: Birth Certificate, 10th/12th Marksheet, PAN Card, or Aadhaar',
+      'Address Proof: Aadhaar Card, Electricity Bill, Water Bill, or Indian Passport',
+      'Recent Passport-size Photograph (Color with White Background)',
+      'Relative\'s Voter ID (Optional but recommended for faster processing: Father/Mother/Husband)'
+    ],
+    eligibility: 'Must be an Indian Citizen. Must have attained the age of 18 years on the qualifying date (usually 1st January of the year). Must be an ordinary resident of the polling area.',
+    processSteps: [
+      'Step 1: Visit our CSC center in Virar with your Age and Address proofs.',
+      'Step 2: We will fill out Form 6 (Application for New Voter Registration) on the Election Commission (ECI) portal.',
+      'Step 3: Upload your scanned documents and passport-size photo securely.',
+      'Step 4: Receive a Reference Number (ACK number) to track your application status online.',
+      'Step 5: The Booth Level Officer (BLO) may verify your address.',
+      'Step 6: Once approved, the Voter ID card is dispatched via India Post to your address.'
+    ],
+    processingTime: 'Approvals take 30 to 45 Days | Delivery depends on India Post',
+    charges: 'Nominal Consulting/Form Filling Charges (Voter ID itself is free from ECI)',
+    notes: 'Important: Voter ID applications are heavily processed during election seasons, so it is highly recommended to apply well in advance of any upcoming elections to ensure you get your card on time.',
+    keywords: [
+      'New Voter ID apply Virar',
+      'Election card registration',
+      'Apply EPIC card near me',
+      'Form 6 voter ID online',
+      'Voter card agent Virar',
+      'Get new voting card'
+    ],
+    faqs: [
+      { q: 'Can I apply for a Voter ID if I don\'t have an Aadhaar card?', a: 'Yes! While Aadhaar is highly recommended, it is not strictly mandatory. You can use other documents like a Birth Certificate for Age Proof and an Electricity Bill or Passport for Address Proof.' },
+      { q: 'What is Form 6?', a: 'Form 6 is the official application form mandated by the Election Commission of India (ECI) for the registration of new voters who have just turned 18 or are registering for the first time.' },
+      { q: 'Will someone visit my house for verification?', a: 'Yes, in most cases, the local Booth Level Officer (BLO) will visit the residential address you provided to verify that you actually live there before approving your Voter ID.' },
+      { q: 'How do I download a digital copy of my Voter ID?', a: 'Once your application is approved and an EPIC number is generated, you can download the digital version (e-EPIC) online using your registered mobile number.' }
+    ]
   },
   {
     id: 9, slug: 'voter-id-correction', category: 'identity',
