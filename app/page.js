@@ -272,7 +272,7 @@ export default async function HomePage() {
                <div className="relative w-[280px] h-[280px] bg-gradient-to-br from-white/20 to-white/5 backdrop-blur-xl border border-white/30 rounded-[2.5rem] flex flex-col items-center justify-center rotate-3 hover:rotate-6 transition-all duration-500 hover:scale-110 shadow-[0_20px_50px_rgba(0,0,0,0.3)] group cursor-pointer overflow-hidden">
                  <div className="absolute inset-0 bg-gradient-to-t from-blue-900/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                  <LucideIcon name="Printer" size={100} className="text-white drop-shadow-[0_10px_15px_rgba(0,0,0,0.5)] group-hover:-translate-y-3 transition-transform duration-500" />
-                 <div className="mt-6 bg-gradient-to-r from-orange-500 to-red-500 text-white text-[12px] font-black uppercase tracking-widest px-6 py-2 rounded-full shadow-[0_5px_15px_rgba(249,115,22,0.5)] group-hover:scale-110 transition-transform duration-500">Upload PDF &amp; Print ⚡</div>
+                 <div className="mt-8 bg-gradient-to-r from-orange-500 to-red-500 text-white text-[13px] font-black uppercase tracking-widest px-7 py-3.5 rounded-full shadow-[0_10px_20px_rgba(249,115,22,0.4)] group-hover:scale-110 transition-transform duration-500 flex items-center justify-center border border-white/20 whitespace-nowrap">Upload PDF &amp; Print ⚡</div>
                </div>
             </div>
           </div>
