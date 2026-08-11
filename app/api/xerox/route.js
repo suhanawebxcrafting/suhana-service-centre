@@ -13,6 +13,7 @@ export async function POST(req) {
     const deliveryCharge = parseFloat(formData.get('charge'))
     const serviceRequested = formData.get('serviceRequested') || formData.get('serviceNeeded') || 'Xerox Delivery'
     const file = formData.get('file')
+    const email = formData.get('email')
 
     if (!file) {
       return NextResponse.json({ error: 'No file uploaded' }, { status: 400 })
@@ -47,6 +48,7 @@ export async function POST(req) {
       data: {
         customerName: name,
         phoneNumber: phone,
+        email: email,
         address: address,
         distance: distance,
         deliveryCharge: deliveryCharge,
@@ -54,8 +56,6 @@ export async function POST(req) {
         documentUrl: uploadRes.secure_url,
       },
     })
-
-    const email = formData.get('email');
 
     // Send email to Admin
     const adminSubject = `New Xerox Order: ${serviceRequested} by ${name}`;

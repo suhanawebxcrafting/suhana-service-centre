@@ -178,6 +178,7 @@ export default function AdminDashboard() {
                       <tr key={order.id} className="hover:bg-gray-50/30 transition-all">
                         <td className="px-4 py-4">
                           <div className="font-bold text-gray-900 text-sm">{order.customerName}</div>
+                          {order.email && <div className="text-[11px] font-medium text-gray-500 mt-0.5">{order.email}</div>}
                           <div className="text-[10px] text-gray-400 mt-0.5">{new Date(order.createdAt).toLocaleDateString()}</div>
                         </td>
                         <td className="px-4 py-4">

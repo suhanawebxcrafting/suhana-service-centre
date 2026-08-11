@@ -16,6 +16,7 @@ model XeroxOrder {
   deliveryCharge  Float
   documentUrl     String
   serviceRequested String?  // Added for tracking which service/dropdown they selected
+  email           String?  // Added for email notifications
   status          OrderStatus @default(PENDING)
   createdAt       DateTime @default(now())
   updatedAt       DateTime @updatedAt
