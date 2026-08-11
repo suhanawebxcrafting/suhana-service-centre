@@ -540,23 +540,42 @@ export default async function HomePage() {
         </div>
       </section>
 
-      {/* ─── FAQ Section ─── */}
-      <section className="py-16 pattern-bg">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-10">
-            <div className="tag mb-3">❓ FAQ</div>
-            <h2 className="section-title mb-3">Frequently Asked Questions</h2>
-            <p className="section-subtitle">Quick answers to common questions</p>
+      {/* ─── Premium FAQ Section ─── */}
+      <section className="py-20 lg:py-28 relative bg-white overflow-hidden">
+        {/* Subtle Background Pattern & Gradient */}
+        <div className="absolute inset-0 opacity-[0.02]" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, black 1px, transparent 0)', backgroundSize: '32px 32px' }}></div>
+        <div className="absolute top-0 left-0 w-full h-[500px] bg-gradient-to-b from-blue-50/80 to-transparent pointer-events-none"></div>
+        
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="text-center mb-16 animate-fade-up">
+            <div className="inline-flex items-center gap-2 bg-blue-50 text-blue-700 px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-widest mb-4 border border-blue-100 shadow-sm">
+              <LucideIcon name="HelpCircle" size={14} /> FAQs
+            </div>
+            <h2 className="text-3xl lg:text-5xl font-black text-blue-950 mb-4 tracking-tight">
+              Frequently Asked <span className="text-blue-600">Questions</span>
+            </h2>
+            <p className="text-gray-500 text-lg max-w-2xl mx-auto font-medium">
+              Got questions? We've got answers. If you can't find what you're looking for, feel free to contact our support team.
+            </p>
           </div>
-          <div className="space-y-3">
+          
+          <div className="space-y-4">
             {faqs.map((faq, i) => (
-              <details key={i} className="faq-item group bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
-                <summary className="flex items-center justify-between p-5 cursor-pointer">
-                  <span className="font-semibold text-gray-800 text-sm pr-4">{faq.q}</span>
-                  <span className="text-blue-600 flex-shrink-0 text-lg transition-transform group-open:rotate-45">+</span>
+              <details key={i} className="group bg-white rounded-2xl shadow-sm border border-gray-100 hover:shadow-lg hover:shadow-blue-900/5 hover:border-blue-200 transition-all duration-300 overflow-hidden [&_summary::-webkit-details-marker]:hidden">
+                <summary className="flex items-center justify-between p-5 md:p-6 cursor-pointer list-none select-none">
+                  <div className="flex items-center gap-4 md:gap-5">
+                    <div className="w-12 h-12 bg-slate-50 rounded-2xl flex items-center justify-center text-blue-600 flex-shrink-0 group-hover:scale-110 group-hover:bg-blue-600 group-hover:text-white transition-all duration-300 shadow-sm border border-slate-100 group-hover:border-blue-600">
+                      <LucideIcon name="MessageCircle" size={22} />
+                    </div>
+                    <span className="font-bold text-gray-800 text-base md:text-lg pr-4 group-hover:text-blue-600 transition-colors">{faq.q}</span>
+                  </div>
+                  <span className="w-8 h-8 rounded-full bg-slate-50 flex items-center justify-center text-gray-400 flex-shrink-0 transition-transform duration-500 group-open:rotate-180 group-open:bg-blue-50 group-open:text-blue-600 border border-slate-100">
+                    <LucideIcon name="ChevronDown" size={18} />
+                  </span>
                 </summary>
-                <div className="px-5 pb-5">
-                  <p className="text-gray-600 text-sm leading-relaxed">{faq.a}</p>
+                <div className="px-5 md:px-6 pb-6 md:pl-[88px] text-gray-600 text-[15px] leading-relaxed animate-fade-in">
+                  <div className="w-full h-px bg-slate-100 mb-4"></div>
+                  {faq.a}
                 </div>
               </details>
             ))}
