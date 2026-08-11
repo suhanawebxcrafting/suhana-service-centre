@@ -164,24 +164,39 @@ export const services = [
   {
     id: 5, slug: 'pan-card-new', category: 'identity',
     name: 'PAN Card New Apply', icon: 'IdCard',
-    description: 'Apply for a new Permanent Account Number (PAN) card. Essential for banking, income tax filing, and all major financial transactions in India.',
+    description: 'Apply for a new Permanent Account Number (PAN) card quickly and hassle-free in Virar. A PAN card is mandatory for opening a bank account, filing Income Tax Returns, buying property, and making high-value transactions. We provide both physical form filling and fast track e-KYC (Aadhaar OTP based) PAN card services.',
     documentsRequired: [
-      'Identity Proof: Aadhaar Card / Voter ID / Passport',
-      'Address Proof: Aadhaar Card / Utility Bill / Domicile Certificate',
-      'Date of Birth Proof: Aadhaar / Birth Certificate / Marksheet',
-      'Two Recent Passport-size Photographs with white background'
+      'Aadhaar Card (Highly Recommended: serves as ID, Address, and DOB proof)',
+      'Alternatively for Identity/Address: Voter ID, Passport, or Driving License',
+      'Date of Birth Proof: Birth Certificate or SSC Marksheet (if Aadhaar is not available)',
+      'Two Recent Passport-size Photographs (Required for physical application)'
     ],
-    eligibility: 'All Indian citizens (including minors through parents), companies, and NRIs can apply.',
+    eligibility: 'Any Indian Citizen, including minors (students/children), can apply. Companies, Trusts, and NRIs are also eligible.',
     processSteps: [
-      'Fill Application Form 49A (for Indian Citizens)',
-      'Submit required KYC documents and photographs',
-      'Digital or physical submission via NSDL/UTI portal',
-      'Payment of processing fees and receiving acknowledgment number',
-      'Physical PAN card dispatched to your registered address by Income Tax Dept'
+      'Step 1: Visit our CSC center in Virar with your original Aadhaar Card.',
+      'Step 2: Decide whether you want Instant PAN (e-KYC via OTP) or Physical PAN (Form 49A with Photo/Signature).',
+      'Step 3: Our expert will fill out your application accurately on the NSDL or UTIITSL portal.',
+      'Step 4: Pay the official fee and receive your 15-digit Acknowledgment Number to track your application.',
+      'Step 5: e-PAN is delivered to your email quickly, and the physical PVC PAN card is dispatched to your home address.'
     ],
-    processingTime: '10–15 working days',
-    charges: 'Standard government fees + Service charges',
-    notes: 'Minors can apply for a PAN card; the form must be signed by one of the parents as a representative.'
+    processingTime: 'e-PAN: 1 to 3 Days | Physical PAN Card: 10 to 15 Days (via Speed Post)',
+    charges: '₹107 (Official Govt Fee) + Nominal Consulting/Service Charges',
+    notes: 'Minor PAN Card (Under 18): A minor cannot sign the PAN form. It must be signed by the Father or Mother (Representative Assessee). The minor\'s Aadhaar and the parent\'s Aadhaar are both required.',
+    keywords: [
+      'New PAN Card apply Virar',
+      'Apply PAN card near me',
+      'Instant e-PAN card agent',
+      'Minor PAN card apply online',
+      'NSDL PAN card application',
+      'UTI PAN card center Virar',
+      'Fast PAN card service'
+    ],
+    faqs: [
+      { q: 'Can a minor (under 18 years) apply for a PAN card?', a: 'Yes, minors can apply for a PAN card. However, a parent must act as the Representative Assessee. The parent\'s Aadhaar card is required along with the minor\'s Aadhaar, and the parent will sign the application form.' },
+      { q: 'Is it mandatory to link Aadhaar with PAN during application?', a: 'Yes! As per the Income Tax Department rules, quoting your Aadhaar number is mandatory for applying for a new PAN card. They are automatically linked upon generation.' },
+      { q: 'What is the difference between e-KYC PAN and Physical Form PAN?', a: 'e-KYC PAN uses your Aadhaar data and Aadhaar photo directly (fast process via OTP). Physical Form PAN takes slightly longer but allows you to upload a custom photograph and your actual physical signature.' },
+      { q: 'How will I receive my new PAN card?', a: 'First, a digital copy (e-PAN) will be sent to your registered email address within a few days. The physical PVC card will be dispatched via India Post to your home address.' }
+    ]
   },
   {
     id: 6, slug: 'pan-card-correction', category: 'identity',
