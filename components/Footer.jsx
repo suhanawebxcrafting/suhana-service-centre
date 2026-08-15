@@ -77,7 +77,6 @@ export default function Footer() {
                     <span className="opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all text-orange-400 mr-2">›</span>
                     <span className="group-hover:translate-x-1 transition-transform">
                       {link.label}
-                      {link.label === 'Xerox Delivery' && <span className="ml-2 text-xs">🚀</span>}
                     </span>
                   </Link>
                 </li>
@@ -111,12 +110,12 @@ export default function Footer() {
             </h3>
             
             <div className="space-y-3 mb-6">
-              <div className="flex items-start gap-4 p-4 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 transition-colors group cursor-default">
-                <div className="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center flex-shrink-0 text-white group-hover:scale-110 transition-transform">
+              <div className="flex items-start gap-4 p-5 rounded-2xl bg-white/[0.08] border border-white/10 hover:bg-white/[0.12] hover:border-white/20 transition-all duration-300 group cursor-default shadow-lg backdrop-blur-sm">
+                <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-white/20 to-white/5 flex items-center justify-center flex-shrink-0 text-white shadow-inner group-hover:scale-110 transition-transform">
                   <LucideIcon name="MapPin" size={18} />
                 </div>
                 <div>
-                  <p className="text-blue-50 text-[13px] leading-relaxed font-medium">
+                  <p className="text-white/90 text-[13px] leading-relaxed font-medium">
                     Office No- 04, Raipada,<br />
                     Nr. Anand Gaushalla, Chandansar Road,<br />
                     Virar (E) - 401305
@@ -125,18 +124,18 @@ export default function Footer() {
               </div>
               
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                <a href="tel:7709709243" className="flex items-center gap-3 p-3.5 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 hover:border-white/20 transition-all group">
-                  <div className="w-9 h-9 rounded-xl bg-blue-500/20 flex items-center justify-center flex-shrink-0 text-blue-300 group-hover:bg-blue-500 group-hover:text-white transition-colors">
-                    <LucideIcon name="Phone" size={16} />
+                <a href="tel:7709709243" className="flex items-center gap-3 p-4 rounded-2xl bg-white/[0.08] border border-white/10 hover:bg-white/[0.12] hover:border-white/30 transition-all duration-300 group shadow-lg backdrop-blur-sm">
+                  <div className="w-10 h-10 rounded-xl bg-blue-500/20 flex items-center justify-center flex-shrink-0 text-blue-300 group-hover:bg-blue-500 group-hover:text-white transition-colors shadow-inner">
+                    <LucideIcon name="Phone" size={18} />
                   </div>
-                  <span className="text-blue-50 font-semibold text-[13px] group-hover:text-white transition-colors">7709709243</span>
+                  <span className="text-white/90 font-bold text-[13px] tracking-wide group-hover:text-white transition-colors">7709709243</span>
                 </a>
 
-                <a href="mailto:suhanaservicec@gmail.com" className="flex items-center gap-3 p-3.5 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 hover:border-white/20 transition-all group overflow-hidden" title="suhanaservicec@gmail.com">
-                  <div className="w-9 h-9 rounded-xl bg-orange-500/20 flex items-center justify-center flex-shrink-0 text-orange-300 group-hover:bg-orange-500 group-hover:text-white transition-colors">
-                    <LucideIcon name="Mail" size={16} />
+                <a href="mailto:suhanaservicec@gmail.com" className="flex items-center gap-3 p-4 rounded-2xl bg-white/[0.08] border border-white/10 hover:bg-white/[0.12] hover:border-white/30 transition-all duration-300 group shadow-lg backdrop-blur-sm overflow-hidden" title="suhanaservicec@gmail.com">
+                  <div className="w-10 h-10 rounded-xl bg-orange-500/20 flex items-center justify-center flex-shrink-0 text-orange-300 group-hover:bg-orange-500 group-hover:text-white transition-colors shadow-inner">
+                    <LucideIcon name="Mail" size={18} />
                   </div>
-                  <span className="text-blue-50 font-semibold text-[12px] group-hover:text-white transition-colors truncate">Email Us</span>
+                  <span className="text-white/90 font-bold text-[13px] tracking-wide group-hover:text-white transition-colors truncate">Email Us</span>
                 </a>
               </div>
             </div>
