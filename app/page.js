@@ -10,8 +10,7 @@ import CertificateSlider from '@/components/CertificateSlider'
 import CategoryLink from '@/components/CategoryLink'
 import VideoCarousel from '@/components/VideoCarousel'
 import { prisma } from '@/lib/prisma'
-
-export const revalidate = 60
+import { unstable_cache } from 'next/cache'
 
 const faqs = [
   { q: 'What documents do I need for Aadhaar card update?', a: 'You need your original Aadhaar card and a supporting document for the field being updated (e.g., utility bill for address, gazette for name change). Visit us with originals.' },
@@ -43,25 +42,36 @@ export const metadata = {
 }
 
 export default async function HomePage() {
-  const blogs = await prisma.blog.findMany({
-    where: {
-      isPublished: true,
-      OR: [
-        { scheduledAt: null },
-        { scheduledAt: { lte: new Date() } }
-      ]
-    },
-    orderBy: { createdAt: 'desc' },
-    take: 3
-  })
+const getBlogs = unstable_cache(
+    async () => await prisma.blog.findMany({
+      where: {
+        isPublished: true,
+        OR: [
+          { scheduledAt: null },
+          { scheduledAt: { lte: new Date() } }
+        ]
+      },
+      orderBy: { createdAt: 'desc' },
+      take: 3,
+      select: { id: true, title: true, slug: true, image: true, category: true, createdAt: true, author: true, excerpt: true }
+    }),
+    ['home-blogs'],
+    { tags: ['blogs'] }
+  )
+  const blogs = await getBlogs()
 
   // Fetch active video cards for carousel
   let videos = []
   try {
-    videos = await prisma.videoCard.findMany({
-      where: { isActive: true },
-      orderBy: [{ sortOrder: 'asc' }, { createdAt: 'desc' }],
-    })
+    const getVideos = unstable_cache(
+      async () => await prisma.videoCard.findMany({
+        where: { isActive: true },
+        orderBy: [{ sortOrder: 'asc' }, { createdAt: 'desc' }],
+      }),
+      ['home-videos'],
+      { tags: ['videos'] }
+    )
+    videos = await getVideos()
   } catch (e) {
     console.warn('videoCard not available yet:', e.message)
   }
@@ -69,10 +79,15 @@ export default async function HomePage() {
   // Fetch active certificates
   let certificates = []
   try {
-    certificates = await prisma.certificate.findMany({
-      where: { isActive: true },
-      orderBy: { sortOrder: 'asc' },
-    })
+    const getCertificates = unstable_cache(
+      async () => await prisma.certificate.findMany({
+        where: { isActive: true },
+        orderBy: { sortOrder: 'asc' },
+      }),
+      ['home-certificates'],
+      { tags: ['certificates'] }
+    )
+    certificates = await getCertificates()
   } catch (e) {
     console.warn('certificates not available yet:', e.message)
   }
@@ -80,7 +95,12 @@ export default async function HomePage() {
   // Fetch admin-set logo/image customizations for featured service cards
   let customizationsMap = {}
   try {
-    const customizationsRaw = await prisma.serviceCustomization.findMany()
+    const getCustomizations = unstable_cache(
+      async () => await prisma.serviceCustomization.findMany(),
+      ['home-customizations'],
+      { tags: ['customizations'] }
+    )
+    const customizationsRaw = await getCustomizations()
     for (const c of customizationsRaw) {
       customizationsMap[c.serviceId] = c
     }

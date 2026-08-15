@@ -1,12 +1,15 @@
 import { NextResponse } from 'next/server'
 import { prisma } from '@/lib/prisma'
-
-export const dynamic = 'force-dynamic'
-export const revalidate = 0
+import { unstable_cache, revalidateTag } from 'next/cache'
 
 export async function GET() {
   try {
-    const customizations = await prisma.serviceCustomization.findMany()
+    const getCustomizations = unstable_cache(
+      async () => await prisma.serviceCustomization.findMany(),
+      ['api-customizations'],
+      { tags: ['customizations'] }
+    )
+    const customizations = await getCustomizations()
     // Return as a map { serviceId -> customization }
     const map = {}
     for (const c of customizations) {
@@ -29,6 +32,7 @@ export async function POST(req) {
       create: { serviceId, iconOverride, imageOverride, dummyImageOverride, imageAltText, dummyImageAltText },
     })
 
+    revalidateTag('customizations')
     return NextResponse.json(result)
   } catch (error) {
     console.error(error)
@@ -40,6 +44,7 @@ export async function DELETE(req) {
   try {
     const { serviceId } = await req.json()
     await prisma.serviceCustomization.delete({ where: { serviceId } })
+    revalidateTag('customizations')
     return NextResponse.json({ success: true })
   } catch (error) {
     return NextResponse.json({ error: 'Failed to delete customization' }, { status: 500 })

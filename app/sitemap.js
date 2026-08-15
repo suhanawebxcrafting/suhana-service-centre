@@ -7,8 +7,6 @@ const SITE_URL = 'https://suhanaservicecentre.in'
 // Fixed date for truly static pages — update this when you actually modify them
 const STATIC_LAST_MOD = '2026-04-30T00:00:00.000Z'
 
-export const revalidate = 3600 // ISR: revalidate at most once per hour
-
 export default async function sitemap() {
   // Static Service Pages from data/services.js
   const servicePages = services.map((service) => ({
@@ -42,10 +40,16 @@ export default async function sitemap() {
   // Dynamic Blog Pages from Database
   let blogPages = []
   try {
-    const blogs = await prisma.blog.findMany({
-      where: { isPublished: true },
-      select: { slug: true, updatedAt: true }
-    })
+    const { unstable_cache } = require('next/cache')
+    const getBlogsForSitemap = unstable_cache(
+      async () => await prisma.blog.findMany({
+        where: { isPublished: true },
+        select: { slug: true, updatedAt: true }
+      }),
+      ['sitemap-blogs'],
+      { tags: ['blogs'] }
+    )
+    const blogs = await getBlogsForSitemap()
     blogPages = blogs.map((blog) => ({
       url: `${SITE_URL}/blog/${blog.slug}`,
       lastModified: blog.updatedAt,

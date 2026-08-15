@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server'
 import { prisma } from '@/lib/prisma'
 import { generateSlug } from '@/lib/utils'
-import { revalidatePath } from 'next/cache'
+import { revalidatePath, revalidateTag } from 'next/cache'
 
 export async function GET() {
   try {
@@ -31,6 +31,7 @@ export async function POST(req) {
       revalidatePath('/blog')
       revalidatePath(`/blog/${blog.slug}`)
       revalidatePath('/sitemap.xml')
+      revalidateTag('blogs')
     }
 
     return NextResponse.json(blog);

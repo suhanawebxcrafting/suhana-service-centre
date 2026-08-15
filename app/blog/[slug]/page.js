@@ -1,15 +1,19 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import { prisma } from '@/lib/prisma'
+import { unstable_cache } from 'next/cache'
 import { notFound } from 'next/navigation'
 import LucideIcon from '@/components/LucideIcon'
 import BlogContent from '@/components/BlogContent'
 import BlogCard from '@/components/BlogCard'
 
-export const revalidate = 3600 // ISR: re-generate at most once per hour
-
 export async function generateMetadata({ params }) {
-  const blog = await prisma.blog.findUnique({ where: { slug: params.slug } })
+  const getBlogMeta = unstable_cache(
+    async () => await prisma.blog.findUnique({ where: { slug: params.slug }, select: { title: true, excerpt: true, category: true, image: true, isPublished: true } }),
+    [`blog-meta-${params.slug}`],
+    { tags: ['blogs'] }
+  )
+  const blog = await getBlogMeta()
   if (!blog || !blog.isPublished) return { title: 'Blog Not Found' }
   const shortExcerpt = blog.excerpt ? blog.excerpt.slice(0, 145) + (blog.excerpt.length > 145 ? '...' : '') : ''
   return {
@@ -28,20 +32,29 @@ export async function generateMetadata({ params }) {
 }
 
 export default async function BlogPostPage({ params }) {
-  const blog = await prisma.blog.findUnique({
-    where: { slug: params.slug }
-  })
+  const getBlog = unstable_cache(
+    async () => await prisma.blog.findUnique({ where: { slug: params.slug } }),
+    [`blog-${params.slug}`],
+    { tags: ['blogs'] }
+  )
+  const blog = await getBlog()
 
   if (!blog || !blog.isPublished) {
     notFound()
   }
 
   // Fetch related articles
-  const relatedBlogs = await prisma.blog.findMany({
-    where: { isPublished: true, slug: { not: params.slug }, category: blog.category },
-    orderBy: { createdAt: 'desc' },
-    take: 3
-  })
+  const getRelatedBlogs = unstable_cache(
+    async () => await prisma.blog.findMany({
+      where: { isPublished: true, slug: { not: params.slug }, category: blog.category },
+      orderBy: { createdAt: 'desc' },
+      take: 3,
+      select: { id: true, title: true, slug: true, image: true, category: true, createdAt: true, author: true, excerpt: true }
+    }),
+    [`blog-related-${blog.category}`],
+    { tags: ['blogs'] }
+  )
+  const relatedBlogs = await getRelatedBlogs()
 
   // Estimate reading time
   const wordCount = blog.content.split(/\s+/).length

@@ -1,9 +1,8 @@
 import Link from 'next/link'
 import { prisma } from '@/lib/prisma'
+import { unstable_cache } from 'next/cache'
 import BlogCard from '@/components/BlogCard'
 import LucideIcon from '@/components/LucideIcon'
-
-export const revalidate = 3600 // ISR: re-generate at most once per hour
 
 export const metadata = {
   title: 'Blog — Tips & Guides | Suhana Service Center',
@@ -19,16 +18,22 @@ export const metadata = {
 }
 
 export default async function BlogPage() {
-  const blogs = await prisma.blog.findMany({
-    where: {
-      isPublished: true,
-      OR: [
-        { scheduledAt: null },
-        { scheduledAt: { lte: new Date() } }
-      ]
-    },
-    orderBy: { createdAt: 'desc' }
-  })
+  const getBlogs = unstable_cache(
+    async () => await prisma.blog.findMany({
+      where: {
+        isPublished: true,
+        OR: [
+          { scheduledAt: null },
+          { scheduledAt: { lte: new Date() } }
+        ]
+      },
+      orderBy: { createdAt: 'desc' },
+      select: { id: true, title: true, slug: true, image: true, category: true, createdAt: true, author: true, excerpt: true }
+    }),
+    ['blog-list'],
+    { tags: ['blogs'] }
+  )
+  const blogs = await getBlogs()
 
   return (
     <main className="min-h-screen pt-24 lg:pt-32 pb-20">

@@ -35,6 +35,8 @@ export async function POST(req) {
         sortOrder: sortOrder || 0,
       },
     })
+    const { revalidateTag } = require('next/cache')
+    revalidateTag('videos')
     return NextResponse.json(video, { status: 201 })
   } catch (e) {
     return NextResponse.json({ error: e.message }, { status: 500 })

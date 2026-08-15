@@ -30,9 +30,15 @@ export default function AdminDashboard() {
     try {
       const res = await fetch('/api/orders')
       const data = await res.json()
-      setOrders(data)
+      if (Array.isArray(data)) {
+        setOrders(data)
+      } else {
+        console.error('API returned non-array:', data)
+        setOrders([])
+      }
     } catch (error) {
       console.error('Fetch error:', error)
+      setOrders([])
     } finally {
       setLoading(false)
     }

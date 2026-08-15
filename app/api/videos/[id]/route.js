@@ -17,6 +17,8 @@ export async function PUT(req, { params }) {
         ...(sortOrder !== undefined && { sortOrder }),
       },
     })
+    const { revalidateTag } = require('next/cache')
+    revalidateTag('videos')
     return NextResponse.json(video)
   } catch (e) {
     return NextResponse.json({ error: e.message }, { status: 500 })
@@ -27,6 +29,8 @@ export async function PUT(req, { params }) {
 export async function DELETE(req, { params }) {
   try {
     await prisma.videoCard.delete({ where: { id: params.id } })
+    const { revalidateTag } = require('next/cache')
+    revalidateTag('videos')
     return NextResponse.json({ success: true })
   } catch (e) {
     return NextResponse.json({ error: e.message }, { status: 500 })

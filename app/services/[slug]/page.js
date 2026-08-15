@@ -54,9 +54,15 @@ export default async function ServiceDetailPage({ params }) {
   let customizationsMap = {}
   try {
     const { prisma } = require('@/lib/prisma')
-    const customizationsRaw = await prisma.serviceCustomization.findMany({
-      where: { serviceId: { in: related.map(s => s.id) } }
-    })
+    const { unstable_cache } = require('next/cache')
+    const getCustomizations = unstable_cache(
+      async () => await prisma.serviceCustomization.findMany({
+        where: { serviceId: { in: related.map(s => s.id) } }
+      }),
+      [`services-customizations-${service.category}`],
+      { tags: ['customizations'] }
+    )
+    const customizationsRaw = await getCustomizations()
     for (const c of customizationsRaw) {
       customizationsMap[c.serviceId] = c
     }

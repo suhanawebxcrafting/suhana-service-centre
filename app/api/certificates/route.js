@@ -16,6 +16,8 @@ export async function POST(req) {
   try {
     const data = await req.json()
     const cert = await prisma.certificate.create({ data })
+    const { revalidateTag } = require('next/cache')
+    revalidateTag('certificates')
     return NextResponse.json(cert)
   } catch (error) {
     return NextResponse.json({ error: 'Failed to create certificate' }, { status: 500 })

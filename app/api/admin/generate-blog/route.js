@@ -107,6 +107,9 @@ Return ONLY valid JSON with no markdown formatting around the JSON block. Do not
       }
     });
 
+    const { revalidateTag } = require('next/cache')
+    revalidateTag('blogs')
+    
     return NextResponse.json({
       success: true,
       message: 'AI Blog successfully generated and saved as draft.',

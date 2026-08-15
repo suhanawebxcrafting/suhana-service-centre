@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server'
 import { prisma } from '@/lib/prisma'
 import { generateSlug } from '@/lib/utils'
-import { revalidatePath } from 'next/cache'
+import { revalidatePath, revalidateTag } from 'next/cache'
 
 export async function PUT(req, { params }) {
   try {
@@ -22,6 +22,7 @@ export async function PUT(req, { params }) {
     revalidatePath('/blog')
     revalidatePath(`/blog/${blog.slug}`)
     revalidatePath('/sitemap.xml')
+    revalidateTag('blogs')
 
     return NextResponse.json(blog);
   } catch (error) {
@@ -41,6 +42,7 @@ export async function DELETE(req, { params }) {
       revalidatePath('/blog')
       revalidatePath(`/blog/${blog.slug}`)
       revalidatePath('/sitemap.xml')
+      revalidateTag('blogs')
     }
 
     return NextResponse.json({ success: true });

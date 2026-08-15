@@ -8,6 +8,8 @@ export async function PUT(req, { params }) {
       where: { id: params.id },
       data
     })
+    const { revalidateTag } = require('next/cache')
+    revalidateTag('certificates')
     return NextResponse.json(cert)
   } catch (error) {
     return NextResponse.json({ error: 'Failed to update certificate' }, { status: 500 })
@@ -19,6 +21,8 @@ export async function DELETE(req, { params }) {
     await prisma.certificate.delete({
       where: { id: params.id }
     })
+    const { revalidateTag } = require('next/cache')
+    revalidateTag('certificates')
     return NextResponse.json({ success: true })
   } catch (error) {
     return NextResponse.json({ error: 'Failed to delete certificate' }, { status: 500 })
