@@ -142,12 +142,12 @@ export default function Footer() {
 
             {/* Premium Mini Map */}
             <div className="rounded-2xl overflow-hidden flex-1 min-h-[140px] border border-white/10 group relative flex flex-col shadow-2xl">
-              <div className="absolute inset-0 bg-blue-950/40 group-hover:bg-blue-900/20 transition-colors pointer-events-none z-10 backdrop-blur-[2px] group-hover:backdrop-blur-0"></div>
+              <div className="absolute inset-0 bg-blue-950/20 group-hover:bg-transparent transition-colors pointer-events-none z-10"></div>
               <div className="flex-1 h-full w-full absolute inset-0">
                 <iframe 
                   width="100%" height="100%" frameBorder="0" scrolling="no" marginHeight="0" marginWidth="0" 
                   src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=Suhana%20Service%20centre%20Virar&amp;t=&amp;z=15&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
-                  className="grayscale-[80%] opacity-80 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700 h-full w-full object-cover"
+                  className="transition-all duration-700 h-full w-full object-cover"
                 ></iframe>
               </div>
               <a href="https://maps.app.goo.gl/B9Qo9UaL8FzYjBkq6" target="_blank" rel="noopener noreferrer"
