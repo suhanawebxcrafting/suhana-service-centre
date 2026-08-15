@@ -104,19 +104,19 @@ export default function Footer() {
           </div>
 
           {/* Column 4: Contact & Map (Takes 4 columns) */}
-          <div className="lg:col-span-4">
+          <div className="lg:col-span-4 flex flex-col h-full">
             <h3 className="text-white font-bold text-lg mb-6 flex items-center gap-3">
               <span className="w-1.5 h-1.5 bg-green-400 rounded-full shadow-[0_0_10px_rgba(74,222,128,0.8)]"></span>
               Reach Out
             </h3>
             
-            <div className="space-y-4 mb-6">
-              <div className="flex items-start gap-4 p-5 rounded-2xl bg-white shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all group cursor-default">
-                <div className="w-10 h-10 rounded-xl bg-orange-50 flex items-center justify-center flex-shrink-0 text-orange-500 group-hover:scale-110 group-hover:bg-orange-500 group-hover:text-white transition-all">
-                  <LucideIcon name="MapPin" size={20} />
+            <div className="space-y-3 mb-6">
+              <div className="flex items-start gap-4 p-4 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 transition-colors group cursor-default">
+                <div className="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center flex-shrink-0 text-white group-hover:scale-110 transition-transform">
+                  <LucideIcon name="MapPin" size={18} />
                 </div>
                 <div>
-                  <p className="text-gray-700 text-[13px] leading-relaxed font-semibold">
+                  <p className="text-blue-50 text-[13px] leading-relaxed font-medium">
                     Office No- 04, Raipada,<br />
                     Nr. Anand Gaushalla, Chandansar Road,<br />
                     Virar (E) - 401305
@@ -124,37 +124,37 @@ export default function Footer() {
                 </div>
               </div>
               
-              <div className="flex flex-col gap-3">
-                <a href="tel:7709709243" className="flex items-center gap-4 p-4 rounded-2xl bg-white shadow-lg hover:shadow-xl hover:-translate-y-1 border border-transparent hover:border-blue-200 transition-all group">
-                  <div className="w-8 h-8 rounded-lg bg-blue-50 flex items-center justify-center flex-shrink-0 text-blue-600 group-hover:bg-blue-600 group-hover:text-white transition-colors">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <a href="tel:7709709243" className="flex items-center gap-3 p-3.5 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 hover:border-white/20 transition-all group">
+                  <div className="w-9 h-9 rounded-xl bg-blue-500/20 flex items-center justify-center flex-shrink-0 text-blue-300 group-hover:bg-blue-500 group-hover:text-white transition-colors">
                     <LucideIcon name="Phone" size={16} />
                   </div>
-                  <span className="text-gray-800 font-bold text-sm group-hover:text-blue-700 transition-colors">7709709243</span>
+                  <span className="text-blue-50 font-semibold text-[13px] group-hover:text-white transition-colors">7709709243</span>
                 </a>
 
-                <a href="mailto:suhanaservicec@gmail.com" className="flex items-center gap-4 p-4 rounded-2xl bg-white shadow-lg hover:shadow-xl hover:-translate-y-1 border border-transparent hover:border-orange-200 transition-all group">
-                  <div className="w-8 h-8 rounded-lg bg-orange-50 flex items-center justify-center flex-shrink-0 text-orange-500 group-hover:bg-orange-500 group-hover:text-white transition-colors">
+                <a href="mailto:suhanaservicec@gmail.com" className="flex items-center gap-3 p-3.5 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 hover:border-white/20 transition-all group overflow-hidden" title="suhanaservicec@gmail.com">
+                  <div className="w-9 h-9 rounded-xl bg-orange-500/20 flex items-center justify-center flex-shrink-0 text-orange-300 group-hover:bg-orange-500 group-hover:text-white transition-colors">
                     <LucideIcon name="Mail" size={16} />
                   </div>
-                  <span className="text-gray-800 font-bold text-sm group-hover:text-orange-600 transition-colors truncate">suhanaservicec@gmail.com</span>
+                  <span className="text-blue-50 font-semibold text-[12px] group-hover:text-white transition-colors truncate">Email Us</span>
                 </a>
               </div>
             </div>
 
             {/* Premium Mini Map */}
-            <div className="rounded-2xl overflow-hidden h-32 border border-white/10 group relative flex flex-col shadow-lg">
-              <div className="absolute inset-0 bg-blue-900/30 group-hover:bg-transparent transition-colors pointer-events-none z-10"></div>
-              <div className="flex-1">
+            <div className="rounded-2xl overflow-hidden flex-1 min-h-[140px] border border-white/10 group relative flex flex-col shadow-2xl">
+              <div className="absolute inset-0 bg-blue-950/40 group-hover:bg-blue-900/20 transition-colors pointer-events-none z-10 backdrop-blur-[2px] group-hover:backdrop-blur-0"></div>
+              <div className="flex-1 h-full w-full absolute inset-0">
                 <iframe 
                   width="100%" height="100%" frameBorder="0" scrolling="no" marginHeight="0" marginWidth="0" 
                   src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=Suhana%20Service%20centre%20Virar&amp;t=&amp;z=15&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
-                  className="grayscale-[50%] contrast-125 opacity-70 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-500 h-full w-full"
+                  className="grayscale-[80%] opacity-80 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700 h-full w-full object-cover"
                 ></iframe>
               </div>
-              <a href="https://share.google/WSHO8xeatiA8sLkRW" target="_blank" rel="noopener noreferrer"
-                className="absolute bottom-3 left-1/2 -translate-x-1/2 bg-white/10 backdrop-blur-md border border-white/20 text-white text-[11px] font-bold py-1.5 px-4 rounded-full flex items-center justify-center gap-2 hover:bg-blue-500 hover:border-blue-500 transition-all z-20 shadow-lg"
+              <a href="https://maps.app.goo.gl/B9Qo9UaL8FzYjBkq6" target="_blank" rel="noopener noreferrer"
+                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-blue-600/90 hover:bg-blue-600 backdrop-blur-md border border-white/20 text-white text-[12px] font-bold py-2.5 px-6 rounded-full flex items-center justify-center gap-2 transition-all z-20 shadow-xl opacity-0 scale-90 group-hover:opacity-100 group-hover:scale-100 whitespace-nowrap"
               >
-                <LucideIcon name="Navigation" size={12} /> Get Directions
+                <LucideIcon name="Navigation" size={14} /> View on Map
               </a>
             </div>
           </div>
