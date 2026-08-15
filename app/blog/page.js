@@ -33,7 +33,12 @@ export default async function BlogPage() {
     ['blog-list'],
     { tags: ['blogs'] }
   )
-  const blogs = await getBlogs()
+  let blogs = []
+  try {
+    blogs = await getBlogs()
+  } catch (e) {
+    console.warn('blogs not available:', e.message)
+  }
 
   return (
     <main className="min-h-screen pt-24 lg:pt-32 pb-20">

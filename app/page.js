@@ -58,7 +58,12 @@ const getBlogs = unstable_cache(
     ['home-blogs'],
     { tags: ['blogs'] }
   )
-  const blogs = await getBlogs()
+  let blogs = []
+  try {
+    blogs = await getBlogs()
+  } catch (e) {
+    console.warn('blogs not available yet:', e.message)
+  }
 
   // Fetch active video cards for carousel
   let videos = []

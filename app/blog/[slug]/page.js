@@ -13,7 +13,12 @@ export async function generateMetadata({ params }) {
     [`blog-meta-${params.slug}`],
     { tags: ['blogs'] }
   )
-  const blog = await getBlogMeta()
+  let blog = null
+  try {
+    blog = await getBlogMeta()
+  } catch (e) {
+    console.warn('blog meta not available:', e.message)
+  }
   if (!blog || !blog.isPublished) return { title: 'Blog Not Found' }
   const shortExcerpt = blog.excerpt ? blog.excerpt.slice(0, 145) + (blog.excerpt.length > 145 ? '...' : '') : ''
   return {
@@ -37,7 +42,12 @@ export default async function BlogPostPage({ params }) {
     [`blog-${params.slug}`],
     { tags: ['blogs'] }
   )
-  const blog = await getBlog()
+  let blog = null
+  try {
+    blog = await getBlog()
+  } catch (e) {
+    console.warn('blog not available:', e.message)
+  }
 
   if (!blog || !blog.isPublished) {
     notFound()
@@ -54,7 +64,12 @@ export default async function BlogPostPage({ params }) {
     [`blog-related-${blog.category}`],
     { tags: ['blogs'] }
   )
-  const relatedBlogs = await getRelatedBlogs()
+  let relatedBlogs = []
+  try {
+    relatedBlogs = await getRelatedBlogs()
+  } catch (e) {
+    console.warn('related blogs not available:', e.message)
+  }
 
   // Estimate reading time
   const wordCount = blog.content.split(/\s+/).length
