@@ -584,22 +584,17 @@ const getBlogs = unstable_cache(
             </p>
           </div>
           
-          <div className="space-y-3">
+          <div className="space-y-4">
             {faqs.map((faq, i) => (
-              <details key={i} className="group bg-white rounded-xl shadow-sm border border-gray-100 hover:shadow-md hover:shadow-blue-900/5 hover:border-blue-200 transition-all duration-300 overflow-hidden [&_summary::-webkit-details-marker]:hidden">
-                <summary className="flex items-center justify-between p-4 cursor-pointer list-none select-none">
-                  <div className="flex items-center gap-3">
-                    <div className="w-9 h-9 bg-slate-50 rounded-lg flex items-center justify-center text-blue-600 flex-shrink-0 group-hover:scale-110 group-hover:bg-blue-600 group-hover:text-white transition-all duration-300 shadow-sm border border-slate-100 group-hover:border-blue-600">
-                      <LucideIcon name="MessageCircle" size={18} />
-                    </div>
-                    <span className="font-bold text-gray-800 text-[15px] pr-4 group-hover:text-blue-600 transition-colors">{faq.q}</span>
-                  </div>
-                  <span className="w-7 h-7 rounded-full bg-slate-50 flex items-center justify-center text-gray-400 flex-shrink-0 transition-transform duration-500 group-open:rotate-180 group-open:bg-blue-50 group-open:text-blue-600 border border-slate-100">
-                    <LucideIcon name="ChevronDown" size={16} />
+              <details key={i} className="group bg-white rounded-2xl border border-gray-100 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.03)] hover:shadow-[0_8px_30px_-4px_rgba(0,0,0,0.08)] hover:border-blue-100 transition-all duration-300 overflow-hidden [&_summary::-webkit-details-marker]:hidden">
+                <summary className="flex items-center justify-between p-5 sm:p-6 cursor-pointer list-none select-none">
+                  <span className="font-bold text-gray-800 text-[16px] sm:text-[17px] pr-4 group-hover:text-blue-600 transition-colors">{faq.q}</span>
+                  <span className="w-8 h-8 rounded-full bg-blue-50/80 flex items-center justify-center text-blue-600 flex-shrink-0 transition-all duration-300 group-open:rotate-180 group-open:bg-blue-600 group-open:text-white">
+                    <LucideIcon name="ChevronDown" size={18} />
                   </span>
                 </summary>
-                <div className="px-4 pb-4 pl-[64px] text-gray-600 text-[14px] leading-relaxed animate-fade-in">
-                  <div className="w-full h-px bg-slate-100 mb-3"></div>
+                <div className="px-5 sm:px-6 pb-6 text-gray-600 text-[15px] leading-relaxed animate-fade-in">
+                  <div className="w-full h-px bg-gray-100 mb-4"></div>
                   {faq.a}
                 </div>
               </details>

@@ -546,26 +546,38 @@ export default function XeroxDeliveryContent({ location }) {
             <h2 className="text-3xl font-black text-gray-900 mb-4 tracking-tight">Frequently Asked Questions (FAQs)</h2>
             <p className="text-gray-500 font-medium">Your questions about our fast print delivery in {locName}, answered.</p>
           </div>
-          <div className="space-y-6">
-            <div className="bg-gray-50 rounded-2xl p-6 border border-gray-100 hover:shadow-md transition-shadow">
-              <h3 className="font-bold text-gray-900 mb-2">Where can I print documents in {locName} urgently?</h3>
-              <p className="text-gray-600 text-sm leading-relaxed">If you are looking for an <strong>urgent xerox shop near me</strong> or need <strong>fast print delivery in {locName}</strong>, Suhana Service Center is your best choice. We offer same day document printing and instant printouts delivered to your doorstep.</p>
-            </div>
-            
-            <div className="bg-gray-50 rounded-2xl p-6 border border-gray-100 hover:shadow-md transition-shadow">
-              <h3 className="font-bold text-gray-900 mb-2">Do you provide Jumbo Xerox and Blackbook Printing?</h3>
-              <p className="text-gray-600 text-sm leading-relaxed">Yes! We provide <strong>Jumbo xerox A0 A1 A2 near me</strong>, as well as professional <strong>blackbook printing and binding in {locName}</strong>. This is perfect for architecture plans and <strong>project printing for students</strong>.</p>
-            </div>
-
-            <div className="bg-gray-50 rounded-2xl p-6 border border-gray-100 hover:shadow-md transition-shadow">
-              <h3 className="font-bold text-gray-900 mb-2">How do I place an online print order?</h3>
-              <p className="text-gray-600 text-sm leading-relaxed">It's easy to make an <strong>online print order and home delivery</strong>. You can just <strong>send PDF on WhatsApp and print</strong> instantly. It's the most convenient way to get <strong>PVC Aadhaar/PAN card print near me</strong> or standard <strong>color printouts</strong>.</p>
-            </div>
-
-            <div className="bg-gray-50 rounded-2xl p-6 border border-gray-100 hover:shadow-md transition-shadow">
-              <h3 className="font-bold text-gray-900 mb-2">Do you offer discounts on bulk xerox?</h3>
-              <p className="text-gray-600 text-sm leading-relaxed">Absolutely. We offer the <strong>cheapest color printing near me</strong> and a huge <strong>bulk xerox discount in {locName}</strong>. Whether you need <strong>wholesale printing services</strong> or just a <strong>1.5 Rs xerox shop near me</strong>, we guarantee transparent and low pricing with no hidden charges.</p>
-            </div>
+          <div className="space-y-4">
+            {[
+              {
+                q: `Where can I print documents in ${locName} urgently?`,
+                a: <>If you are looking for an <strong>urgent xerox shop near me</strong> or need <strong>fast print delivery in {locName}</strong>, Suhana Service Center is your best choice. We offer same day document printing and instant printouts delivered to your doorstep.</>
+              },
+              {
+                q: `Do you provide Jumbo Xerox and Blackbook Printing?`,
+                a: <>Yes! We provide <strong>Jumbo xerox A0 A1 A2 near me</strong>, as well as professional <strong>blackbook printing and binding in {locName}</strong>. This is perfect for architecture plans and <strong>project printing for students</strong>.</>
+              },
+              {
+                q: `How do I place an online print order?`,
+                a: <>It's easy to make an <strong>online print order and home delivery</strong>. You can just <strong>send PDF on WhatsApp and print</strong> instantly. It's the most convenient way to get <strong>PVC Aadhaar/PAN card print near me</strong> or standard <strong>color printouts</strong>.</>
+              },
+              {
+                q: `Do you offer discounts on bulk xerox?`,
+                a: <>Absolutely. We offer the <strong>cheapest color printing near me</strong> and a huge <strong>bulk xerox discount in {locName}</strong>. Whether you need <strong>wholesale printing services</strong> or just a <strong>1.5 Rs xerox shop near me</strong>, we guarantee transparent and low pricing with no hidden charges.</>
+              }
+            ].map((faq, i) => (
+              <details key={i} className="group bg-white rounded-2xl border border-gray-100 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.03)] hover:shadow-[0_8px_30px_-4px_rgba(0,0,0,0.08)] hover:border-blue-100 transition-all duration-300 overflow-hidden [&_summary::-webkit-details-marker]:hidden">
+                <summary className="flex items-center justify-between p-5 sm:p-6 cursor-pointer list-none select-none">
+                  <span className="font-bold text-gray-800 text-[16px] sm:text-[17px] pr-4 group-hover:text-blue-600 transition-colors">{faq.q}</span>
+                  <span className="w-8 h-8 rounded-full bg-blue-50/80 flex items-center justify-center text-blue-600 flex-shrink-0 transition-all duration-300 group-open:rotate-180 group-open:bg-blue-600 group-open:text-white">
+                    <LucideIcon name="ChevronDown" size={18} />
+                  </span>
+                </summary>
+                <div className="px-5 sm:px-6 pb-6 text-gray-600 text-[15px] leading-relaxed animate-fade-in">
+                  <div className="w-full h-px bg-gray-100 mb-4"></div>
+                  {faq.a}
+                </div>
+              </details>
+            ))}
           </div>
         </div>
       </section>
