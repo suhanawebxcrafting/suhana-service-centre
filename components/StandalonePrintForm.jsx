@@ -7,11 +7,13 @@ import LucideIcon from '@/components/LucideIcon'
 export default function StandalonePrintForm({ serviceName, locationName }) {
   const [formData, setFormData] = useState({
     name: '',
+    email: '',
     phone: '',
     address: '',
     distance: 3,
+    serviceNeeded: serviceName || 'General Print & Copy',
   })
-  const [file, setFile] = useState(null)
+  const [files, setFiles] = useState([])
   const [loading, setLoading] = useState(false)
   const [success, setSuccess] = useState(false)
   const [error, setError] = useState('')
@@ -19,15 +21,20 @@ export default function StandalonePrintForm({ serviceName, locationName }) {
   const deliveryCharge = formData.distance > 4 ? 50 : 0
 
   const handleFileUpload = (e) => {
-    const selectedFile = e.target.files[0]
-    if (selectedFile) {
-      if (selectedFile.size > 10 * 1024 * 1024) {
-        setError('File size should be less than 10MB')
-        return
+    const selectedFiles = Array.from(e.target.files)
+    if (selectedFiles.length > 0) {
+      const validFiles = selectedFiles.filter(f => f.size <= 10 * 1024 * 1024)
+      if (validFiles.length !== selectedFiles.length) {
+        setError('Some files were ignored because they exceed 10MB limit')
+      } else {
+        setError('')
       }
-      setFile(selectedFile)
-      setError('')
+      setFiles(prev => [...prev, ...validFiles])
     }
+  }
+
+  const removeFile = (indexToRemove) => {
+    setFiles(prev => prev.filter((_, index) => index !== indexToRemove))
   }
 
   const handleSubmit = async (e) => {
@@ -36,16 +43,17 @@ export default function StandalonePrintForm({ serviceName, locationName }) {
     setError('')
 
     try {
-      if (!file) throw new Error('Please upload a document to proceed.')
+      if (files.length === 0) throw new Error('Please upload at least one document')
 
       const submitData = new FormData()
-      submitData.append('file', file)
+      files.forEach(f => submitData.append('files', f))
       submitData.append('name', formData.name)
+      submitData.append('email', formData.email)
       submitData.append('phone', formData.phone)
       submitData.append('address', formData.address)
       submitData.append('distance', formData.distance)
       submitData.append('charge', deliveryCharge)
-      submitData.append('serviceRequested', serviceName) 
+      submitData.append('serviceRequested', formData.serviceNeeded) 
       submitData.append('location', locationName)
 
       const res = await fetch('/api/xerox', {
@@ -85,13 +93,13 @@ export default function StandalonePrintForm({ serviceName, locationName }) {
   }
 
   return (
-    <div className="bg-white rounded-[2rem] shadow-[0_10px_40px_rgb(0,0,0,0.06)] border border-gray-100 overflow-hidden relative my-10">
+    <div className="bg-white rounded-[2rem] shadow-[0_10px_40px_rgb(0,0,0,0.06)] border border-gray-100 overflow-hidden relative my-10 max-w-3xl mx-auto">
       {/* Decorative top border */}
       <div className="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-blue-600 via-purple-500 to-orange-400"></div>
       
-      <div className="p-7 md:p-8 border-b border-gray-100 flex items-center justify-between bg-gray-50/80">
+      <div className="p-6 md:p-8 md:pb-2 flex items-center justify-between">
         <div>
-          <h2 className="text-2xl font-black text-gray-900 mb-1.5 flex items-center gap-2">
+          <h2 className="text-2xl font-black text-gray-900 mb-2 flex items-center gap-2">
             <Sparkles className="text-orange-500" size={24} /> Fast Track Order
           </h2>
           <p className="text-gray-600 text-[15px] font-medium leading-relaxed">
@@ -100,159 +108,157 @@ export default function StandalonePrintForm({ serviceName, locationName }) {
         </div>
       </div>
 
-      <div className="p-6 md:p-8">
-        <form onSubmit={handleSubmit}>
-          <div className="grid lg:grid-cols-5 gap-8 lg:gap-12">
-            
-            {/* Left Column: Form Details */}
-            <div className="lg:col-span-3 space-y-6">
-              <div className="grid sm:grid-cols-2 gap-5">
-                <div>
-                  <label className="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-2">
-                    Full Name
-                  </label>
-                  <div className="relative">
-                    <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                      <User size={16} className="text-gray-400" />
-                    </div>
-                    <input
-                      required
-                      type="text"
-                      className="w-full pl-10 pr-4 py-3.5 rounded-xl bg-gray-50 border border-gray-200 focus:bg-white focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500 transition-all outline-none font-medium text-gray-800 placeholder:text-gray-400"
-                      placeholder="John Doe"
-                      value={formData.name}
-                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    />
-                  </div>
-                </div>
-                <div>
-                  <label className="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-2">
-                    Phone Number
-                  </label>
-                  <div className="relative">
-                    <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                      <Phone size={16} className="text-gray-400" />
-                    </div>
-                    <input
-                      required
-                      type="tel"
-                      className="w-full pl-10 pr-4 py-3.5 rounded-xl bg-gray-50 border border-gray-200 focus:bg-white focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500 transition-all outline-none font-medium text-gray-800 placeholder:text-gray-400"
-                      placeholder="99999 99999"
-                      value={formData.phone}
-                      onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                    />
-                  </div>
-                </div>
-              </div>
-
-              <div>
-                <label className="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-2 flex items-center gap-2">
-                   Delivery Address in {locationName}
-                </label>
-                <div className="relative">
-                  <div className="absolute top-4 left-4 pointer-events-none">
-                    <MapPin size={16} className="text-gray-400" />
-                  </div>
-                  <textarea
-                    required
-                    rows={2}
-                    className="w-full pl-10 pr-4 py-3.5 rounded-xl bg-gray-50 border border-gray-200 focus:bg-white focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500 transition-all outline-none resize-none font-medium text-gray-800 placeholder:text-gray-400"
-                    placeholder="Street, Building, Landmark, Pincode"
-                    value={formData.address}
-                    onChange={(e) => setFormData({ ...formData, address: e.target.value })}
-                  />
-                </div>
-              </div>
-
-              <div>
-                <label className="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-3">Approx. Distance from our center</label>
-                <div className="grid grid-cols-2 gap-4">
-                  {[
-                    { label: 'Within 4 km', value: 3, charge: 'Free Delivery', icon: 'Bike' },
-                    { label: 'Beyond 4 km', value: 5, charge: '₹50 - ₹100', icon: 'Truck' },
-                  ].map((opt) => (
-                    <button
-                      key={opt.value}
-                      type="button"
-                      onClick={() => setFormData({ ...formData, distance: opt.value })}
-                      className={`relative p-4 rounded-2xl border-2 transition-all text-left flex items-start gap-3 overflow-hidden group ${
-                        formData.distance === opt.value 
-                        ? 'border-blue-600 bg-blue-50/50 shadow-sm' 
-                        : 'border-gray-100 bg-white hover:border-gray-200 hover:bg-gray-50'
-                      }`}
-                    >
-                      {formData.distance === opt.value && (
-                        <div className="absolute top-0 right-0 w-8 h-8 bg-blue-600 rounded-bl-2xl flex items-center justify-center">
-                          <CheckCircle2 size={16} className="text-white" />
-                        </div>
-                      )}
-                      <div className={`p-2 rounded-xl flex-shrink-0 transition-colors ${
-                        formData.distance === opt.value ? 'bg-blue-600 text-white' : 'bg-gray-100 text-gray-500 group-hover:bg-gray-200'
-                      }`}>
-                        <LucideIcon name={opt.icon} size={20} />
-                      </div>
-                      <div>
-                        <div className={`font-bold text-sm mb-0.5 ${formData.distance === opt.value ? 'text-blue-900' : 'text-gray-700'}`}>
-                          {opt.label}
-                        </div>
-                        <div className={`text-xs font-semibold ${formData.distance === opt.value ? 'text-blue-600' : 'text-gray-500'}`}>
-                          {opt.charge}
-                        </div>
-                      </div>
-                    </button>
-                  ))}
-                </div>
-              </div>
+      <div className="p-6 md:p-8 pt-4 md:pt-4">
+        <form onSubmit={handleSubmit} className="space-y-6">
+          <div className="grid md:grid-cols-2 gap-6">
+            <div>
+              <label className="block text-sm font-bold text-gray-700 mb-2 flex items-center gap-2">
+                <User size={16} className="text-blue-600" /> Full Name
+              </label>
+              <input
+                required
+                type="text"
+                className="w-full px-4 py-3 rounded-xl bg-gray-50 border border-gray-200 focus:bg-white focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all outline-none"
+                placeholder="John Doe"
+                value={formData.name}
+                onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+              />
             </div>
-
-            {/* Right Column: Upload & Submit */}
-            <div className="lg:col-span-2 flex flex-col gap-6">
-              
-              <div className="flex-1 bg-gray-50 rounded-2xl border border-gray-200 p-1">
-                <div className="relative h-full min-h-[200px]">
-                  <input type="file" className="hidden" id="file-upload-standalone" accept=".pdf,.jpg,.jpeg,.png" onChange={handleFileUpload} />
-                  <label 
-                    htmlFor="file-upload-standalone" 
-                    className={`absolute inset-0 flex flex-col items-center justify-center border-2 border-dashed rounded-xl transition-all cursor-pointer ${
-                      file 
-                      ? 'border-green-400 bg-green-50/80' 
-                      : 'border-gray-300 hover:border-blue-400 hover:bg-blue-50/50'
-                    }`}
-                  >
-                    <div className={`w-14 h-14 rounded-full flex items-center justify-center mb-3 transition-colors ${
-                      file ? 'bg-green-200 text-green-700' : 'bg-white text-gray-400 shadow-sm'
-                    }`}>
-                      <Upload size={28} className={file ? '' : 'group-hover:text-blue-500 transition-colors'} />
-                    </div>
-                    <span className="font-bold text-gray-800 text-sm text-center px-4">
-                      {file ? file.name : 'Click to select your files'}
-                    </span>
-                    <span className="text-xs font-medium text-gray-500 mt-2">PDF, JPG, PNG (Max 10MB)</span>
-                  </label>
-                </div>
-              </div>
-
-              {error && (
-                <div className="bg-red-50 text-red-600 p-4 rounded-xl flex items-center gap-3 text-sm font-semibold border border-red-100">
-                  <AlertCircle size={18} /> {error}
-                </div>
-              )}
-
-              <button 
-                disabled={loading} 
-                className={`w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-black py-4 px-6 rounded-2xl shadow-[0_8px_20px_rgb(79,70,229,0.3)] transition-all flex items-center justify-center gap-3 text-[16px] tracking-wide ${
-                  loading ? 'opacity-70 cursor-not-allowed' : 'hover:-translate-y-1 hover:shadow-[0_10px_25px_rgb(79,70,229,0.4)]'
-                }`}
-              >
-                {loading ? <><Loader2 className="animate-spin" /> Processing...</> : <>Place Order Now</>}
-              </button>
-              
-              <p className="text-center text-xs font-semibold text-gray-400">
-                Secured via Suhana Service Center
-              </p>
+            <div>
+              <label className="block text-sm font-bold text-gray-700 mb-2 flex items-center gap-2">
+                <Phone size={16} className="text-blue-600" /> Phone Number
+              </label>
+              <input
+                required
+                type="tel"
+                className="w-full px-4 py-3 rounded-xl bg-gray-50 border border-gray-200 focus:bg-white focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all outline-none"
+                placeholder="99999 99999"
+                value={formData.phone}
+                onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+              />
             </div>
-
+            <div className="md:col-span-2">
+              <label className="block text-sm font-bold text-gray-700 mb-2">Email Address (for order confirmation)</label>
+              <input
+                required
+                type="email"
+                className="w-full px-4 py-3 rounded-xl bg-gray-50 border border-gray-200 focus:bg-white focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all outline-none"
+                placeholder="john@example.com"
+                value={formData.email}
+                onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+              />
+            </div>
           </div>
+
+          <div>
+            <label className="block text-sm font-bold text-gray-700 mb-2 flex items-center gap-2">
+              <LucideIcon name="Layers" size={16} className="text-blue-600" /> Service Required
+            </label>
+            <select
+              value={formData.serviceNeeded}
+              onChange={(e) => setFormData({ ...formData, serviceNeeded: e.target.value })}
+              className="w-full px-4 py-3 rounded-xl bg-gray-50 border border-gray-200 focus:bg-white focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all outline-none appearance-none font-medium text-gray-800"
+              style={{ backgroundImage: 'url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23131313%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E")', backgroundRepeat: 'no-repeat', backgroundPosition: 'right 1rem top 50%', backgroundSize: '0.65rem auto' }}
+            >
+              <option value="General Print & Copy">General Print & Copy</option>
+              <option value="Color Printing">Color Printing</option>
+              <option value="Black & White Printing">Black & White Printing</option>
+              <option value="Blackbook Printing">Blackbook Printing</option>
+              <option value="Jumbo Xerox">Jumbo Xerox</option>
+              <option value="Visiting Card">Visiting Card</option>
+              <option value="All Size Scanning">All Size Scanning</option>
+              <option value="Smart Card">Smart Card</option>
+              <option value="Letterhead Print">Letterhead Print</option>
+              <option value="Passport Photos">Passport Photos</option>
+              <option value="Project Printing">Project Printing</option>
+              <option value="Billbook Print">Billbook Print</option>
+              <option value="Cartridge Refilling">Cartridge Refilling</option>
+              <option value="Computer Accessories">Computer Accessories</option>
+              <option value="Custom Rubber Stamps">Custom Rubber Stamps</option>
+              <option value="Stationery Products">Stationery Products</option>
+              <option value="Spiral Binding">Spiral Binding</option>
+              <option value="Lamination">Lamination</option>
+              <option value="Xerox / Photocopy">Xerox / Photocopy</option>
+              <option value="Sticker & Label Printing">Sticker & Label Printing</option>
+              <option value="Cartridge Refill & Ink">Cartridge Refill & Ink</option>
+              <option value="Aadhaar & PAN Card Print">Aadhaar & PAN Card Print</option>
+            </select>
+          </div>
+
+          <div>
+            <label className="block text-sm font-bold text-gray-700 mb-2 flex items-center gap-2">
+              <MapPin size={16} className="text-blue-600" /> Delivery Address
+            </label>
+            <textarea
+              required
+              rows={3}
+              className="w-full px-4 py-3 rounded-xl bg-gray-50 border border-gray-200 focus:bg-white focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all outline-none resize-none"
+              placeholder="Street, Building, Landmark, Pincode"
+              value={formData.address}
+              onChange={(e) => setFormData({ ...formData, address: e.target.value })}
+            />
+          </div>
+
+          <div>
+            <label className="block text-sm font-bold text-gray-700 mb-2">Approx. Distance from center (Virar E)</label>
+            <div className="grid grid-cols-2 gap-4">
+              {[
+                { label: 'Within 4 km', value: 3, charge: 'Free Delivery' },
+                { label: 'Beyond 4 km', value: 5, charge: '₹50 - ₹100' },
+              ].map((opt) => (
+                <button
+                  key={opt.value}
+                  type="button"
+                  onClick={() => setFormData({ ...formData, distance: opt.value })}
+                  className={`p-3 rounded-xl border transition-all text-left ${formData.distance === opt.value ? 'border-blue-600 bg-blue-50/50 shadow-md shadow-blue-500/10' : 'border-gray-200 bg-gray-50 hover:bg-gray-100'}`}
+                >
+                  <div className={`font-bold text-sm ${formData.distance === opt.value ? 'text-blue-700' : 'text-gray-700'}`}>{opt.label}</div>
+                  <div className="text-xs text-gray-500 mt-0.5">{opt.charge}</div>
+                </button>
+              ))}
+            </div>
+          </div>
+
+          <div>
+            <label className="block text-sm font-bold text-gray-700 mb-2 flex items-center gap-2">
+              <FileText size={16} className="text-blue-600" /> Upload Documents
+            </label>
+            <div className="relative group">
+              <input type="file" multiple className="hidden" id="file-upload-standalone" accept=".pdf,.jpg,.jpeg,.png" onChange={handleFileUpload} />
+              <label htmlFor="file-upload-standalone" className={`flex flex-col items-center justify-center border-2 border-dashed rounded-2xl p-6 transition-all cursor-pointer ${files.length > 0 ? 'border-blue-400 bg-blue-50' : 'border-gray-300 bg-gray-50 group-hover:bg-gray-100 group-hover:border-blue-400'}`}>
+                <Upload size={24} className={`mb-2 ${files.length > 0 ? 'text-blue-500' : 'text-gray-400 group-hover:text-blue-500 transition-colors'}`} />
+                <span className="font-bold text-gray-700 text-sm text-center">Click to add files or drag and drop</span>
+                <span className="text-xs text-gray-500 mt-1">PDF, JPG, PNG up to 10MB</span>
+              </label>
+            </div>
+            {files.length > 0 && (
+              <div className="mt-4 space-y-2">
+                {files.map((f, i) => (
+                  <div key={i} className="flex items-center justify-between bg-white border border-gray-100 shadow-sm p-3 rounded-xl">
+                    <div className="flex items-center gap-3 overflow-hidden">
+                      <div className="w-8 h-8 bg-blue-50 text-blue-600 rounded-lg flex items-center justify-center flex-shrink-0">
+                        <FileText size={14} />
+                      </div>
+                      <span className="text-sm font-bold text-gray-700 truncate">{f.name}</span>
+                    </div>
+                    <button type="button" onClick={() => removeFile(i)} className="p-2 hover:bg-red-50 text-red-500 rounded-lg transition-colors flex-shrink-0">
+                      <LucideIcon name="X" size={16} />
+                    </button>
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
+
+          {error && (
+            <div className="bg-red-50 text-red-600 p-4 rounded-xl flex items-center gap-3 text-sm font-medium">
+              <AlertCircle size={18} /> {error}
+            </div>
+          )}
+
+          <button disabled={loading} className={`w-full bg-blue-600 hover:bg-blue-700 text-white font-black py-4 rounded-xl shadow-xl shadow-blue-500/20 transition-all flex items-center justify-center gap-3 ${loading ? 'opacity-70 cursor-not-allowed' : ''}`}>
+            {loading ? <><Loader2 className="animate-spin" /> Processing Order...</> : <>Place Order Now</>}
+          </button>
         </form>
       </div>
     </div>

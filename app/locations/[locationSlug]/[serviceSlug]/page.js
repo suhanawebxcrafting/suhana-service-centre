@@ -165,9 +165,14 @@ export default async function LocationServiceDetailPage({ params }) {
             {/* Left: Main Details */}
             <div className="lg:col-span-2 space-y-6">
               
-              <div className="bg-blue-50 border-l-4 border-blue-500 p-4 rounded-r-lg shadow-sm">
-                <p className="text-blue-900 font-medium leading-relaxed">
-                  📍 Complete assistance for <strong>{service.name}</strong> for residents of <strong>{location.name}</strong> and surrounding areas.
+              <div className="bg-gradient-to-r from-blue-50 to-indigo-50 border-l-4 border-blue-500 p-5 rounded-r-xl shadow-sm">
+                <h3 className="text-blue-900 font-bold text-lg mb-2 flex items-center gap-2">
+                  📍 Verified {service.name} Services in {location.name}
+                </h3>
+                <p className="text-blue-800 font-medium leading-relaxed text-[15px]">
+                  Looking for reliable help with <strong>{service.name}</strong> in the <strong>{location.name}</strong> area? 
+                  Suhana Service Center provides end-to-end assistance, ensuring fast processing and accurate documentation for all local residents. 
+                  Save your time and avoid multiple trips to government offices by letting our {cat?.label} experts in {location.name} handle it for you.
                 </p>
               </div>
 
@@ -343,6 +348,10 @@ export default async function LocationServiceDetailPage({ params }) {
                 a: `Yes, we provide urgent ${service.name.toLowerCase()} assistance. As an experienced consultant in ${location.name}, we ensure your application is processed with priority.`
               },
               {
+                q: `Do I need to visit multiple offices for ${service.name}?`,
+                a: `No, not at all! As a premier ${cat?.label} provider for ${location.name} residents, we handle all the documentation and submission steps on your behalf.`
+              },
+              {
                 q: `What is the fastest way to get ${service.name} done?`,
                 a: `The fastest way is to contact us directly. We offer a fast ${service.name.toLowerCase()} service in ${location.name} with transparent pricing and complete guidance on required documents.`
               }
@@ -350,8 +359,8 @@ export default async function LocationServiceDetailPage({ params }) {
               <details key={i} className="group bg-white rounded-xl shadow-sm border border-gray-100 hover:shadow-md hover:shadow-blue-900/5 hover:border-blue-200 transition-all duration-300 overflow-hidden [&_summary::-webkit-details-marker]:hidden">
                 <summary className="flex items-center justify-between p-4 cursor-pointer list-none select-none">
                   <div className="flex items-center gap-3">
-                    <div className="w-9 h-9 bg-slate-50 rounded-lg flex items-center justify-center text-blue-600 flex-shrink-0 group-hover:scale-110 group-hover:bg-blue-600 group-hover:text-white transition-all duration-300 shadow-sm border border-slate-100 group-hover:border-blue-600">
-                      <LucideIcon name="MessageCircle" size={18} />
+                    <div className="w-9 h-9 bg-blue-50/50 rounded-full flex items-center justify-center text-blue-600 flex-shrink-0 group-hover:bg-blue-600 group-hover:text-white transition-all duration-300 shadow-sm border border-blue-100 group-hover:border-blue-600">
+                      <LucideIcon name="HelpCircle" size={18} />
                     </div>
                     <span className="font-bold text-gray-800 text-[15px] pr-4 group-hover:text-blue-600 transition-colors">{faq.q}</span>
                   </div>
