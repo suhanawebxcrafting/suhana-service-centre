@@ -151,7 +151,7 @@ export default function XeroxDeliveryContent({ location }) {
       <div className="grid md:grid-cols-2 gap-6">
         <div>
           <label className="block text-sm font-bold text-gray-700 mb-2 flex items-center gap-2">
-            <User size={16} className="text-blue-600" /> Full Name
+            <User size={16} className="text-blue-600" /> Full Name <span className="text-red-500 ml-1">*</span>
           </label>
           <input
             required
@@ -164,7 +164,7 @@ export default function XeroxDeliveryContent({ location }) {
         </div>
         <div>
           <label className="block text-sm font-bold text-gray-700 mb-2 flex items-center gap-2">
-            <Phone size={16} className="text-blue-600" /> Phone Number
+            <Phone size={16} className="text-blue-600" /> Phone Number <span className="text-red-500 ml-1">*</span>
           </label>
           <input
             required
@@ -176,7 +176,7 @@ export default function XeroxDeliveryContent({ location }) {
           />
         </div>
         <div className="md:col-span-2">
-          <label className="block text-sm font-bold text-gray-700 mb-2">Email Address (for order confirmation)</label>
+          <label className="block text-sm font-bold text-gray-700 mb-2">Email Address (for order confirmation) <span className="text-red-500 ml-1">*</span></label>
           <input
             required
             type="email"
@@ -207,7 +207,7 @@ export default function XeroxDeliveryContent({ location }) {
 
       <div>
         <label className="block text-sm font-bold text-gray-700 mb-2 flex items-center gap-2">
-          <MapPin size={16} className="text-blue-600" /> Delivery Address
+          <MapPin size={16} className="text-blue-600" /> Delivery Address <span className="text-red-500 ml-1">*</span>
         </label>
         <textarea
           required
@@ -241,7 +241,7 @@ export default function XeroxDeliveryContent({ location }) {
 
       <div>
         <label className="block text-sm font-bold text-gray-700 mb-2 flex items-center gap-2">
-          <FileText size={16} className="text-blue-600" /> Upload Documents
+          <FileText size={16} className="text-blue-600" /> Upload Documents <span className="text-red-500 ml-1">*</span>
         </label>
         <div className="relative group">
           <input type="file" multiple className="hidden" id={`file-upload-${isModal ? 'modal' : 'main'}`} accept=".pdf,.jpg,.jpeg,.png" onChange={handleFileUpload} />

@@ -207,18 +207,18 @@ export default function ContactPage() {
 
                 <form onSubmit={handleSubmit} noValidate className="space-y-6">
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                    <Field id="name" label="Full Name" error={errors.name}>
+                    <Field id="name" label={<>Full Name <span className="text-red-500">*</span></>} error={errors.name}>
                       <input id="name" type="text" placeholder="John Doe" value={form.name} onChange={e => { setForm(p => ({ ...p, name: e.target.value })); clearFieldError('name') }}
                         className={`w-full bg-slate-50 border rounded-xl px-5 py-4 text-[15px] font-medium outline-none focus:bg-white transition-all ${errors.name ? 'border-red-300 focus:border-red-500 focus:ring-4 focus:ring-red-500/10' : 'border-slate-200 focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10'}`} />
                     </Field>
 
-                    <Field id="phone" label="Phone Number" error={errors.phone}>
+                    <Field id="phone" label={<>Phone Number <span className="text-red-500">*</span></>} error={errors.phone}>
                       <input id="phone" type="tel" placeholder="10-digit number" maxLength={10} value={form.phone} onChange={e => { const val = e.target.value.replace(/\D/g, '').slice(0, 10); setForm(p => ({ ...p, phone: val })); clearFieldError('phone') }}
                         className={`w-full bg-slate-50 border rounded-xl px-5 py-4 text-[15px] font-medium outline-none focus:bg-white transition-all ${errors.phone ? 'border-red-300 focus:border-red-500 focus:ring-4 focus:ring-red-500/10' : 'border-slate-200 focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10'}`} />
                     </Field>
                   </div>
 
-                  <Field id="email" label="Email Address" error={errors.email}>
+                  <Field id="email" label={<>Email Address <span className="text-red-500">*</span></>} error={errors.email}>
                     <input id="email" type="email" placeholder="john@example.com" value={form.email} onChange={e => { setForm(p => ({ ...p, email: e.target.value })); clearFieldError('email') }}
                       className={`w-full bg-slate-50 border rounded-xl px-5 py-4 text-[15px] font-medium outline-none focus:bg-white transition-all ${errors.email ? 'border-red-300 focus:border-red-500 focus:ring-4 focus:ring-red-500/10' : 'border-slate-200 focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10'}`} />
                   </Field>
