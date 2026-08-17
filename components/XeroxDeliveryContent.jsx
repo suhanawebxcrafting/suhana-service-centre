@@ -81,6 +81,15 @@ export default function XeroxDeliveryContent({ location }) {
     setError('')
 
     try {
+      if (formData.name.trim().length < 2) throw new Error('Please enter a valid full name (minimum 2 characters)')
+      
+      const phoneRegex = /^[6-9]\d{9}$/;
+      if (!phoneRegex.test(formData.phone.replace(/\D/g, ''))) {
+         throw new Error('Please enter a valid 10-digit Indian mobile number')
+      }
+
+      if (formData.address.trim().length < 10) throw new Error('Please enter a detailed delivery address (minimum 10 characters)')
+
       if (files.length === 0) throw new Error('Please upload at least one document')
 
       const submitData = new FormData()
