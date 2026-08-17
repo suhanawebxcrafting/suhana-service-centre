@@ -33,11 +33,11 @@ export default function ContactPage() {
 
   const validate = () => {
     const errs = {}
-    if (!form.name.trim()) errs.name = 'Full name is required.'
+    if (!form.name.trim() || form.name.trim().length < 2) errs.name = 'Full name (min 2 characters) is required.'
     if (!form.phone.trim()) {
       errs.phone = 'Phone number is required.'
-    } else if (!/^\d{10}$/.test(form.phone.trim())) {
-      errs.phone = 'Phone number must be exactly 10 digits.'
+    } else if (!/^[6-9]\d{9}$/.test(form.phone.trim())) {
+      errs.phone = 'Please enter a valid 10-digit Indian mobile number.'
     }
     if (!form.email.trim()) {
       errs.email = 'Email address is required.'

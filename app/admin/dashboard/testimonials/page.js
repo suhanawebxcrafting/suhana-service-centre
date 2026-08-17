@@ -28,6 +28,8 @@ export default function TestimonialsDashboard() {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
+    if (form.name.trim().length < 2) return alert('Name must be at least 2 characters')
+    if (form.feedback.trim().length < 5) return alert('Feedback must be at least 5 characters')
     try {
       const payload = { ...form, rating: Number(form.rating) }
       if (editingTestimonial) {
