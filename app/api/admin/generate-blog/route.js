@@ -117,7 +117,7 @@ Return ONLY valid JSON with no markdown formatting around the JSON block. Do not
       throw new Error('AI returned invalid JSON format. Please try again.');
     }
 
-    // 5. Save to Database as Draft
+    // 5. Save to Database
     const newBlog = await prisma.blog.create({
       data: {
         title: blogData.title,
@@ -126,7 +126,7 @@ Return ONLY valid JSON with no markdown formatting around the JSON block. Do not
         content: blogData.content,
         category: blogData.category,
         author: 'Suhana AI',
-        isPublished: false, // Save as draft
+        isPublished: true, // Auto-publish for immediate SEO benefits
         scheduledAt: null,
       }
     });
