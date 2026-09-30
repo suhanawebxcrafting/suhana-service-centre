@@ -150,7 +150,7 @@ export default function Footer() {
                   className="transition-all duration-700 h-full w-full object-cover"
                 ></iframe>
               </div>
-              <a href="https://maps.app.goo.gl/B9Qo9UaL8FzYjBkq6" target="_blank" rel="noopener noreferrer"
+              <a href="https://maps.app.goo.gl/NAk1d6KGBLwu6vHn9" target="_blank" rel="noopener noreferrer"
                 className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-blue-600/90 hover:bg-blue-600 backdrop-blur-md border border-white/20 text-white text-[12px] font-bold py-2.5 px-6 rounded-full flex items-center justify-center gap-2 transition-all z-20 shadow-xl opacity-0 scale-90 group-hover:opacity-100 group-hover:scale-100 whitespace-nowrap"
               >
                 <LucideIcon name="Navigation" size={14} /> View on Map

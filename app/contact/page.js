@@ -300,7 +300,7 @@ export default function ContactPage() {
              <p className="text-gray-600 text-sm font-medium leading-relaxed mb-6">
                Office No- 04, Raipada, Nr. Anand Gaushalla, Chandansar Road, Virar (E) - 401305
              </p>
-             <a href="https://maps.app.goo.gl/Tix69F2kF7B8L6nS8" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 rounded-xl transition-colors text-sm shadow-lg shadow-blue-600/20 group">
+             <a href="https://maps.app.goo.gl/NAk1d6KGBLwu6vHn9" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 rounded-xl transition-colors text-sm shadow-lg shadow-blue-600/20 group">
                 <LucideIcon name="Navigation" size={16} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" /> Get Directions
              </a>
            </div>
