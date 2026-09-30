@@ -3235,6 +3235,227 @@ export const services = [
       { q: 'I already have an Udyog Aadhaar. Do I need Udyam?', a: 'Yes, migration from Udyog Aadhaar to Udyam is now mandatory. Your old UAM will not be accepted by banks or government portals. We can help you migrate it in 5 minutes.' }
     ]
   },
+  // ─── XEROX & PRINTING SERVICES (SEO EXPANSION) ───
+  {
+    id: 1001, slug: 'black-white-xerox', category: 'printing',
+    name: 'Black & White Xerox Service', icon: 'Printer',
+    description: 'Affordable, crisp, and high-speed Black & White Xerox services for documents, books, and notes. Bulk discounts available with doorstep delivery.',
+    documentsRequired: ['Hard copy document OR Digital file (PDF/Word via WhatsApp/Email)'],
+    eligibility: 'Anyone needing high-quality B&W photocopies.',
+    processSteps: ['Share document', 'Select paper size & quantity', 'Instant print/copy', 'Collect or get it delivered'],
+    processingTime: 'Instant / Same Day',
+    charges: 'Starting from ₹1 per page (Bulk rates apply)',
+    notes: 'Free pickup and drop available for bulk orders.'
+  },
+  {
+    id: 1002, slug: 'color-xerox-print', category: 'printing',
+    name: 'Color Xerox & Printing', icon: 'Palette',
+    description: 'Vibrant, high-resolution color xerox and printing for presentations, photos, and project reports.',
+    documentsRequired: ['Document or Image file'],
+    eligibility: 'Ideal for students, professionals, and businesses.',
+    processSteps: ['Send file', 'Choose paper quality (Matte/Glossy)', 'Print', 'Delivery'],
+    processingTime: 'Instant',
+    charges: 'Starting from ₹5 per page',
+    notes: 'We use premium laser and inkjet printers for true colors.'
+  },
+  {
+    id: 1003, slug: 'jumbo-xerox-a0-a1', category: 'printing',
+    name: 'Jumbo Xerox (A0, A1, A2)', icon: 'Maximize',
+    description: 'Large format Jumbo Xerox services for engineering blueprints, architectural drawings, and large posters.',
+    documentsRequired: ['AutoCAD files, PDF, or Original large physical copy'],
+    eligibility: 'Architects, Engineering Students, Contractors.',
+    processSteps: ['Submit drawing', 'Select size (A0/A1/A2)', 'Jumbo Print', 'Roll packaging'],
+    processingTime: 'Same Day',
+    charges: 'Depends on size and color requirements',
+    notes: 'Precise scaling and high-definition line printing.'
+  },
+  {
+    id: 1004, slug: 'blackbook-printing-binding', category: 'printing',
+    name: 'Blackbook Printing & Binding', icon: 'Book',
+    description: 'Professional Blackbook printing and golden-embossed hardbound binding for Mumbai University IT/CS/BMS students.',
+    documentsRequired: ['Final Project PDF'],
+    eligibility: 'College/University Students.',
+    processSteps: ['Email PDF', 'Quality check & Print', 'Hardbound stitching', 'Golden embossing of name/title'],
+    processingTime: '1-2 Days',
+    charges: 'Standard University Rates',
+    notes: 'Guaranteed adherence to university formatting guidelines.'
+  },
+  {
+    id: 1005, slug: 'spiral-binding', category: 'printing',
+    name: 'Spiral & Wiro Binding', icon: 'Paperclip',
+    description: 'Neat and durable spiral and wiro binding for notes, manuals, and assignments.',
+    documentsRequired: ['Printed pages or PDF to print'],
+    eligibility: 'Open to all.',
+    processSteps: ['Punching holes', 'Inserting spiral/wiro', 'Adding transparent front cover & thick back cover'],
+    processingTime: '10-15 Minutes',
+    charges: 'Starting from ₹30',
+    notes: 'Both plastic spiral and metal wiro options available.'
+  },
+  {
+    id: 1006, slug: 'lamination-service', category: 'printing',
+    name: 'Lamination Service', icon: 'Shield',
+    description: 'Protect your important documents, marksheets, and certificates with our premium gloss/matte lamination.',
+    documentsRequired: ['Original document to be laminated'],
+    eligibility: 'For ID cards, A4, A3, and custom size documents.',
+    processSteps: ['Clean document', 'Insert in lamination pouch', 'Heat press', 'Cooling & edge trimming'],
+    processingTime: 'Instant',
+    charges: 'Starting from ₹10',
+    notes: 'Bubble-free and waterproof lamination guaranteed.'
+  },
+  {
+    id: 1007, slug: 'school-project-printing', category: 'printing',
+    name: 'School Project Printing', icon: 'GraduationCap',
+    description: 'Creative and colorful printing for school projects, including craft paper printing and sticker sheets.',
+    documentsRequired: ['Project files/images'],
+    eligibility: 'School students and parents.',
+    processSteps: ['Select images', 'Print on desired paper', 'Cut/Laminate if required'],
+    processingTime: 'Instant',
+    charges: 'Affordable student rates',
+    notes: 'Discounted pricing for bulk homework prints.'
+  },
+  {
+    id: 1008, slug: 'visiting-card-printing', category: 'printing',
+    name: 'Visiting / Business Card Print', icon: 'Contact',
+    description: 'Premium visiting card printing with Matte, Glossy, or Velvet finishes to make your business stand out.',
+    documentsRequired: ['Card Design (CorelDraw/PDF) OR we can design it for you'],
+    eligibility: 'Business owners, freelancers, professionals.',
+    processSteps: ['Finalize design', 'Select paper thickness (300gsm+)', 'Print & Cut', 'Box packaging'],
+    processingTime: '2-3 Days',
+    charges: 'Contact for bulk rates',
+    notes: 'Minimum order quantity applies.'
+  },
+  {
+    id: 1009, slug: 'pvc-id-card-print', category: 'printing',
+    name: 'PVC ID Card Printing', icon: 'CreditCard',
+    description: 'Durable plastic PVC ID cards for schools, corporate offices, and events.',
+    documentsRequired: ['Employee/Student Data and Photos'],
+    eligibility: 'Schools, Companies, Societies.',
+    processSteps: ['Design ID template', 'Data merge', 'Thermal PVC Print', 'Attach lanyard/holder'],
+    processingTime: '1-3 Days depending on quantity',
+    charges: 'Competitive bulk pricing',
+    notes: 'Smart chip and barcode integration available.'
+  },
+  {
+    id: 1010, slug: 'bulk-document-printing', category: 'printing',
+    name: 'Bulk Document Printing', icon: 'Files',
+    description: 'High-volume printing for coaching classes, offices, and seminars at the lowest per-page cost.',
+    documentsRequired: ['PDF Files'],
+    eligibility: 'Coaching institutes, offices, authors.',
+    processSteps: ['Share files', 'Sample print approval', 'Mass printing', 'Doorstep Delivery'],
+    processingTime: 'Same Day / Next Day',
+    charges: 'Lowest wholesale rates in the area',
+    notes: 'Sorting, stapling, and binding services included.'
+  },
+  {
+    id: 1011, slug: 'poster-banner-print', category: 'printing',
+    name: 'Poster & Flex Banner Print', icon: 'Image',
+    description: 'Eye-catching posters, flex banners, and vinyl prints for marketing, shops, and events.',
+    documentsRequired: ['High-resolution design file'],
+    eligibility: 'Event organizers, shop owners, marketers.',
+    processSteps: ['Select material (Flex/Vinyl/Fabric)', 'Print', 'Eyelet punching'],
+    processingTime: '1-2 Days',
+    charges: 'Per square foot pricing',
+    notes: 'Outdoor weather-resistant inks used.'
+  },
+  {
+    id: 1012, slug: 'passport-photo-print', category: 'printing',
+    name: 'Urgent Passport Photo Print', icon: 'Camera',
+    description: 'Instant studio-quality passport and stamp size photos for visa, exams, and forms.',
+    documentsRequired: ['Digital photo OR get clicked at our center'],
+    eligibility: 'Anyone needing official photos.',
+    processSteps: ['Click/Upload photo', 'Background edit/enhancement', 'Glossy Photo Print', 'Cutting'],
+    processingTime: '5 Minutes',
+    charges: 'Starting from ₹50 for 8 photos',
+    notes: 'Visa specification (e.g., US/UK Visa size) photos available.'
+  },
+  {
+    id: 1013, slug: 'envelope-letterhead-print', category: 'printing',
+    name: 'Envelope & Letterhead Print', icon: 'Mail',
+    description: 'Custom printed official envelopes and letterheads for corporate branding.',
+    documentsRequired: ['Company Logo and details'],
+    eligibility: 'Businesses and professionals.',
+    processSteps: ['Design layout', 'Select executive paper', 'Offset/Digital Print'],
+    processingTime: '3-5 Days',
+    charges: 'Bulk order discounts available',
+    notes: 'Various envelope sizes (A4, A5, standard) available.'
+  },
+  {
+    id: 1014, slug: 'flyer-brochure-print', category: 'printing',
+    name: 'Flyer & Brochure Printing', icon: 'BookOpen',
+    description: 'Tri-fold brochures and promotional flyers printed on high-quality glossy paper.',
+    documentsRequired: ['Marketing design file'],
+    eligibility: 'Restaurants, classes, real estate, clinics.',
+    processSteps: ['Select paper gsm', 'Print (Single/Double sided)', 'Folding (if brochure)'],
+    processingTime: '1-3 Days',
+    charges: 'Wholesale printing rates',
+    notes: 'Design assistance available on request.'
+  },
+  {
+    id: 1015, slug: 'resume-cv-print', category: 'printing',
+    name: 'Resume / CV Printing', icon: 'FileText',
+    description: 'Professional high-quality resume printing on executive bond paper to make a great first impression at interviews.',
+    documentsRequired: ['Resume PDF/Word file'],
+    eligibility: 'Job seekers.',
+    processSteps: ['Email/WhatsApp file', 'Print on 100gsm+ bond paper', 'Folder packaging'],
+    processingTime: 'Instant',
+    charges: 'Premium print rates',
+    notes: 'A crisp print can significantly improve interview impact.'
+  },
+  {
+    id: 1016, slug: 'certificate-marksheet-print', category: 'printing',
+    name: 'Certificate High-Quality Print', icon: 'Award',
+    description: 'Thick card-stock printing for award certificates, training completion certificates, and duplicate marksheets.',
+    documentsRequired: ['Certificate Design/File'],
+    eligibility: 'Institutes, corporate HRs, schools.',
+    processSteps: ['Select specialty textured/metallic paper', 'High-res print', 'Lamination (Optional)'],
+    processingTime: 'Same Day',
+    charges: 'Per certificate pricing',
+    notes: 'Golden foil stamping available for premium certificates.'
+  },
+  {
+    id: 1017, slug: 'menu-card-print', category: 'printing',
+    name: 'Restaurant Menu Card Print', icon: 'Coffee',
+    description: 'Durable, spill-proof, and beautifully designed menu cards for cafes, restaurants, and hotels.',
+    documentsRequired: ['Menu list and prices'],
+    eligibility: 'Food business owners.',
+    processSteps: ['Design menu layout', 'Thick board print', 'Thermal Gloss/Matte Lamination', 'Creasing/Folding'],
+    processingTime: '3-4 Days',
+    charges: 'Based on material and pages',
+    notes: 'Synthetic non-tearable paper option available.'
+  },
+  {
+    id: 1018, slug: 'thesis-dissertation-binding', category: 'printing',
+    name: 'Thesis & Dissertation Binding', icon: 'BookMarked',
+    description: 'UGC-approved format hardbound printing and binding for Ph.D. and Master\'s thesis.',
+    documentsRequired: ['Final Thesis PDF'],
+    eligibility: 'Ph.D. Scholars, Post-Graduate Students.',
+    processSteps: ['Print on acid-free paper', 'Leatherette hardbound cover', 'Golden foil lettering'],
+    processingTime: '2-3 Days',
+    charges: 'Standard university pricing',
+    notes: '100% adherence to specific university binding rules.'
+  },
+  {
+    id: 1019, slug: 'cad-autocad-print', category: 'printing',
+    name: 'CAD / AutoCAD Plotting', icon: 'PenTool',
+    description: 'High-precision plotter printing for AutoCAD designs, structural layouts, and electrical diagrams.',
+    documentsRequired: ['DWG or PDF files'],
+    eligibility: 'Engineers, Interior Designers, Builders.',
+    processSteps: ['Check line weights and scale', 'Plot on A1/A0 paper', 'Fold to A4 size (optional)'],
+    processingTime: 'Same Day',
+    charges: 'Based on print density',
+    notes: 'Monochrome and Color plotting both available.'
+  },
+  {
+    id: 1020, slug: 'sticker-label-print', category: 'printing',
+    name: 'Custom Sticker & Label Print', icon: 'Tag',
+    description: 'Custom die-cut stickers and product labels for packaging, branding, and return gifts.',
+    documentsRequired: ['Logo or label design'],
+    eligibility: 'E-commerce sellers, home-bakers, small businesses.',
+    processSteps: ['Select Vinyl or Paper sticker', 'Print', 'Kiss-cut/Die-cut to shape'],
+    processingTime: '1-2 Days',
+    charges: 'Per sheet pricing',
+    notes: 'Waterproof and tear-resistant vinyl options available.'
+  }
 ];
 
 export const getServiceBySlug = (slug) => services.find(s => s.slug === slug);
