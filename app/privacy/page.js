@@ -69,12 +69,23 @@ export default function PrivacyPolicy() {
           </section>
 
           <section>
-            <h2 className="text-xl font-bold text-blue-900 mb-3 border-l-4 border-orange-500 pl-4">6. Changes to this Privacy Policy</h2>
+            <h2 className="text-xl font-bold text-blue-900 mb-3 border-l-4 border-orange-500 pl-4">6. Compliance with DPDP Act, 2023</h2>
+            <p className="mb-3">We strictly adhere to the Digital Personal Data Protection (DPDP) Act, 2023 of India. In compliance with the law:</p>
+            <ul className="list-disc pl-5 space-y-2">
+              <li><strong>Consent:</strong> Your personal data is collected and processed only with your explicit consent for the specific purpose of providing our services.</li>
+              <li><strong>Right to Erasure:</strong> You have the right to request the deletion of your personal data and documents from our records at any time.</li>
+              <li><strong>Data Minimization:</strong> We only collect information that is strictly necessary for your document processing or printing requests.</li>
+              <li><strong>Grievance Redressal:</strong> Any concerns regarding your data privacy can be directed to our contact email below, and we commit to resolving them promptly.</li>
+            </ul>
+          </section>
+
+          <section>
+            <h2 className="text-xl font-bold text-blue-900 mb-3 border-l-4 border-orange-500 pl-4">7. Changes to this Privacy Policy</h2>
             <p>We may update this privacy policy from time to time to reflect changes in our services or legal obligations. We encourage you to review this page periodically.</p>
           </section>
 
           <section>
-            <h2 className="text-xl font-bold text-blue-900 mb-3 border-l-4 border-orange-500 pl-4">7. Contact Us</h2>
+            <h2 className="text-xl font-bold text-blue-900 mb-3 border-l-4 border-orange-500 pl-4">8. Contact Us</h2>
             <p>If you have any questions or concerns about this Privacy Policy or how your documents are handled, please contact us:</p>
             <div className="bg-gray-50 p-4 rounded-xl mt-4 border border-gray-100">
               <p className="mb-1"><strong>Suhana Service Center</strong></p>
