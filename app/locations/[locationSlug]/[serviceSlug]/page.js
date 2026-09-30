@@ -24,21 +24,87 @@ export async function generateMetadata({ params }) {
   const location = getLocationBySlug(params.locationSlug)
   if (!service || !location) return { title: 'Not Found' }
   const cat = getCategoryById(service.category)
+  const serviceLower = service.name.toLowerCase()
+  const locLower = location.name.toLowerCase()
+  const catLower = cat?.label?.toLowerCase() || 'services'
+  const subLocations = location.subLocations || []
+  
+  // Generating a large number of diverse, long-tail keywords (50+) to dominate local search
+  const dynamicKeywords = [
+    // Core Direct Keywords
+    `${serviceLower} in ${locLower}`,
+    `${serviceLower} ${locLower}`,
+    `${serviceLower} near me ${locLower}`,
+    `nearest ${serviceLower} center ${locLower}`,
+    
+    // Agent / Center / Consultant
+    `best ${serviceLower} agent in ${locLower}`,
+    `trusted ${serviceLower} consultant ${locLower}`,
+    `verified ${serviceLower} agency ${locLower}`,
+    `${serviceLower} office in ${locLower}`,
+    `${serviceLower} shop near me in ${locLower}`,
+    `${serviceLower} service center ${locLower}`,
+    `top ${serviceLower} provider ${locLower}`,
+    `expert ${serviceLower} help ${locLower}`,
+    `professional ${serviceLower} services ${locLower}`,
+    `${serviceLower} official agent ${locLower}`,
+    
+    // Action / Intent Based
+    `apply ${serviceLower} online ${locLower}`,
+    `how to get ${serviceLower} in ${locLower}`,
+    `urgent ${serviceLower} ${locLower}`,
+    `fast ${serviceLower} service ${locLower}`,
+    `quick ${serviceLower} process ${locLower}`,
+    `same day ${serviceLower} ${locLower}`,
+    `${serviceLower} appointment booking ${locLower}`,
+    `${serviceLower} registration ${locLower}`,
+    `${serviceLower} renewal ${locLower}`,
+    `${serviceLower} correction ${locLower}`,
+    `${serviceLower} form filling ${locLower}`,
+    `${serviceLower} online apply ${locLower}`,
+    `get ${serviceLower} done fast in ${locLower}`,
+    
+    // Cost / Value Based
+    `affordable ${serviceLower} in ${locLower}`,
+    `low cost ${serviceLower} ${locLower}`,
+    `cheap ${serviceLower} services ${locLower}`,
+    `lowest price ${serviceLower} ${locLower}`,
+    
+    // Surrounding Areas & Category
+    `${serviceLower} in vasai virar`,
+    `${serviceLower} palghar district`,
+    `${catLower} services in ${locLower}`,
+    `best ${catLower} agent ${locLower}`,
+    `nearest ${catLower} shop ${locLower}`,
+    `online ${catLower} portal ${locLower}`,
+    `government ${catLower} provider ${locLower}`,
+    
+    // Sub-Locations (Neighborhoods)
+    ...subLocations.map(subLoc => `${serviceLower} in ${subLoc.toLowerCase()}`),
+    ...subLocations.map(subLoc => `${serviceLower} agent near ${subLoc.toLowerCase()}`),
+    ...subLocations.map(subLoc => `${catLower} shop ${subLoc.toLowerCase()}`),
+    
+    // Brand & Systems
+    `suhana service center ${locLower}`,
+    `suhana service centre ${serviceLower}`,
+    `suhana digital services ${locLower}`,
+    `csc center ${serviceLower} ${locLower}`,
+    `aaple sarkar ${serviceLower} ${locLower}`,
+    
+    // Long-tail Questions/Phrases
+    `where to apply for ${serviceLower} in ${locLower}`,
+    `who is the best agent for ${serviceLower} in ${locLower}`,
+    `documents required for ${serviceLower} in ${locLower}`,
+    `reliable ${serviceLower} ${locLower}`,
+    `authorized ${serviceLower} center ${locLower}`
+  ]
+
+  const allKeywords = [...new Set([...(service.keywords || []), ...dynamicKeywords])].filter(Boolean)
+
   return {
     title: `${service.name} in ${location.name}: Best Service Provider | Suhana`,
     description: `Looking for ${service.name} in ${location.name}? Apply fast and securely at Suhana Service Center. Fast, reliable & affordable ${cat?.label || 'services'}.`,
-    keywords: [
-      ...(service.keywords || []),
-      `${service.name.toLowerCase()} in ${location.name.toLowerCase()}`,
-      `${service.name.toLowerCase()} ${location.name.toLowerCase()}`,
-      `best ${service.name.toLowerCase()} agent in ${location.name.toLowerCase()}`,
-      `urgent ${service.name.toLowerCase()} ${location.name.toLowerCase()}`,
-      `apply ${service.name.toLowerCase()} online ${location.name.toLowerCase()}`,
-      `fast ${service.name.toLowerCase()} service ${location.name.toLowerCase()}`,
-      `${service.name.toLowerCase()} consultant ${location.name.toLowerCase()}`,
-      `${cat?.label?.toLowerCase() || 'services'} near me ${location.name.toLowerCase()}`,
-      `suhana service center ${location.name.toLowerCase()}`
-    ],
+    keywords: allKeywords,
     alternates: {
       canonical: `/locations/${params.locationSlug}/${params.serviceSlug}`,
     },
@@ -116,6 +182,40 @@ export default async function LocationServiceDetailPage({ params }) {
     ],
   }
 
+  // FAQ Schema (Critical for AI Search - LLM Optimization)
+  const faqList = [
+    ...(service.faqs || []),
+    {
+      q: `Where can I apply for ${service.name} in ${location.name}?`,
+      a: `Suhana Service Center is your trusted ${service.name.toLowerCase()} agent in ${location.name}. You can visit our office or apply online through us for fast processing.`
+    },
+    {
+      q: `Is there an urgent ${service.name} service available?`,
+      a: `Yes, we provide urgent ${service.name.toLowerCase()} assistance. As an experienced consultant in ${location.name}, we ensure your application is processed with priority.`
+    },
+    {
+      q: `Do I need to visit multiple offices for ${service.name}?`,
+      a: `No, not at all! As a premier ${cat?.label} provider for ${location.name} residents, we handle all the documentation and submission steps on your behalf.`
+    },
+    {
+      q: `What is the fastest way to get ${service.name} done?`,
+      a: `The fastest way is to contact us directly. We offer a fast ${service.name.toLowerCase()} service in ${location.name} with transparent pricing and complete guidance on required documents.`
+    }
+  ];
+
+  const faqSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqList.map(faq => ({
+      '@type': 'Question',
+      name: faq.q,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: faq.a
+      }
+    }))
+  };
+
   return (
     <>
       <script
@@ -125,6 +225,10 @@ export default async function LocationServiceDetailPage({ params }) {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
       {/* Hero */}
       <section className="hero-gradient pt-28 pb-16 relative">
@@ -324,6 +428,26 @@ export default async function LocationServiceDetailPage({ params }) {
               {related.map(s => {
                 return <ServiceCard key={s.id} service={s} locationSlug={location.slug} customization={customizationsMap[s.id] || null} compact />
               })}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* Sub-Locations Section */}
+      {location.subLocations && location.subLocations.length > 0 && (
+        <section className="py-16 bg-gray-50 border-t border-gray-100">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-10">
+              <h2 className="text-2xl font-black text-gray-900 mb-3 tracking-tight">Areas We Serve in {location.name}</h2>
+              <p className="text-gray-500 text-sm font-medium">Looking for {service.name} near your specific location in {location.name}? We cover all these neighborhoods.</p>
+            </div>
+            <div className="flex flex-wrap justify-center gap-3">
+              {location.subLocations.map((subLoc, idx) => (
+                <div key={idx} className="bg-white border border-gray-200 shadow-sm rounded-full px-5 py-2 text-sm font-bold text-gray-700 flex items-center gap-2 hover:border-blue-300 hover:text-blue-600 transition-colors">
+                  <LucideIcon name="MapPin" size={16} className="text-orange-500" />
+                  {subLoc}
+                </div>
+              ))}
             </div>
           </div>
         </section>

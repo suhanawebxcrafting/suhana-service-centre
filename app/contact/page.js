@@ -4,11 +4,11 @@ import LucideIcon from '@/components/LucideIcon'
 import { services } from '@/data/services'
 
 // ─── Field wrapper — MUST be outside component to avoid re-mount on each render ───
-function Field({ id, label, error, children }) {
+function Field({ id, label, error, required, children }) {
   return (
     <div>
-      <label htmlFor={id} className="block text-gray-700 text-xs font-semibold mb-1.5">
-        {label}
+      <label htmlFor={id} className="block text-gray-700 text-xs font-semibold mb-1.5 flex items-center gap-1">
+        {label} {required && <span className="text-red-500">*</span>}
       </label>
       {children}
       {error && (
@@ -25,7 +25,7 @@ function Field({ id, label, error, children }) {
 const SERVICE_OPTIONS = services.map(s => s.name).sort((a, b) => a.localeCompare(b))
 
 export default function ContactPage() {
-  const [form, setForm] = useState({ name: '', phone: '', email: '', service: '', message: '' })
+  const [form, setForm] = useState({ name: '', phone: '', email: '', service: '', message: '', consent: false })
   const [errors, setErrors] = useState({})
   const [submitted, setSubmitted] = useState(false)
   const [submitting, setSubmitting] = useState(false)
@@ -43,6 +43,9 @@ export default function ContactPage() {
       errs.email = 'Email address is required.'
     } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email.trim())) {
       errs.email = 'Please enter a valid email address.'
+    }
+    if (!form.consent) {
+      errs.consent = 'You must provide consent to process your data.'
     }
     return errs
   }
@@ -76,7 +79,7 @@ export default function ContactPage() {
     setSubmitting(false)
     setSubmitted(true)
     setTimeout(() => { setSubmitted(false); setSaveFailed(false) }, 5000)
-    setForm({ name: '', phone: '', email: '', service: '', message: '' })
+    setForm({ name: '', phone: '', email: '', service: '', message: '', consent: false })
   }
 
   return (
@@ -207,18 +210,18 @@ export default function ContactPage() {
 
                 <form onSubmit={handleSubmit} noValidate className="space-y-6">
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                    <Field id="name" label={<>Full Name <span className="text-red-500">*</span></>} error={errors.name}>
+                    <Field id="name" label="Full Name" error={errors.name} required>
                       <input id="name" type="text" placeholder="John Doe" value={form.name} onChange={e => { setForm(p => ({ ...p, name: e.target.value })); clearFieldError('name') }}
                         className={`w-full bg-slate-50 border rounded-xl px-5 py-4 text-[15px] font-medium outline-none focus:bg-white transition-all ${errors.name ? 'border-red-300 focus:border-red-500 focus:ring-4 focus:ring-red-500/10' : 'border-slate-200 focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10'}`} />
                     </Field>
 
-                    <Field id="phone" label={<>Phone Number <span className="text-red-500">*</span></>} error={errors.phone}>
+                    <Field id="phone" label="Phone Number" error={errors.phone} required>
                       <input id="phone" type="tel" placeholder="10-digit number" maxLength={10} value={form.phone} onChange={e => { const val = e.target.value.replace(/\D/g, '').slice(0, 10); setForm(p => ({ ...p, phone: val })); clearFieldError('phone') }}
                         className={`w-full bg-slate-50 border rounded-xl px-5 py-4 text-[15px] font-medium outline-none focus:bg-white transition-all ${errors.phone ? 'border-red-300 focus:border-red-500 focus:ring-4 focus:ring-red-500/10' : 'border-slate-200 focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10'}`} />
                     </Field>
                   </div>
 
-                  <Field id="email" label={<>Email Address <span className="text-red-500">*</span></>} error={errors.email}>
+                  <Field id="email" label="Email Address" error={errors.email} required>
                     <input id="email" type="email" placeholder="john@example.com" value={form.email} onChange={e => { setForm(p => ({ ...p, email: e.target.value })); clearFieldError('email') }}
                       className={`w-full bg-slate-50 border rounded-xl px-5 py-4 text-[15px] font-medium outline-none focus:bg-white transition-all ${errors.email ? 'border-red-300 focus:border-red-500 focus:ring-4 focus:ring-red-500/10' : 'border-slate-200 focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10'}`} />
                   </Field>
@@ -238,6 +241,25 @@ export default function ContactPage() {
                     <textarea id="message" rows="4" placeholder="Describe your requirement..." value={form.message} onChange={e => setForm(p => ({ ...p, message: e.target.value }))}
                       className="w-full bg-slate-50 border border-slate-200 rounded-xl px-5 py-4 text-[15px] font-medium outline-none focus:bg-white focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 transition-all resize-none" />
                   </Field>
+
+                  <div className="flex flex-col gap-1">
+                    <label className="flex items-start gap-3 cursor-pointer group">
+                      <div className="relative flex items-center justify-center mt-0.5 shrink-0">
+                        <input type="checkbox" id="consent" checked={form.consent} onChange={e => { setForm(p => ({ ...p, consent: e.target.checked })); clearFieldError('consent') }}
+                          className="peer appearance-none w-5 h-5 border-2 border-slate-300 rounded-md checked:bg-blue-600 checked:border-blue-600 focus:outline-none focus:ring-4 focus:ring-blue-500/20 transition-all cursor-pointer" />
+                        <LucideIcon name="Check" size={14} className="absolute text-white opacity-0 peer-checked:opacity-100 pointer-events-none transition-opacity" />
+                      </div>
+                      <span className="text-[13px] text-gray-600 font-medium leading-relaxed">
+                        I consent to the collection and processing of my personal data for service delivery in accordance with the <a href="/privacy" className="text-blue-600 hover:underline font-bold">Privacy Policy</a> (DPDP Act).
+                      </span>
+                    </label>
+                    {errors.consent && (
+                      <p className="text-red-500 text-[11px] font-semibold flex items-center gap-1 mt-1">
+                        <LucideIcon name="AlertCircle" size={11} />
+                        {errors.consent}
+                      </p>
+                    )}
+                  </div>
 
                   <button type="submit" disabled={submitting}
                     className="w-full group bg-blue-950 hover:bg-blue-900 text-white font-black py-4 rounded-xl flex items-center justify-center gap-3 transition-all shadow-[0_10px_20px_rgba(23,37,84,0.15)] hover:shadow-[0_15px_30px_rgba(23,37,84,0.25)] hover:-translate-y-1 disabled:opacity-70 disabled:hover:translate-y-0 disabled:cursor-not-allowed mt-4">

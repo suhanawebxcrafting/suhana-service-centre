@@ -154,7 +154,7 @@ const getBlogs = unstable_cache(
               <div className="tag mb-5 inline-block">🏆 Virar's Trusted Service center</div>
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-white leading-tight mb-3">
                 Suhana<br />
-                <span className="text-orange-400">Service center</span>
+                <span className="text-orange-400">Service Center Virar</span>
               </h1>
               <p className="text-2xl text-white/80 font-medium mb-2">आपकी सेवा, हमारा संकल्प</p>
               <p className="text-blue-200 text-lg mb-6">All Online Services Under One Roof</p>

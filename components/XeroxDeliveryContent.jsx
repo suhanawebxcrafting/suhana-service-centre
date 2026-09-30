@@ -39,6 +39,7 @@ export default function XeroxDeliveryContent({ location }) {
     address: '',
     distance: 0,
     serviceNeeded: 'General Print & Copy',
+    consent: false,
   })
   const [files, setFiles] = useState([])
   const [loading, setLoading] = useState(false)
@@ -91,6 +92,7 @@ export default function XeroxDeliveryContent({ location }) {
       if (formData.address.trim().length < 10) throw new Error('Please enter a detailed delivery address (minimum 10 characters)')
 
       if (files.length === 0) throw new Error('Please upload at least one document')
+      if (!formData.consent) throw new Error('You must provide consent to process your data as per the DPDP Act')
 
       const submitData = new FormData()
       files.forEach(f => submitData.append('files', f))
@@ -270,6 +272,19 @@ export default function XeroxDeliveryContent({ location }) {
         )}
       </div>
 
+      <div className="flex flex-col gap-1">
+        <label className="flex items-start gap-3 cursor-pointer group">
+          <div className="relative flex items-center justify-center mt-0.5 shrink-0">
+            <input type="checkbox" id={`consent-${isModal ? 'modal' : 'main'}`} checked={formData.consent || false} onChange={e => { setFormData(p => ({ ...p, consent: e.target.checked })); setError('') }}
+              className="peer appearance-none w-5 h-5 border-2 border-slate-300 rounded-md checked:bg-blue-600 checked:border-blue-600 focus:outline-none focus:ring-4 focus:ring-blue-500/20 transition-all cursor-pointer" />
+            <LucideIcon name="Check" size={14} className="absolute text-white opacity-0 peer-checked:opacity-100 pointer-events-none transition-opacity" />
+          </div>
+          <span className="text-[13px] text-gray-600 font-medium leading-relaxed">
+            I consent to the collection and processing of my personal data for service delivery in accordance with the <a href="/privacy" className="text-blue-600 hover:underline font-bold">Privacy Policy</a> (DPDP Act).
+          </span>
+        </label>
+      </div>
+
       {error && (
         <div className="bg-red-50 text-red-600 p-4 rounded-xl flex items-center gap-3 text-sm font-medium">
           <AlertCircle size={18} /> {error}
@@ -292,7 +307,7 @@ export default function XeroxDeliveryContent({ location }) {
             <LucideIcon name="Printer" size={14} /> Xerox in {locName} &amp; Printing Solutions
           </div>
           <h1 className="text-4xl lg:text-6xl font-black text-white mb-6 tracking-tight animate-fade-up" style={{ animationDelay: '0.1s' }}>
-            Fast Print &amp; <span className="text-orange-400">Xerox Delivery</span>
+            Fast Print &amp; <span className="text-orange-400">Xerox Delivery in {locName}</span>
           </h1>
           <p className="text-blue-100 text-lg lg:text-xl font-medium max-w-2xl mx-auto mb-10 animate-fade-up" style={{ animationDelay: '0.2s' }}>
             Looking for a reliable <strong className="text-white">Xerox in {locName}</strong>? From standard A4 photocopies to Jumbo A0 prints, blackbook printing, and smart cards. High-quality prints delivered right to your home in {locName} at a <strong className="text-white">low price</strong>.

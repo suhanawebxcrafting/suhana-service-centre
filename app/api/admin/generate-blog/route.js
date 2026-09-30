@@ -3,6 +3,17 @@ import { prisma } from '@/lib/prisma';
 
 export const dynamic = 'force-dynamic';
 
+function generateSlug(title) {
+  return title
+    .toLowerCase()
+    .replace(/[^\w\s-]/g, '')
+    .replace(/\s+/g, '-')
+    .replace(/-+/g, '-')
+    .trim()
+    .substring(0, 80)
+    + '-' + Date.now().toString(36)
+}
+
 export async function POST(req) {
   try {
     // 1. Check Rate Limit (Max 5 per day)
@@ -89,9 +100,22 @@ Return ONLY valid JSON with no markdown formatting around the JSON block. Do not
     const data = await response.json();
     const responseText = data.choices[0]?.message?.content || '{}';
 
-    // Parse the JSON out of the response
-    const jsonStr = responseText.replace(/```json/gi, '').replace(/```/g, '').trim();
-    const blogData = JSON.parse(jsonStr);
+    let jsonStr = responseText.replace(/```json/gi, '').replace(/```/g, '').trim();
+    // Replace literal newlines with escaped newlines so JSON.parse doesn't break
+    jsonStr = jsonStr.replace(/\n/g, '\\n').replace(/\r/g, '\\r').replace(/\t/g, '\\t');
+    // Sometimes it creates double-escaped newlines like \\\\n, let's just make it robust
+    // Actually, a safer way to clean bad control characters:
+    jsonStr = jsonStr.replace(/[\u0000-\u001F\u007F-\u009F]/g, function (c) {
+      return '\\u' + ('000' + c.charCodeAt(0).toString(16)).slice(-4);
+    });
+
+    let blogData;
+    try {
+      blogData = JSON.parse(jsonStr);
+    } catch (parseError) {
+      console.error('Failed to parse JSON. Raw AI response was:', responseText);
+      throw new Error('AI returned invalid JSON format. Please try again.');
+    }
 
     // 5. Save to Database as Draft
     const newBlog = await prisma.blog.create({

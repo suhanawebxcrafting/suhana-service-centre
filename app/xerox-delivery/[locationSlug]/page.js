@@ -17,36 +17,38 @@ export function generateMetadata({ params }) {
     return { title: 'Location Not Found' }
   }
 
+  const loc = location.name
+  const locLower = loc.toLowerCase()
+  const subLocs = location.subLocations || []
+
+  // Clean, curated 50 keywords — Google ignores meta keywords tag but Bing still reads them
+  const keywords = [
+    `xerox in ${locLower}`, `xerox ${locLower}`, `xerox shop ${locLower}`,
+    `print shop ${locLower}`, `cheapest xerox ${locLower}`, `color xerox ${locLower}`,
+    `xerox delivery ${locLower}`, `doorstep xerox ${locLower}`,
+    `A4 xerox ${locLower}`, `jumbo xerox ${locLower}`, `A3 print ${locLower}`,
+    `blackbook printing ${locLower}`, `spiral binding ${locLower}`, `lamination ${locLower}`,
+    `school document print ${locLower}`, `affordable printing ${locLower}`,
+    `student xerox ${locLower}`, `college project print ${locLower}`,
+    `pvc card printing ${locLower}`, `visiting card ${locLower}`,
+    `suhana service center ${locLower}`,
+    'xerox near me', 'xerox shop near me', 'print shop near me',
+    'cheapest xerox near me', 'color xerox near me', 'xerox delivery',
+    'doorstep xerox delivery', 'home delivery printing', 'whatsapp print order',
+    'same day print delivery', 'online print order', 'affordable printing',
+    'school document print', 'homework print near me', 'tc print near me',
+    'blackbook printing', 'lamination near me', 'sasta xerox',
+    'student xerox near me', 'admit card print near me',
+    ...subLocs.slice(0, 10).map(s => `xerox in ${s.toLowerCase()}`),
+  ]
+
   return {
-    title: `Xerox in ${location.name}: Best Print Delivery Service | Suhana`,
-    description: `Looking for a xerox in ${location.name}? We offer fast print and doorstep delivery for A4, A3, Jumbo A0, blackbook, and smart cards across ${location.name}.`,
-    keywords: [
-      `xerox in ${location.name}`,
-      `xerox ${location.name}`,
-      `low price xerox in ${location.name}`,
-      `cheap xerox delivery ${location.name}`,
-      `urgent xerox shop near me ${location.name}`,
-      `fast print delivery ${location.name}`,
-      `same day document printing ${location.name}`,
-      `jumbo xerox A0 A1 A2 near me ${location.name}`,
-      `blackbook printing and binding ${location.name}`,
-      `project printing for students ${location.name}`,
-      `bulk xerox discount ${location.name}`,
-      `cheapest color printing near me ${location.name}`,
-      `1.5 rs xerox shop near me ${location.name}`,
-      `wholesale printing services ${location.name}`,
-      `send pdf on whatsapp and print ${location.name}`,
-      `online print order and home delivery ${location.name}`,
-      `xerox shop near me ${location.name}`,
-      `print delivery ${location.name}`,
-      `doorstep xerox ${location.name}`,
-      `online printing ${location.name}`,
-      `suhana service center ${location.name}`,
-      `document printing ${location.name}`,
-    ],
+    title: `Xerox in ${loc}: Best Print Delivery Service | Suhana`,
+    description: `Looking for a xerox in ${loc}? We offer fast print and doorstep delivery for A4, A3, Jumbo A0, blackbook, and smart cards across ${loc}.`,
+    keywords: keywords,
     openGraph: {
-      title: `Best Xerox & Print Delivery in ${location.name}`,
-      description: `Fast print and doorstep delivery for A4, A3, Jumbo A0, blackbook, and smart cards in ${location.name}.`,
+      title: `Best Xerox & Print Delivery in ${loc}`,
+      description: `Fast print and doorstep delivery for A4, A3, Jumbo A0, blackbook, and smart cards in ${loc}.`,
     },
     alternates: {
       canonical: `https://suhanaservicecentre.in/xerox-delivery/${location.slug}`,

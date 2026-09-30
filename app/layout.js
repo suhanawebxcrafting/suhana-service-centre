@@ -12,6 +12,7 @@ export const metadata = {
   },
   description: 'Suhana Service Center Virar East — Aadhaar, PAN, Passport, Voter ID, Certificates & 70+ government services. 🎁 Get Flat 10% OFF on your first order. Call 7709709243.',
   keywords: [
+    'xerox near me', 'print shop near me', 'xerox shop near me', 'online printing near me', 'xerox shop',
     'service center virar', 'service centre virar', 'aadhaar card virar', 'aadhaar update virar', 'pan card virar',
     'passport agent virar', 'voter id virar', 'birth certificate virar', 'death certificate virar',
     'income certificate virar', 'domicile certificate virar', 'caste certificate virar',
@@ -118,6 +119,24 @@ const jsonLd = {
         { '@type': 'City', name: 'Vasai West' },
         { '@type': 'City', name: 'Naigaon East' },
         { '@type': 'City', name: 'Naigaon West' },
+        { '@type': 'Place', name: 'Global City' },
+        { '@type': 'Place', name: 'Phoolpada' },
+        { '@type': 'Place', name: 'Manvelpada' },
+        { '@type': 'Place', name: 'Agashi' },
+        { '@type': 'Place', name: 'Arnala' },
+        { '@type': 'Place', name: 'Evershine City' },
+        { '@type': 'Place', name: 'Tulinj' }
+      ],
+      knowsAbout: [
+        'Aadhaar Card Update and Registration',
+        'PAN Card Applications and Corrections',
+        'Indian Passport Application and Renewal',
+        'Voter ID Card Registration',
+        'Income, Domicile, and Caste Certificates',
+        'Doorstep Xerox and Jumbo Document Printing',
+        'Zero Balance Bank Account Opening',
+        'Aaple Sarkar Services Maharashtra',
+        'CSC Center Services'
       ],
       priceRange: '₹',
       sameAs: [
