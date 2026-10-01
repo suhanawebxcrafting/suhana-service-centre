@@ -43,11 +43,11 @@ export function generateMetadata({ params }) {
   ]
 
   return {
-    title: `Xerox in ${loc}: Best Print Delivery Service | Suhana`,
-    description: `Looking for a xerox in ${loc}? We offer fast print and doorstep delivery for A4, A3, Jumbo A0, blackbook, and smart cards across ${loc}.`,
+    title: `Top 1 Xerox & Printing Shop in ${loc} | Doorstep Delivery`,
+    description: `Looking for the cheapest & best Xerox shop in ${loc}? Get A4, Jumbo, color prints, lamination, and blackbook binding with doorstep delivery across ${loc}.`,
     keywords: keywords,
     openGraph: {
-      title: `Best Xerox & Print Delivery in ${loc}`,
+      title: `No. 1 Xerox & Print Delivery in ${loc}`,
       description: `Fast print and doorstep delivery for A4, A3, Jumbo A0, blackbook, and smart cards in ${loc}.`,
     },
     alternates: {
