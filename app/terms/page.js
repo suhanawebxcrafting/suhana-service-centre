@@ -4,11 +4,18 @@ import Link from 'next/link';
 export const metadata = {
   title: 'Terms and Conditions | Suhana Service Center',
   description: 'Terms and Conditions of Suhana Service Center Virar for using our online form filling, printing, and xerox delivery services.',
+  alternates: {
+    canonical: '/terms',
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 }
 
 export default function TermsAndConditions() {
   return (
-    <main className="min-h-screen bg-gray-50 pt-32 pb-16">
+    <main className="min-h-screen bg-gray-50 pt-24 sm:pt-28 pb-12">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header */}

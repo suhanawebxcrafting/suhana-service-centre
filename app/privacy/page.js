@@ -4,11 +4,18 @@ import Link from 'next/link';
 export const metadata = {
   title: 'Privacy Policy | Suhana Service Center',
   description: 'Privacy Policy of Suhana Service Center Virar. We value your privacy and security when handling documents, forms, and digital services.',
+  alternates: {
+    canonical: '/privacy',
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 }
 
 export default function PrivacyPolicy() {
   return (
-    <main className="min-h-screen bg-gray-50 pt-32 pb-16">
+    <main className="min-h-screen bg-gray-50 pt-24 sm:pt-28 pb-12">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header */}
