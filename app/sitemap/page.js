@@ -11,6 +11,10 @@ export const metadata = {
   alternates: {
     canonical: '/sitemap',
   },
+  robots: {
+    index: true,
+    follow: true,
+  },
 }
 
 export default async function SitemapPage() {

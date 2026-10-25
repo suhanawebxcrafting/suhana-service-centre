@@ -13,9 +13,15 @@ export const metadata = {
   alternates: {
     canonical: '/contact',
   },
+  robots: {
+    index: true,
+    follow: true,
+  },
   openGraph: {
     title: 'Contact Suhana Service Center | Virar East',
     description: 'Visit our center or contact us on WhatsApp for fast government services & doorstep print delivery.',
+    url: 'https://suhanaservicecentre.in/contact',
+    type: 'website',
   },
 }
 

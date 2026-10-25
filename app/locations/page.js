@@ -2,12 +2,17 @@ import Link from 'next/link'
 import { locations } from '@/data/locations'
 import { services } from '@/data/services'
 import LucideIcon from '@/components/LucideIcon'
+import FAQSection from '@/components/FAQSection'
 
 export const metadata = {
   title: '#1 CSC & Government Service Centers in Vasai-Virar & Palghar',
   description: 'Explore Suhana Service Center hubs across Virar, Vasai, Nalasopara, Palghar, and Mira-Bhayandar. Fast doorstep and online support for Aadhaar, PAN, Passport, Certificates & Xerox.',
   alternates: {
     canonical: '/locations',
+  },
+  robots: {
+    index: true,
+    follow: true,
   },
 }
 
@@ -34,21 +39,21 @@ export default function LocationsIndexPage() {
       />
 
       {/* Hero */}
-      <section className="hero-gradient pt-28 pb-16 relative">
+      <section className="hero-gradient pt-24 sm:pt-28 pb-10 sm:pb-12 relative overflow-hidden">
         <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)', backgroundSize: '30px 30px' }}></div>
         <div className="relative max-w-5xl mx-auto px-4 sm:px-6 text-center">
-          <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 text-blue-200 text-xs font-bold uppercase tracking-wider backdrop-blur-sm border border-white/15 mb-4">
-            <LucideIcon name="MapPin" size={14} className="text-orange-400" /> 17 Regional Hubs & 120+ Neighborhoods
+          <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/15 text-white/95 text-xs font-semibold uppercase tracking-wider backdrop-blur-md border border-white/20 mb-3 shadow-sm">
+            <LucideIcon name="MapPin" size={13} className="text-orange-400" /> 17 Regional Hubs &amp; 120+ Neighborhoods
           </span>
-          <h1 className="text-3xl sm:text-5xl font-black text-white leading-tight mb-4 tracking-tight">
-            Our Service Locations Across <span className="text-yellow-300">Vasai-Virar & Palghar</span>
+          <h1 className="text-2xl sm:text-4xl lg:text-[42px] font-black text-white leading-tight mb-3 tracking-tight">
+            Our Service Locations Across <span className="text-yellow-300">Vasai-Virar &amp; Palghar</span>
           </h1>
-          <p className="text-blue-100 text-base sm:text-lg max-w-2xl mx-auto font-medium">
+          <p className="text-blue-100/90 text-sm sm:text-base max-w-2xl mx-auto font-medium">
             Find verified CSC government services, document pickup, and doorstep Xerox delivery tailored for your exact locality.
           </p>
         </div>
-        <div className="absolute bottom-0 left-0 right-0">
-          <svg viewBox="0 0 1440 40" fill="#f8fafc"><path d="M0,20 C360,40 1080,0 1440,20 L1440,40 L0,40 Z" /></svg>
+        <div className="absolute bottom-0 left-0 right-0 overflow-hidden leading-none pointer-events-none">
+          <svg viewBox="0 0 1440 20" fill="#f8fafc" className="w-full h-3 sm:h-5"><path d="M0,0 C480,20 960,20 1440,0 L1440,20 L0,20 Z" /></svg>
         </div>
       </section>
 
@@ -148,6 +153,36 @@ export default function LocationsIndexPage() {
 
         </div>
       </section>
+
+      {/* Locations Master FAQ Section with FAQPage Schema */}
+      <FAQSection
+        faqs={[
+          {
+            q: 'Which areas are covered by Suhana Service Center in Vasai-Virar and Palghar?',
+            a: 'We actively serve 17 regional hubs including Virar East, Virar West, Vasai East, Vasai West, Nalasopara East, Nalasopara West, Naigaon, Palghar, Boisar, Safale, Dahanu, Manor, Kelve, Agashi, Bolinj, Arnala, and Mira-Bhayandar with over 120+ local neighborhoods.'
+          },
+          {
+            q: 'Do you offer doorstep document pickup and delivery in my area?',
+            a: 'Yes, we provide same-day doorstep document pickup and Xerox delivery across all registered locations in Vasai-Virar. You can also send documents directly over WhatsApp to +91 7709709243.'
+          },
+          {
+            q: 'Can I apply for government services online without visiting the center in person?',
+            a: 'Absolutely. Over 90% of our services—including PAN cards, Gazette name change, Income/Domicile certificates, FSSAI, Udyam registration, and Xerox delivery—can be processed smoothly online via WhatsApp.'
+          },
+          {
+            q: 'How fast is print and document delivery to my location?',
+            a: 'Standard printouts and Xerox orders are delivered within 2-4 hours locally across Vasai-Virar. Government certificate acknowledgments and physical cards are processed with real-time tracking.'
+          },
+          {
+            q: 'Where is Suhana Service Center main office located?',
+            a: 'Our central office is conveniently situated near Virar East station, Maharashtra 401305, open 6 days a week with dedicated customer phone and WhatsApp support.'
+          }
+        ]}
+        title="Frequently Asked Questions • Location Services"
+        highlight="Questions"
+        subtitle="Common questions about local coverage, doorstep document pickup, and regional seva kendra support."
+        badge="Location Coverage FAQs"
+      />
     </>
   )
 }

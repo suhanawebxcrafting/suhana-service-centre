@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react'
 import { Upload, MapPin, Phone, User, FileText, CheckCircle2, AlertCircle, Loader2, X, ChevronRight } from 'lucide-react'
 import LucideIcon from '@/components/LucideIcon'
 import Link from 'next/link'
+import FAQSection from '@/components/FAQSection'
 
 export const printServices = [
   { title: 'Color Printing', slug: 'color-printing', desc: 'Vibrant colour prints for presentations, brochures, posters and project work.', badge: 'Available Now', icon: 'Printer' },
@@ -300,42 +301,48 @@ export default function XeroxDeliveryContent({ location }) {
   return (
     <div className="min-h-screen bg-gray-50 relative">
       {/* Hero Section */}
-      <section className="hero-gradient pt-32 pb-20 relative overflow-hidden">
+      <section className="hero-gradient pt-24 sm:pt-28 pb-10 sm:pb-12 relative overflow-hidden">
         <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)', backgroundSize: '30px 30px' }}></div>
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="inline-flex items-center gap-2 bg-white/20 text-white px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-widest mb-6 border border-white/30 backdrop-blur-sm animate-fade-up">
-            <LucideIcon name="Printer" size={14} /> Xerox in {locName} &amp; Printing Solutions
+        <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <div className="inline-flex items-center gap-2 bg-white/15 text-white/95 px-3.5 py-1 rounded-full text-xs font-semibold uppercase tracking-wider mb-4 border border-white/20 backdrop-blur-md shadow-sm">
+            <LucideIcon name="Printer" size={13} className="text-orange-400" /> Doorstep Xerox &amp; Printing • {locName}
           </div>
-          <h1 className="text-4xl lg:text-6xl font-black text-white mb-6 tracking-tight animate-fade-up" style={{ animationDelay: '0.1s' }}>
+          <h1 className="text-2xl sm:text-4xl lg:text-[42px] font-black text-white mb-3.5 tracking-tight leading-tight">
             Fast Print &amp; <span className="text-orange-400">Xerox Delivery in {locName}</span>
           </h1>
-          <p className="text-blue-100 text-lg lg:text-xl font-medium max-w-2xl mx-auto mb-10 animate-fade-up" style={{ animationDelay: '0.2s' }}>
-            Looking for a reliable <strong className="text-white">Xerox in {locName}</strong>? From standard A4 photocopies to Jumbo A0 prints, blackbook printing, and smart cards. High-quality prints delivered right to your home in {locName} at a <strong className="text-white">low price</strong>.
+          <p className="text-blue-100/90 text-sm sm:text-base font-normal max-w-2xl mx-auto mb-6 leading-relaxed">
+            High-grade A4 photocopies, vibrant color prints, Jumbo A0 plans, and blackbook binding delivered directly to your doorstep in <strong className="text-white font-semibold">{locName}</strong> at transparent, low rates.
           </p>
-          <div className="flex flex-wrap justify-center gap-4 animate-fade-up" style={{ animationDelay: '0.3s' }}>
-            <a href="#upload-section" className="bg-white text-blue-900 font-bold px-8 py-4 rounded-xl hover:bg-blue-50 transition-all flex items-center gap-2 shadow-xl shadow-black/10">
-              <Upload size={20} /> Upload Documents
+          <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 mb-6">
+            <a href="#upload-section" className="inline-flex items-center gap-2 bg-white text-blue-900 hover:bg-blue-50 text-xs sm:text-sm font-bold px-5 py-2.5 sm:px-6 sm:py-3 rounded-xl shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-0.5">
+              <Upload size={16} /> Upload Documents
             </a>
-            <a href="https://wa.me/917709709243?text=Hello,%20I%20need%20General%20Print%20%26%20Copy%20services." target="_blank" rel="noopener noreferrer" className="bg-green-500 hover:bg-green-600 text-white font-bold px-8 py-4 rounded-xl transition-all flex items-center gap-2 shadow-xl shadow-green-500/20">
-              <svg width="24" height="24" viewBox="0 0 32 32" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <a href={`https://wa.me/917709709243?text=Hello,%20I%20need%20Xerox%20and%20Print%20delivery%20in%20${encodeURIComponent(locName)}.`} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 bg-emerald-500 hover:bg-emerald-600 text-white text-xs sm:text-sm font-bold px-5 py-2.5 sm:px-6 sm:py-3 rounded-xl shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-0.5">
+              <svg width="18" height="18" viewBox="0 0 32 32" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                 <path d="M16.002 3C9.373 3 4 8.373 4 15.002c0 2.124.558 4.118 1.535 5.848L4 29l8.374-2.194A11.95 11.95 0 0016.002 27C22.631 27 28 21.631 28 15.002 28 8.373 22.631 3 16.002 3zm0 21.846c-1.894 0-3.662-.503-5.19-1.38l-.372-.22-3.86 1.012 1.03-3.756-.24-.386A9.844 9.844 0 016.154 15c0-5.43 4.418-9.846 9.848-9.846S25.846 9.57 25.846 15c0 5.432-4.416 9.846-9.844 9.846zm5.404-7.37c-.297-.148-1.754-.866-2.026-.965-.272-.099-.47-.148-.668.149-.198.297-.766.965-.939 1.162-.173.198-.347.223-.644.075-.297-.149-1.254-.462-2.388-1.473-.883-.786-1.479-1.756-1.652-2.053-.173-.297-.018-.457.13-.605.133-.133.297-.347.445-.52.148-.174.198-.298.297-.496.099-.198.05-.372-.025-.52-.074-.149-.668-1.61-.915-2.203-.241-.579-.487-.5-.668-.51-.173-.007-.372-.01-.57-.01-.198 0-.52.074-.793.372-.272.297-1.04 1.015-1.04 2.476 0 1.46 1.065 2.872 1.213 3.07.148.198 2.095 3.2 5.077 4.487.71.306 1.263.488 1.695.624.712.227 1.36.195 1.872.118.571-.085 1.757-.719 2.006-1.413.248-.693.248-1.287.173-1.412-.074-.124-.272-.198-.57-.347z" />
               </svg>
               Send on WhatsApp
             </a>
           </div>
+
+          <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-xs font-medium text-blue-100/90 pt-3 border-t border-white/10 max-w-xl mx-auto">
+            <span className="inline-flex items-center gap-1.5"><LucideIcon name="Zap" size={13} className="text-orange-300" /> Same-Day Doorstep Delivery</span>
+            <span className="inline-flex items-center gap-1.5"><LucideIcon name="ShieldCheck" size={13} className="text-emerald-300" /> 100% Confidential</span>
+            <span className="inline-flex items-center gap-1.5"><LucideIcon name="CheckCircle" size={13} className="text-blue-200" /> B&amp;W from ₹1.5 • Color ₹9</span>
+          </div>
         </div>
-        <div className="absolute bottom-0 left-0 right-0">
-          <svg viewBox="0 0 1440 40" fill="#f9fafb"><path d="M0,20 C360,40 1080,0 1440,20 L1440,40 L0,40 Z" /></svg>
+        <div className="absolute bottom-0 left-0 right-0 overflow-hidden leading-none pointer-events-none">
+          <svg viewBox="0 0 1440 20" fill="#f9fafb" className="w-full h-3 sm:h-5"><path d="M0,0 C480,20 960,20 1440,0 L1440,20 L0,20 Z" /></svg>
         </div>
       </section>
 
       {/* Pricing Section */}
-      <section className="py-20 bg-gray-50 relative">
+      <section className="py-10 sm:py-14 bg-gray-50 relative">
         <div className="absolute inset-0 pattern-bg opacity-30"></div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl lg:text-4xl font-black text-blue-950 mb-4 tracking-tight">Transparent <span className="text-blue-600">Pricing</span></h2>
-            <p className="text-gray-500 max-w-xl mx-auto font-medium">Low price xerox and high-quality printing in {locName}. No hidden charges.</p>
+          <div className="text-center mb-8 sm:mb-10">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-blue-950 mb-2 tracking-tight">Transparent <span className="text-blue-600">Pricing</span></h2>
+            <p className="text-gray-500 max-w-xl mx-auto font-medium text-xs sm:text-sm">Low price xerox and high-quality printing in {locName}. No hidden charges.</p>
           </div>
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
             {[
@@ -562,49 +569,39 @@ export default function XeroxDeliveryContent({ location }) {
         </div>
       )}
 
-      {/* SEO FAQ Section */}
-      <section className="py-20 bg-white border-t border-gray-100 relative overflow-hidden">
-        <div className="absolute inset-0 pattern-bg opacity-20"></div>
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-black text-gray-900 mb-4 tracking-tight">Frequently Asked Questions (FAQs)</h2>
-            <p className="text-gray-500 font-medium">Your questions about our fast print delivery in {locName}, answered.</p>
-          </div>
-          <div className="space-y-4">
-            {[
-              {
-                q: `Where can I print documents in ${locName} urgently?`,
-                a: <>If you are looking for an <strong>urgent xerox shop near me</strong> or need <strong>fast print delivery in {locName}</strong>, Suhana Service Center is your best choice. We offer same day document printing and instant printouts delivered to your doorstep.</>
-              },
-              {
-                q: `Do you provide Jumbo Xerox and Blackbook Printing?`,
-                a: <>Yes! We provide <strong>Jumbo xerox A0 A1 A2 near me</strong>, as well as professional <strong>blackbook printing and binding in {locName}</strong>. This is perfect for architecture plans and <strong>project printing for students</strong>.</>
-              },
-              {
-                q: `How do I place an online print order?`,
-                a: <>It's easy to make an <strong>online print order and home delivery</strong>. You can just <strong>send PDF on WhatsApp and print</strong> instantly. It's the most convenient way to get <strong>PVC Aadhaar/PAN card print near me</strong> or standard <strong>color printouts</strong>.</>
-              },
-              {
-                q: `Do you offer discounts on bulk xerox?`,
-                a: <>Absolutely. We offer the <strong>cheapest color printing near me</strong> and a huge <strong>bulk xerox discount in {locName}</strong>. Whether you need <strong>wholesale printing services</strong> or just a <strong>1.5 Rs xerox shop near me</strong>, we guarantee transparent and low pricing with no hidden charges.</>
-              }
-            ].map((faq, i) => (
-              <details key={i} className="group bg-white rounded-2xl border border-gray-100 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.03)] hover:shadow-[0_8px_30px_-4px_rgba(0,0,0,0.08)] hover:border-blue-100 transition-all duration-300 overflow-hidden [&_summary::-webkit-details-marker]:hidden">
-                <summary className="flex items-center justify-between p-5 sm:p-6 cursor-pointer list-none select-none">
-                  <span className="font-bold text-gray-800 text-[16px] sm:text-[17px] pr-4 group-hover:text-blue-600 transition-colors">{faq.q}</span>
-                  <span className="w-8 h-8 rounded-full bg-blue-50/80 flex items-center justify-center text-blue-600 flex-shrink-0 transition-all duration-300 group-open:rotate-180 group-open:bg-blue-600 group-open:text-white">
-                    <LucideIcon name="ChevronDown" size={18} />
-                  </span>
-                </summary>
-                <div className="px-5 sm:px-6 pb-6 text-gray-600 text-[15px] leading-relaxed animate-fade-in">
-                  <div className="w-full h-px bg-gray-100 mb-4"></div>
-                  {faq.a}
-                </div>
-              </details>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* SEO FAQ Section with Rich FAQPage Schema */}
+      <FAQSection
+        faqs={[
+          {
+            q: `Where can I print documents and get Xerox delivery in ${locName} urgently?`,
+            a: `Suhana Service Center provides same-day document printing and Xerox delivery right to your home or office in ${locName}. You can upload PDFs online or send files on WhatsApp to +91 7709709243 for fast processing.`
+          },
+          {
+            q: `What are the printing and photocopy rates?`,
+            a: `Our rates start from just ₹1.5 per page for Black & White A4 prints and ₹9 per page for Color prints. We also offer discounted bulk xerox rates for students, offices, and project files.`
+          },
+          {
+            q: `Do you provide Jumbo Xerox A0, A1, A2 prints and Blackbook Binding?`,
+            a: `Yes! We specialize in large-format Jumbo Xerox (A0, A1, A2, A3) for CAD drawings, architectural blueprints, and engineering plans, as well as premium Blackbook binding with gold embossed lettering and spiral binding.`
+          },
+          {
+            q: `How do I place an online print order via WhatsApp?`,
+            a: `Simply save our number +91 7709709243 and send your PDF, DOCX, or image files along with your delivery address in ${locName}. Our team will immediately confirm the page count, cost, and dispatch your prints.`
+          },
+          {
+            q: `Can I get PVC Smart Cards printed (Aadhaar, PAN, Voter ID)?`,
+            a: `Yes, we print durable, waterproof PVC smart cards for e-Aadhaar, PAN cards, Ayushman cards, and college/office ID cards with crystal clear high-resolution finish.`
+          },
+          {
+            q: `Is my personal data and document printing confidential?`,
+            a: `Yes, 100%. We strictly follow data privacy standards. All customer documents and files are automatically purged after printing and never shared or stored permanently.`
+          }
+        ]}
+        title={`Frequently Asked Questions • ${locName}`}
+        highlight="Questions"
+        subtitle={`Your questions about our fast print & Xerox doorstep delivery in ${locName}, answered.`}
+        badge="Print & Delivery FAQs"
+      />
     </div>
   )
 }

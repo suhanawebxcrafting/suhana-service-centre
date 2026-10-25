@@ -52,7 +52,11 @@ export function generateMetadata({ params }) {
     },
     alternates: {
       canonical: `https://suhanaservicecentre.in/xerox-delivery/${location.slug}`,
-    }
+    },
+    robots: {
+      index: true,
+      follow: true,
+    },
   }
 }
 

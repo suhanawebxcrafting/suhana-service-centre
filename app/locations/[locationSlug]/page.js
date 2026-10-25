@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation'
 import { locations, getLocationBySlug } from '@/data/locations'
 import { services, categories } from '@/data/services'
 import LucideIcon from '@/components/LucideIcon'
+import FAQSection from '@/components/FAQSection'
 
 export async function generateStaticParams() {
   return locations.map(loc => ({ locationSlug: loc.slug }))
@@ -37,6 +38,10 @@ export async function generateMetadata({ params }) {
     ],
     alternates: {
       canonical: `/locations/${params.locationSlug}`,
+    },
+    robots: {
+      index: true,
+      follow: true,
     },
     openGraph: {
       title: `#1 CSC Service Center in ${loc} | Suhana Service Center`,
@@ -275,6 +280,38 @@ export default function LocationHubPage({ params }) {
                 </Link>
               ))}
             </div>
+          </div>
+
+          {/* Location Specific FAQ with FAQPage Schema */}
+          <div className="mt-12">
+            <FAQSection
+              faqs={[
+                {
+                  q: `Is Suhana Service Center available in ${location.name}?`,
+                  a: `Yes, Suhana Service Center actively provides full CSC digital seva, government document processing, and doorstep Xerox delivery throughout ${location.name} and neighboring localities.`
+                },
+                {
+                  q: `How do I apply for government services from ${location.name}?`,
+                  a: `You can apply online by choosing any service on this page or contacting us on WhatsApp at +91 7709709243. You can submit your documents digitally without traveling to our office.`
+                },
+                {
+                  q: `Can I get Xerox and printouts delivered to my home in ${location.name}?`,
+                  a: `Yes! We offer doorstep print delivery for standard A4 documents, color photocopies, Jumbo architectural drawings, and student project binding directly to your address in ${location.name}.`
+                },
+                {
+                  q: `What government schemes and certificates can I process in ${location.name}?`,
+                  a: `We assist with Domicile, Income, Caste certificates, Non-Creamy Layer, Ration Card updates, Voter ID registration, PAN cards, Gazette name change, and business registrations (FSSAI, Udyam).`
+                },
+                {
+                  q: `How long does service processing take for residents of ${location.name}?`,
+                  a: `Instant services like PAN apply, Xerox delivery, and FASTag are processed the same day. Government certificates are tracked daily and delivered as soon as approved by the taluka authority.`
+                }
+              ]}
+              title={`Frequently Asked Questions • ${location.name}`}
+              highlight="Questions"
+              subtitle={`Common questions about local seva kendra assistance, doorstep delivery, and processing in ${location.name}.`}
+              badge={`${location.name} FAQs`}
+            />
           </div>
 
         </div>

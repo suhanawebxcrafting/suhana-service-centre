@@ -26,7 +26,11 @@ export const metadata = {
   ],
   alternates: {
     canonical: 'https://suhanaservicecentre.in/xerox-delivery',
-  }
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 }
 
 export default function XeroxDeliveryPage() {

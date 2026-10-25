@@ -2,6 +2,7 @@
 import { useState } from 'react'
 import LucideIcon from '@/components/LucideIcon'
 import { services } from '@/data/services'
+import FAQSection from '@/components/FAQSection'
 
 // ─── Field wrapper — MUST be outside component to avoid re-mount on each render ───
 function Field({ id, label, error, required, children }) {
@@ -84,32 +85,34 @@ export default function ContactPage() {
 
   return (
     <>
-      {/* Premium Hero */}
-      <section className="hero-gradient relative pt-32 pb-24 overflow-hidden">
-        <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)', backgroundSize: '40px 40px' }}></div>
-        <div className="absolute -top-20 -left-20 w-96 h-96 bg-blue-500 rounded-full blur-[100px] opacity-40 mix-blend-screen pointer-events-none"></div>
-        <div className="absolute bottom-0 right-0 w-80 h-80 bg-orange-500 rounded-full blur-[100px] opacity-30 mix-blend-screen pointer-events-none"></div>
-        
-        <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 text-center animate-fade-up">
-          <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md text-white px-5 py-2 rounded-full text-xs font-black uppercase tracking-widest mb-6 border border-white/20 shadow-[0_0_20px_rgba(255,255,255,0.1)]">
-            <LucideIcon name="Headset" size={16} className="text-orange-400" /> We are Online
+      {/* Sleek Professional Hero */}
+      <section className="hero-gradient relative pt-24 sm:pt-28 pb-10 sm:pb-12 overflow-hidden">
+        <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)', backgroundSize: '30px 30px' }}></div>
+        <div className="absolute top-0 right-1/4 w-72 h-72 bg-white/10 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 text-center">
+          <div className="inline-flex items-center gap-1.5 bg-white/10 backdrop-blur-md text-blue-100 px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-3 border border-white/15 shadow-xs">
+            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+            Online Support Active
           </div>
-          <h1 className="text-4xl sm:text-5xl lg:text-7xl font-black text-white mb-6 tracking-tight drop-shadow-xl">
-            Let's <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-yellow-400">Talk</span>
+          <h1 className="text-2xl sm:text-4xl lg:text-5xl font-black text-white mb-2 tracking-tight">
+            Contact & <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-yellow-300">Support</span>
           </h1>
-          <p className="text-blue-100/90 text-lg sm:text-xl font-medium max-w-2xl mx-auto leading-relaxed">
-            Have a question about Aadhaar, PAN, Passport, or any of our 70+ services? We're just a message away.
+          <p className="text-blue-100 text-xs sm:text-sm font-medium max-w-lg mx-auto leading-relaxed">
+            Have a question about Aadhaar, PAN, Passport, Certificates, or Xerox delivery? We're here to help you.
           </p>
         </div>
+
+        {/* Subtle Bottom Curve */}
         <div className="absolute bottom-0 left-0 right-0 w-full overflow-hidden leading-none z-10">
-          <svg className="relative block w-full h-[60px]" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
-            <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V95.8C59.71,118.08,130.83,119.26,192.39,102.53Z" fill="#f8fafc"></path>
+          <svg viewBox="0 0 1440 20" fill="#f8fafc" className="w-full h-4 sm:h-5 block">
+            <path d="M0,10 C360,20 1080,0 1440,10 L1440,20 L0,20 Z" />
           </svg>
         </div>
       </section>
 
       {/* Main Content Area */}
-      <section className="py-16 lg:py-24 bg-slate-50 relative">
+      <section className="pt-8 pb-16 sm:pt-10 sm:pb-20 bg-slate-50 relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-5 gap-10 lg:gap-16 items-start">
             
@@ -306,6 +309,36 @@ export default function ContactPage() {
            </div>
         </div>
       </section>
+
+      {/* Contact & Support FAQs with FAQPage Schema */}
+      <FAQSection
+        faqs={[
+          {
+            q: 'Where is Suhana Service Center located in Virar?',
+            a: 'Our physical center is located at Office No. 04, Raipada, Near Anand Gaushala, Chandansar Road, Virar East, Palghar, Maharashtra - 401305. We are easily accessible from Virar railway station.'
+          },
+          {
+            q: 'What are the operating hours of Suhana Service Center?',
+            a: 'We are open Monday to Saturday from 9:00 AM to 9:00 PM, and on Sundays from 10:00 AM to 6:00 PM. Our WhatsApp support line (+91 7709709243) is active daily for urgent inquiries.'
+          },
+          {
+            q: 'Can I resolve government application issues over WhatsApp without visiting?',
+            a: 'Yes, most queries regarding Aadhaar update, PAN status, Passport appointments, Gazette name change, and certificate requirements can be addressed directly via WhatsApp with our senior agents.'
+          },
+          {
+            q: 'How can I request urgent Xerox and printout delivery?',
+            a: 'You can directly WhatsApp your files to +91 7709709243 or upload them on our Xerox Delivery page. Orders are prepared immediately and dispatched to your address in Virar and Vasai.'
+          },
+          {
+            q: 'How do I track my submitted government application status?',
+            a: 'Once your application is submitted, our team provides an official Government acknowledgment slip with an Application / Tracking Number. You can check the status on the respective government portal or text us on WhatsApp for a live status update.'
+          }
+        ]}
+        title="Frequently Asked Questions • Contact & Visit"
+        highlight="Questions"
+        subtitle="Helpful details on visiting our center, working hours, and online communication channels."
+        badge="Help & Contact"
+      />
 
       {/* Global Toast Popup */}
       {submitted && !saveFailed && (

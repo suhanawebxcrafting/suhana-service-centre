@@ -5,6 +5,34 @@ import Link from 'next/link'
 import { services, categories, categoryColors, getCategoryById } from '@/data/services'
 import ServiceCard from '@/components/ServiceCard'
 import LucideIcon from '@/components/LucideIcon'
+import FAQSection from '@/components/FAQSection'
+
+const serviceFaqs = [
+  {
+    q: 'What government and online services are available at Suhana Service Center?',
+    a: 'We offer over 114+ services including Aadhaar card update, PAN card new/correction, Passport applications (Normal & Tatkal), Voter ID, Domicile/Income/Caste certificates, Gazette name change, Udyam registration, Shop Act licenses, FSSAI registration, and doorstep Xerox & printing delivery across Vasai-Virar.'
+  },
+  {
+    q: 'How can I apply for a service online without visiting the center in person?',
+    a: 'You can easily apply online by selecting your required service on this page and clicking "Apply via WhatsApp" or calling +91 7709709243. You can securely send required documents over WhatsApp, and our team will process your application.'
+  },
+  {
+    q: 'What documents are required for government certificate applications?',
+    a: 'Standard documents include Proof of Identity (Aadhaar/Voter ID), Proof of Address (Electricity bill/Ration card), passport-size photographs, and relevant income proofs or affidavits. Each service card links to an exact document checklist.'
+  },
+  {
+    q: 'Do you offer urgent or Tatkal service processing?',
+    a: 'Yes, we provide expedited Tatkal assistance for urgent Passport appointments, PAN cards, Gazette notifications, and rush document printing/Xerox.'
+  },
+  {
+    q: 'Is Suhana Service Center an authorized Aaple Sarkar & CSC Kendra?',
+    a: 'Yes, Suhana Service Center operates as a recognized digital seva provider assisting citizens across Virar, Vasai, Nalasopara, and Naigaon with transparent government portal submissions and verified acknowledgments.'
+  },
+  {
+    q: 'What payment methods do you accept?',
+    a: 'We accept all standard digital payment modes including UPI (Google Pay, PhonePe, Paytm), net banking, debit/credit cards, and cash at our center.'
+  }
+]
 
 function ServicesContent() {
   const searchParams = useSearchParams()
@@ -41,52 +69,44 @@ function ServicesContent() {
 
   return (
     <>
-      {/* Search Bar - inside hero area */}
-      <div className="bg-gradient-to-b from-blue-700 to-blue-800 pb-12 -mt-4 relative z-10">
-        <div className="relative max-w-2xl mx-auto px-4">
-          <div className="relative group transition-all duration-300">
-            {/* Outer Glow Effect */}
-            <div className="absolute inset-0 bg-blue-500/20 blur-xl rounded-full group-hover:bg-blue-400/30 transition-all duration-500"></div>
-            
-            {/* Main Search Container */}
-            <div className="relative flex items-center bg-white rounded-full p-2 shadow-[0_8px_30px_rgb(0,0,0,0.12)] border-[3px] border-white/50 focus-within:border-blue-400 focus-within:shadow-[0_8px_30px_rgba(59,130,246,0.3)] transition-all duration-300">
-              {/* Search Icon Badge */}
-              <div className="w-12 h-12 rounded-full bg-blue-50 flex items-center justify-center flex-shrink-0 text-blue-600 ml-1">
-                <LucideIcon name="Search" size={20} />
-              </div>
-              
-              {/* Input Field */}
-              <input
-                type="text"
-                placeholder="Search services... (e.g. Aadhaar, PAN, Passport)"
-                value={search}
-                onChange={e => setSearch(e.target.value)}
-                className="w-full bg-transparent pl-4 pr-12 py-3 text-gray-800 text-lg font-semibold placeholder-gray-400 outline-none border-0"
-              />
-              
-              {/* Clear Button */}
-              {search && (
-                <button 
-                  onClick={() => setSearch('')} 
-                  className="absolute right-5 w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center text-gray-500 hover:bg-gray-200 hover:text-gray-700 transition-colors"
-                  title="Clear search"
-                >
-                  <LucideIcon name="X" size={16} />
-                </button>
-              )}
+      {/* Search Bar - integrated smoothly below title */}
+      <div className="hero-gradient pt-2 pb-8 sm:pb-10 relative">
+        <div className="relative max-w-xl mx-auto px-4">
+          <div className="relative flex items-center bg-white rounded-full pl-3 pr-2 py-1.5 sm:py-2 shadow-lg shadow-blue-950/20 border border-white/60 focus-within:border-blue-400 focus-within:ring-2 focus-within:ring-blue-400/20 transition-all">
+            <div className="w-8 h-8 rounded-full bg-blue-50 flex items-center justify-center flex-shrink-0 text-blue-600">
+              <LucideIcon name="Search" size={16} />
             </div>
+            <input
+              type="text"
+              placeholder="Search services... (e.g. Aadhaar, PAN, Passport)"
+              value={search}
+              onChange={e => setSearch(e.target.value)}
+              className="w-full bg-transparent px-3 py-1.5 text-gray-800 text-sm sm:text-base font-medium placeholder-gray-400 outline-none border-0"
+            />
+            {search && (
+              <button 
+                onClick={() => setSearch('')} 
+                className="w-7 h-7 rounded-full bg-gray-100 flex items-center justify-center text-gray-500 hover:bg-gray-200 hover:text-gray-700 transition-colors mr-1"
+                title="Clear search"
+              >
+                <LucideIcon name="X" size={14} />
+              </button>
+            )}
           </div>
+        </div>
+        <div className="absolute bottom-0 left-0 right-0 overflow-hidden leading-none pointer-events-none">
+          <svg viewBox="0 0 1440 20" fill="white" className="w-full h-3 sm:h-5"><path d="M0,0 C480,20 960,20 1440,0 L1440,20 L0,20 Z" /></svg>
         </div>
       </div>
 
-      <section className="py-8 bg-white sticky top-16 lg:top-20 z-40 shadow-sm border-b border-gray-100">
+      <section className="py-3 sm:py-3.5 bg-white/95 backdrop-blur-md sticky top-16 z-30 shadow-sm border-b border-gray-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex gap-2 overflow-x-auto pb-1 scrollbar-hide">
+          <div className="flex gap-2 overflow-x-auto pb-1 scrollbar-hide items-center">
             <button
               onClick={() => setActiveCategory('all')}
-              className={`flex-shrink-0 px-4 py-2 rounded-lg text-sm font-semibold transition-all flex items-center gap-2 ${activeCategory === 'all' ? 'bg-blue-600 text-white' : 'bg-gray-100 text-gray-600 hover:bg-blue-50 hover:text-blue-600'}`}
+              className={`flex-shrink-0 px-3 py-1.5 rounded-full text-xs sm:text-sm font-semibold transition-all flex items-center gap-1.5 ${activeCategory === 'all' ? 'bg-blue-600 text-white shadow-sm' : 'bg-gray-100 text-gray-600 hover:bg-blue-50 hover:text-blue-600'}`}
             >
-              <LucideIcon name="LayoutGrid" size={16} /> All ({services.length})
+              <LucideIcon name="LayoutGrid" size={14} /> All ({services.length})
             </button>
             {categories.map(cat => {
               const count = services.filter(s => s.category === cat.id).length
@@ -95,12 +115,12 @@ function ServicesContent() {
                 <button
                   key={cat.id}
                   onClick={() => setActiveCategory(cat.id)}
-                  className={`flex-shrink-0 px-4 py-2 rounded-lg text-sm font-semibold transition-all flex items-center gap-2 ${activeCategory === cat.id
-                    ? 'bg-blue-600 text-white'
+                  className={`flex-shrink-0 px-3 py-1.5 rounded-full text-xs sm:text-sm font-semibold transition-all flex items-center gap-1.5 ${activeCategory === cat.id
+                    ? 'bg-blue-600 text-white shadow-sm'
                     : `${colors.bg} ${colors.text} hover:opacity-80`
                     }`}
                 >
-                  <LucideIcon name={cat.icon} size={16} /> {cat.label} ({count})
+                  <LucideIcon name={cat.icon} size={14} /> {cat.label} ({count})
                 </button>
               )
             })}
@@ -108,7 +128,7 @@ function ServicesContent() {
         </div>
       </section>
 
-      <section className="py-20 lg:py-28 pattern-bg min-h-[70vh] relative overflow-hidden">
+      <section className="py-10 sm:py-14 pattern-bg min-h-[70vh] relative overflow-hidden">
         {/* Elite background lighting */}
         <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-blue-100/30 rounded-full blur-[120px] pointer-events-none"></div>
         <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-orange-50/40 rounded-full blur-[120px] pointer-events-none"></div>
@@ -173,6 +193,15 @@ function ServicesContent() {
         </div>
       </section>
 
+      {/* Services FAQ Section with FAQPage Schema */}
+      <FAQSection
+        faqs={serviceFaqs}
+        title="Frequently Asked Questions about Our Services"
+        highlight="Questions"
+        subtitle="Clear answers on application processes, required documents, processing times, and doorstep support."
+        badge="Services Helpdesk"
+      />
+
       {/* CTA */}
       <section className="py-12 bg-gradient-to-r from-blue-800 to-blue-900">
         <div className="max-w-3xl mx-auto px-4 text-center">
@@ -199,27 +228,23 @@ export default function ServicesPage() {
   return (
     <>
       {/* Hero - rendered outside Suspense so H1 is always visible to crawlers */}
-      <section className="hero-gradient pt-28 pb-16 relative">
+      <section className="hero-gradient pt-24 sm:pt-28 pb-4 relative overflow-hidden">
         <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)', backgroundSize: '30px 30px' }}></div>
         <div className="relative max-w-4xl mx-auto px-4 sm:px-6 text-center">
-          <div className="inline-block bg-white/15 text-white px-4 py-1.5 rounded-full text-sm font-semibold mb-4 flex items-center gap-2 mx-auto w-fit border border-white/10">
-            <LucideIcon name="Layers" size={16} /> All Services
+          <div className="inline-flex items-center gap-1.5 bg-white/15 text-white/95 px-3 py-1 rounded-full text-xs font-semibold mb-3 border border-white/20 backdrop-blur-md shadow-sm">
+            <LucideIcon name="Layers" size={13} className="text-orange-300" /> Digital &amp; CSC Services
           </div>
-          <h1 className="text-4xl lg:text-5xl font-black text-white mb-4">
-            {services.length}+ Services
-            <span className="text-orange-400"> Available</span>
+          <h1 className="text-2xl sm:text-4xl lg:text-[42px] font-black text-white mb-2 tracking-tight leading-tight">
+            {services.length}+ Services <span className="text-orange-400">Available</span>
           </h1>
-          <p className="text-blue-200 text-base mb-7">Search, filter and find any service instantly</p>
-        </div>
-        <div className="absolute bottom-0 left-0 right-0">
-          <svg viewBox="0 0 1440 40" fill="white" xmlns="http://www.w3.org/2000/svg">
-            <path d="M0,20 C360,40 1080,0 1440,20 L1440,40 L0,40 Z" />
-          </svg>
+          <p className="text-blue-100/90 text-xs sm:text-sm font-medium max-w-lg mx-auto">
+            Search, filter and find any government, financial, or printing service instantly
+          </p>
         </div>
       </section>
       <Suspense fallback={
-        <div className="min-h-[60vh] flex items-center justify-center bg-white">
-          <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-600"></div>
+        <div className="min-h-[40vh] flex items-center justify-center bg-white">
+          <div className="animate-spin rounded-full h-10 w-10 border-t-2 border-b-2 border-blue-600"></div>
         </div>
       }>
         <ServicesContent />

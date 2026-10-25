@@ -2,6 +2,7 @@ import Link from 'next/link'
 import { services, categories } from '@/data/services'
 import LucideIcon from '@/components/LucideIcon'
 import CategoryLink from '@/components/CategoryLink'
+import FAQSection from '@/components/FAQSection'
 
 export const metadata = {
   title: 'About Us — Suhana Service Center Virar',
@@ -9,6 +10,10 @@ export const metadata = {
   keywords: ['about suhana service center', 'service center virar east', 'trusted service center virar', 'government services virar vasai nalasopara'],
   alternates: {
     canonical: '/about',
+  },
+  robots: {
+    index: true,
+    follow: true,
   },
   openGraph: {
     title: 'About Suhana Service Center — Virar East',
@@ -22,21 +27,19 @@ export default function AboutPage() {
   return (
     <>
       {/* Hero */}
-      <section className="hero-gradient pt-28 pb-16 relative">
+      <section className="hero-gradient pt-24 sm:pt-28 pb-10 sm:pb-12 relative overflow-hidden">
         <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)', backgroundSize: '30px 30px' }}></div>
         <div className="relative max-w-4xl mx-auto px-4 sm:px-6 text-center">
-          <div className="inline-block bg-white/15 text-white px-4 py-1.5 rounded-full text-sm font-semibold mb-4 border border-white/10 flex items-center gap-2 mx-auto w-fit">
-            <LucideIcon name="Building2" size={16} /> About Us
+          <div className="inline-flex items-center gap-1.5 bg-white/15 text-white/95 px-3 py-1 rounded-full text-xs font-semibold mb-3 border border-white/20 backdrop-blur-md shadow-sm">
+            <LucideIcon name="Building2" size={13} className="text-orange-300" /> About Our Center
           </div>
-          <h1 className="text-4xl lg:text-5xl font-black text-white mb-4">
-            About Suhana<br /><span className="text-orange-400">Service center</span>
+          <h1 className="text-2xl sm:text-4xl font-extrabold text-white mb-2 tracking-tight">
+            About Suhana <span className="text-orange-400">Service Center</span>
           </h1>
-          <p className="text-blue-200 text-lg">आपकी सेवा, हमारा संकल्प</p>
+          <p className="text-blue-100/90 text-sm font-medium">आपकी सेवा, हमारा संकल्प • Trusted CSC &amp; Digital Hub</p>
         </div>
-        <div className="absolute bottom-0 left-0 right-0">
-          <svg viewBox="0 0 1440 40" fill="white" xmlns="http://www.w3.org/2000/svg">
-            <path d="M0,20 C360,40 1080,0 1440,20 L1440,40 L0,40 Z" />
-          </svg>
+        <div className="absolute bottom-0 left-0 right-0 overflow-hidden leading-none pointer-events-none">
+          <svg viewBox="0 0 1440 20" fill="white" className="w-full h-3 sm:h-5"><path d="M0,0 C480,20 960,20 1440,0 L1440,20 L0,20 Z" /></svg>
         </div>
       </section>
 
@@ -149,6 +152,36 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
+
+      {/* About & Trust FAQs with FAQPage Schema */}
+      <FAQSection
+        faqs={[
+          {
+            q: 'Is Suhana Service Center an authorized CSC & Aaple Sarkar Kendra in Virar?',
+            a: 'Yes, Suhana Service Center is a recognized Digital Seva and CSC provider in Virar East, authorized to assist citizens with state and central government portal services, certificate filings, and verified registrations.'
+          },
+          {
+            q: 'How many years of experience does Suhana Service Center have?',
+            a: 'Our experienced staff has been assisting citizens across Vasai-Virar and Palghar district for over 8+ years, maintaining a verified 4.9-star rating across hundreds of happy customers.'
+          },
+          {
+            q: 'What makes Suhana Service Center different from other local cyber cafes or agents?',
+            a: 'Unlike unverified intermediaries, we offer transparent government fees with zero hidden charges, official receipt acknowledgments, expert Tatkal processing, dedicated WhatsApp support, and convenient doorstep Xerox delivery.'
+          },
+          {
+            q: 'How does Suhana Service Center protect customer documents and personal information?',
+            a: 'We strictly follow the Digital Personal Data Protection (DPDP) standards. All customer documents, IDs, and soft-copy certificates are processed strictly for application purposes and permanently deleted once work is concluded.'
+          },
+          {
+            q: 'Do you serve customers outside Virar, such as Vasai, Nalasopara, and Palghar?',
+            a: 'Yes! While our primary center is in Virar East, we actively serve residents across all 17 hubs including Vasai, Nalasopara, Naigaon, Palghar, Boisar, and Mira-Bhayandar through our digital WhatsApp application system and local delivery.'
+          }
+        ]}
+        title="Frequently Asked Questions • About Our Center"
+        highlight="Questions"
+        subtitle="Learn more about our credentials, data protection standards, and commitment to transparency."
+        badge="About Us FAQs"
+      />
 
       {/* Location + CTA */}
       <section className="py-14 bg-gradient-to-r from-blue-900 to-blue-800">
