@@ -1,13 +1,21 @@
 export const metadata = {
-  title: 'Contact Us — Suhana Service Center Virar',
-  description: 'Contact Suhana Service Center Virar East for Aadhaar, PAN, Passport & all govt services. Call 7709709243.',
-  keywords: ['contact service center virar', 'suhana service center phone number', 'service center virar east address', 'government services virar contact'],
+  title: 'Contact & Office Location in Virar East | Visit or WhatsApp',
+  description: 'Visit Suhana Service Center in Virar East (Raipada, Chandansar Road) or contact us on WhatsApp (+91 7709709243) for fast Aadhaar, PAN, Passport, Certificates & Xerox delivery.',
+  keywords: [
+    'contact suhana service center',
+    'service center virar east phone number',
+    'csc center virar east address',
+    'aadhaar center virar east phone number',
+    'pan card office virar east contact',
+    'suhana service centre whatsapp number',
+    'xerox delivery virar phone number'
+  ],
   alternates: {
     canonical: '/contact',
   },
   openGraph: {
-    title: 'Contact Suhana Service Center — Virar East',
-    description: 'Get in touch for all government & digital services. Call 7709709243.',
+    title: 'Contact Suhana Service Center | Virar East',
+    description: 'Visit our center or contact us on WhatsApp for fast government services & doorstep print delivery.',
   },
 }
 

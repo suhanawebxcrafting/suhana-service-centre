@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { getServiceBySlug, getCategoryById, categoryColors, services } from '@/data/services'
+import { locations } from '@/data/locations'
 import LucideIcon from '@/components/LucideIcon'
 import ServiceCard from '@/components/ServiceCard'
 import CategoryLink from '@/components/CategoryLink'
@@ -15,27 +16,44 @@ export async function generateMetadata({ params }) {
   const service = getServiceBySlug(params.slug)
   if (!service) return { title: 'Service Not Found' }
   const cat = getCategoryById(service.category)
+  const sLower = service.name.toLowerCase()
   return {
-    title: `${service.name} in Virar: Best Service Provider | Suhana`,
-    description: `Looking for ${service.name} in Virar? We offer fast and secure ${service.name.toLowerCase()} services at Suhana Service Center, Virar East. ${service.description.slice(0, 50)}...`,
+    title: `#1 ${service.name} in Virar | Fast Online Apply`,
+    description: `Looking for ${service.name} in Virar? Apply online with fast doorstep assistance & verified CSC support at Suhana Service Center, Virar East. Quick turnaround. Call 7709709243.`,
     keywords: [
       ...(service.keywords || []),
-      `${service.name.toLowerCase()} in virar`,
-      `${service.name.toLowerCase()} virar`,
-      `best ${service.name.toLowerCase()} agent in virar`,
-      `urgent ${service.name.toLowerCase()} virar`,
-      `apply ${service.name.toLowerCase()} online virar`,
-      `fast ${service.name.toLowerCase()} service virar`,
-      `${service.name.toLowerCase()} consultant virar`,
-      `${cat?.label?.toLowerCase() || 'services'} near me virar`,
+      `${sLower} in virar`,
+      `${sLower} in virar east`,
+      `${sLower} in virar west`,
+      `${sLower} in vasai`,
+      `${sLower} in nalasopara`,
+      `${sLower} in naigaon`,
+      `${sLower} in palghar`,
+      `${sLower} in mira road`,
+      `${sLower} near me`,
+      `${sLower} near me open now`,
+      `nearest ${sLower} center`,
+      `best ${sLower} agent in virar`,
+      `urgent ${sLower} virar`,
+      `tatkal ${sLower} agent`,
+      `apply ${sLower} online virar`,
+      `fast ${sLower} service virar`,
+      `doorstep ${sLower} service virar`,
+      `whatsapp ${sLower} apply`,
+      `${sLower} contact number virar`,
+      `documents required for ${sLower}`,
+      `maha e seva kendra ${sLower}`,
+      `setu kendra ${sLower}`,
+      `aaple sarkar ${sLower}`,
+      `csc center ${sLower} virar`,
       `suhana service center virar`
     ],
     alternates: {
       canonical: `/services/${params.slug}`,
     },
     openGraph: {
-      title: `${service.name} — Suhana Service Center`,
-      description: `Get ${service.name} at Suhana Service Center, Virar East. Fast, reliable & affordable.`,
+      title: `#1 ${service.name} in Virar | Suhana Service Center`,
+      description: `Fast and reliable ${service.name} assistance at Suhana Service Center, Virar East. Call 7709709243.`,
     },
   }
 }
@@ -88,8 +106,16 @@ export default async function ServiceDetailPage({ params }) {
         addressCountry: 'IN',
       },
       telephone: '+917709709243',
+      priceRange: '₹',
+      aggregateRating: {
+        '@type': 'AggregateRating',
+        ratingValue: '4.9',
+        reviewCount: '584',
+        bestRating: '5',
+        worstRating: '1',
+      },
     },
-    areaServed: ['Virar', 'Vasai', 'Nalasopara'],
+    areaServed: ['Virar', 'Vasai', 'Nalasopara', 'Naigaon', 'Palghar', 'Mira-Bhayandar'],
     url: `${SITE_URL}/services/${service.slug}`,
   }
 
@@ -105,6 +131,52 @@ export default async function ServiceDetailPage({ params }) {
     ],
   }
 
+  // FAQ Schema
+  const faqList = [
+    ...(service.faqs || []),
+    {
+      q: `Where can I apply for ${service.name} in Virar?`,
+      a: `Suhana Service Center is your trusted ${service.name.toLowerCase()} agent in Virar. You can visit our office in Virar East or apply online through us for fast processing.`
+    },
+    {
+      q: `Is there an urgent ${service.name} service available?`,
+      a: `Yes, we provide urgent ${service.name.toLowerCase()} assistance. As an experienced consultant in Virar, we ensure your application is processed with priority.`
+    },
+    {
+      q: `What is the fastest way to get ${service.name} done?`,
+      a: `The fastest way is to contact us directly. We offer a fast ${service.name.toLowerCase()} service in Virar with transparent pricing and complete guidance on required documents.`
+    }
+  ]
+
+  const faqSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqList.map(faq => ({
+      '@type': 'Question',
+      name: faq.q,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: faq.a
+      }
+    }))
+  }
+
+  // HowTo Schema
+  const howToSchema = service.processSteps && service.processSteps.length > 0 ? {
+    '@context': 'https://schema.org',
+    '@type': 'HowTo',
+    name: `How to apply for ${service.name} in Virar`,
+    description: `Step-by-step application process for ${service.name} at Suhana Service Center Virar.`,
+    totalTime: service.processingTime || 'P7D',
+    step: service.processSteps.map((step, idx) => ({
+      '@type': 'HowToStep',
+      position: idx + 1,
+      name: `Step ${idx + 1}: ${step.split(':')[0] || 'Application Process'}`,
+      text: step,
+      url: `${SITE_URL}/services/${service.slug}`,
+    }))
+  } : null
+
   return (
     <>
       <script
@@ -115,6 +187,16 @@ export default async function ServiceDetailPage({ params }) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+      {howToSchema && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(howToSchema) }}
+        />
+      )}
       {/* Hero */}
       <section className="hero-gradient pt-28 pb-16 relative">
         <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)', backgroundSize: '30px 30px' }}></div>
@@ -348,6 +430,43 @@ export default async function ServiceDetailPage({ params }) {
                   {faq.a}
                 </div>
               </details>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Location Coverage for this Service */}
+      <section className="py-14 bg-gradient-to-b from-white to-slate-50 border-t border-gray-100">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-8">
+            <span className="text-blue-600 font-extrabold text-xs uppercase tracking-wider bg-blue-50 px-3 py-1 rounded-full border border-blue-100">
+              Local Availability
+            </span>
+            <h2 className="text-2xl md:text-3xl font-black text-gray-900 mt-2 mb-2 tracking-tight">
+              Get {service.name} in Your Specific Area
+            </h2>
+            <p className="text-gray-500 text-sm font-medium max-w-2xl mx-auto">
+              We offer doorstep document pickup, online application, and physical service support across all areas in Vasai-Virar, Palghar, and Mira-Bhayandar:
+            </p>
+          </div>
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3">
+            {locations.map((loc) => (
+              <Link
+                key={loc.slug}
+                href={`/locations/${loc.slug}/${service.slug}`}
+                className="group flex flex-col p-3.5 rounded-2xl bg-white border border-gray-200/80 hover:border-blue-500 hover:shadow-md hover:shadow-blue-500/10 transition-all duration-200 text-left"
+                title={`${service.name} in ${loc.name}`}
+              >
+                <div className="flex items-center gap-2 mb-1">
+                  <LucideIcon name="MapPin" size={15} className="text-orange-500 group-hover:scale-110 transition-transform flex-shrink-0" />
+                  <span className="font-bold text-gray-900 text-sm group-hover:text-blue-600 transition-colors line-clamp-1">
+                    {loc.name}
+                  </span>
+                </div>
+                <span className="text-[11px] text-gray-500 font-medium group-hover:text-blue-500 transition-colors">
+                  {service.name} in {loc.name} &rarr;
+                </span>
+              </Link>
             ))}
           </div>
         </div>

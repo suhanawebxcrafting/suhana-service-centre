@@ -1,0 +1,51 @@
+# Suhana Service Center (सुहाना सर्विस सेंटर)
+
+> Official CSC (Common Service Center) & Aaple Sarkar Digital Kendra providing 70+ Government Services, Document Consultations, and Doorstep Xerox & Printing Delivery across Virar, Vasai, Nalasopara, and Palghar District, Maharashtra.
+
+## Business Details
+- **Business Name**: Suhana Service Center
+- **Website**: https://suhanaservicecentre.in
+- **Address**: Office No- 04, Raipada, Nr. Anand Gaushalla, Chandansar Road, Virar East, Maharashtra - 401305, India
+- **Phone / WhatsApp**: +91 7709709243
+- **Primary Locations Covered**: Virar East, Virar West, Vasai East, Vasai West, Nalasopara East, Nalasopara West, Naigaon East, Naigaon West, Palghar, Boisar, Saphale, Kelve Road, Dahanu, Bhayandar, Mira Road.
+
+## Core Service Categories
+
+### 1. Identity & Government Cards
+- **Aadhaar Card**: PVC smart card print, address update guidance, biometric update assistance, enrollment status check.
+- **PAN Card**: New PAN card apply, correction/update in PAN card, instant e-PAN, minor to major PAN, reprint lost PAN.
+- **Voter ID Card (EPIC)**: New voter registration (Form 6), voter card correction (Form 8), address change, color voter PVC card print.
+- **Passport Services**: Fresh passport application, passport renewal/reissue, Tatkaal passport appointment booking, police clearance certificate (PCC).
+- **Driving Licence (Sarathi)**: Learning licence online apply, permanent DL slot booking, DL renewal, address change in DL.
+- **Ration Card**: New digital ration card, member addition/deletion, transfer, BPL/APL card assistance.
+- **Ayushman Bharat (Golden Card)**: Free government health card generation for eligible beneficiaries.
+- **ABHA Card (Ayushman Bharat Health Account)**: Digital health account generation with unique health ID.
+- **E-Shram Card**: Unorganized workers registration and social security welfare card.
+
+### 2. Official Certificates (Aaple Sarkar / Revenue Department)
+- **Income Certificate (उत्पन्नाचा दाखला)**: 1-year and 3-year tahsildar certified income certificates.
+- **Domicile & Nationality Certificate (अधिवास व राष्ट्रीयत्व प्रमाणपत्र)**: Official state residency proof.
+- **Caste Certificate & Validity (जात प्रमाणपत्र)**: Application assistance for SC/ST/OBC/VJNT/SEBC categories.
+- **Non-Creamy Layer Certificate (NCL)**: For OBC/SEBC candidates requiring reservation benefits.
+- **Birth & Death Certificates**: Municipal corporation application and verification.
+- **Gazette Certificate**: Official Maharashtra Government Gazette name change, religion change, or date of birth correction publication.
+
+### 3. Business & Taxation Services
+- **Udyam / MSME Registration**: Official zero-cost government MSME registration certificate for businesses.
+- **Shop Act License (Gumasta)**: Maharashtra municipal corporation intimation & registration for shops and establishments.
+- **FSSAI Food License**: Basic registration and state food safety license for food stalls, restaurants, cloud kitchens, and traders.
+- **GST Registration & Returns**: New GSTIN registration, monthly GST return filing (GSTR-1, GSTR-3B).
+- **Income Tax Return (ITR)**: Individual, salaried, and small business tax filing.
+
+### 4. Xerox, Printing & Doorstep Delivery
+- **Instant Doorstep Xerox Delivery**: A4, A3, Jumbo A0 printing, color printing, architectural drawings.
+- **Blackbook & Project Binding**: Spiral binding, soft binding, hard book binding with gold foil lettering for engineering, MBA, and college students.
+- **Lamination & Smart PVC Card Printing**: Aadhar, PAN, Voter, Driving licence PVC smart cards.
+
+## Key URLs
+- Home: https://suhanaservicecentre.in/
+- All Services: https://suhanaservicecentre.in/services
+- Xerox Delivery: https://suhanaservicecentre.in/xerox-delivery
+- Contact & WhatsApp: https://suhanaservicecentre.in/contact
+- HTML Directory: https://suhanaservicecentre.in/sitemap
+- XML Sitemap: https://suhanaservicecentre.in/sitemap.xml

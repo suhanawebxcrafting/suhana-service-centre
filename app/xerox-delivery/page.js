@@ -4,8 +4,8 @@ import { locations } from '@/data/locations'
 import LucideIcon from '@/components/LucideIcon'
 
 export const metadata = {
-  title: 'Xerox in Virar: Best Print Delivery Service (🎁 10% OFF) | Suhana',
-  description: 'Looking for a xerox in Virar? We offer fast print and doorstep delivery for A4, A3, Jumbo A0, blackbook, and smart cards across Vasai-Virar. 🎁 Get 10% OFF today!',
+  title: '#1 Xerox & Printing Shop in Virar | Doorstep Delivery',
+  description: 'Looking for the best & cheapest Xerox shop in Virar? Fast doorstep print delivery for A4, A3, Jumbo A0, color prints, thesis binding & smart PVC cards. Call 7709709243.',
   keywords: [
     'xerox near me', 'xerox shop near me', 'print shop near me', 'photocopy near me',
     'color xerox near me', 'cheapest xerox near me', 'xerox delivery',
@@ -49,6 +49,13 @@ export default function XeroxDeliveryPage() {
       { '@type': 'City', name: 'Nalasopara' },
     ],
     priceRange: '₹',
+    aggregateRating: {
+      '@type': 'AggregateRating',
+      ratingValue: '4.9',
+      reviewCount: '584',
+      bestRating: '5',
+      worstRating: '1',
+    },
     makesOffer: {
       '@type': 'Offer',
       itemOffered: {
