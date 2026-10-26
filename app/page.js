@@ -30,14 +30,14 @@ const whyUs = [
 ]
 
 export const metadata = {
-  title: 'Suhana Service Center — 70+ Online Services Virar East | 🎁 10% OFF',
-  description: 'Suhana Service Center Virar East — Aadhaar, PAN, Passport, Certificates & 70+ govt services. 🎁 Get Flat 10% OFF on your first order! Call 7709709243.',
+  title: 'Suhana Service Center Virar East — 70+ Govt Services, Xerox & CSC Seva Kendra',
+  description: 'Suhana Service Center Virar East — Aadhaar, PAN, Passport, Certificates & 70+ govt services under one roof. Doorstep Xerox delivery & fast support. Call 7709709243.',
   alternates: {
     canonical: '/',
   },
   openGraph: {
-    title: 'Suhana Service Center — All Services Under One Roof',
-    description: 'Trusted by thousands in Virar for Aadhaar, PAN, Passport, Certificates & 70+ services. Fast & affordable.',
+    title: 'Suhana Service Center Virar East — 70+ Govt Services & CSC Kendra',
+    description: 'Trusted by thousands in Virar for Aadhaar, PAN, Passport, Certificates, Xerox & 70+ services. Fast & affordable.',
   },
 }
 

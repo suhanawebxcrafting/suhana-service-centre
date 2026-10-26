@@ -7,10 +7,10 @@ const SITE_URL = 'https://suhanaservicecentre.in'
 export const metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: 'Suhana Service Center — 70+ Govt Services Virar | 🎁 10% OFF',
+    default: 'Suhana Service Center Virar East — 70+ Govt Services & Xerox Delivery',
     template: '%s | Suhana Service Center',
   },
-  description: 'Suhana Service Center Virar East — Aadhaar, PAN, Passport, Voter ID, Certificates & 70+ government services. 🎁 Get Flat 10% OFF on your first order. Call 7709709243.',
+  description: 'Suhana Service Center Virar East — Aadhaar, PAN, Passport, Certificates, Xerox & 70+ government services under one roof. Fast assistance. Call 7709709243.',
   keywords: [
     'xerox near me', 'print shop near me', 'xerox shop near me', 'online printing near me', 'xerox shop open now',
     'color printout near me', 'colour xerox near me', 'jumbo xerox virar', 'blackbook printing virar', 'spiral binding near me',

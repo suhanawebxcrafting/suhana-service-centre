@@ -4,8 +4,8 @@ import { locations } from '@/data/locations'
 import LucideIcon from '@/components/LucideIcon'
 
 export const metadata = {
-  title: '#1 Xerox & Printing Shop in Virar | Doorstep Delivery',
-  description: 'Looking for the best & cheapest Xerox shop in Virar? Fast doorstep print delivery for A4, A3, Jumbo A0, color prints, thesis binding & smart PVC cards. Call 7709709243.',
+  title: 'Online Xerox & Print Delivery Virar | From ₹1.5/Page — WhatsApp PDF Order',
+  description: 'Cheapest Xerox & Print delivery in Virar East & West. Send PDF on WhatsApp, get doorstep delivery for B&W, Color prints, Jumbo Xerox & Project binding. Call 7709709243.',
   keywords: [
     'xerox near me', 'xerox shop near me', 'print shop near me', 'photocopy near me',
     'color xerox near me', 'cheapest xerox near me', 'xerox delivery',

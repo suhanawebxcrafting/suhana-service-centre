@@ -17,9 +17,37 @@ export async function generateMetadata({ params }) {
   if (!service) return { title: 'Service Not Found' }
   const cat = getCategoryById(service.category)
   const sLower = service.name.toLowerCase()
+
+  // High-CTR dynamic titles & descriptions based on service category and intent
+  let pageTitle = `${service.name} in Virar East | Suhana Service Center`
+  let pageDesc = `Get fast, reliable ${service.name} in Virar East at Suhana Service Center. Verified documentation, doorstep assistance & quick service. Call 7709709243.`
+
+  if (service.category === 'printing') {
+    pageTitle = `${service.name} in Virar | From ₹1.5/Page — WhatsApp PDF Order`
+    pageDesc = `Looking for ${service.name} in Virar? Fast doorstep delivery, high quality print & affordable rates. Send file on WhatsApp 7709709243 for instant print.`
+  } else if (service.slug.includes('aadhaar')) {
+    pageTitle = `${service.name} in Virar East (Quick Support) | CSC Seva Kendra`
+    pageDesc = `Hassle-free ${service.name} in Virar East. Biometric, demographic updates, PVC card & child Aadhaar help at Suhana Service Center. Call 7709709243.`
+  } else if (service.slug.includes('pan')) {
+    pageTitle = `${service.name} Agent Virar East | Instant e-PAN & Fast Delivery`
+    pageDesc = `Apply for ${service.name} in Virar East. Instant e-PAN within 2 hours, correction & physical card delivery at Suhana Service Center. Call 7709709243.`
+  } else if (service.category === 'passport') {
+    pageTitle = `${service.name} Agent Virar | Tatkal & Normal Appointment Help`
+    pageDesc = `Fast ${service.name} assistance in Virar. Appointment booking, document verification, police clearance & complete guidance. Call 7709709243.`
+  } else if (service.category === 'certificates') {
+    pageTitle = `${service.name} Online Apply Virar | Aaple Sarkar Seva Kendra`
+    pageDesc = `Authorized assistance for ${service.name} in Virar East through Aaple Sarkar portal. Fast approval, document verification & doorstep help. Call 7709709243.`
+  } else if (service.category === 'banking') {
+    pageTitle = `${service.name} in Virar East | Instant Account & Banking Help`
+    pageDesc = `Get ${service.name} in Virar East at Suhana Service Center. Zero balance account, money transfer & AEPS cash withdrawal. Call 7709709243.`
+  } else if (service.category === 'smartcard') {
+    pageTitle = `${service.name} PVC Print Virar | Waterproof HD Smart Card`
+    pageDesc = `High quality PVC ${service.name} printing in Virar East. Durable, waterproof, sharp print delivered same-day at Suhana Service Center. Call 7709709243.`
+  }
+
   return {
-    title: `#1 ${service.name} in Virar | Fast Online Apply`,
-    description: `Looking for ${service.name} in Virar? Apply online with fast doorstep assistance & verified CSC support at Suhana Service Center, Virar East. Quick turnaround. Call 7709709243.`,
+    title: pageTitle,
+    description: pageDesc,
     keywords: [
       ...(service.keywords || []),
       `${sLower} in virar`,
@@ -52,8 +80,8 @@ export async function generateMetadata({ params }) {
       canonical: `/services/${params.slug}`,
     },
     openGraph: {
-      title: `#1 ${service.name} in Virar | Suhana Service Center`,
-      description: `Fast and reliable ${service.name} assistance at Suhana Service Center, Virar East. Call 7709709243.`,
+      title: pageTitle,
+      description: pageDesc,
     },
   }
 }

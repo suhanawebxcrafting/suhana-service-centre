@@ -20,8 +20,8 @@ export async function generateMetadata({ params }) {
   const subLocs = location.subLocations || []
 
   return {
-    title: `#1 CSC Service Center in ${loc} | 70+ Govt Services`,
-    description: `Looking for the best CSC & Aaple Sarkar service center in ${loc}? Fast doorstep assistance for Aadhaar, PAN, Passport, Certificates & Xerox. Call 7709709243.`,
+    title: `CSC & Aaple Sarkar Center in ${loc} | 70+ Online Govt Services`,
+    description: `Trusted CSC Seva Kendra & Aaple Sarkar center in ${loc}. Fast assistance for Aadhaar, PAN card, Passport, Certificates & Xerox Delivery. Call 7709709243.`,
     keywords: [
       `csc center ${locLower}`,
       `service center ${locLower}`,

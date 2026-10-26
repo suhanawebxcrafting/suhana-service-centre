@@ -124,16 +124,37 @@ export async function generateMetadata({ params }) {
 
   const allKeywords = [...new Set([...(service.keywords || []), ...dynamicKeywords])].filter(Boolean)
 
+  // High-CTR dynamic titles & descriptions based on service category and location
+  let pageTitle = `${service.name} in ${location.name} | Verified CSC Seva Kendra`
+  let pageDesc = `Fast & reliable ${service.name} in ${location.name}. Doorstep document assistance & verified CSC service at Suhana Service Center. Call 7709709243.`
+
+  if (service.category === 'printing') {
+    pageTitle = `${service.name} in ${location.name} | Doorstep Delivery & WhatsApp Order`
+    pageDesc = `Looking for ${service.name} in ${location.name}? Fast doorstep print delivery, low rates from ₹1.5/page. Send file on WhatsApp 7709709243 — Suhana Service Center.`
+  } else if (service.slug.includes('aadhaar')) {
+    pageTitle = `${service.name} in ${location.name} (Quick Support) | CSC Seva Kendra`
+    pageDesc = `Fast ${service.name} assistance in ${location.name}. Biometric, address update & PVC card print at Suhana Service Center. Call 7709709243.`
+  } else if (service.slug.includes('pan')) {
+    pageTitle = `${service.name} Agent in ${location.name} | Instant e-PAN in 2 Hours`
+    pageDesc = `Apply for ${service.name} in ${location.name}. Get instant e-PAN within 2 hours, corrections & doorstep service at Suhana Service Center. Call 7709709243.`
+  } else if (service.category === 'passport') {
+    pageTitle = `${service.name} Consultant in ${location.name} | Tatkal & Normal Help`
+    pageDesc = `Hassle-free ${service.name} in ${location.name}. Expert appointment booking & document verification at Suhana Service Center. Call 7709709243.`
+  } else if (service.category === 'certificates') {
+    pageTitle = `${service.name} Online Apply in ${location.name} | Aaple Sarkar Seva`
+    pageDesc = `Apply for ${service.name} in ${location.name} through Aaple Sarkar portal. Fast government approval & doorstep support. Call 7709709243.`
+  }
+
   return {
-    title: `#1 ${service.name} in ${location.name} | Fast Online Apply`,
-    description: `Need ${service.name} in ${location.name}? Fast online apply, doorstep document assistance & verified CSC service at Suhana Service Center. Quick turnaround. Call 7709709243.`,
+    title: pageTitle,
+    description: pageDesc,
     keywords: allKeywords,
     alternates: {
       canonical: `/locations/${params.locationSlug}/${params.serviceSlug}`,
     },
     openGraph: {
-      title: `#1 ${service.name} in ${location.name} | Suhana Service Center`,
-      description: `Apply for ${service.name} in ${location.name}. Fast doorstep document support, verified CSC agent & quick turnaround. Call 7709709243.`,
+      title: pageTitle,
+      description: pageDesc,
     },
   }
 }
